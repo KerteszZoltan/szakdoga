@@ -1,1 +1,1 @@
-# szakdoga
+Szakdolgozati téma vázlat
