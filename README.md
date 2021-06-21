@@ -27,3 +27,7 @@ Az oldalon kilistázásra kerülnek az inaktív események neve és a dátuma. A
 Mikor az Új esemény oldalt választjuk ki lehetőségünk lesz az esemény nevét, leírását, helyszínét és dátumot állítani. Ezek után az esemény az aktív események közé kerül.
 ### Profil
 A profilon lehetőségünk van a felhasználóról tárolt adatokat módosítani és a profilt törölni. Ha törölni kívánjuk a profilt az alkalmazásba nem lehet utána bejelentkezni. 
+## Használni kívánt tecnológiák
+- Java programozási nyelv az android fejlesztéshez
+- PHP keretrendszer a webes fejlesztéshez
+- MYSQL vagy NOSQL használat az adatbázishoz
