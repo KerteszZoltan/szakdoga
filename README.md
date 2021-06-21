@@ -28,6 +28,6 @@ Mikor az Új esemény oldalt választjuk ki lehetőségünk lesz az esemény nev
 ### Profil
 A profilon lehetőségünk van a felhasználóról tárolt adatokat módosítani és a profilt törölni. Ha törölni kívánjuk a profilt az alkalmazásba nem lehet utána bejelentkezni. 
 ## Használni kívánt tecnológiák
-- Java programozási nyelv az android fejlesztéshez
+- Java programozási nyelv az android fejlesztéshez (Laravel vagy React)
 - PHP keretrendszer a webes fejlesztéshez
 - MYSQL vagy NOSQL használat az adatbázishoz
