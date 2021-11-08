@@ -43,34 +43,6 @@
   box-sizing: border-box;
 }
 
-/* 
-Custom_CSS
-*/
-.login-people{
-  max-height:20px;
-  background:transparent;
-}
-
-.login-key{
-  max-width:15px;
-  max-height:20px;
-  background: transparent;
-}
-
-.mycontainer{
-  width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
-  margin-right: auto;
-  margin-left: auto;
-  /*display: flex;
-  justify-content: center;*/
-} 
-.mycontainer .middle{
-  max-width: 1000px;
-}
-/*-------------------------*/
-
 html {
   font-family: sans-serif;
   line-height: 1.15;

@@ -5,7 +5,7 @@
     <div class="col">
         <div class="row">
             <div class="col p-5">
-                <div class="card" style="width: 18rem;">
+                <div class="card  p-3" style="width: 18rem;">
                     <div class="card-tittle h4 text-center"> 
                         Meetinged lesz?<br> 
                         Esetleg névnapi buliba vagy hivatalos? 
@@ -18,7 +18,7 @@
                 </div>  
             </div>
             <div class="col p-5">
-                <div class="card" style="width: 18rem;">
+                <div class="card p-3" style="width: 18rem;">
                     <div class="card-tittle h4 text-center"> 
                         Valamit fel kell jegyezned valamit munka közben, amire otthon is szükséged lesz?<br>
                     </div>
@@ -31,8 +31,8 @@
             </div>
         </div>
     </div>
-    <div class="col">
-        <div class="card" style="width: 18rem;">
+    <div class="col p-3">
+        <div class="card p-5" style="width: 18rem;">
             <div class="card-tittle h1 text-center"> Eveldar </div>
             <img class="card-img" src="{{asset('/images/app_icon.png')}}">
             <div class="card-body">
@@ -47,7 +47,7 @@
     <div class="col">
     <div class="row">
             <div class="col p-5">
-                <div class="card" style="width: 18rem;">
+                <div class="card p-3" style="width: 18rem;">
                     <div class="card-tittle h4 text-center"> 
                         Elveszítetted a telefonod?<br>  
                     </div>
@@ -59,7 +59,7 @@
                 </div>  
             </div>
             <div class="col p-5">
-                <div class="card" style="width: 18rem;">
+                <div class="card p-3" style="width: 18rem;">
                     <div class="card-tittle h4 text-center"> 
                         Találkozol a boltban egy régi baráttal, aki szeretne meglátogatni?<br>
                     </div>

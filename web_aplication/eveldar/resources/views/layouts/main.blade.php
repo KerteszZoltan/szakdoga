@@ -4,16 +4,20 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Eveldar</title>
     
     <link href="{{asset('css/app.css')}}" rel="stylesheet">
-    <link rel="icon" href="{{ url('css/img/favicon.png') }}">
+    <link rel="icon" href="{{url('css/img/favicon.png')}}">
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script> -->
+
+    <script src="js/app.js" async></script>
 
 </head>
 <body>
-    <script src="{{asset('js/app.js')}}"></script>
-<nav>
+<nav class="navbar">
     <ul class="nav nav-tabs">
+    <div class="nav-left-side">
         <li class="nav-item">
             <a class="nav-link" aria-current="page" href="{{ route('about') }}">About</a>
         </li>
@@ -37,11 +41,14 @@
                 <li><a class="dropdown-item" href="#">Profil törlése</a></li>
             </ul>
         </li>
-        <li class="nav-item float-right">
+    </div>
+    <div class="nav-right-side">
+        <li class="nav-item">
         <form action="{{ route('register') }}" method="GET" class="form-inline">
             <button class="btn btn-primary" type="submit">Regisztráció</button>
         </form>
         </li>
+    </div>
     </ul>
 </nav>
 @yield('content')
