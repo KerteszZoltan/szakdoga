@@ -1,0 +1,38 @@
+.navbar, .nav {
+    width: 100%;
+    font-size: 14px;
+    background-color: #60D452;
+    padding-left: 3px;
+}
+
+.nav{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.nav-left-side{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.nav-right-side{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.nav-item{
+    padding-right: 5px;
+    padding-bottom: 10px;
+}
+.nav-item .nav-link{
+    background-color: #0C4705;
+    -webkit-box-shadow: 0px 0px 16px 3px rgba(0,0,0,0.3); 
+    box-shadow: 0px 0px 16px 3px rgba(0,0,0,0.3);
+}
+.nav-item a{
+    color:#1FD409
+}
+
