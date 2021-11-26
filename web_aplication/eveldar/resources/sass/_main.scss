@@ -6,3 +6,16 @@ body{
     -webkit-box-shadow: 0px 0px 27px 0px rgba(0,0,0,0.48); 
     box-shadow: 0px 0px 27px 0px rgba(0,0,0,0.48);
 }
+
+.btn {
+    background-color: $btn-background;
+    color: $btn-text;
+}
+.error-msg{
+    font-size: 14px;
+    color: $error;
+}
+
+.form-error{
+    border-color: $error;
+}

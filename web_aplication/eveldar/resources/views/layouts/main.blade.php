@@ -45,12 +45,12 @@
     <div class="nav-right-side">
         <li class="nav-item">
         <form action="{{ route('register') }}" method="GET" class="form-inline">
-            <button class="btn btn-primary" type="submit">Regisztráció</button>
+            <button class="btn" type="submit">Regisztráció</button>
         </form>
         </li>
         <li class="nav-item">
         <form action="" method="GET" class="form-inline">
-            <button class="btn btn-primary" type="submit">Bejelentkezés</button>
+            <button class="btn" type="submit">Bejelentkezés</button>
         </form>
         </li>
     </div>

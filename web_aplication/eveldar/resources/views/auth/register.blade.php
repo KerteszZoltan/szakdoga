@@ -17,32 +17,57 @@
             </div>
         </div>
         <div class="col p-5 text-center">
-            <form>
+            <form action="{{ route('register') }}" method="POST">
+                @csrf
                 <div class="mb-3">
                     <label class="form-label">Név*</label>
-                    <input type="email" class="form-control" id="name" aria-describedby="emailHelp">
+                    <input type="text" class="form-control @error('name') form-error @enderror" name="name" aria-describedby="emailHelp" value="{{ old('name') }}">
+                    @error('name')
+                        <div class="error-msg">
+                            A név mező kitöltése kötelező
+                        </div>
+                    @enderror
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Email cím*</label>
-                    <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
+                    <input type="email" class="form-control @error('email') form-error @enderror" name="email" aria-describedby="emailHelp" value="{{ old('email') }}">
+                    @error('email')
+                        <div class="error-msg">
+                            Az E-mailcím kitöltése kötelező
+                        </div>
+                    @enderror
                 </div>
                 <div class="mb-3">
-                    <label class="form-label">Másodlagos email cím</label>
-                    <input type="email" class="form-control" id="secound_email" aria-describedby="emailHelp">
+                    <label for="password" class="sr-only">Jelszó</label>
+                    <input type="password" name="password" id="password" class="form-control @error('password') form-error @enderror" value="">
+
+                    @error('password')
+                        <div class="error-msg">
+                            A jelszó kitöltése kötelező!
+                        </div>
+                    @enderror
                 </div>
                 <div class="mb-3">
-                    <label class="form-label">Jelszó*</label>
-                    <input type="password" class="form-control" id="password">
-                </div>
-                <div class="mb-3">
-                    <label class="form-label">Jelszó megerősítése*</label>
-                    <input type="password" class="form-control" id="password_confim">
+                    <label for="password_confirmation" class="sr-only">Jelszó megerősítés</label>
+                    <input type="password" name="password_confirmation" id="password_confirmation" class="form-control @error('password_confirmation') form-error @enderror" value="">
+
+                    @error('password_confirmation')
+                        <div class="error-msg">
+                            A két jelszó nem egyezik!
+                        </div>
+                    @enderror
                 </div>
                 <div class="mb-3 form-check">
-                    <input type="checkbox" class="form-check-input" id="aszf">
-                    <label class="form-check-label"> Elfogadod az oldalra vonatkozó <a href="#"> ASZF</a>-et? * </label>
+                    <input type="checkbox" class="form-check-input" name="aszf">
+                    <label class="form-check-label @error('aszf') form-error @enderror"> Elfogadod az oldalra vonatkozó <a href="#"> ASZF</a>-et? * </label>
+                    @error('aszf')
+                        <div class="error-msg">
+                            Kérlek olvasd el és fogadd el az Álltalános Szerződési Feltételeket!
+                        </div>
+                    @enderror
                 </div>
-                <button type="submit" class="btn btn-primary">Regisztráció</button>
+                <input type="hidden" name="user_status_id" value="1"></label>
+                <button type="submit" class="btn">Regisztráció</button>
             </form>
         </div>
         <div class="col p-5 text-center">
