@@ -20,7 +20,7 @@
 
     <div class="nav-left-side">
         <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="{{ route('about') }}">About</a>
+            <a class="nav-link" aria-current="page" href="{{ route('about') }}">Alkalmazás</a>
         </li>
 
         @auth

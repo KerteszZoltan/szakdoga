@@ -16,6 +16,10 @@
                 <input class="form-control" type="email" name="email" id="email">
                 <label class="form-label">Jelszó:</label>
                 <input class="form-control" type="password" name="password" id="password">
+                <div class="remember">
+                <input type="checkbox" name="remember" id="remember">
+                <label for="remember">Bejelentkezés megjegyzése</label>
+                </div>
             </div>
             <div class="card-footer">
             <button type="submit" class="btn btn-page">Bejelentkezés</button>

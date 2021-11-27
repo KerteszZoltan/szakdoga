@@ -80,6 +80,12 @@ body{
     max-width: 50%;
 }
 
+.remember{
+    display: flex;
+    margin-top: 10px;
+    align-items: center;
+}
+
 .btn-page{
     background-color: $btn-background;
     color: $btn-text;
