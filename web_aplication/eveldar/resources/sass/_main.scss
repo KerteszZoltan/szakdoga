@@ -1,15 +1,38 @@
 body{
     font-family: Roboto !important;
+    align-items: center;
 }
 .card{
     border-radius: 12px;
-    -webkit-box-shadow: 0px 0px 27px 0px rgba(0,0,0,0.48); 
+    -webkit-box-shadow: 0px 0px 27px 0px rgba(0,0,0,0.48);
     box-shadow: 0px 0px 27px 0px rgba(0,0,0,0.48);
+    margin: 30px;
+    align-items: center;
 }
 
-.btn {
-    background-color: $btn-background;
-    color: $btn-text;
+.profile-container{
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-card{
+    text-align: center;
+    border-radius: 75px 75px 75px 75px;
+    -moz-border-radius: 75px 75px 75px 75px;
+    -webkit-border-radius: 75px 75px 75px 75px;
+    -webkit-box-shadow: 0px 0px 29px -9px rgba(0,0,0,0.55);
+    -moz-box-shadow: 0px 0px 29px -9px rgba(0,0,0,0.55);
+    box-shadow: 0px 0px 29px -9px rgba(0,0,0,0.55);
+    border: none;
+    background-color: $profilecard-bg;
+    width:fit-content;
+}
+
+.nav-btn {
+    background-color: $nav-btn-background;
+    color: $nav-btn-text;
 }
 .error-msg{
     font-size: 14px;
@@ -19,3 +42,47 @@ body{
 .form-error{
     border-color: $error;
 }
+
+.about-container{
+    width: 98%;
+}
+
+
+.card-img{
+    margin-top: 10px;
+    max-width: 100px;
+    max-height: 100px;
+}
+
+.card-login{
+    padding: 10px;
+}
+
+.login-card-body{
+    display: grid;
+    padding: 3px;
+}
+
+.form-control{
+    border-radius: 20px 20px 20px 20px;
+    -moz-border-radius: 20px 20px 20px 20px;
+    -webkit-border-radius: 20px 20px 20px 20px;
+    border: 0px solid #000000;
+    background-color: $form-background;
+}
+
+.card-footer{
+    background-color: transparent;
+    border-top: hidden;
+}
+
+.login-container{
+    max-width: 50%;
+}
+
+.btn-page{
+    background-color: $btn-background;
+    color: $btn-text;
+}
+
+

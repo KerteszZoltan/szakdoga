@@ -2,23 +2,24 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col p-5 text-center">
+        <div class="col text-center">
             <div class="card-deck">
                 <div class="card" style="width: 18rem;">
-                    <div class="card-header h4 text-center"> 
+                    <div class="card-title h4 text-center">
                         Regisztráció
                     </div>
                     <div class="card-body">
-                    <p class="card-text "> 
+                    <p class="card-text ">
                         <h3 class="text-center h5"> Pár másodperc és adat megadása után már használhatod is az alkalmazást!
                     </p>
                     </div>
-                </div>  
+                </div>
             </div>
         </div>
-        <div class="col p-5 text-center">
+        <div class="col text-center">
             <form action="{{ route('register') }}" method="POST">
                 @csrf
+                <div class="card">
                 <div class="mb-3">
                     <label class="form-label">Név*</label>
                     <input type="text" class="form-control @error('name') form-error @enderror" name="name" aria-describedby="emailHelp" value="{{ old('name') }}">
@@ -67,17 +68,18 @@
                     @enderror
                 </div>
                 <input type="hidden" name="user_status_id" value="1"></label>
-                <button type="submit" class="btn">Regisztráció</button>
+                <button type="submit" class="btn btn-page">Regisztráció</button>
+                </div>
             </form>
         </div>
-        <div class="col p-5 text-center">
+        <div class="col text-center">
             <div class="card-deck">
                 <div class="card" style="width: 18rem;">
-                    <div class="card-header h5 text-center"> 
+                    <div class="card-title h4 text-center">
                         Segítség a regisztrációhoz
                     </div>
                     <div class="card-body">
-                    <p class="card-text "> 
+                    <p class="card-text ">
                         <ul>
                             <li>A * -al jelölt mezők kitöltése kötelező</li>
                             <li>Kérlek valós e-mail címet adj meg!</li>
@@ -85,14 +87,14 @@
                     </p>
                     </div>
                     <div class="card-body">
-                    <p class="card-text "> 
+                    <p class="card-text ">
                         <ul>
                             <li>Figyelj jelszavad erősségére!</li>
                             <li>A jelszavad tartalmazzon betűket, számokat és minimum legyen 8 karakter</li>
                         </ul>
                     </p>
                     </div>
-                </div>  
+                </div>
             </div>
         </div>
     </div>
