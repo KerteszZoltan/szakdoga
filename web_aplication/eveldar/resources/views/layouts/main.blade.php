@@ -44,14 +44,19 @@
             <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="{{route('profile')}}">Profil</a></li>
                 <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#">Kijelentkezés</a></li>
+                <li>
+                    <form action="{{ route('logout') }}" method="post">
+                    @csrf
+                    <button class="btn nav-item-btn" type="submit">Kijelentkezés</button>
+                    </form>
+                </li>
             </ul>
         </li>
-        <li class="nav-item">
+        <!--<li class="nav-item">
             <form action="{{ route('logout') }}" method="post">
             @csrf
             <button class="btn nav-btn" type="submit">Kijelentkezés</button>
-            </form>
+            </form>-->
         </li>
         @endauth
 

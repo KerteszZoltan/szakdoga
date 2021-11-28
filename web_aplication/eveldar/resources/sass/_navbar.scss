@@ -33,10 +33,28 @@
     -webkit-box-shadow: 0px 0px 16px 3px rgba(0,0,0,0.3);
     box-shadow: 0px 0px 16px 3px rgba(0,0,0,0.3);
 }
+
+.nav-link:hover, .nav-link:focus {
+    color: $btn-text;
+}
+
 .nav-item a{
     color:$nav-text;
 }
+.nav-item-btn{
+    background: transparent;
+    border: transparent;
+    color: $nav-text;
+    padding: 0.25rem 1rem;
+    width: 100%;
+}
 
+.nav-btn:hover{
+    color:$btn-text;
+}
 
-
+.nav-item-btn:hover{
+    background:$dropdown-item-hover;
+    color: #000000;
+}
 

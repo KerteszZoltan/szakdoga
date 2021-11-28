@@ -6,7 +6,7 @@
             <label value="">Bejelentkezett felhasználó: {{ auth()->user()->name }} </label>
         </div>
         <div class="card-body">
-            <label for="">Használatban lévő e-mail cím: kertesz.zoltan.9718@gmail.com</label>
+            <label for="">Használatban lévő e-mail cím: {{ auth()->user()->email }}</label>
         </div>
     </div>
 </div>

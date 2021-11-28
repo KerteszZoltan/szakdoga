@@ -11321,8 +11321,29 @@ textarea.form-control-lg {
   box-shadow: 0px 0px 16px 3px rgba(0, 0, 0, 0.3);
 }
 
+.nav-link:hover, .nav-link:focus {
+  color: #FFFFFF;
+}
+
 .nav-item a {
   color: #1FD409;
+}
+
+.nav-item-btn {
+  background: transparent;
+  border: transparent;
+  color: #1FD409;
+  padding: 0.25rem 1rem;
+  width: 100%;
+}
+
+.nav-btn:hover {
+  color: #FFFFFF;
+}
+
+.nav-item-btn:hover {
+  background: #e9ecef;
+  color: #000000;
 }
 
 body {
@@ -11355,6 +11376,11 @@ body {
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
+  min-height: 200px;
+  background: #8fff96;
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, #8fff96), color-stop(100%, #003015));
+  background: linear-gradient(to bottom, #8fff96 0%, #003015 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#8fff96", endColorstr="#003015", GradientType=0 );
 }
 
 .nav-btn {
