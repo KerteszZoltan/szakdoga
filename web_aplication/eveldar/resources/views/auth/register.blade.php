@@ -22,7 +22,7 @@
                 <div class="card">
                 <div class="mb-3">
                     <label class="form-label">Név*</label>
-                    <input type="text" class="form-control @error('name') form-error @enderror" name="name" aria-describedby="emailHelp" value="{{ old('name') }}">
+                    <input type="text" class="form-control @error('name') form-error @enderror" name="name" aria-describedby="emailHelp" placeholder="pl. Minta Elek" value="{{ old('name') }}">
                     @error('name')
                         <div class="error-msg">
                             A név mező kitöltése kötelező

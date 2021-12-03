@@ -65,23 +65,7 @@
                 </div>
             </div>
         </div>
-
     </div>
 </div>
-    <!--
-
-</div>
-<div class="about-container">
-
-
-
-    </div>
-    <div class="about-container">
-
-
-
-
--->
-
 
 @endsection

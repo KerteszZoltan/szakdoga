@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\EventController;
 
 
 
@@ -40,3 +41,11 @@ Route::post('/logout', [LogoutController::class, 'store'])->name('logout');
 
 
 Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
+
+Route::get('/new_event', [EventController::class, 'index'])->name('new_event');
+Route::post('/new_event', [EventController::class, 'store']);
+
+Route::get('/active_event', [EventController::class, 'active_events'])->name('active_events');
+
+
+

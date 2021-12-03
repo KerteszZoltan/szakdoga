@@ -17,7 +17,7 @@
                 <label class="form-label">Jelszó:</label>
                 <input class="form-control" type="password" name="password" id="password">
                 <div class="remember">
-                <input type="checkbox" name="remember" id="remember">
+                <input type="checkbox" name="remember" id="remember" class="chk-box">
                 <label for="remember">Bejelentkezés megjegyzése</label>
                 </div>
             </div>

@@ -27,8 +27,8 @@
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Események</a>
             <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Aktív események</a></li>
-                <li><a class="dropdown-item" href="#">Esemény hozzáadása</a></li>
+                <li><a class="dropdown-item" href="{{ route('active_events') }}">Aktív események</a></li>
+                <li><a class="dropdown-item" href=" {{ route('new_event') }} ">Esemény hozzáadása</a></li>
                 <li><hr class="dropdown-divider"></li>
                 <li><a class="dropdown-item" href="#">Lejárt események</a></li>
                 <li><a class="dropdown-item" href="#">Teljesített események</a></li>
@@ -51,12 +51,6 @@
                     </form>
                 </li>
             </ul>
-        </li>
-        <!--<li class="nav-item">
-            <form action="{{ route('logout') }}" method="post">
-            @csrf
-            <button class="btn nav-btn" type="submit">Kijelentkezés</button>
-            </form>-->
         </li>
         @endauth
 

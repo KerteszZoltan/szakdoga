@@ -1,6 +1,7 @@
 body{
     font-family: Roboto !important;
     align-items: center;
+    background: $backgound;
 }
 .card{
     border-radius: 12px;
@@ -96,9 +97,88 @@ body{
     align-items: center;
 }
 
+.chk-box{
+margin-right: 5px;
+}
+
 .btn-page{
     background-color: $btn-background;
     color: $btn-text;
 }
 
+.label-text{
+    width: 100%;
+    text-align: center;
+}
+.event-text{
+    min-height: 40px;
+    margin-bottom: 1rem;
+}
 
+.event-container{
+    text-align: -webkit-center;
+    min-height: 530px;
+}
+
+.event-foot{
+    width: 100%;
+    justify-content: center;
+}
+
+.event-card-header{
+background: transparent;
+}
+
+.form-label{
+    margin: unset;
+}
+
+.card-footer{
+    padding: 1px;
+}
+
+.event-card{
+    padding: 10px;
+    max-width: 600px;
+}
+
+.event-card-body{
+    width: 100%;
+    text-align: -webkit-center;
+}
+
+.pad10{
+    padding-top: 10px;
+}
+
+.pagination{
+    place-content: center;
+    width: 100%;
+    justify-content: center;
+}
+.page-link{
+    background: $nav-btn-background;
+    color:$nav-btn-text;
+}
+.page-item.active .page-link{
+    background: $profilecard-bg;
+    color: $navitem-background;
+}
+
+.page-item.disabled .page-link{
+    display: none;
+}
+
+.card-header{
+    background: transparent;
+    width: 100%;
+}
+
+.input-group-text{
+    width: 150px;
+    justify-content: center;
+}
+
+.container form {
+    text-align: -webkit-center;
+}
