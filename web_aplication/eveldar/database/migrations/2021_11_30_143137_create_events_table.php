@@ -20,6 +20,7 @@ class CreateEventsTable extends Migration
             $table->text('description')->nullable();
             $table->dateTime('start');
             $table->dateTime('end');
+            $table->boolean('complete')->default('0');
             $table->timestamps();
         });
     }

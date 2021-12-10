@@ -47,5 +47,7 @@ Route::post('/new_event', [EventController::class, 'store']);
 
 Route::get('/active_event', [EventController::class, 'active_events'])->name('active_events');
 
+Route::post('/event-{id}', [EventController::class, 'id_event'])->name('modify_event');
+
 
 

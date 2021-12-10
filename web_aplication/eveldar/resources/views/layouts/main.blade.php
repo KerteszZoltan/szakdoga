@@ -12,7 +12,7 @@
 
 
     <script src="js/app.js" async></script>
-
+    <script src="js/functions.js"></script>
 </head>
 <body>
 <nav class="navbar">

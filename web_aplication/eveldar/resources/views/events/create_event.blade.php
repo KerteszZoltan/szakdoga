@@ -1,9 +1,40 @@
 @extends('layouts.main')
 @section('content')
 
+<script>
+function date_validate(new_event) {
+    const today = new Date();
+    let date = today.getFullYear() + '-' + (today.getMonth()+1) + '-' + today.getDate();
+    let time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+    let date_time = date + 'T' + time;
+    let start_date = new_event.start.value;
+    let end_date = new_event.end.value;
+
+    if(start_date=='' || end_date==''){
+        alert("Üres dátumok!");
+        return false;
+    }
+    else if(start_date>end_date){
+        error="A befejezés nem lehet hamarabb, mint a kezdés!";
+        document.getElementById("valid").innerHTML = error ;
+        return false;
+    }else if(start_date<=date_time){
+        error="A start dátum nem lehet kissebb, mint az aktuális dátum!";
+        document.getElementById("valid").innerHTML = error ;
+        return false;
+    }else if(end_date<=date_time){
+        error="A befejezési dátum nem lehet hamarabb, mint az aktuális dátum!";
+        document.getElementById("valid").innerHTML = error ;
+        return false;
+    }else{
+        return true;
+    }
+}
+</script>
+
 
 <div class="container">
-    <form action="{{ route('new_event') }}" method="POST">
+    <form action="{{ route('new_event') }}" method="POST" name="new_event">
     <div class="card event-card">
         @csrf
         <div class="input-group mb-3">
@@ -45,8 +76,11 @@
             </div>
         @enderror
 
+        <div class="error-msg" id="valid">
+        </div>
+
         <div>
-            <input type="submit" value="Rögzítés" class="btn btn-page">
+            <input type="submit" value="Rögzítés" onClick="date_validate(new_event)" class="btn btn-page">
         </div>
     </div>
     </form>

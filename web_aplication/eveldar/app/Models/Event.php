@@ -15,4 +15,5 @@ class Event extends Model
         'start',
         'end',
     ];
+
 }
