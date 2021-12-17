@@ -51,26 +51,27 @@ class EventController extends Controller
 
     public function id_event($id){
         $event = Event::find($id);
-        //Str::substr($event->start, -3);
-        //Str::substr($event->end, -3);
-        //\dd($event);
         return view('events.modify_event',[
             'event' => $event
         ]);
     }
 
-    public function update(Request $request){
+    public function update(Request $request,$id){
         $this-> validate($request,[
             'topic'=> "required",
+            'description'=> "required",
             'start' => "required | date",
             'end' => "required | date",
         ]);
 
-        $request->user()->event()->update([
-            'topic' => $request->topic,
-            'description' => $request->description,
-            'start'=>$request->start,
-            'end'=>$request->end,
-        ]);
+
+        $event = Event::find($id);
+        $event->topic = $request->input('topic');
+        $event->description = $request->input('description');
+        $event->start = $request->input('start');
+        $event->end = $request->input('end');
+        $event->user_id = auth()->user()->id;
+        $event->save();
+        return back();
     }
 }

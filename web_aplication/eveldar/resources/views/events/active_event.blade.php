@@ -24,7 +24,7 @@
                 Befejezési dátum: {{ $event->end }}
             </div>
             <div class="card-footer">
-                <form action="{{ route('modify_event', $event->id) }}" method="post">
+                <form action="{{ route('modify_event', $event->id) }}" method="get">
                     @csrf
                     <button class="btn btn-page" type="submit">Módosítás</button>
                 </form>

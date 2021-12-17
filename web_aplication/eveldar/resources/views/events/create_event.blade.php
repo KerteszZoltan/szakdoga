@@ -53,7 +53,7 @@ function date_validate(new_event) {
 
         <div class="input-group event-text">
             <span class="input-group-text">Esemény leírása</span>
-            <textarea class="form-control" name="description" value="{{ old('description') }}"></textarea>
+            <textarea class="form-control" name="description"> {{ old('description') }} </textarea>
         </div>
 
         <div class="input-group mb-3">
