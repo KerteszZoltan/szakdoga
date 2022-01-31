@@ -1,0 +1,11 @@
+Laravle dokumentáció
+https://laravel.com/docs/8.x/
+Bootstrap dokumentáció
+https://getbootstrap.com/docs/5.0/getting-started/introduction/
+SASS dokumentáció
+https://sass-lang.com/documentation
+CSS dokumentáció
+https://developer.mozilla.org/en-US/docs/Web/CSS
+
+ASZF minta
+https://www.google.com/intl/hu/googlecalendar/partner_program_policies.html

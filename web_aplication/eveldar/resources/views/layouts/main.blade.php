@@ -12,7 +12,6 @@
 
 
     <script src="js/app.js" async></script>
-    <script src="js/functions.js"></script>
 </head>
 <body>
 <nav class="navbar">
@@ -20,18 +19,18 @@
 
     <div class="nav-left-side">
         <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="{{ route('about') }}">Alkalmazás</a>
+            <a class="btn nav-link nav-btn" aria-current="page" href="{{ route('about') }}">Alkalmazás</a>
         </li>
 
         @auth
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Események</a>
             <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="{{ route('active_events') }}">Aktív események</a></li>
                 <li><a class="dropdown-item" href=" {{ route('new_event') }} ">Esemény hozzáadása</a></li>
+                <li><a class="dropdown-item" href="{{ route('active_events') }}">Aktív események</a></li>
                 <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#">Lejárt események</a></li>
-                <li><a class="dropdown-item" href="#">Teljesített események</a></li>
+                <li><a class="dropdown-item" href="{{ route('event') }}">Lejárt események</a></li>
+                <li><a class="dropdown-item" href="{{ route('complete_list') }}">Teljesített események</a></li>
             </ul>
         </li>
         @endauth
@@ -39,18 +38,14 @@
     <div class="nav-right-side">
 
         @auth
-        <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Profil</a>
-            <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="{{route('profile')}}">Profil</a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li>
-                    <form action="{{ route('logout') }}" method="post">
-                    @csrf
-                    <button class="btn nav-item-btn" type="submit">Kijelentkezés</button>
-                    </form>
-                </li>
-            </ul>
+        <li class="nav-item">
+            <a class="btn nav-link nav-btn" href="{{route('profile')}}">Profil</a></li>
+        </li>
+        <li class="nav-item">
+            <form action="{{ route('logout') }}" method="post">
+                @csrf
+                <button class="nav-link btn nav-btn" type="submit">Kijelentkezés</button>
+            </form>
         </li>
         @endauth
 

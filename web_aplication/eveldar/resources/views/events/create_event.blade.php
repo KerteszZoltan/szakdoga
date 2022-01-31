@@ -1,38 +1,6 @@
 @extends('layouts.main')
 @section('content')
 
-<script>
-function date_validate(new_event) {
-    const today = new Date();
-    let date = today.getFullYear() + '-' + (today.getMonth()+1) + '-' + today.getDate();
-    let time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-    let date_time = date + 'T' + time;
-    let start_date = new_event.start.value;
-    let end_date = new_event.end.value;
-
-    if(start_date=='' || end_date==''){
-        alert("Üres dátumok!");
-        return false;
-    }
-    else if(start_date>end_date){
-        error="A befejezés nem lehet hamarabb, mint a kezdés!";
-        document.getElementById("valid").innerHTML = error ;
-        return false;
-    }else if(start_date<=date_time){
-        error="A start dátum nem lehet kissebb, mint az aktuális dátum!";
-        document.getElementById("valid").innerHTML = error ;
-        return false;
-    }else if(end_date<=date_time){
-        error="A befejezési dátum nem lehet hamarabb, mint az aktuális dátum!";
-        document.getElementById("valid").innerHTML = error ;
-        return false;
-    }else{
-        return true;
-    }
-}
-</script>
-
-
 <div class="container">
     <form action="{{ route('new_event') }}" method="POST" name="new_event">
     <div class="card event-card">
@@ -58,29 +26,26 @@ function date_validate(new_event) {
 
         <div class="input-group mb-3">
             <span class="input-group-text">Esemény kezdete:</span>
-            <input type="datetime-local" class="form-control" name="start">
+            <input type="datetime-local" class="form-control" name="start" value="{{old('start')}}">
         </div>
         @error('start')
             <div class="error-msg">
-                Az eseményhez tartozni kell kezdő dátumnak!
+                Az eseményhez tartoznia kell kezdési dátumnak ami nem lehet hamarabb, mint az aktuális dátum!
             </div>
         @enderror
 
         <div class="input-group mb-3">
             <span class="input-group-text">Esemény vége:</span>
-            <input type="datetime-local" class="form-control" name="end">
+            <input type="datetime-local" class="form-control" name="end" value="{{ old('end') }}">
         </div>
         @error('end')
             <div class="error-msg">
-                Az eseményhez tartozni kell befejezési dátumnak!
+                Az esemény végéhez tartoznia kell dátumnak, ami nem lehet hamarabbi, mint a kezdési dátum!
             </div>
         @enderror
 
-        <div class="error-msg" id="valid">
-        </div>
-
         <div>
-            <input type="submit" value="Rögzítés" onClick="date_validate(new_event)" class="btn btn-page">
+            <input type="submit" value="Rögzítés" class="btn btn-page">
         </div>
     </div>
     </form>

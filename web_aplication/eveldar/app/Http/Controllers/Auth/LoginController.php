@@ -26,6 +26,6 @@ class LoginController extends Controller
             return back()->with('invalid', 'A megadott e-mail - jelszó páros hibás!');
         }
 
-        return \redirect()->route('profile');
+        return \redirect()->route('active_events');
     }
 }

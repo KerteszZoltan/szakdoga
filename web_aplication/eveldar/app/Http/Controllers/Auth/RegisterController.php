@@ -17,6 +17,7 @@ class RegisterController extends Controller
     public function index(){
         return view('auth.register');
     }
+
     public function store(Request $request){
         $this->validate($request,[
             'name'=>'required|max:255',
@@ -24,16 +25,22 @@ class RegisterController extends Controller
             'password'=>'required|confirmed',
             'aszf'=>'required',
         ]);
+        $email=$request->email;
+        $emailcheck=User::where('email','=',$email)->count();
+        if ($emailcheck>0) {
+            return view('auth.register')->with('bad_email',$emailcheck);
+        }else{
+            User::create([
+                'name' => $request->name,
+                'username' => $request->username,
+                'email' => $request->email,
+                'password' => Hash::make($request->password),
+            ]);
 
-        User::create([
-            'name' => $request->name,
-            'username' => $request->username,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-        ]);
+            auth()->attempt($request->only('email', 'password'));
 
-        auth()->attempt($request->only('email', 'password'));
+            return redirect()->route('profile');
+        }
 
-        return redirect()->route('profile');
     }
 }

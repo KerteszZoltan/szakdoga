@@ -5,7 +5,7 @@
         <div class="col text-center">
             <div class="card-deck">
                 <div class="card" style="width: 18rem;">
-                    <div class="card-title h4 text-center">
+                    <div class="card-tittle h4 text-center">
                         Regisztráció
                     </div>
                     <div class="card-body">
@@ -32,6 +32,12 @@
                 <div class="mb-3">
                     <label class="form-label">Email cím*</label>
                     <input type="email" class="form-control @error('email') form-error @enderror" name="email" aria-describedby="emailHelp" value="{{ old('email') }}">
+                    @if (isset($bad_error))
+                    <div class="error-msg">
+                        Az E-mailcím már használatban van!
+                    </div>
+
+                    @endif
                     @error('email')
                         <div class="error-msg">
                             Az E-mailcím kitöltése kötelező
@@ -60,7 +66,7 @@
                 </div>
                 <div class="mb-3 form-check">
                     <input type="checkbox" class="form-check-input" name="aszf">
-                    <label class="form-check-label @error('aszf') form-error @enderror"> Elfogadod az oldalra vonatkozó <a href="#"> ASZF</a>-et? * </label>
+                    <label class="form-check-label @error('aszf') form-error @enderror"> Elfogadod az oldalra vonatkozó <a href="{{ route('aszf') }}"> ASZF</a>-et? * </label>
                     @error('aszf')
                         <div class="error-msg">
                             Kérlek olvasd el és fogadd el az Álltalános Szerződési Feltételeket!
@@ -75,7 +81,7 @@
         <div class="col text-center">
             <div class="card-deck">
                 <div class="card" style="width: 18rem;">
-                    <div class="card-title h4 text-center">
+                    <div class="card-tittle h4 text-center">
                         Segítség a regisztrációhoz
                     </div>
                     <div class="card-body">

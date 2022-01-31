@@ -3,12 +3,29 @@ body{
     align-items: center;
     background: $backgound;
 }
+
 .card{
     border-radius: 12px;
     -webkit-box-shadow: 0px 0px 27px 0px rgba(0,0,0,0.48);
     box-shadow: 0px 0px 27px 0px rgba(0,0,0,0.48);
     margin: 30px;
     align-items: center;
+    min-width: 150px;
+    padding: 10px;
+}
+
+.card-body{
+    width: 100%;
+    text-align: center;
+}
+
+.card-tittle{
+    padding: 10px;
+}
+
+.event-type{
+max-width: 600px;
+max-height: 50px !important;
 }
 
 .profile-container{
@@ -16,38 +33,53 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
+
 }
 
 .profile-card{
-    text-align: center;
-    border-radius: 75px 75px 75px 75px;
-    -moz-border-radius: 75px 75px 75px 75px;
-    -webkit-border-radius: 75px 75px 75px 75px;
-    -webkit-box-shadow: 0px 0px 29px -9px rgba(0,0,0,0.55);
-    -moz-box-shadow: 0px 0px 29px -9px rgba(0,0,0,0.55);
-    box-shadow: 0px 0px 29px -9px rgba(0,0,0,0.55);
-    border: none;
-    background-color: $profilecard-bg;
-    width:fit-content;
-    min-height: 200px;
+    min-width: 600px;
+}
 
-    background: rgba(143,255,150,1);
-    background: -moz-linear-gradient(top, rgba(143,255,150,1) 0%, rgba(0,48,21,1) 100%);
-    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(143,255,150,1)), color-stop(100%, rgba(0,48,21,1)));
-    background: -webkit-linear-gradient(top, rgba(143,255,150,1) 0%, rgba(0,48,21,1) 100%);
-    background: -o-linear-gradient(top, rgba(143,255,150,1) 0%, rgba(0,48,21,1) 100%);
-    background: -ms-linear-gradient(top, rgba(143,255,150,1) 0%, rgba(0,48,21,1) 100%);
-    background: linear-gradient(to bottom, rgba(143,255,150,1) 0%, rgba(0,48,21,1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8fff96', endColorstr='#003015', GradientType=0 );
+.profile-other{
+    text-align: -webkit-center;
+}
+
+.col-lg-2{
+    width: 100%;
+}
+
+.col-left{
+text-align: left;
+}
+
+.col-right{
+text-align: right;
 }
 
 .nav-btn {
     background-color: $nav-btn-background;
     color: $nav-btn-text;
 }
+
+.nav-item a{
+    text-align: center;
+}
+
+.dropdown-menu.show{
+    width: 98%;
+}
+
+ul.dropdown-menu{
+    text-align-last: left
+}
+
+.dropdown-profile .dropdown-menu{
+text-align-last: center;
+}
+
 .error-msg{
     font-size: 14px;
-    color: $error;
+    color: $error !important;
 }
 
 .form-error{
@@ -58,6 +90,14 @@ body{
     width: 98%;
 }
 
+.about-card{
+    border-radius: 12px;
+    -webkit-box-shadow: 0px 0px 27px 0px rgba(0,0,0,0.48);
+    box-shadow: 0px 0px 27px 0px rgba(0,0,0,0.48);
+    margin: 30px;
+    align-items: center;
+    min-height: 200px;
+}
 
 .card-img{
     margin-top: 10px;
@@ -165,7 +205,7 @@ background: transparent;
     color:$nav-btn-text;
 }
 .page-item.active .page-link{
-    background: $profilecard-bg;
+    background: $page-item_link;
     color: $navitem-background;
 }
 
@@ -185,4 +225,22 @@ background: transparent;
 
 .container form {
     text-align: -webkit-center;
+}
+
+.row {
+    margin-top: 10px;
+}
+
+.btn-danger{
+    border: 5px inset $danger;
+    border-radius: 12px;
+    -webkit-box-shadow: 0px 0px 18px 3px $danger;
+    box-shadow: 0px 0px 18px 3px $danger;
+}
+.danger-card{
+    -webkit-box-shadow: 0px 0px 18px 3px $danger;
+    box-shadow: 0px 0px 18px 3px $danger;
+}
+.text-align-left{
+    text-align: left;
 }

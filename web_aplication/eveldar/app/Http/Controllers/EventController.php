@@ -21,21 +21,48 @@ class EventController extends Controller
     }
 
     public function active_events(){
-        $events = DB::table('events')
-                                    ->where('user_id', auth()->user()->id)
-                                    ->where('start', '>', date('Y-m-d H:i:sa') )
-                                    ->orderByRaw('start DESC')
-                                    ->paginate(2);
+        $events = Event::where('user_id', auth()->user()->id)
+                         ->where('end', '>', date('Y-m-d H:i:sa') )
+                         ->where('complete', '=', '0')
+                         ->orderByRaw('end ASC')
+                         ->paginate(2);
 
-        return view('events.active_event',[
-            'events' => $events
+        return view('events.event',[
+            'events' => $events,
+            'type'=>'active',
+        ]);
+    }
+
+    public function complete_list(){
+        $events = Event::where('user_id', auth()->user()->id)
+                         ->where('complete', '=', '1')
+                         ->orderByRaw('updated_at DESC')
+                         ->paginate(2);
+
+        return view('events.event',[
+            'events' => $events,
+            'type'=>'complete',
+        ]);
+    }
+
+    public function expired_list()
+    {
+        $events = Event::where('user_id', auth()->user()->id)
+                         ->where('end', '<', date('Y-m-d H:i:sa') )
+                         ->where('complete', '=', '0')
+                         ->orderByRaw('end ASC')
+                         ->paginate(2);
+
+        return view('events.event',[
+            'events' => $events,
+            'type'=>'expired',
         ]);
     }
 
     public function store(Request $request){
         $this->validate($request, [
-            'start'=> 'required | date',
-            'end'=> 'required | date',
+            'start'=> 'required | date | after_or_equal:today',
+            'end'=> 'required | date | after:start',
             'topic'=> 'required',
         ]);
 
@@ -59,9 +86,8 @@ class EventController extends Controller
     public function update(Request $request,$id){
         $this-> validate($request,[
             'topic'=> "required",
-            'description'=> "required",
-            'start' => "required | date",
-            'end' => "required | date",
+            'start'=> 'required | date | after_or_equal:today',
+            'end'=> 'required | date | after:start',
         ]);
 
 
@@ -70,6 +96,24 @@ class EventController extends Controller
         $event->description = $request->input('description');
         $event->start = $request->input('start');
         $event->end = $request->input('end');
+        $event->user_id = auth()->user()->id;
+        $event->save();
+        return redirect()->route('active_events');
+    }
+
+    public function delete($id)
+    {
+        $event=Event::find($id);
+        print $id;
+        $event=Event::find($id)->delete('id','=',$event);
+        return \back();
+    }
+
+    public function complete_update($id)
+    {
+        print $id;
+        $event=Event::find($id);
+        $event->complete = '1';
         $event->user_id = auth()->user()->id;
         $event->save();
         return back();

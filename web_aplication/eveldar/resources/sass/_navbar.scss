@@ -3,6 +3,7 @@
     font-size: 14px;
     background-color: $navbar-background;
     padding-left: 3px;
+    padding-bottom: 0px;
 }
 
 .nav{
@@ -25,7 +26,7 @@
 }
 
 .nav-item{
-    padding-right: 5px;
+    padding: 5px;
     padding-bottom: 10px;
 }
 .nav-item .nav-link{
