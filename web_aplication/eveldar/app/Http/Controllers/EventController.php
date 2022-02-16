@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\NewEventAdded;
+use App\Mail\NewRegisteredUser;
 use App\Models\Event;
 use Illuminate\Auth\Events\Login;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
 
 
@@ -72,6 +75,12 @@ class EventController extends Controller
             'start'=>$request->start,
             'end'=>$request->end,
         ]);
+
+        $user=auth()->user();
+        $event=Event::where('user_id', '=', auth()->user()->id)
+        ->latest('created_at')->first();
+
+        Mail::to($user)->send(new NewEventAdded($event,$user));
 
         return redirect()->route('active_events');
     }

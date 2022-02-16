@@ -48,6 +48,9 @@ Route::post('/logout', [LogoutController::class, 'store'])->name('logout');
 Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
 Route::get('/modify_profile', [ProfileController::class, 'modify_index'])->name('modify_profile');
 Route::post('/modify_profile', [ProfileController::class, 'update']);
+Route::get('/modify_password', [ProfileController::class, 'update_index'])->name('password_update');
+Route::post('/modify_password', [ProfileController::class, 'password_update']);
+
 
 Route::get('/delete_profile', [ProfileController::class, 'confirm_delete'])->name('delete_profil');
 Route::post('/delete_profile', [ProfileController::class, 'delete']);

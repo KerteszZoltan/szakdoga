@@ -28,6 +28,7 @@
 
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                             <li><a class="dropdown-item" href="{{ route('modify_profile') }}">Profil módosítás</a></li>
+                            <li><a class="dropdown-item" href="{{ route('password_update') }}">Jelszó módosítás</a></li>
                             <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item error-msg" href="{{ route('delete_profil') }}">Profil törlése</a></li>
                         </ul>

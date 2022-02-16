@@ -1,5 +1,10 @@
-Laravle dokumentáció
+Laravll dokumentáció
 https://laravel.com/docs/8.x/
+Laravell könyv
+Laravel: Up & Running: A Framework for Building Modern PHP Apps 2nd Edition
+by Matt Stauffer (Author)  ISBN könyv
+MVC leírás
+https://developer.mozilla.org/en-US/docs/Glossary/MVC
 Bootstrap dokumentáció
 https://getbootstrap.com/docs/5.0/getting-started/introduction/
 SASS dokumentáció
@@ -9,3 +14,7 @@ https://developer.mozilla.org/en-US/docs/Web/CSS
 
 ASZF minta
 https://www.google.com/intl/hu/googlecalendar/partner_program_policies.html
+
+Továbbfejlesztés:
+Admin felület
+előfizetéses megoldás -> felhasználói szerepek

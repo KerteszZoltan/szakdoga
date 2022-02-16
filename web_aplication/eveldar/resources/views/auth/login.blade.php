@@ -4,6 +4,9 @@
     <div class="col p-5 text-center">
         <form action="{{ route('login') }}" method="POST">
             <div class="card">
+                @if (isset($msg))
+                <div class="card-title h2 p-3"> {{$msg}} </div>
+                @endif
                 <div class="card-title h2 p-3"> Bejelentkezés</div>
             @csrf
             <div class="login-card-body">

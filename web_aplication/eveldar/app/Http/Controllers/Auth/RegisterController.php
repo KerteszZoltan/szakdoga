@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Models\User;
+use App\Mail\NewRegisteredUser;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 
 class RegisterController extends Controller
 {
@@ -27,8 +29,12 @@ class RegisterController extends Controller
         ]);
         $email=$request->email;
         $emailcheck=User::where('email','=',$email)->count();
+        $bad_email='';
         if ($emailcheck>0) {
-            return view('auth.register')->with('bad_email',$emailcheck);
+            return view('auth.register',[
+                'bad_email' => $emailcheck,
+                'respose' => $request,
+            ]);
         }else{
             User::create([
                 'name' => $request->name,
@@ -38,6 +44,8 @@ class RegisterController extends Controller
             ]);
 
             auth()->attempt($request->only('email', 'password'));
+            $user=auth()->user();
+            Mail::to($user)->send(new NewRegisteredUser(auth()->user()));
 
             return redirect()->route('profile');
         }

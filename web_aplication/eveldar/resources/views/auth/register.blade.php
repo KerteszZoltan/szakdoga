@@ -22,21 +22,27 @@
                 <div class="card">
                 <div class="mb-3">
                     <label class="form-label">Név*</label>
-                    <input type="text" class="form-control @error('name') form-error @enderror" name="name" aria-describedby="emailHelp" placeholder="pl. Minta Elek" value="{{ old('name') }}">
+                    @if (isset($respose))
+                        <input type="text" class="form-control @error('name') form-error @enderror" name="name" aria-describedby="emailHelp" placeholder="pl. Minta Elek" value="{{ $respose->name }}">
+                    @else
+                        <input type="text" class="form-control @error('name') form-error @enderror" name="name" aria-describedby="emailHelp" placeholder="pl. Minta Elek" value="{{ old('name') }}">
+                    @endif
                     @error('name')
                         <div class="error-msg">
                             A név mező kitöltése kötelező
                         </div>
                     @enderror
+
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Email cím*</label>
+                    @if (isset($bad_email))
+                        <input type="email" class="form-control @error('email') form-error @enderror" name="email" aria-describedby="emailHelp" value="{{ $respose->email }}">
+                        <div class="error-msg">
+                            Az E-mail cím már használatban van!
+                        </div>
+                    @else
                     <input type="email" class="form-control @error('email') form-error @enderror" name="email" aria-describedby="emailHelp" value="{{ old('email') }}">
-                    @if (isset($bad_error))
-                    <div class="error-msg">
-                        Az E-mailcím már használatban van!
-                    </div>
-
                     @endif
                     @error('email')
                         <div class="error-msg">

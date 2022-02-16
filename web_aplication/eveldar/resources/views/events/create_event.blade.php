@@ -2,7 +2,7 @@
 @section('content')
 
 <div class="container">
-    <form action="{{ route('new_event') }}" method="POST" name="new_event">
+    <form action="{{ route('new_event') }}" method="POST">
     <div class="card event-card">
         @csrf
         <div class="input-group mb-3">
