@@ -89,4 +89,5 @@ class ProfileController extends Controller
             return view('profile.confirm_delete')->with('error_password',$error);
         }
     }
+
 }

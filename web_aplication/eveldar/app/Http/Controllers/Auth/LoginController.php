@@ -21,11 +21,10 @@ class LoginController extends Controller
             'email' => 'required|email',
             'password'=> 'required',
         ]);
-
         if (!auth()->attempt($request->only('email', 'password'), $request->remember)) {
             return back()->with('invalid', 'A megadott e-mail - jelszó páros hibás!');
         }
-
         return \redirect()->route('active_events');
     }
+
 }

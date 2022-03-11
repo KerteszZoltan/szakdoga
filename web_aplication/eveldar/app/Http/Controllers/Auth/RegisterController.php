@@ -24,7 +24,7 @@ class RegisterController extends Controller
         $this->validate($request,[
             'name'=>'required|max:255',
             'email'=>'required|email|max:255',
-            'password'=>'required|confirmed',
+            'password'=>'required|confirmed|min:6',
             'aszf'=>'required',
         ]);
         $email=$request->email;
@@ -45,6 +45,7 @@ class RegisterController extends Controller
 
             auth()->attempt($request->only('email', 'password'));
             $user=auth()->user();
+            $token=$user->createToken('eveldartoken')->plainTextToken;
             Mail::to($user)->send(new NewRegisteredUser(auth()->user()));
 
             return redirect()->route('profile');
