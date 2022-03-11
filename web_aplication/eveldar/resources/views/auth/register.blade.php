@@ -46,7 +46,7 @@
                     @endif
                     @error('email')
                         <div class="error-msg">
-                            Az E-mailcím kitöltése kötelező
+                            Az E-mailcím kitöltése kötelező és 6 karakternél hosszabb jelszó kell!
                         </div>
                     @enderror
                 </div>
