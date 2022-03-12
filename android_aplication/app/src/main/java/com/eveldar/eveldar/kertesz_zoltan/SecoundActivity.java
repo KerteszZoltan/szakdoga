@@ -40,17 +40,11 @@ MenuBuilder menuBuilder;
                     @Override
                     public boolean onMenuItemSelected(@NonNull MenuBuilder menu, @NonNull MenuItem item) {
                         switch (item.getItemId()){
-                            case R.id.active:
-                                Intent intent = new Intent();
-                                startActivity(intent);
-                                return true;
-                            /*case R.id.complete:
-                            case R.id.expired:
                             case R.id.profile:
-                            case R.id.logout:*/
-
-                            default:
+                                profileData();
                                 return true;
+                            default:
+                                return false;
                         }
                     }
 
@@ -62,5 +56,8 @@ MenuBuilder menuBuilder;
                 optionMenu.show();
             }
         });
+    }
+
+    private void profileData() {
     }
 }
