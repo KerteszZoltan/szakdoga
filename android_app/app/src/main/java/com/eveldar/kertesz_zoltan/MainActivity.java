@@ -1,7 +1,6 @@
 package com.eveldar.kertesz_zoltan;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.AlertDialogLayout;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -12,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+
 public class MainActivity extends AppCompatActivity {
 
     EditText et_email, et_password;
@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        getSupportActionBar().hide();
         setContentView(R.layout.activity_main);
         et_email=findViewById(R.id.et_email);
         et_password=findViewById(R.id.et_password);

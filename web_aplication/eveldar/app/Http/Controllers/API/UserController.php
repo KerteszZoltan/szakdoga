@@ -25,7 +25,6 @@ class UserController extends Controller
 
         $token = $user->createToken('eveldartoken')->plainTextToken;
         $response= [
-            'user' => $user,
             'token' => $token
         ];
 
