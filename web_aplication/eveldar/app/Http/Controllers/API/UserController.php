@@ -24,10 +24,15 @@ class UserController extends Controller
         }
 
         $token = $user->createToken('eveldartoken')->plainTextToken;
-
+        $loggedUser=[
+            'id'=>$user['id'],
+            'name'=>$user['name'],
+            'email'=>$user['email'],
+            'token'=>$token
+        ];
         $response= [
-            'user'=>$user,
-            'token' => $token
+            'user'=>$loggedUser,
+            'token'=>$token
         ];
 
         return response($response);
@@ -47,15 +52,34 @@ class UserController extends Controller
         return response($response);
     }
     public function update(Request $request){
+        $token_vali=personal_access_token::find($request['token']);
+        return [
+            'tokenvali'=>$token_vali
+        ];
+        $user=auth()->user();
+        $user_id=$user['id'];
+        $update_user = User::find($user_id);
+        if(isset($request['password'])){
+            return [
+                'message'=>'Nem lehet jelszót módosítani'
+            ];
+        }
+        $update_user->update($request->all());
+
+        return [
+            $update_user
+        ];
+    }
+
+    public function updatePassword(Request $request){
         $user=auth()->user();
         $user_id=$user['id'];
         $update_user = User::find($user_id);
         $request['password']=Hash::make($request['password']);
         $update_user->update($request->all());
-
         auth()->user()->tokens()->delete();
         return [
-            'message'=>'Sikeres modositas'
+            'message'=>'Sikeres jelszo modositas'
         ];
     }
 
