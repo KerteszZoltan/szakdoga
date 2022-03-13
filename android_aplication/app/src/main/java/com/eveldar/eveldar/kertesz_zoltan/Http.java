@@ -8,12 +8,10 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.nio.charset.StandardCharsets;
-import java.util.Locale;
 
 public class Http {
     Context context;
-    private String url, method="GET", data=null, respose="null";
+    private String url, method="GET", data=null, response ="null";
     private Integer statusCode=0;
     private Boolean token=false;
     private LocalStorage localStorage;
@@ -36,8 +34,8 @@ public class Http {
         this.token = token;
     }
 
-    public String getRespose() {
-        return respose;
+    public String getResponse() {
+        return response;
     }
 
     public Integer getStatusCode() {
@@ -79,7 +77,7 @@ public class Http {
                 sb.append(line);
             }
             br.close();
-            respose = sb.toString();
+            response = sb.toString();
 
 
         } catch (IOException e){

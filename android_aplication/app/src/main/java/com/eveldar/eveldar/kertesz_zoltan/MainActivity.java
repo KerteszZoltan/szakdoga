@@ -90,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
                         Integer code= http.getStatusCode();
                         if (code == 200){
                             try {
-                                JSONObject response = new JSONObject(http.getRespose());
+                                JSONObject response = new JSONObject(http.getResponse());
                                 String token = response.getString("token");
                                 localStorage.setToken(token);
                                 Intent intent = new Intent(MainActivity.this,SecoundActivity.class);
@@ -101,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
                             }
                         }else if(code == 422){
                             try {
-                                JSONObject response = new JSONObject(http.getRespose());
+                                JSONObject response = new JSONObject(http.getResponse());
                                 String msg = response.getString("message");
                                 alertLogin(msg);
                             }catch (JSONException e){
@@ -109,7 +109,7 @@ public class MainActivity extends AppCompatActivity {
                             }
                         }else if(code==401){
                             try{
-                                JSONObject response = new JSONObject(http.getRespose());
+                                JSONObject response = new JSONObject(http.getResponse());
                                 String msg = response.getString("message");
                                 alertLogin(msg);
                             } catch (JSONException e){

@@ -15,6 +15,9 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 public class SecoundActivity extends AppCompatActivity {
 ImageView menu_show;
 MenuBuilder menuBuilder;
@@ -41,8 +44,13 @@ MenuBuilder menuBuilder;
                     public boolean onMenuItemSelected(@NonNull MenuBuilder menu, @NonNull MenuItem item) {
                         switch (item.getItemId()){
                             case R.id.profile:
-                                profileData();
+                                Intent profile = new Intent(SecoundActivity.this, ProfileActivity.class);
+                                startActivity(profile);
                                 return true;
+                            case R.id.logout:
+                                logout();
+                                Intent logout = new Intent(SecoundActivity.this, MainActivity.class);
+                                startActivity(logout);
                             default:
                                 return false;
                         }
@@ -58,6 +66,30 @@ MenuBuilder menuBuilder;
         });
     }
 
-    private void profileData() {
+    private void logout() {
+        String url = getString(R.string.api_server)+"logout";
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                Http http = new Http(SecoundActivity.this, url);
+                http.setMethod("post");
+                http.setToken(true);
+                http.send();
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Integer code = http.getStatusCode();
+                        if (code==200){
+                            Intent intent = new Intent(SecoundActivity.this, MainActivity.class);
+                            startActivity(intent);
+                            finish();
+                        }else{
+                            Toast.makeText(SecoundActivity.this,"Hiba"+code, Toast.LENGTH_SHORT);
+                        }
+                    }
+                });
+
+            }
+        }).start();
     }
 }
