@@ -24,7 +24,9 @@ class UserController extends Controller
         }
 
         $token = $user->createToken('eveldartoken')->plainTextToken;
+
         $response= [
+            'user'=>$user,
             'token' => $token
         ];
 
@@ -43,6 +45,18 @@ class UserController extends Controller
         ];
 
         return response($response);
+    }
+    public function update(Request $request){
+        $user=auth()->user();
+        $user_id=$user['id'];
+        $update_user = User::find($user_id);
+        $request['password']=Hash::make($request['password']);
+        $update_user->update($request->all());
+
+        auth()->user()->tokens()->delete();
+        return [
+            'message'=>'Sikeres modositas'
+        ];
     }
 
     public function logout(Request $request){

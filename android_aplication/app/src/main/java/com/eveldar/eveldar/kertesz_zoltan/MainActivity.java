@@ -15,12 +15,17 @@ import android.widget.Toast;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+
 public class MainActivity extends AppCompatActivity {
 
     EditText et_email, et_password;
     Button btn_login;
     String email,password;
-    LocalStorage localStorage;
+    SharedPrefManager sharedPrefManager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
         et_email=findViewById(R.id.et_email);
         et_password=findViewById(R.id.et_password);
         btn_login=findViewById(R.id.btn_login);
-        localStorage = new LocalStorage(this);
+        sharedPrefManager=new SharedPrefManager(getApplicationContext());
 
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,61 +70,41 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void sendLogin() {
-        Toast.makeText(this,"Bejelentkezés...", Toast.LENGTH_SHORT).show();
-        JSONObject params= new JSONObject();
-        try {
-            params.put("email",email);
-            params.put("password",password);
-        } catch (JSONException e){
-            e.printStackTrace();
-        }
-        String data = params.toString();
-        String url=getString(R.string.api_server)+"login";
+        String user_email = email;
+        String user_password = password;
+        Call<LoginResponse> call = RetrofitClient.getInstance().getApi().login(email,password);
 
-        new Thread(new Runnable() {
+        call.enqueue(new Callback<LoginResponse>() {
             @Override
-            public void run() {
-                Http http=new Http(MainActivity.this,url);
-                http.setMethod("post");
-                http.setData(data);
-                http.send();
-
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        Integer code= http.getStatusCode();
-                        if (code == 200){
-                            try {
-                                JSONObject response = new JSONObject(http.getResponse());
-                                String token = response.getString("token");
-                                localStorage.setToken(token);
-                                Intent intent = new Intent(MainActivity.this,SecoundActivity.class);
-                                startActivity(intent);
-                                finish();
-                            } catch (JSONException e){
-                                e.printStackTrace();
-                            }
-                        }else if(code == 422){
-                            try {
-                                JSONObject response = new JSONObject(http.getResponse());
-                                String msg = response.getString("message");
-                                alertLogin(msg);
-                            }catch (JSONException e){
-                                e.printStackTrace();
-                            }
-                        }else if(code==401){
-                            try{
-                                JSONObject response = new JSONObject(http.getResponse());
-                                String msg = response.getString("message");
-                                alertLogin(msg);
-                            } catch (JSONException e){
-                                e.printStackTrace();
-                            }
-                        }
-                    }
-                });
-
+            public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
+                LoginResponse loginResponse = response.body();
+                if (response.isSuccessful()){
+                    sharedPrefManager.saveUser(loginResponse.getUser());
+                    Toast.makeText(MainActivity.this, "Bejelentkezés...", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(MainActivity.this, SecoundActivity.class);
+                    intent.setFlags(intent.FLAG_ACTIVITY_NEW_TASK | intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    startActivity(intent);
+                    finish();
+                }else{
+                    Toast.makeText(MainActivity.this, "Hibás adat", Toast.LENGTH_SHORT).show();
+                }
             }
-        }).start();
+
+            @Override
+            public void onFailure(Call<LoginResponse> call, Throwable t) {
+                Toast.makeText(MainActivity.this, "Hibás email cím / jelszó páros", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        if(sharedPrefManager.isLoggedIn()){
+            Intent intent = new Intent(MainActivity.this, SecoundActivity.class);
+            intent.setFlags(intent.FLAG_ACTIVITY_NEW_TASK | intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
+        }
     }
 }

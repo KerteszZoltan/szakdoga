@@ -47,10 +47,6 @@ MenuBuilder menuBuilder;
                                 Intent profile = new Intent(SecoundActivity.this, ProfileActivity.class);
                                 startActivity(profile);
                                 return true;
-                            case R.id.logout:
-                                logout();
-                                Intent logout = new Intent(SecoundActivity.this, MainActivity.class);
-                                startActivity(logout);
                             default:
                                 return false;
                         }
@@ -64,32 +60,5 @@ MenuBuilder menuBuilder;
                 optionMenu.show();
             }
         });
-    }
-
-    private void logout() {
-        String url = getString(R.string.api_server)+"logout";
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                Http http = new Http(SecoundActivity.this, url);
-                http.setMethod("post");
-                http.setToken(true);
-                http.send();
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        Integer code = http.getStatusCode();
-                        if (code==200){
-                            Intent intent = new Intent(SecoundActivity.this, MainActivity.class);
-                            startActivity(intent);
-                            finish();
-                        }else{
-                            Toast.makeText(SecoundActivity.this,"Hiba"+code, Toast.LENGTH_SHORT);
-                        }
-                    }
-                });
-
-            }
-        }).start();
     }
 }

@@ -14,17 +14,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
-
-import org.json.JSONException;
-import org.json.JSONObject;
 
 public class ProfileActivity extends AppCompatActivity {
     ImageView menu_profil_show;
     MenuBuilder menuBuilder;
-    EditText et_profil_email, et_profil_name;
-    TextView test;
+    EditText et_profil_email, et_profile_name;
+    SharedPrefManager sharedPrefManager;
     Button save;
 
     @SuppressLint("RestrictedApi")
@@ -62,65 +57,18 @@ public class ProfileActivity extends AppCompatActivity {
                 optionMenu.show();
             }
         });
-        et_profil_name = findViewById(R.id.et_profile_name);
+        et_profile_name = findViewById(R.id.et_profile_name);
         et_profil_email = findViewById(R.id.et_profil_email);
-        test = findViewById(R.id.test);
         profileGet();
 
     }
 
     public void profileGet() {
-        String url = getString(R.string.api_server)+"profile";
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                Http http = new Http(ProfileActivity.this,url);
-                http.setToken(true);
-                http.send();
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        Integer code = http.getStatusCode();
-                        if (code==200){
-                            test.setText("asdf");
-                        }
-                        else{
-                            test.setText(code.toString());
-                        }
-                    }
-                });
-            }
-        }).start();
-        /*String url = getString(R.string.api_server)+"profile";
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                Http http = new Http(ProfileActivity.this, url);
-                http.setToken(true);
-                http.send();
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        Integer code = http.getStatusCode();
-                        if (code==200){
-                            try {
-                                JSONObject response = new JSONObject(http.getResponse());
-                                String name = response.getString("name");
-                                String email = response.getString("email");
-                                et_profil_email.setText(name);
-                                et_profil_name.setText(email);
-                                test.setText("Teszt");
+        sharedPrefManager=new SharedPrefManager(ProfileActivity.this);
+        String name = sharedPrefManager.getUser().getName();
+        String email = sharedPrefManager.getUser().getEmail();
+        et_profile_name.setText(name);
+        et_profil_email.setText(email);
 
-                            }catch (JSONException e){
-                                e.printStackTrace();
-                            }
-                        }else{
-                            Toast.makeText(ProfileActivity.this,"Hiba"+code, Toast.LENGTH_SHORT);
-                        }
-                    }
-                });
-
-            }
-        }).start();*/
     }
 }
