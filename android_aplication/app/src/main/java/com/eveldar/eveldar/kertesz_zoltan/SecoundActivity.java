@@ -13,14 +13,22 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class SecoundActivity extends AppCompatActivity {
 ImageView menu_show;
+TextView tw_name;
 MenuBuilder menuBuilder;
+SharedPrefManager sharedPrefManager;
+
     @SuppressLint("RestrictedApi")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +55,9 @@ MenuBuilder menuBuilder;
                                 Intent profile = new Intent(SecoundActivity.this, ProfileActivity.class);
                                 startActivity(profile);
                                 return true;
+                            case R.id.logout:
+                                logoutUser();
+                                return true;
                             default:
                                 return false;
                         }
@@ -58,6 +69,56 @@ MenuBuilder menuBuilder;
                     }
                 });
                 optionMenu.show();
+            }
+        });
+
+        tw_name=findViewById(R.id.tw_name);
+        getProfile();
+    }
+
+    private void getProfile() {
+        sharedPrefManager=new SharedPrefManager(SecoundActivity.this);
+
+        String name = sharedPrefManager.getUser().getName();
+        tw_name.setText(name);
+        String token = "Bearer "+sharedPrefManager.getUser().getToken();
+        Call<ProfileResponse> call = RetrofitClient.getInstance().getApi().profilData(token);
+        call.enqueue(new Callback<ProfileResponse>() {
+            @Override
+            public void onResponse(Call<ProfileResponse> call, Response<ProfileResponse> response) {
+                tw_name.setText(response.body().getUser().getName());
+            }
+
+            @Override
+            public void onFailure(Call<ProfileResponse> call, Throwable t) {
+
+            }
+        });
+    }
+
+    private void logoutUser() {
+        sharedPrefManager=new SharedPrefManager(SecoundActivity.this);
+        Intent intent = new Intent(SecoundActivity.this, MainActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        Toast.makeText(SecoundActivity.this,"Kijelentkezés...", Toast.LENGTH_LONG).show();
+        String token = "Bearer "+sharedPrefManager.getUser().getToken();
+        Call<LogoutResponse> call = RetrofitClient.getInstance().getApi().logout(token);
+        call.enqueue(new Callback<LogoutResponse>() {
+            @Override
+            public void onResponse(Call<LogoutResponse> call, Response<LogoutResponse> response) {
+                String res = response.body().getMessage().toString();
+                sharedPrefManager.logout();
+                startActivity(intent);
+                finish();
+                Toast.makeText(SecoundActivity.this,res,Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onFailure(Call<LogoutResponse> call, Throwable t) {
+                Toast.makeText(SecoundActivity.this,"nem törölt token",Toast.LENGTH_SHORT).show();
+                sharedPrefManager.logout();
+                startActivity(intent);
+                finish();
             }
         });
     }

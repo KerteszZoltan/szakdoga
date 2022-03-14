@@ -21,7 +21,9 @@ class EventsController extends Controller
             ['user_id', '=', $id]
         ])->get();
 
-        return response($active);
+        return [
+            'events'=>$active
+        ];
     }
 
     public function complete(Request $request){

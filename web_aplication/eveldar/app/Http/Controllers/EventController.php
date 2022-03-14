@@ -25,7 +25,7 @@ class EventController extends Controller
 
     public function active_events(){
         $events = Event::where('user_id', auth()->user()->id)
-                         ->where('end', '<', date('Y-m-d H:i:sa') )
+                         ->where('end', '>', date('Y-m-d H:i:sa') )
                          ->where('complete', '=', '0')
                          ->orderByRaw('end ASC')
                          ->paginate(2);
@@ -51,7 +51,7 @@ class EventController extends Controller
     public function expired_list()
     {
         $events = Event::where('user_id', auth()->user()->id)
-                         ->where('end', '>', date('Y-m-d H:i:sa') )
+                         ->where('end', '<', date('Y-m-d H:i:sa') )
                          ->where('complete', '=', '0')
                          ->orderByRaw('end ASC')
                          ->paginate(2);

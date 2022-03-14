@@ -54,6 +54,10 @@ public class ProfileActivity extends AppCompatActivity {
                         switch (item.getItemId()){
                             case R.id.logout:
                                 logoutUser();
+                                return true;
+                            case R.id.profile:
+                                profileGet();
+                                return true;
                             default:
                                 return false;
                         }
@@ -135,7 +139,6 @@ public class ProfileActivity extends AppCompatActivity {
                         @Override
                         public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
                             Toast.makeText( ProfileActivity.this,"Sikeres módosítás", Toast.LENGTH_SHORT).show();
-                            sharedPrefManager.saveUser(response.body().getUser());
                             profileGet();
                         }
 
@@ -157,7 +160,7 @@ public class ProfileActivity extends AppCompatActivity {
 
     }
 
-    public void profileGet() {
+    private void profileGet() {
         sharedPrefManager=new SharedPrefManager(ProfileActivity.this);
 
         String name = sharedPrefManager.getUser().getName();
