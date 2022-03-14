@@ -86,7 +86,6 @@ public class ProfileActivity extends AppCompatActivity {
 
     private void logoutUser() {
         sharedPrefManager=new SharedPrefManager(ProfileActivity.this);
-        sharedPrefManager.logout();
         Intent intent = new Intent(ProfileActivity.this, MainActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
         Toast.makeText(ProfileActivity.this,"Kijelentkezés...", Toast.LENGTH_LONG).show();
@@ -96,16 +95,18 @@ public class ProfileActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<LogoutResponse> call, Response<LogoutResponse> response) {
                 String res = response.body().getMessage().toString();
-                Toast.makeText(ProfileActivity.this,res,Toast.LENGTH_SHORT);
+                sharedPrefManager.logout();
+                startActivity(intent);
+                finish();
+                Toast.makeText(ProfileActivity.this,res,Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void onFailure(Call<LogoutResponse> call, Throwable t) {
+                Toast.makeText(ProfileActivity.this,"nem törölt token",Toast.LENGTH_SHORT).show();
 
             }
         });
-        startActivity(intent);
-        finish();
     }
 
     private void updateProfile() throws IOException {

@@ -27,7 +27,7 @@ public interface Api {
     Call<ProfileResponse> profilData(
             @Header("Authorization") String authHeader
     );
-
+    
     @POST("logout")
     Call<LogoutResponse> logout(
             @Header("Authorization") String authHeader
