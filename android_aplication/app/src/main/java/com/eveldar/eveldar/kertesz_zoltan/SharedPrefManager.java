@@ -3,6 +3,8 @@ package com.eveldar.eveldar.kertesz_zoltan;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import com.eveldar.eveldar.kertesz_zoltan.Models.User;
+
 public class SharedPrefManager {
     public static String SHARED_PREF_NAME="eveldar";
     private SharedPreferences sharedPreferences;
@@ -13,7 +15,7 @@ public class SharedPrefManager {
         this.context = context;
     }
 
-    void saveUser(User user){
+    public void saveUser(User user){
         sharedPreferences = context.getSharedPreferences(SHARED_PREF_NAME, context.MODE_PRIVATE);
         editor=sharedPreferences.edit();
         editor.putInt("id", user.getId());
@@ -24,7 +26,7 @@ public class SharedPrefManager {
         editor.apply();
     }
 
-    boolean isLoggedIn(){
+    public boolean isLoggedIn(){
         sharedPreferences = context.getSharedPreferences(SHARED_PREF_NAME,context.MODE_PRIVATE);
         return sharedPreferences.getBoolean( "logged", false);
     }

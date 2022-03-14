@@ -1,4 +1,4 @@
-package com.eveldar.eveldar.kertesz_zoltan;
+package com.eveldar.eveldar.kertesz_zoltan.Activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,8 +16,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.eveldar.eveldar.kertesz_zoltan.R;
+import com.eveldar.eveldar.kertesz_zoltan.Responses.LogoutResponse;
+import com.eveldar.eveldar.kertesz_zoltan.Responses.ProfileResponse;
+import com.eveldar.eveldar.kertesz_zoltan.RetrofitClient;
+import com.eveldar.eveldar.kertesz_zoltan.SharedPrefManager;
 
 import retrofit2.Call;
 import retrofit2.Callback;

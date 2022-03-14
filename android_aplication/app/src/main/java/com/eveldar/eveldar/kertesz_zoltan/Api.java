@@ -1,5 +1,10 @@
 package com.eveldar.eveldar.kertesz_zoltan;
 
+import com.eveldar.eveldar.kertesz_zoltan.Responses.CheckTokenResponse;
+import com.eveldar.eveldar.kertesz_zoltan.Responses.LoginResponse;
+import com.eveldar.eveldar.kertesz_zoltan.Responses.LogoutResponse;
+import com.eveldar.eveldar.kertesz_zoltan.Responses.ProfileResponse;
+
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;

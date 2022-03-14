@@ -30,7 +30,7 @@ public class RetrofitClient {
         return retrofitClient;
     }
 
-    Api getApi(){
+    public Api getApi(){
         return retrofit.create(Api.class);
     }
 

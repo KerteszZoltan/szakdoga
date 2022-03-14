@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="#D3F3D4"
     android:backgroundTint="#D3F3D4"
-    tools:context=".SecoundActivity">
+    tools:context=".Activities.SecoundActivity">
 
     <ImageView
         android:id="@+id/show_menu"

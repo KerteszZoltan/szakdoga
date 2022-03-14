@@ -1,4 +1,6 @@
-package com.eveldar.eveldar.kertesz_zoltan;
+package com.eveldar.eveldar.kertesz_zoltan.Responses;
+
+import com.eveldar.eveldar.kertesz_zoltan.Models.User;
 
 public class LoginResponse {
     User user;

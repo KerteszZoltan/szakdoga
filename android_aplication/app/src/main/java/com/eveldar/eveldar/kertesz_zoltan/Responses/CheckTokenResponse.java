@@ -1,4 +1,4 @@
-package com.eveldar.eveldar.kertesz_zoltan;
+package com.eveldar.eveldar.kertesz_zoltan.Responses;
 
 public class CheckTokenResponse {
 

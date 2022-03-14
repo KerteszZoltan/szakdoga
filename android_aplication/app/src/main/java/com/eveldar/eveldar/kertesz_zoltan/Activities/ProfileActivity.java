@@ -1,4 +1,4 @@
-package com.eveldar.eveldar.kertesz_zoltan;
+package com.eveldar.eveldar.kertesz_zoltan.Activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,8 +15,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
+
+import com.eveldar.eveldar.kertesz_zoltan.Responses.CheckTokenResponse;
+import com.eveldar.eveldar.kertesz_zoltan.R;
+import com.eveldar.eveldar.kertesz_zoltan.Responses.LoginResponse;
+import com.eveldar.eveldar.kertesz_zoltan.Responses.LogoutResponse;
+import com.eveldar.eveldar.kertesz_zoltan.Responses.ProfileResponse;
+import com.eveldar.eveldar.kertesz_zoltan.RetrofitClient;
+import com.eveldar.eveldar.kertesz_zoltan.SharedPrefManager;
 
 import java.io.IOException;
 

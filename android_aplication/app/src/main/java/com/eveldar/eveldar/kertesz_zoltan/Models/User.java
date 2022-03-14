@@ -1,4 +1,4 @@
-package com.eveldar.eveldar.kertesz_zoltan;
+package com.eveldar.eveldar.kertesz_zoltan.Models;
 
 public class User {
     String token;

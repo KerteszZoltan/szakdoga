@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#D3F3D4"
-    tools:context=".ProfileActivity">
+    tools:context=".Activities.ProfileActivity">
 
     <ImageView
         android:id="@+id/menu_profil_show"

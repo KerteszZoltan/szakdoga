@@ -1,4 +1,4 @@
-package com.eveldar.eveldar.kertesz_zoltan;
+package com.eveldar.eveldar.kertesz_zoltan.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -12,13 +12,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.eveldar.eveldar.kertesz_zoltan.Responses.LoginResponse;
+import com.eveldar.eveldar.kertesz_zoltan.R;
+import com.eveldar.eveldar.kertesz_zoltan.RetrofitClient;
+import com.eveldar.eveldar.kertesz_zoltan.SharedPrefManager;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
 
 public class MainActivity extends AppCompatActivity {
 
