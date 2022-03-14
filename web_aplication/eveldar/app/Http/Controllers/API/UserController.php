@@ -43,19 +43,12 @@ class UserController extends Controller
         $user=auth()->user();
 
         $response=[
-            'id'=>$user['id'],
-            'name'=>$user['name'],
-            'email'=>$user['email'],
-            'created_at'=>$user['created_at']
+            'user'=>$user
         ];
 
         return response($response);
     }
     public function update(Request $request){
-        $token_vali=personal_access_token::find($request['token']);
-        return [
-            'tokenvali'=>$token_vali
-        ];
         $user=auth()->user();
         $user_id=$user['id'];
         $update_user = User::find($user_id);
@@ -65,9 +58,18 @@ class UserController extends Controller
             ];
         }
         $update_user->update($request->all());
+        $token = $request->bearerToken();
+
+        $updated_user=[
+            'id'=>$update_user['id'],
+            'name'=>$update_user['name'],
+            'email'=>$update_user['email'],
+            'token'=>$token
+        ];
 
         return [
-            $update_user
+            'user'=>$updated_user,
+            'token'=>$token
         ];
     }
 

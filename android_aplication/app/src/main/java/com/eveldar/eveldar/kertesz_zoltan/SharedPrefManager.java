@@ -36,7 +36,7 @@ public class SharedPrefManager {
                 sharedPreferences.getString("name", null));
     }
 
-    void logout(){
+    public void logout(){
         sharedPreferences=context.getSharedPreferences(SHARED_PREF_NAME, context.MODE_PRIVATE);
         editor=sharedPreferences.edit();
         editor.clear();

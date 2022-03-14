@@ -6,6 +6,7 @@ import androidx.appcompat.view.menu.MenuBuilder;
 import androidx.appcompat.view.menu.MenuPopupHelper;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.MenuInflater;
@@ -17,6 +18,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.IOException;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -27,7 +30,6 @@ public class ProfileActivity extends AppCompatActivity {
     EditText et_profile_email, et_profile_name;
     SharedPrefManager sharedPrefManager;
     Button btn_save;
-    TextView test;
 
     @SuppressLint("RestrictedApi")
     @Override
@@ -50,7 +52,8 @@ public class ProfileActivity extends AppCompatActivity {
                     @Override
                     public boolean onMenuItemSelected(@NonNull MenuBuilder menu, @NonNull MenuItem item) {
                         switch (item.getItemId()){
-
+                            case R.id.logout:
+                                logoutUser();
                             default:
                                 return false;
                         }
@@ -66,19 +69,31 @@ public class ProfileActivity extends AppCompatActivity {
         });
         et_profile_name = findViewById(R.id.et_profile_name);
         et_profile_email = findViewById(R.id.et_profil_email);
-        test = findViewById(R.id.test);
         profileGet();
 
         btn_save=findViewById(R.id.btn_save_profil);
         btn_save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                updateProfile();
+                try {
+                    updateProfile();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         });
     }
 
-    private void updateProfile() {
+    private void logoutUser() {
+        sharedPrefManager.logout();
+        Intent intent = new Intent(ProfileActivity.this, MainActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        Toast.makeText(ProfileActivity.this,"Kijelentkezés...", Toast.LENGTH_LONG).show();
+        startActivity(intent);
+        finish();
+    }
+
+    private void updateProfile() throws IOException {
         String newName=et_profile_name.getText().toString();
         String newEmail= et_profile_email.getText().toString();
         if (newName.isEmpty()){
@@ -89,34 +104,46 @@ public class ProfileActivity extends AppCompatActivity {
             et_profile_email.requestFocus();
             et_profile_email.setError("A emailcím nem lehet üres");
         }
-        Integer id = sharedPrefManager.getUser().getId();
-        Call<LoginResponse> call = RetrofitClient.getInstance().getApi().updateProfilWithoutPassword(id,newName,newEmail);
+        String token = "Bearer "+sharedPrefManager.getUser().getToken();
+        Call<LoginResponse> call = RetrofitClient.getInstance().getApi().updateProfilWithoutPassword(token,newName,newEmail);
         call.enqueue(new Callback<LoginResponse>() {
             @Override
             public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
-                LoginResponse updateResponse= response.body();
-                if (response.isSuccessful()) {
-                    sharedPrefManager.saveUser(updateResponse.getUser());
-                    Toast.makeText(ProfileActivity.this, "Sikeres módosítás", Toast.LENGTH_SHORT).show();
-                }else{
-                    Toast.makeText(ProfileActivity.this, "Sikertelen", Toast.LENGTH_SHORT).show();
-                }
+                Toast.makeText( ProfileActivity.this,"Sikeres módosítás", Toast.LENGTH_SHORT).show();
+                sharedPrefManager.saveUser(response.body().getUser());
+                profileGet();
             }
 
             @Override
             public void onFailure(Call<LoginResponse> call, Throwable t) {
-                Toast.makeText(ProfileActivity.this, "Sikertelen hívás", Toast.LENGTH_SHORT).show();
+                Toast.makeText( ProfileActivity.this,"Sikertelen módosítás", Toast.LENGTH_SHORT).show();
             }
         });
     }
 
     public void profileGet() {
         sharedPrefManager=new SharedPrefManager(ProfileActivity.this);
+
         String name = sharedPrefManager.getUser().getName();
         String email = sharedPrefManager.getUser().getEmail();
-        String teszt = sharedPrefManager.getUser().getToken();
         et_profile_name.setText(name);
         et_profile_email.setText(email);
-        test.setText(teszt);
+        String token = "Bearer "+sharedPrefManager.getUser().getToken();
+        Call<ProfileResponse> call = RetrofitClient.getInstance().getApi().profilData(token);
+        call.enqueue(new Callback<ProfileResponse>() {
+            @Override
+            public void onResponse(Call<ProfileResponse> call, Response<ProfileResponse> response) {
+                et_profile_email.setText(response.body().getUser().getEmail());
+                et_profile_name.setText(response.body().getUser().getName());
+                Toast.makeText( ProfileActivity.this,"Profil betöltés...", Toast.LENGTH_SHORT).show();
+
+            }
+
+            @Override
+            public void onFailure(Call<ProfileResponse> call, Throwable t) {
+
+            }
+        });
+
     }
 }

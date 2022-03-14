@@ -2,6 +2,16 @@ package com.eveldar.eveldar.kertesz_zoltan;
 
 public class User {
     String token;
+    Integer id;
+    String name,email;
+
+    public User(Integer id, String token, String email, String name) {
+        this.id = id;
+        this.token = token;
+        this.email = email;
+        this.name = name;
+
+    }
 
     public Integer getId() {
         return id;
@@ -9,17 +19,6 @@ public class User {
 
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    Integer id;
-    String name,email;
-
-    public User(Integer id,String token, String email, String name) {
-        this.token = token;
-        this.id = id;
-        this.email = email;
-        this.name = name;
-
     }
 
     public String getToken() {
