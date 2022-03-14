@@ -104,7 +104,9 @@ public class ProfileActivity extends AppCompatActivity {
             @Override
             public void onFailure(Call<LogoutResponse> call, Throwable t) {
                 Toast.makeText(ProfileActivity.this,"nem törölt token",Toast.LENGTH_SHORT).show();
-
+                sharedPrefManager.logout();
+                startActivity(intent);
+                finish();
             }
         });
     }
@@ -121,20 +123,38 @@ public class ProfileActivity extends AppCompatActivity {
             et_profile_email.setError("A emailcím nem lehet üres");
         }
         String token = "Bearer "+sharedPrefManager.getUser().getToken();
-        Call<LoginResponse> call = RetrofitClient.getInstance().getApi().updateProfilWithoutPassword(token,newName,newEmail);
-        call.enqueue(new Callback<LoginResponse>() {
+        Call<CheckTokenResponse> callcheck = RetrofitClient.getInstance().getApi().checkToken(token,sharedPrefManager.getUser().getId());
+        callcheck.enqueue(new Callback<CheckTokenResponse>() {
             @Override
-            public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
-                Toast.makeText( ProfileActivity.this,"Sikeres módosítás", Toast.LENGTH_SHORT).show();
-                sharedPrefManager.saveUser(response.body().getUser());
-                profileGet();
+            public void onResponse(Call<CheckTokenResponse> callCheck, Response<CheckTokenResponse> responseCheck) {
+                Integer responseId = responseCheck.body().getId();
+                Integer origId = sharedPrefManager.getUser().getId();
+                if (responseId == origId){
+                    Call<LoginResponse> call = RetrofitClient.getInstance().getApi().updateProfilWithoutPassword(token,newName,newEmail);
+                    call.enqueue(new Callback<LoginResponse>() {
+                        @Override
+                        public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
+                            Toast.makeText( ProfileActivity.this,"Sikeres módosítás", Toast.LENGTH_SHORT).show();
+                            sharedPrefManager.saveUser(response.body().getUser());
+                            profileGet();
+                        }
+
+                        @Override
+                        public void onFailure(Call<LoginResponse> call, Throwable t) {
+                            Toast.makeText( ProfileActivity.this,"Sikertelen módosítás", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                } else{
+                    logoutUser();
+                }
             }
 
             @Override
-            public void onFailure(Call<LoginResponse> call, Throwable t) {
-                Toast.makeText( ProfileActivity.this,"Sikertelen módosítás", Toast.LENGTH_SHORT).show();
+            public void onFailure(Call<CheckTokenResponse> callCheck, Throwable tCheck) {
+                logoutUser();
             }
         });
+
     }
 
     public void profileGet() {

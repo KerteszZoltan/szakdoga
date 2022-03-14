@@ -21,6 +21,8 @@ Route::post('/login', [UserController::class, 'login']);
 
 Route::post('/logout', [UserController::class, 'logout'])->middleware('auth:sanctum');
 Route::get('/profile', [UserController::class, 'profile'])->middleware('auth:sanctum');
+Route::post('/checkToken', [UserController::class, 'checkToken'])->middleware('auth:sanctum');
+
 
 Route::get('/active', [EventsController::class, 'active'])->middleware('auth:sanctum');
 Route::get('/complete', [EventsController::class, 'complete'])->middleware('auth:sanctum');

@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
+
 use Auth;
 
 class UserController extends Controller
@@ -36,6 +38,23 @@ class UserController extends Controller
         ];
 
         return response($response);
+    }
+
+    public function checkToken(Request $request){
+        $usedToken=$request['id'];
+        $userId=$request['id'];
+        $storedToken=DB::table('personal_access_tokens')->where('tokenable_id', $userId)->value('tokenable_id');
+        //$token=$storedToken->token;
+        if($storedToken == $userId){
+            return [
+                'id'=> $usedToken
+            ];
+        }
+        else{
+            return [
+                'id'=>null
+            ];
+        }
     }
 
     public function profile(Request $request)

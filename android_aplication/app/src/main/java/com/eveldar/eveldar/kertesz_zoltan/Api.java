@@ -32,4 +32,11 @@ public interface Api {
     Call<LogoutResponse> logout(
             @Header("Authorization") String authHeader
     );
+
+    @FormUrlEncoded
+    @POST("checkToken")
+    Call<CheckTokenResponse> checkToken(
+            @Header("Authorization") String authHeader,
+            @Field("id") Integer id
+    );
 }
