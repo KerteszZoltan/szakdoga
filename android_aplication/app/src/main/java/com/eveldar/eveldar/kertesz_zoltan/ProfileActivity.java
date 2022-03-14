@@ -85,10 +85,25 @@ public class ProfileActivity extends AppCompatActivity {
     }
 
     private void logoutUser() {
+        sharedPrefManager=new SharedPrefManager(ProfileActivity.this);
         sharedPrefManager.logout();
         Intent intent = new Intent(ProfileActivity.this, MainActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
         Toast.makeText(ProfileActivity.this,"Kijelentkezés...", Toast.LENGTH_LONG).show();
+        String token = "Bearer "+sharedPrefManager.getUser().getToken();
+        Call<LogoutResponse> call = RetrofitClient.getInstance().getApi().logout(token);
+        call.enqueue(new Callback<LogoutResponse>() {
+            @Override
+            public void onResponse(Call<LogoutResponse> call, Response<LogoutResponse> response) {
+                String res = response.body().getMessage().toString();
+                Toast.makeText(ProfileActivity.this,res,Toast.LENGTH_SHORT);
+            }
+
+            @Override
+            public void onFailure(Call<LogoutResponse> call, Throwable t) {
+
+            }
+        });
         startActivity(intent);
         finish();
     }
