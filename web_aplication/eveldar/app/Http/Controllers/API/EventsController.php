@@ -65,7 +65,9 @@ class EventsController extends Controller
             ['user_id', '=', $user_id]
         ])->get();
 
-        return response($event);
+        return [
+            'events'=>$event
+        ];
     }
 
     public function update(Request $request){
@@ -81,7 +83,9 @@ class EventsController extends Controller
         }
         $event->update($request->all());
 
-        return $event;
+        return [
+            'events'=>$event
+        ];
     }
 
     public function delete(Request $request){
