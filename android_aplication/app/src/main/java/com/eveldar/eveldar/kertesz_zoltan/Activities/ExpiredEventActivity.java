@@ -106,8 +106,8 @@ public class ExpiredEventActivity extends AppCompatActivity {
     private void getExpiredEvent() {
         rcv = findViewById(R.id.rcv_expired);
         String token = "Bearer "+sharedPrefManager.getUser().getToken();
-        Call<FetchEventsResponse> completeEvents = RetrofitClient.getInstance().getApi().completeEvents(token);
-        completeEvents.enqueue(new Callback<FetchEventsResponse>() {
+        Call<FetchEventsResponse> expiredEvent = RetrofitClient.getInstance().getApi().expiredEvent(token);
+        expiredEvent.enqueue(new Callback<FetchEventsResponse>() {
             @Override
             public void onResponse(Call<FetchEventsResponse> call, Response<FetchEventsResponse> response) {
                 eventList=response.body().getEventList();

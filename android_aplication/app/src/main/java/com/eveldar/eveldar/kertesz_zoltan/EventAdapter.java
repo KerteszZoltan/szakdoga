@@ -32,6 +32,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder>{
 
     @Override
     public void onBindViewHolder(@NonNull EventAdapter.ViewHolder holder, final int position) {
+        holder.eventId.setText("Esemény azonosító: "+eventList.get(position).getId());
         holder.topic.setText("Esemény neve: "+eventList.get(position).getTopic());
         holder.description.setText("Esemény leírása: "+eventList.get(position).getDescription());
         holder.start.setText("Esemény kezdete: "+eventList.get(position).getStart());
@@ -44,9 +45,10 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder>{
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        private final TextView topic,description,start,end;
+        private final TextView topic,description,start,end, eventId;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
+            eventId = itemView.findViewById(R.id.tw_event_id);
             topic = itemView.findViewById(R.id.tw_event_topic);
             description = itemView.findViewById(R.id.tw_event_desc);
             start = itemView.findViewById(R.id.tw_event_start);

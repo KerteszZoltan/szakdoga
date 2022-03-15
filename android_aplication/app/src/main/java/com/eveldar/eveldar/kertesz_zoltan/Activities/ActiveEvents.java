@@ -115,6 +115,7 @@ public class ActiveEvents extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<FetchEventsResponse> call, Throwable t) {
+                Toast.makeText(ActiveEvents.this,"sikertelen hívás",Toast.LENGTH_SHORT).show();
 
             }
         });

@@ -1,17 +1,18 @@
 package com.eveldar.eveldar.kertesz_zoltan.Models;
 
 public class Event {
-    Integer id;
+    Integer id, complete;
     Integer user_id;
     String topic, description, start, end;
 
-    public Event(Integer id, Integer user_id, String topic, String description, String start, String end) {
+    public Event(Integer id, Integer user_id, String topic, String description, String start, String end, Integer complete) {
         this.id = id;
         this.user_id = user_id;
         this.topic = topic;
         this.description = description;
         this.start = start;
         this.end = end;
+        this.complete=complete;
     }
 
     public Integer getId() {
@@ -60,5 +61,13 @@ public class Event {
 
     public void setEnd(String end) {
         this.end = end;
+    }
+
+    public Integer getComplete() {
+        return complete;
+    }
+
+    public void setComplete(Integer complete) {
+        this.complete = complete;
     }
 }

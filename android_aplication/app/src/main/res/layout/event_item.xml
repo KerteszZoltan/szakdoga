@@ -24,14 +24,23 @@
             android:background="#D3F3D4" />
 
         <TextView
-            android:id="@+id/tw_event_topic"
+            android:id="@+id/tw_event_id"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/event_border_top"
             android:gravity="center_horizontal"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
-            android:text="teszt"
+            android:text="Azonosító"
+            android:textSize="16sp"/>
+
+        <TextView
+            android:id="@+id/tw_event_topic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#CCFFA7"
+            android:gravity="center_horizontal"
+            android:text="név"
             android:textSize="16sp" />
 
         <TextView
