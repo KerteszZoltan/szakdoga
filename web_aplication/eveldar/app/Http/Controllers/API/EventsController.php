@@ -99,7 +99,11 @@ class EventsController extends Controller
             ]);
         }
 
-        return Event::destroy($id);
+        Event::destroy($id);
+
+        return [
+            'message'=>'Sikeres torles'
+        ];
     }
 
     public function store(Request $request){

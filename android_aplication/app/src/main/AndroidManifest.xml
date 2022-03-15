@@ -13,6 +13,9 @@
         android:theme="@style/Theme.Eveldar"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".Activities.UpdateEventActivity"
+            android:exported="false" />
+        <activity
             android:name=".Activities.ExpiredEventActivity"
             android:exported="false" />
         <activity
