@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.eveldar.eveldar.kertesz_zoltan">
+    package="com.eveldar.eveldar.kertesz_zoltan" >
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -11,7 +11,13 @@
         android:roundIcon="@mipmap/icon_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Eveldar"
-        android:usesCleartextTraffic="true">
+        android:usesCleartextTraffic="true" >
+        <activity
+            android:name=".Activities.CompleteEventsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activities.AddEventActivity"
+            android:exported="false" />
         <activity
             android:name=".Activities.ActiveEvents"
             android:exported="false" />
@@ -23,7 +29,7 @@
             android:exported="false" />
         <activity
             android:name=".Activities.MainActivity"
-            android:exported="true">
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

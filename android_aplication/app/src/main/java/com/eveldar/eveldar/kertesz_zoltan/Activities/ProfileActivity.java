@@ -65,6 +65,16 @@ public class ProfileActivity extends AppCompatActivity {
                             case R.id.profile:
                                 profileGet();
                                 return true;
+                            case R.id.active:
+                                Intent active = new Intent(ProfileActivity.this, ActiveEvents.class);
+                                startActivity(active);
+                                finish();
+                                return true;
+                            case R.id.complete:
+                                Intent complete = new Intent(ProfileActivity.this,CompleteEventsActivity.class);
+                                startActivity(complete);
+                                finish();
+                                return true;
                             default:
                                 return false;
                         }

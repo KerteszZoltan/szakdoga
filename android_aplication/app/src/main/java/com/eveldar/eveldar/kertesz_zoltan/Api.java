@@ -1,6 +1,7 @@
 package com.eveldar.eveldar.kertesz_zoltan;
 
 import com.eveldar.eveldar.kertesz_zoltan.Responses.CheckTokenResponse;
+import com.eveldar.eveldar.kertesz_zoltan.Responses.FetchEventsResponse;
 import com.eveldar.eveldar.kertesz_zoltan.Responses.LoginResponse;
 import com.eveldar.eveldar.kertesz_zoltan.Responses.LogoutResponse;
 import com.eveldar.eveldar.kertesz_zoltan.Responses.ProfileResponse;
@@ -43,5 +44,14 @@ public interface Api {
     Call<CheckTokenResponse> checkToken(
             @Header("Authorization") String authHeader,
             @Field("id") Integer id
+    );
+
+    @GET("active")
+    Call<FetchEventsResponse> activeEvents(
+            @Header("Authorization") String authHeader
+    );
+    @GET("complete")
+    Call<FetchEventsResponse> completeEvents(
+            @Header("Authorization") String authHeader
     );
 }

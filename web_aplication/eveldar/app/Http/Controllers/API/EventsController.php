@@ -19,7 +19,7 @@ class EventsController extends Controller
             ['complete', '=', '0'],
             ['end', '>', date('Y-m-d H:i:sa')],
             ['user_id', '=', $id]
-        ])->get();
+        ])->orderByRaw('end ASC')->get();
 
         return [
             'events'=>$active
@@ -33,9 +33,11 @@ class EventsController extends Controller
         $complete=Event::where([
             ['complete', '=', '1'],
             ['user_id', '=', $id]
-        ])->get();
+        ])->orderByRaw('end ASC')->get();
 
-        return response($complete);
+        return [
+            'events'=>$complete
+        ];
     }
 
     public function expire(Request $request){
@@ -46,9 +48,11 @@ class EventsController extends Controller
             ['complete', '=', '0'],
             ['end', '<', date('Y-m-d H:i:sa')],
             ['user_id', '=', $id]
-        ])->get();
+        ])->orderByRaw('end ASC')->get();
 
-        return response($expired);
+        return [
+            'events'=>$expired
+        ];
     }
 
     public function specified(Request $request){

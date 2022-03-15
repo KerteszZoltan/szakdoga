@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -31,6 +32,7 @@ ImageView menu_show;
 TextView tw_name;
 MenuBuilder menuBuilder;
 SharedPrefManager sharedPrefManager;
+Button btn_newEvent;
 
     @SuppressLint("RestrictedApi")
     @Override
@@ -57,9 +59,20 @@ SharedPrefManager sharedPrefManager;
                             case R.id.profile:
                                 Intent profile = new Intent(SecoundActivity.this, ProfileActivity.class);
                                 startActivity(profile);
+                                finish();
                                 return true;
                             case R.id.logout:
                                 logoutUser();
+                                return true;
+                            case R.id.active:
+                                Intent active = new Intent(SecoundActivity.this, ActiveEvents.class);
+                                startActivity(active);
+                                finish();
+                                return true;
+                            case R.id.complete:
+                                Intent complete = new Intent(SecoundActivity.this,CompleteEventsActivity.class);
+                                startActivity(complete);
+                                finish();
                                 return true;
                             default:
                                 return false;
@@ -77,6 +90,16 @@ SharedPrefManager sharedPrefManager;
 
         tw_name=findViewById(R.id.tw_name);
         getProfile();
+
+        btn_newEvent = findViewById(R.id.btn_new_event);
+        btn_newEvent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent addEvent = new Intent(SecoundActivity.this, AddEventActivity.class);
+                startActivity(addEvent);
+                finish();
+            }
+        });
     }
 
     private void getProfile() {
