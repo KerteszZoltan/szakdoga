@@ -54,4 +54,8 @@ public interface Api {
     Call<FetchEventsResponse> completeEvents(
             @Header("Authorization") String authHeader
     );
+    @GET("complete")
+    Call<FetchEventsResponse> expiredEvent(
+            @Header("Authorization") String authHeader
+    );
 }

@@ -78,6 +78,11 @@ public class ActiveEvents extends AppCompatActivity {
                                 startActivity(complete);
                                 finish();
                                 return true;
+                            case R.id.expired:
+                                Intent expired = new Intent(ActiveEvents.this,ExpiredEventActivity.class);
+                                startActivity(expired);
+                                finish();
+                                return true;
                             default:
                                 return false;
                         }

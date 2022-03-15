@@ -12,7 +12,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.*;
 
 public class RetrofitClient {
-    private static String BASE_URL="http://192.168.0.107:80/eveldar/public/api/";
+    private static String BASE_URL="http://192.168.0.132:80/eveldar/public/api/";
     private static RetrofitClient retrofitClient;
     private static Retrofit retrofit;
 

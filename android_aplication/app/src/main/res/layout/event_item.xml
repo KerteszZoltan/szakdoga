@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingTop="10dp">
+    android:paddingLeft="10dp"
+    android:paddingTop="10dp"
+    android:paddingRight="10dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -16,9 +18,16 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
+            android:id="@+id/textView6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#D3F3D4" />
+
+        <TextView
             android:id="@+id/tw_event_topic"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/event_border_top"
             android:gravity="center_horizontal"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
@@ -29,6 +38,7 @@
             android:id="@+id/tw_event_desc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="#CCFFA7"
             android:gravity="center_horizontal"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
@@ -39,6 +49,7 @@
             android:id="@+id/tw_event_start"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="#CCFFA7"
             android:gravity="center_horizontal"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
@@ -49,16 +60,12 @@
             android:id="@+id/tw_event_end"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/event_border_bottom"
             android:gravity="center_horizontal"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
             android:text="end"
             android:textSize="16sp" />
 
-        <ImageView
-            android:id="@+id/imageView8"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/ic_baseline_linear_scale_24" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
