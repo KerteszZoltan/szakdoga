@@ -63,11 +63,18 @@ class EventsController extends Controller
         $event=Event::where([
             ['id', '=', $event_id],
             ['user_id', '=', $user_id]
-        ])->get();
+        ])->first();
 
-        return [
-            'events'=>$event
-        ];
+        if ($event!=null) {
+            $response = [
+                'events'=>$event
+            ];
+        }else{
+            $response = [
+                'Hibás adat'
+            ];
+        }
+        return response($response);
     }
 
     public function update(Request $request){

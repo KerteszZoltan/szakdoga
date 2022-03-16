@@ -5,6 +5,7 @@ import com.eveldar.eveldar.kertesz_zoltan.Responses.FetchEventsResponse;
 import com.eveldar.eveldar.kertesz_zoltan.Responses.LoginResponse;
 import com.eveldar.eveldar.kertesz_zoltan.Responses.LogoutResponse;
 import com.eveldar.eveldar.kertesz_zoltan.Responses.ProfileResponse;
+import com.eveldar.eveldar.kertesz_zoltan.Responses.ResponseEvent;
 
 import retrofit2.Call;
 import retrofit2.http.Field;
@@ -57,5 +58,12 @@ public interface Api {
     @GET("expired")
     Call<FetchEventsResponse> expiredEvent(
             @Header("Authorization") String authHeader
+    );
+
+    @FormUrlEncoded
+    @POST("specified")
+    Call<ResponseEvent> specifiedEvent(
+            @Header("Authorization") String authHeader,
+            @Field("event_id") Integer eventId
     );
 }

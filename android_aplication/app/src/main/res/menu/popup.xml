@@ -15,6 +15,12 @@
         android:id="@+id/expired"
 
         />
+
+    <item android:title="Esemény frissítés"
+        android:icon="@drawable/ic_baseline_edit_calendar_24"
+        android:id="@+id/event_update"
+        />
+
     <item android:title="Profil"
         android:icon="@drawable/profil"
         android:id="@+id/profile"
@@ -24,4 +30,5 @@
         android:icon="@drawable/logout"
         android:id="@+id/logout"
         />
+
 </menu>

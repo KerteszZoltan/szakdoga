@@ -28,11 +28,11 @@ Route::get('/active', [EventsController::class, 'active'])->middleware('auth:san
 Route::get('/complete', [EventsController::class, 'complete'])->middleware('auth:sanctum');
 Route::get('/expired', [EventsController::class, 'expire'])->middleware('auth:sanctum');
 
-Route::get('/specified', [EventsController::class, 'specified'])->middleware('auth:sanctum');
+Route::post('/specified', [EventsController::class, 'specified'])->middleware('auth:sanctum');
 
 Route::post('/new', [EventsController::class, 'store'])->middleware('auth:sanctum');
 
-Route::put('/update', [EventsController::class, 'update'])->middleware('auth:sanctum');
+Route::post('/update', [EventsController::class, 'update'])->middleware('auth:sanctum');
 
 Route::post('/update_profil', [UserController::class, 'update'])->middleware('auth:sanctum');
 

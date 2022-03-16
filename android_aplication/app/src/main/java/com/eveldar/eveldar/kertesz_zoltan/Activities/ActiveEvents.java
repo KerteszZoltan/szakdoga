@@ -83,6 +83,11 @@ public class ActiveEvents extends AppCompatActivity {
                                 startActivity(expired);
                                 finish();
                                 return true;
+                            case R.id.event_update:
+                                Intent update = new Intent(ActiveEvents.this,UpdateEventActivity.class);
+                                startActivity(update);
+                                finish();
+                                return true;
                             default:
                                 return false;
                         }

@@ -80,6 +80,11 @@ public class ProfileActivity extends AppCompatActivity {
                                 startActivity(expired);
                                 finish();
                                 return true;
+                            case R.id.event_update:
+                                Intent update = new Intent(ProfileActivity.this,UpdateEventActivity.class);
+                                startActivity(update);
+                                finish();
+                                return true;
                             default:
                                 return false;
                         }
