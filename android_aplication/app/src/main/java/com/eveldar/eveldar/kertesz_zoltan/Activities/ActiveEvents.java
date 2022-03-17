@@ -32,7 +32,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class ActiveEvents extends AppCompatActivity {
-    ImageView menu_show;
+    ImageView menu_show, btn_eventAdd;
     MenuBuilder menuBuilder;
     SharedPrefManager sharedPrefManager;
     RecyclerView rcv;
@@ -48,6 +48,15 @@ public class ActiveEvents extends AppCompatActivity {
         getSupportActionBar().hide();
 
         sharedPrefManager=new SharedPrefManager(ActiveEvents.this);
+        btn_eventAdd = findViewById(R.id.imv_active_add);
+        btn_eventAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent newadd = new Intent(ActiveEvents.this,AddEventActivity.class);
+                startActivity(newadd);
+                finish();
+            }
+        });
         menu_show = (ImageView) findViewById(R.id.active_menu_show);
         menuBuilder = new MenuBuilder(this);
         MenuInflater menuInflater=new MenuInflater(this);
@@ -86,6 +95,11 @@ public class ActiveEvents extends AppCompatActivity {
                             case R.id.event_update:
                                 Intent update = new Intent(ActiveEvents.this,UpdateEventActivity.class);
                                 startActivity(update);
+                                finish();
+                                return true;
+                            case R.id.addnew:
+                                Intent addnew = new Intent(ActiveEvents.this,AddEventActivity.class);
+                                startActivity(addnew);
                                 finish();
                                 return true;
                             default:

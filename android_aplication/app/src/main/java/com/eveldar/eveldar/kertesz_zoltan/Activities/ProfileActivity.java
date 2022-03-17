@@ -85,6 +85,11 @@ public class ProfileActivity extends AppCompatActivity {
                                 startActivity(update);
                                 finish();
                                 return true;
+                            case R.id.addnew:
+                                Intent addnew = new Intent(ProfileActivity.this,AddEventActivity.class);
+                                startActivity(addnew);
+                                finish();
+                                return true;
                             default:
                                 return false;
                         }

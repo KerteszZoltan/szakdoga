@@ -114,6 +114,11 @@ public class UpdateEventActivity extends AppCompatActivity {
                                 startActivity(update);
                                 finish();
                                 return true;
+                            case R.id.addnew:
+                                Intent addnew = new Intent(UpdateEventActivity.this,AddEventActivity.class);
+                                startActivity(addnew);
+                                finish();
+                                return true;
                             default:
                                 return false;
                         }

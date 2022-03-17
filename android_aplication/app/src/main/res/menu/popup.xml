@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <item
+        android:id="@+id/addnew"
+        android:icon="@drawable/balck_control_point"
+        android:title="Új esemény" />
+
     <item android:title="Aktív események"
         android:id="@+id/active"
         android:icon="@drawable/active"
         />
+
     <item android:title="Teljesített események"
         android:id="@+id/complete"
 
@@ -16,10 +22,10 @@
 
         />
 
-    <item android:title="Esemény frissítés"
-        android:icon="@drawable/ic_baseline_edit_calendar_24"
+    <item
         android:id="@+id/event_update"
-        />
+        android:icon="@drawable/ic_baseline_edit_calendar_24"
+        android:title="Esemény kezelése" />
 
     <item android:title="Profil"
         android:icon="@drawable/profil"

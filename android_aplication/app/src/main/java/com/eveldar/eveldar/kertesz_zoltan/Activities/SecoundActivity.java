@@ -32,7 +32,7 @@ ImageView menu_show;
 TextView tw_name;
 MenuBuilder menuBuilder;
 SharedPrefManager sharedPrefManager;
-Button btn_newEvent;
+Button btn_newEvent, btn_active_events, btn_expired_events,btn_complete_events;
 
     @SuppressLint("RestrictedApi")
     @Override
@@ -42,6 +42,34 @@ Button btn_newEvent;
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         getSupportActionBar().hide();
 
+        btn_active_events = findViewById(R.id.btn_active_events);
+        btn_expired_events = findViewById(R.id.btn_expired_events);
+        btn_complete_events = findViewById(R.id.btn_complete_events);
+
+        btn_active_events.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent activeEvent = new Intent(SecoundActivity.this,ActiveEvents.class);
+                startActivity(activeEvent);
+                finish();
+            }
+        });
+        btn_expired_events.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent expiredEvent = new Intent(SecoundActivity.this, ExpiredEventActivity.class);
+                startActivity(expiredEvent);
+                finish();
+            }
+        });
+        btn_complete_events.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent completeEvent=new Intent(SecoundActivity.this, CompleteEventsActivity.class);
+                startActivity(completeEvent);
+                finish();
+            }
+        });
         menu_show = (ImageView) findViewById(R.id.show_menu);
         menuBuilder = new MenuBuilder(this);
         MenuInflater menuInflater=new MenuInflater(this);
@@ -82,6 +110,11 @@ Button btn_newEvent;
                             case R.id.event_update:
                                 Intent update = new Intent(SecoundActivity.this,UpdateEventActivity.class);
                                 startActivity(update);
+                                finish();
+                                return true;
+                            case R.id.addnew:
+                                Intent addnew = new Intent(SecoundActivity.this,AddEventActivity.class);
+                                startActivity(addnew);
                                 finish();
                                 return true;
                             default:
