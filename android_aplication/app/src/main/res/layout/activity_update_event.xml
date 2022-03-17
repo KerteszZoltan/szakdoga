@@ -201,6 +201,32 @@
             android:text="Frissítés"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.125"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/et_event_up_end"
+            app:layout_constraintVertical_bias="0.854" />
+
+        <Button
+            android:id="@+id/btn_event_del"
+            android:layout_width="105dp"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#CA606C"
+            android:text="Törlés"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.859"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/et_event_up_end"
+            app:layout_constraintVertical_bias="0.854" />
+
+        <CheckBox
+            android:id="@+id/chb_evnt_up_comp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="false"
+            android:text="Az esemény teljesíteve van-e"
+            app:layout_constraintBottom_toTopOf="@+id/btn_event_up"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/et_event_up_end" />
 

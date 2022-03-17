@@ -88,6 +88,16 @@ class EventsController extends Controller
                 'message'=>'Elerhetetlen adat!'
             ]);
         }
+        if(isset($request['complete'])){
+            if($request['complete'] == 0){
+                $event->complete = '0';
+                $event->save();
+            }
+            if($request['complete']==1){
+                $event->complete='1';
+                $event->save();
+            }
+        }
         $event->update($request->all());
 
         return [

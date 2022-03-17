@@ -13,6 +13,7 @@ import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.POST;
+import retrofit2.http.PUT;
 
 public interface Api {
 
@@ -65,5 +66,18 @@ public interface Api {
     Call<ResponseEvent> specifiedEvent(
             @Header("Authorization") String authHeader,
             @Field("event_id") Integer eventId
+    );
+
+    @FormUrlEncoded
+    @POST("update")
+    Call<ResponseEvent> updateEvent(
+            @Header("Authorization") String authHeader,
+            @Field("event_id") Integer eventId,
+            @Field("topic") String topic,
+            @Field("description") String description,
+            @Field("start") String start,
+            @Field("end") String end,
+            @Field("complete") Integer complete
+
     );
 }
