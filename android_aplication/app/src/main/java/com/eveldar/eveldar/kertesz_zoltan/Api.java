@@ -80,4 +80,11 @@ public interface Api {
             @Field("complete") Integer complete
 
     );
+
+    @FormUrlEncoded
+    @POST("delete")
+    Call<ResponseEvent> deleteEvent(
+            @Header("Authorization") String authHeader,
+            @Field("event_id") String eventId
+    );
 }

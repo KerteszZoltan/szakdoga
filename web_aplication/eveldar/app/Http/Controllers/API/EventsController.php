@@ -82,6 +82,12 @@ class EventsController extends Controller
         $user=auth()->user();
         $user_id=$user['id'];
         $event=Event::find($id);
+        if ($request['start']!=$event['start'] || $request['end']!=$event['end']) {
+            $this-> validate($request,[
+                'start'=> 'required | date | after:today',
+                'end'=> 'required | date | after:start',
+            ]);
+        }
 
         if ($event['user_id']!=$user_id) {
             return response()->json([

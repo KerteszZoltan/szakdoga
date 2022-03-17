@@ -20,6 +20,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.eveldar.eveldar.kertesz_zoltan.Models.Event;
 import com.eveldar.eveldar.kertesz_zoltan.R;
 import com.eveldar.eveldar.kertesz_zoltan.Responses.LogoutResponse;
 import com.eveldar.eveldar.kertesz_zoltan.Responses.ResponseEvent;
@@ -34,7 +35,7 @@ public class UpdateEventActivity extends AppCompatActivity {
     ConstraintLayout update;
     EditText eventUpTopic, eventUpDesc, eventUpStart, eventUpEnd, etUpdaterId;
     SharedPrefManager sharedPrefManager;
-    Button updateCheck, updateEvent;
+    Button updateCheck, updateEvent, deleteEvent;
     CheckBox eventUpComplete;
     ImageView menu_show;
 
@@ -211,14 +212,40 @@ public class UpdateEventActivity extends AppCompatActivity {
 
                             @Override
                             public void onFailure(Call<ResponseEvent> call, Throwable t) {
-                                Toast.makeText(UpdateEventActivity.this, "Sikertelen hívás", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(UpdateEventActivity.this, "Sikertelen módosítás!", Toast.LENGTH_SHORT).show();
+                                eventUpStart.requestFocus();
+                                eventUpStart.setError("A dátum nem lehet korábbi az aktuálisnál!");
+                                eventUpEnd.requestFocus();
+                                eventUpEnd.setError("A dátum nem lehet korábbi mint a kezdés és az aktuális dátum");
 
                             }
                         });
                     }
                 });
+                deleteEvent = findViewById(R.id.btn_event_del);
+                deleteEvent.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        String token = "Bearer "+sharedPrefManager.getUser().getToken();
+                        String deleteID=etUpdaterId.getText().toString();
+                        Call<ResponseEvent> callDelete = RetrofitClient.getInstance().getApi().deleteEvent(token,deleteID);
+                        callDelete.enqueue(new Callback<ResponseEvent>() {
+                            @Override
+                            public void onResponse(Call<ResponseEvent> call, Response<ResponseEvent> response) {
+                                recreate();
+                                Toast.makeText(UpdateEventActivity.this,"A törlés sikeres!", Toast.LENGTH_SHORT).show();
+                                Intent secound = new Intent(UpdateEventActivity.this, SecoundActivity.class);
+                                startActivity(secound);
+                                finish();
+                            }
 
-
+                            @Override
+                            public void onFailure(Call<ResponseEvent> call, Throwable t) {
+                                Toast.makeText(UpdateEventActivity.this,"Sikertelen törlés", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                    }
+                });
             }
 
             @Override

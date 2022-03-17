@@ -36,7 +36,7 @@ Route::post('/update', [EventsController::class, 'update'])->middleware('auth:sa
 
 Route::post('/update_profil', [UserController::class, 'update'])->middleware('auth:sanctum');
 
-Route::delete('/delete', [EventsController::class, 'delete'])->middleware('auth:sanctum');
+Route::post('/delete', [EventsController::class, 'delete'])->middleware('auth:sanctum');
 
 
 
