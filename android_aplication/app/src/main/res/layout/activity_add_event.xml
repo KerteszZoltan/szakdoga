@@ -8,7 +8,7 @@
     tools:context=".Activities.AddEventActivity">
 
     <ImageView
-        android:id="@+id/imageView5"
+        android:id="@+id/imv_add_menu"
         android:layout_width="60dp"
         android:layout_height="51dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -26,7 +26,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.33"
-        app:layout_constraintStart_toEndOf="@+id/imageView5"
+        app:layout_constraintStart_toEndOf="@+id/imv_add_menu"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.025"
         app:srcCompat="@mipmap/icon_foreground" />

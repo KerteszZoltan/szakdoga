@@ -118,6 +118,8 @@ public class ActiveEvents extends AppCompatActivity {
         rcv=findViewById(R.id.active);
         getActiveEvents();
 
+
+
     }
 
     private void getActiveEvents() {

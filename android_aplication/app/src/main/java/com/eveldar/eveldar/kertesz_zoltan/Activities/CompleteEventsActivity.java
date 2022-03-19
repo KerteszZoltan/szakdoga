@@ -34,7 +34,7 @@ import retrofit2.Response;
 public class CompleteEventsActivity extends AppCompatActivity {
 
     SharedPrefManager sharedPrefManager;
-    ImageView menu_show;
+    ImageView menu_show, imv_active_add;
     MenuBuilder menuBuilder;
     RecyclerView rcv;
     List<Event> eventList;
@@ -49,6 +49,19 @@ public class CompleteEventsActivity extends AppCompatActivity {
         sharedPrefManager=new SharedPrefManager(CompleteEventsActivity.this);
         getMenu();
         getCompleteEvents();
+        addEventIcon();
+    }
+
+    private void addEventIcon() {
+        imv_active_add = findViewById(R.id.imv_active_add_event);
+        imv_active_add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent addEvent = new Intent(CompleteEventsActivity.this, AddEventActivity.class);
+                startActivity(addEvent);
+                finish();
+            }
+        });
     }
 
     @SuppressLint("RestrictedApi")

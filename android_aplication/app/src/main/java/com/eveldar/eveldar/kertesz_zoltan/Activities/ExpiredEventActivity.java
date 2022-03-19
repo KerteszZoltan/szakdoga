@@ -34,7 +34,7 @@ import retrofit2.Response;
 public class ExpiredEventActivity extends AppCompatActivity {
 
     SharedPrefManager sharedPrefManager;
-    ImageView menu_show;
+    ImageView menu_show, addEvent;
     MenuBuilder menuBuilder;
     RecyclerView rcv;
     List<Event> eventList;
@@ -49,6 +49,19 @@ public class ExpiredEventActivity extends AppCompatActivity {
         sharedPrefManager=new SharedPrefManager(ExpiredEventActivity.this);
         getMenu();
         getExpiredEvent();
+        getAddEvent();
+    }
+
+    private void getAddEvent() {
+        addEvent= findViewById(R.id.imv_expired_add_event);
+        addEvent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent addEvent=new Intent(ExpiredEventActivity.this,AddEventActivity.class);
+                startActivity(addEvent);
+                finish();
+            }
+        });
     }
 
     @SuppressLint("RestrictedApi")
