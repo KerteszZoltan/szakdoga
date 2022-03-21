@@ -6,10 +6,12 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.eveldar.eveldar.kertesz_zoltan.Responses.LoginResponse;
@@ -25,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
 
     EditText et_email, et_password;
     Button btn_login;
+    ImageView imv_openBrowser;
     String email,password;
     SharedPrefManager sharedPrefManager;
     @Override
@@ -36,12 +39,21 @@ public class MainActivity extends AppCompatActivity {
         et_email=findViewById(R.id.et_email);
         et_password=findViewById(R.id.et_password);
         btn_login=findViewById(R.id.btn_login);
+        imv_openBrowser = findViewById(R.id.imv_open_browser);
         sharedPrefManager=new SharedPrefManager(getApplicationContext());
 
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 checkLogin();
+            }
+        });
+
+        imv_openBrowser.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://192.168.0.216:80/eveldar/public"));
+                startActivity(browserIntent);
             }
         });
     }
@@ -71,8 +83,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void sendLogin() {
-        String user_email = email;
-        String user_password = password;
         Call<LoginResponse> call = RetrofitClient.getInstance().getApi().login(email,password);
 
         call.enqueue(new Callback<LoginResponse>() {

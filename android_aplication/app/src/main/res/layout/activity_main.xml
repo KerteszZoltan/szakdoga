@@ -86,4 +86,28 @@
         app:layout_constraintTop_toBottomOf="@+id/et_password"
         app:layout_constraintVertical_bias="0.215" />
 
+    <TextView
+        android:id="@+id/eveldar_redirect"
+        android:layout_width="296dp"
+        android:layout_height="72dp"
+        android:text="*Az Eveldar mobil alkalmazása regisztrációhoz van kötve, amennyiben még nem regisztráltál az alkalmazás Weboldalán kérlek látogass el oda és regisztrálj!"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.139"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_login"
+        app:layout_constraintVertical_bias="0.296" />
+
+    <ImageView
+        android:id="@+id/imv_open_browser"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/eveldar_redirect"
+        app:layout_constraintTop_toBottomOf="@+id/btn_login"
+        app:layout_constraintVertical_bias="0.319"
+        app:srcCompat="@drawable/open_browser" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

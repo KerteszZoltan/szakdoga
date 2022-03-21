@@ -1,5 +1,6 @@
 package com.eveldar.eveldar.kertesz_zoltan;
 
+import com.eveldar.eveldar.kertesz_zoltan.Models.Event;
 import com.eveldar.eveldar.kertesz_zoltan.Responses.CheckTokenResponse;
 import com.eveldar.eveldar.kertesz_zoltan.Responses.FetchEventsResponse;
 import com.eveldar.eveldar.kertesz_zoltan.Responses.LoginResponse;
@@ -86,5 +87,15 @@ public interface Api {
     Call<ResponseEvent> deleteEvent(
             @Header("Authorization") String authHeader,
             @Field("event_id") String eventId
+    );
+
+    @FormUrlEncoded
+    @POST("new")
+    Call<ResponseEvent> addEvent(
+            @Header("Authorization") String authHeader,
+            @Field("topic") String topic,
+            @Field("description") String description,
+            @Field("start") String start,
+            @Field("end") String end
     );
 }

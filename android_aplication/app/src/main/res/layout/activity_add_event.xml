@@ -40,10 +40,10 @@
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView7"
-        app:layout_constraintVertical_bias="0.096" />
+        app:layout_constraintVertical_bias="0.031" />
 
     <TextView
         android:id="@+id/textView3"
@@ -52,26 +52,27 @@
         android:fontFamily="serif"
         android:gravity="center_horizontal|center_vertical"
         android:text="Esemény neve"
-        android:textSize="20sp"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.047"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.096" />
+        app:layout_constraintVertical_bias="0.067" />
 
     <EditText
-        android:id="@+id/et_add_event_name"
+        android:id="@+id/et_add_event_topic"
         android:layout_width="233dp"
         android:layout_height="56dp"
         android:ems="10"
         android:inputType="textPersonName"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.407"
         app:layout_constraintStart_toEndOf="@+id/textView3"
         app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.094"
+        app:layout_constraintVertical_bias="0.065"
         tools:ignore="SpeakableTextPresentCheck" />
 
     <TextView
@@ -79,22 +80,23 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Esemény leírása"
-        android:textSize="20sp"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_add_event_name"
+        app:layout_constraintTop_toBottomOf="@+id/et_add_event_topic"
         app:layout_constraintVertical_bias="0.058" />
 
     <EditText
         android:id="@+id/et_add_event_desc"
-        android:layout_width="380dp"
-        android:layout_height="53dp"
+        android:layout_width="378dp"
+        android:layout_height="91dp"
         android:layout_marginTop="9dp"
         android:ems="10"
         android:gravity="start|top"
         android:inputType="textMultiLine"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.483"
@@ -109,23 +111,88 @@
         android:layout_height="wrap_content"
         android:fontFamily="serif"
         android:text="Esemény kezdeti dátuma"
-        android:textSize="20sp"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.076"
+        app:layout_constraintHorizontal_bias="0.094"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_add_event_desc"
-        app:layout_constraintVertical_bias="0.169" />
+        app:layout_constraintVertical_bias="0.158" />
 
-    <EditText
-        android:id="@+id/editTextDate2"
+    <TextView
+        android:id="@+id/textView14"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="date"
+        android:fontFamily="serif"
+        android:text="Esemény befejezési dátuma"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.11"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+        app:layout_constraintTop_toBottomOf="@+id/et_add_event_desc"
+        app:layout_constraintVertical_bias="0.382" />
+
+    <ImageView
+        android:id="@+id/imv_add_start"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.941"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_add_event_desc"
+        app:layout_constraintVertical_bias="0.148"
+        app:srcCompat="@drawable/date_time_add" />
+
+    <ImageView
+        android:id="@+id/imv_add_end"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.941"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imv_add_start"
+        app:layout_constraintVertical_bias="0.092"
+        app:srcCompat="@drawable/date_time_add" />
+
+    <Button
+        android:id="@+id/btn_add_event"
+        android:layout_width="210dp"
+        android:layout_height="wrap_content"
+        android:text="Esemény hozzáadása"
+        android:backgroundTint="#65B86D"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView14"
+        app:layout_constraintVertical_bias="0.333" />
+
+    <TextView
+        android:id="@+id/tw_picked_start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/textView14"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.08"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView5"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/tw_picked_end"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_add_event"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.08"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView14"
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

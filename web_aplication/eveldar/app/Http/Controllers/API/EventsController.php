@@ -130,11 +130,11 @@ class EventsController extends Controller
     }
 
     public function store(Request $request){
-        if ($request['topic'] == '' || $request['start'] == '' || $request['end'] == '' ) {
-            return response()->json([
-                'message'=>'A cim, kezdesi, befejezesi datum kotelezo'
-            ]);
-        }
+        $this-> validate($request,[
+            'topic'=>'required',
+            'start'=> 'required | date | after:today',
+            'end'=> 'required | date | after:start',
+        ]);
 
         $event =$request->user()->events()->create([
             'topic' => $request->topic,
