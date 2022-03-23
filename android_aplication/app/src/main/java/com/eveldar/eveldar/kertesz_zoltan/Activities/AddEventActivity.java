@@ -90,18 +90,15 @@ public class AddEventActivity extends AppCompatActivity {
                 if (topic.isEmpty()){
                     et_topic.requestFocus();
                     et_topic.setError("Nem lehet üres az esemény neve!");
-                }
-                if (sendStart.isEmpty()){
+                }else if (sendStart.isEmpty()){
                     tw_start.requestFocus();
                     tw_start.setError("");
                     tw_start.setText("Meg kell adni kezdési dátumot!");
-                }
-                if (sendEnd.isEmpty()){
+                }else if (sendEnd.isEmpty()){
                     tw_end.requestFocus();
                     tw_end.setError("");
                     tw_end.setText("Meg kell adni befejezési dátumot!");
-                }
-                else{
+                }else{
                     Toast.makeText(AddEventActivity.this, "A mentés folyamatban...", Toast.LENGTH_SHORT).show();
                     Call<ResponseEvent> addEventActivityCall = RetrofitClient.getInstance().getApi().addEvent(token,topic, description,sendStart,sendEnd);
                     addEventActivityCall.enqueue(new Callback<ResponseEvent>() {

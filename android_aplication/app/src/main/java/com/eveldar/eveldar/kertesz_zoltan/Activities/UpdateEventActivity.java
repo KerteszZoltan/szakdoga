@@ -227,24 +227,29 @@ public class UpdateEventActivity extends AppCompatActivity {
                         if (eventUpComplete.isChecked()){
                             sendComplete = 1;
                         }
-                        Call<ResponseEvent> callEvent = RetrofitClient.getInstance().getApi().updateEvent(token,parsedId,sendTopic,sendDescription,sendStart,sendEnd, sendComplete);
-                        callEvent.enqueue(new Callback<ResponseEvent>() {
-                            @Override
-                            public void onResponse(Call<ResponseEvent> call, Response<ResponseEvent> response) {
-                                Toast.makeText(UpdateEventActivity.this, "Sikeres módosítás", Toast.LENGTH_SHORT).show();
-                                getEventData();
-                            }
+                        if(sendTopic.isEmpty()){
+                            eventUpTopic.requestFocus();
+                            eventUpTopic.setError("A név nem lehet üres");
+                        }else {
+                            Call<ResponseEvent> callEvent = RetrofitClient.getInstance().getApi().updateEvent(token, parsedId, sendTopic, sendDescription, sendStart, sendEnd, sendComplete);
+                            callEvent.enqueue(new Callback<ResponseEvent>() {
+                                @Override
+                                public void onResponse(Call<ResponseEvent> call, Response<ResponseEvent> response) {
+                                    Toast.makeText(UpdateEventActivity.this, "Sikeres módosítás", Toast.LENGTH_SHORT).show();
+                                    getEventData();
+                                }
 
-                            @Override
-                            public void onFailure(Call<ResponseEvent> call, Throwable t) {
-                                Toast.makeText(UpdateEventActivity.this, "Sikertelen módosítás!", Toast.LENGTH_SHORT).show();
-                                eventUpStart.requestFocus();
-                                eventUpStart.setError("A dátum nem lehet korábbi az aktuálisnál!");
-                                eventUpEnd.requestFocus();
-                                eventUpEnd.setError("A dátum nem lehet korábbi mint a kezdés és az aktuális dátum");
+                                @Override
+                                public void onFailure(Call<ResponseEvent> call, Throwable t) {
+                                    Toast.makeText(UpdateEventActivity.this, "Sikertelen módosítás!", Toast.LENGTH_SHORT).show();
+                                    eventUpStart.requestFocus();
+                                    eventUpStart.setError("A dátum nem lehet korábbi az aktuálisnál!");
+                                    eventUpEnd.requestFocus();
+                                    eventUpEnd.setError("A dátum nem lehet korábbi mint a kezdés és az aktuális dátum");
 
-                            }
-                        });
+                                }
+                            });
+                        }
                     }
                 });
                 deleteEvent = findViewById(R.id.btn_event_del);
