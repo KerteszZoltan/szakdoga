@@ -38,6 +38,7 @@
         android:fontFamily="serif"
         android:text="Új esemény hozzáadása"
         android:textSize="24sp"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
@@ -53,6 +54,7 @@
         android:gravity="center_horizontal|center_vertical"
         android:text="Esemény neve"
         android:textSize="16sp"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.047"
@@ -67,6 +69,7 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:textSize="16sp"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.407"
@@ -81,6 +84,7 @@
         android:layout_height="wrap_content"
         android:text="Esemény leírása"
         android:textSize="16sp"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -97,6 +101,7 @@
         android:gravity="start|top"
         android:inputType="textMultiLine"
         android:textSize="16sp"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.483"
@@ -112,6 +117,7 @@
         android:fontFamily="serif"
         android:text="Esemény kezdeti dátuma"
         android:textSize="16sp"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.094"
@@ -126,6 +132,7 @@
         android:fontFamily="serif"
         android:text="Esemény befejezési dátuma"
         android:textSize="16sp"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.11"
@@ -143,7 +150,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_add_event_desc"
         app:layout_constraintVertical_bias="0.148"
-        app:srcCompat="@drawable/date_time_add" />
+        app:srcCompat="@drawable/date_time_add"
+        app:tint="@color/black" />
 
     <ImageView
         android:id="@+id/imv_add_end"
@@ -155,7 +163,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imv_add_start"
         app:layout_constraintVertical_bias="0.092"
-        app:srcCompat="@drawable/date_time_add" />
+        app:srcCompat="@drawable/date_time_add"
+        app:tint="@color/black" />
 
     <Button
         android:id="@+id/btn_add_event"

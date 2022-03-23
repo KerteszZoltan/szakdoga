@@ -32,6 +32,7 @@
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
             android:text="Azonosító"
+            android:textColor="@color/black"
             android:textSize="16sp"/>
 
         <TextView
@@ -39,6 +40,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#CCFFA7"
+            android:textColor="@color/black"
             android:gravity="center_horizontal"
             android:text="név"
             android:textSize="16sp" />
@@ -48,6 +50,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#CCFFA7"
+            android:textColor="@color/black"
             android:gravity="center_horizontal"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
@@ -58,6 +61,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#CCFFA7"
+            android:textColor="@color/black"
             android:gravity="center_horizontal"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
@@ -69,6 +73,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/event_border_bottom"
+            android:textColor="@color/black"
             android:gravity="center_horizontal"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
