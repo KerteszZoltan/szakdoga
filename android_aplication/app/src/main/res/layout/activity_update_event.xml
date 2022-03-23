@@ -78,7 +78,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/updater_layout"
         android:layout_width="match_parent"
-        android:layout_height="468dp"
+        android:layout_height="509dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -95,24 +95,24 @@
             android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.052"
+            app:layout_constraintHorizontal_bias="0.17"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.06" />
+            app:layout_constraintVertical_bias="0.053" />
 
         <EditText
             android:id="@+id/et_event_up_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:textColor="@color/black"
             android:inputType="textPersonName"
+            android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.802"
+            app:layout_constraintHorizontal_bias="0.255"
             app:layout_constraintStart_toEndOf="@+id/textView15"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.037"
+            app:layout_constraintVertical_bias="0.034"
             tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
 
         <TextView
@@ -127,22 +127,22 @@
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/et_event_up_name"
-            app:layout_constraintVertical_bias="0.07" />
+            app:layout_constraintVertical_bias="0.03" />
 
         <EditText
             android:id="@+id/et_event_up_desc"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:textColor="@color/black"
             android:gravity="center_horizontal|center_vertical"
-            android:inputType="textPersonName"
+            android:inputType="textMultiLine"
+            android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView16"
-            app:layout_constraintVertical_bias="0.07"
+            app:layout_constraintVertical_bias="0.029"
             tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
         <TextView
@@ -154,10 +154,9 @@
             android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.069"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/et_event_up_desc"
-            app:layout_constraintVertical_bias="0.126" />
+            app:layout_constraintVertical_bias="0.059" />
 
         <TextView
             android:id="@+id/textView18"
@@ -168,24 +167,24 @@
             android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.075"
+            app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/et_event_up_desc"
-            app:layout_constraintVertical_bias="0.371" />
+            app:layout_constraintVertical_bias="0.321" />
 
         <EditText
             android:id="@+id/et_event_up_start"
             android:layout_width="186dp"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:textColor="@color/black"
             android:inputType="textPersonName"
+            android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.464"
-            app:layout_constraintStart_toEndOf="@+id/textView17"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/et_event_up_desc"
-            app:layout_constraintVertical_bias="0.089"
+            app:layout_constraintVertical_bias="0.172"
             tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
         <EditText
@@ -193,14 +192,14 @@
             android:layout_width="176dp"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:textColor="@color/black"
             android:inputType="textPersonName"
+            android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.605"
-            app:layout_constraintStart_toEndOf="@+id/textView17"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/et_event_up_desc"
-            app:layout_constraintVertical_bias="0.357"
+            app:layout_constraintVertical_bias="0.444"
             tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
         <Button

@@ -116,6 +116,12 @@ public class AddEventActivity extends AppCompatActivity {
                         @Override
                         public void onFailure(Call<ResponseEvent> call, Throwable t) {
                             Toast.makeText(AddEventActivity.this, "A mentés sikertelen...", Toast.LENGTH_SHORT).show();
+                            tw_start.requestFocus();
+                            tw_start.setError("");
+                            tw_start.setText("Nem lehet a dátum korábbi a mai napnál!");
+                            tw_end.requestFocus();
+                            tw_end.setError("");
+                            tw_end.setText("A befejezési dátum nem lehet korábban, mint a kezdés!");
                         }
                     });
                 }
