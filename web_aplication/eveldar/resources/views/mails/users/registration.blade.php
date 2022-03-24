@@ -4,7 +4,7 @@
 Köszönjük, hogy minket választott az eseményeinek kezelésére!<br>
 
 
-@component('mail::button', ['url' => 'http://192.168.0.107/eveldar/public/'])
+@component('mail::button', ['url' => 'http://192.168.0.216/eveldar/public/'])
 Kezdjük el az események felírását!
 @endcomponent
 
