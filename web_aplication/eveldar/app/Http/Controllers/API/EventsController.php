@@ -7,6 +7,8 @@ use App\Models\User;
 use App\Models\Event;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\NewEventAdded;
 use Auth;
 
 class EventsController extends Controller
@@ -142,6 +144,11 @@ class EventsController extends Controller
             'start'=>$request->start,
             'end'=>$request->end,
         ]);
+
+        $user=auth()->user();
+        $event_mail=Event::where('user_id', '=', auth()->user()->id)
+        ->latest('created_at')->first();
+        Mail::to($user)->send(new NewEventAdded($event_mail,$user));
 
         return $event;
     }
