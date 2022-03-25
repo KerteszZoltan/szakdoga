@@ -43,7 +43,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.062"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imv_active_main"
+        app:layout_constraintTop_toBottomOf="@+id/imv_update_main"
         app:layout_constraintVertical_bias="0.043"
         tools:ignore="TouchTargetSizeCheck" />
 
@@ -52,13 +52,13 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:ems="10"
-        android:textColor="@color/black"
         android:inputType="textPersonName"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.115"
         app:layout_constraintStart_toEndOf="@+id/textView13"
-        app:layout_constraintTop_toBottomOf="@+id/imv_active_main"
+        app:layout_constraintTop_toBottomOf="@+id/imv_update_main"
         app:layout_constraintVertical_bias="0.019"
         tools:ignore="SpeakableTextPresentCheck" />
 
@@ -72,7 +72,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.589"
         app:layout_constraintStart_toEndOf="@+id/et_updater_id"
-        app:layout_constraintTop_toBottomOf="@+id/imv_active_main"
+        app:layout_constraintTop_toBottomOf="@+id/imv_update_main"
         app:layout_constraintVertical_bias="0.019" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -83,8 +83,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_updater_id"
-        app:layout_constraintVertical_bias="0.057">
+        app:layout_constraintTop_toBottomOf="@+id/textView13"
+        app:layout_constraintVertical_bias="0.363">
 
         <TextView
             android:id="@+id/textView15"
