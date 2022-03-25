@@ -32,7 +32,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class ActiveEvents extends AppCompatActivity {
-    ImageView menu_show, btn_eventAdd;
+    ImageView menu_show, btn_eventAdd, imv_main;
     MenuBuilder menuBuilder;
     SharedPrefManager sharedPrefManager;
     RecyclerView rcv;
@@ -48,6 +48,15 @@ public class ActiveEvents extends AppCompatActivity {
         getSupportActionBar().hide();
 
         sharedPrefManager=new SharedPrefManager(ActiveEvents.this);
+        imv_main= findViewById(R.id.imv_active_main);
+        imv_main.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent secound = new Intent(ActiveEvents.this,SecoundActivity.class);
+                startActivity(secound);
+                finish();
+            }
+        });
         btn_eventAdd = findViewById(R.id.imv_active_add);
         btn_eventAdd.setOnClickListener(new View.OnClickListener() {
             @Override

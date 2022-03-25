@@ -20,7 +20,7 @@
         app:srcCompat="@drawable/ic_baseline_more_vert_24" />
 
     <ImageView
-        android:id="@+id/imageView6"
+        android:id="@+id/imv_update_main"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -43,7 +43,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.062"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView6"
+        app:layout_constraintTop_toBottomOf="@+id/imv_active_main"
         app:layout_constraintVertical_bias="0.043"
         tools:ignore="TouchTargetSizeCheck" />
 
@@ -58,7 +58,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.115"
         app:layout_constraintStart_toEndOf="@+id/textView13"
-        app:layout_constraintTop_toBottomOf="@+id/imageView6"
+        app:layout_constraintTop_toBottomOf="@+id/imv_active_main"
         app:layout_constraintVertical_bias="0.019"
         tools:ignore="SpeakableTextPresentCheck" />
 
@@ -72,7 +72,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.589"
         app:layout_constraintStart_toEndOf="@+id/et_updater_id"
-        app:layout_constraintTop_toBottomOf="@+id/imageView6"
+        app:layout_constraintTop_toBottomOf="@+id/imv_active_main"
         app:layout_constraintVertical_bias="0.019" />
 
     <androidx.constraintlayout.widget.ConstraintLayout

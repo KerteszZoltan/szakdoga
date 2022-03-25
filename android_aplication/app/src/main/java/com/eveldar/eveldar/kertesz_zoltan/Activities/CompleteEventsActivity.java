@@ -34,7 +34,7 @@ import retrofit2.Response;
 public class CompleteEventsActivity extends AppCompatActivity {
 
     SharedPrefManager sharedPrefManager;
-    ImageView menu_show, imv_active_add;
+    ImageView menu_show, imv_active_add, imv_complete_main;
     MenuBuilder menuBuilder;
     RecyclerView rcv;
     List<Event> eventList;
@@ -46,6 +46,15 @@ public class CompleteEventsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_complete_events);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         getSupportActionBar().hide();
+        imv_complete_main = findViewById(R.id.imv_complete_main);
+        imv_complete_main.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent secound = new Intent(CompleteEventsActivity.this, SecoundActivity.class);
+                startActivity(secound);
+                finish();
+            }
+        });
         sharedPrefManager=new SharedPrefManager(CompleteEventsActivity.this);
         getMenu();
         getCompleteEvents();

@@ -40,7 +40,7 @@ import retrofit2.Response;
 
 public class AddEventActivity extends AppCompatActivity {
 
-    ImageView menu_show, imv_add_start, imv_add_end;
+    ImageView menu_show, imv_add_start, imv_add_end, imv_main;
     EditText et_topic,et_description;
     Button btn_add_event;
     TextView tw_start, tw_end;
@@ -61,6 +61,15 @@ public class AddEventActivity extends AppCompatActivity {
         btn_add_event = findViewById(R.id.btn_add_event);
 
 
+        imv_main = findViewById(R.id.imv_add_main);
+        imv_main.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent secound = new Intent(AddEventActivity.this, SecoundActivity.class);
+                startActivity(secound);
+                finish();
+            }
+        });
         imv_add_start = findViewById(R.id.imv_add_start);
         imv_add_start.setOnClickListener(new View.OnClickListener() {
             @Override

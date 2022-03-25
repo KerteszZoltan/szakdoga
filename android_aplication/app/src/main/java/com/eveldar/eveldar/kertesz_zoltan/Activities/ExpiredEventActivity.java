@@ -34,7 +34,7 @@ import retrofit2.Response;
 public class ExpiredEventActivity extends AppCompatActivity {
 
     SharedPrefManager sharedPrefManager;
-    ImageView menu_show, addEvent;
+    ImageView menu_show, addEvent, imv_expired_main;
     MenuBuilder menuBuilder;
     RecyclerView rcv;
     List<Event> eventList;
@@ -46,6 +46,15 @@ public class ExpiredEventActivity extends AppCompatActivity {
         setContentView(R.layout.activity_expired_event);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         getSupportActionBar().hide();
+        imv_expired_main = findViewById(R.id.imv_expired_main);
+        imv_expired_main.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent secound = new Intent(ExpiredEventActivity.this, SecoundActivity.class);
+                startActivity(secound);
+                finish();
+            }
+        });
         sharedPrefManager=new SharedPrefManager(ExpiredEventActivity.this);
         getMenu();
         getExpiredEvent();

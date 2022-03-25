@@ -32,7 +32,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class ProfileActivity extends AppCompatActivity {
-    ImageView menu_profil_show;
+    ImageView menu_profil_show, imv_main;
     MenuBuilder menuBuilder;
     EditText et_profile_email, et_profile_name;
     SharedPrefManager sharedPrefManager;
@@ -45,6 +45,15 @@ public class ProfileActivity extends AppCompatActivity {
         setContentView(R.layout.activity_profile);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         getSupportActionBar().hide();
+        imv_main = findViewById(R.id.imv_profile_main);
+        imv_main.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent secound = new Intent(ProfileActivity.this, SecoundActivity.class);
+                startActivity(secound);
+                finish();
+            }
+        });
         menu_profil_show = (ImageView) findViewById(R.id.menu_profil_show);
         menuBuilder = new MenuBuilder(this);
         MenuInflater menuInflater=new MenuInflater(this);

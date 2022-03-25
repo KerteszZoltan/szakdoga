@@ -43,7 +43,7 @@ public class UpdateEventActivity extends AppCompatActivity {
     SharedPrefManager sharedPrefManager;
     Button updateCheck, updateEvent, deleteEvent;
     CheckBox eventUpComplete;
-    ImageView menu_show;
+    ImageView menu_show, imv_main;
 
 
     @Override
@@ -53,6 +53,15 @@ public class UpdateEventActivity extends AppCompatActivity {
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         getSupportActionBar().hide();
         sharedPrefManager=new SharedPrefManager(UpdateEventActivity.this);
+        imv_main = findViewById(R.id.imv_update_main);
+        imv_main.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent secound = new Intent(UpdateEventActivity.this, SecoundActivity.class);
+                startActivity(secound);
+                finish();
+            }
+        });
 
         update = findViewById(R.id.updater_layout);
         updateCheck= findViewById(R.id.btn_checkId);
