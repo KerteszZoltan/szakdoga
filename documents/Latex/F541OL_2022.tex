@@ -118,8 +118,27 @@ Számomra a PHP azért lett kedvesebb, mivel széleskörűen használható, gyor
 
 Mivel tisztán PHP kódot már kevés helyen használnak, leginkább kis projektek esetén így érdemes keresni egy keretrendszert. Nagyon sok lehetőség van az interneten amit használhatunk, de talán a legelterjedtebb ilyen a Laravel. 
 
-A Laravel több szempontból is ideális választás webes alkalmazásokhoz, mivel megkönnyíti az olyan általános feladatokat, mint az útvonalválasztás (routing) és a hitelesítés. A keretrendszer követi az MVC (Model View Controller / Modell Nézet Vezérlő) tervezési mintát, ezért hatékonyabb, biztonságosabb és a projekt átlátható lesz.  
+A Laravel több szempontból is ideális választás webes alkalmazásokhoz, mivel megkönnyíti az olyan általános feladatokat, mint az útvonalválasztás (routing) és a hitelesítés. A keretrendszer követi az MVC (Model View Controller / Modell Nézet Vezérlő) tervezési mintát, ezért hatékonyabb, biztonságosabb és a projekt átlátható lesz. 
 
+Szinte minden webes alkalmazás kommunikál valamilyen adatbázissal. A Laravel ezt a kommunikációt segíti elő a Query Builder (lekérdezéskészítő) és az ORM (Object Relational Mapping / Objektum-relációs leképezés)
+
+\section{Sass és CSS}
+A CSS állományok gondoskodnak a fontend dizájnjáról. Ez sajnos sok hiba lehetőséggel jár, mivel egyetlen nagy fájlban tároljuk a megjelenésre vonatkozó információkat. Ennek eredménye, hogy nagy projektben strukturálatlanná válik az állomány aminek rendszerezése igen nagy feladat lenne. Erre jó mód lenne külön állományban tárolni az egyes oldalakra vonatkozó CSS információkat, de ez több kérés lenne a szerver felé. 
+
+Ennek a problémának a megoldására léteznek olyan előfeldolgozók (pre-processor), mint a Sass, ahol lehetőség van több rész állományt létrehozni ezzel javítva a struktúrát. Az előfeldolgozó végül pedig egyetlen fájlba egyesíti a részeket és nem növeli a kérések számát. 
+
+\section{Bootstrap}
+A Bootstrap egy olyan nyílt forráskódú CSS keretrendszer ami megkönnyíti a frontend programozást az előre definiált komponensekkel. Ez a technológia minimális erőfeszítést igényel a fejlesztő részéről, hogy implementálja saját projektjében. Az előre definiált komponensek tartalmaznak HTML, JavaScript és CSS elemeket, melyeket a későbbiekben könnyű módosítani.
+
+A webes alkalmazásom tervezését ezzel végeztem és a későbbiekben saját ízlésemnek megfelelően írtam felül a szükséges elemeket. 
+
+\section{MariaDB, mint adatbázis}
+A piacon nagyon sok SQL alapú relációsadatbázis-kezelő szoftver létezik, ezek egyike a MariaDB, ami egy nyílt forráskódú többfelhasználós adatbázisszerver. A legismertebb szerverek közé tartozik a MySql ami az Oracle tulajdona. A MariaDB és a MySql között nagyfokú a kompatibilitás, mivel a MariaDB a MySql-nek a nyílt forráskódú részeiből alakult ki. Másik fontos előny a kompatibilitás tekintetében, hogy egymást ki tudják váltani.
+
+\section{Java}
+Manapság az Androidos operációs rendszerre történő fejlesztéskor inkább a Kotlin nyelv van feltörekvőben, mivel a Google ezt támogatja, de nem elhanyagolható a Java programozási nyelv jelenléte sem, hiszen más területeken még mindig fontos szerepe van. 
+
+Számomra a Java programozási nyelv a kedveltebb, mivel viszonylag független az operációs rendszertől és olyan könyvtárakat tartalmaz amik elősegítik a programozó munkáját. Mindezek mellett a Java idősebb nyelv, mint a Kotlin így sokkal több ismeret anyag érhető el hozzá.
 \begin{tetel}
 Tétel szövege.
 \end{tetel}
