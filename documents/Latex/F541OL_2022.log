@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2022.3.21)  27 MAR 2022 20:44
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2022.3.21)  27 MAR 2022 23:37
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -609,7 +609,7 @@ Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
 LaTeX Info: Redefining \cal on input line 577.
 LaTeX Info: Redefining \mit on input line 578.
 )
-<eszterhazy-logo-hu.pdf, id=77, 256.07971pt x 88.04292pt>
+<eszterhazy-logo-hu.pdf, id=89, 256.07971pt x 88.04292pt>
 File: eszterhazy-logo-hu.pdf Graphic file (type pdf)
 <use eszterhazy-logo-hu.pdf>
 Package pdftex.def Info: eszterhazy-logo-hu.pdf  used on input line 30.
@@ -638,19 +638,23 @@ Package pdftex.def Info: eszterhazy-logo-hu.pdf  used on input line 30.
 3. fejezet.
 [9
 
-] [10] [11
+] [10]
+4. fejezet.
+[11
 
 ] [12
 
+] [13
+
 ] (./F541OL_2022.aux)
 Package rerunfilecheck Info: File `F541OL_2022.out' has not changed.
-(rerunfilecheck)             Checksum: B85B5BFB76EE1B4FD8F3D640CA1B033E;2789.
+(rerunfilecheck)             Checksum: D817FF3BA58FD9F9143A46CEF6155F2C;3201.
  ) 
 Here is how much of TeX's memory you used:
- 14796 strings out of 478276
- 236997 string characters out of 5850489
- 556937 words of memory out of 5000000
- 32689 multiletter control sequences out of 15000+600000
+ 14803 strings out of 478276
+ 237082 string characters out of 5850489
+ 556943 words of memory out of 5000000
+ 32692 multiletter control sequences out of 15000+600000
  528863 words of font info for 76 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  75i,7n,77p,820b,395s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -658,10 +662,10 @@ Here is how much of TeX's memory you used:
 mf-dist/fonts/type1/public/lm/lmbx12.pfb><c:/texlive/2021/texmf-dist/fonts/type
 1/public/lm/lmcsc10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmr12
 .pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmri12.pfb>
-Output written on F541OL_2022.pdf (12 pages, 153990 bytes).
+Output written on F541OL_2022.pdf (13 pages, 156115 bytes).
 PDF statistics:
- 186 PDF objects out of 1000 (max. 8388607)
- 159 compressed objects within 2 object streams
- 36 named destinations out of 1000 (max. 500000)
- 162 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 209 PDF objects out of 1000 (max. 8388607)
+ 181 compressed objects within 2 object streams
+ 40 named destinations out of 1000 (max. 500000)
+ 186 words of extra memory for PDF output out of 10000 (max. 10000000)
 
