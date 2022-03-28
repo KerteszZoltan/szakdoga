@@ -169,6 +169,26 @@ Az kezdési és befejezési dátumnál események távozása révén fontos krit
 \section{Modellek}
 A modellek a MVC tervezési mintában az adatbázis és a vezérlő közötti kapcsolat. Itt definiálhatjuk az adatok láthatósági szintjét és, hogy az adott szinten mik érhetőek el.
 \subsection{Felhasználói modell}
+A modell definiálása a kitölthető adatokkal kezdődik, melyek jelen esetben a név, e-mail és jelszó. A következő attribútumokat a rejtettek. Ezek a jelszó és a tokenek. Majd a végén található egy olyan metódus ami a kapcsolatot képezi a felhasználó és az esemény modell között. Itt jelen esetben azt adjuk meg, hogy egy felhasználóhoz több esemény is tartozhat.
+
+\subsection{Esemény modell}
+Az esemény lényegében sokkal egyszerűbb, mint a felhasználónak a modellje, mivel itt csak kitölthető mezőkkel találkozunk. Ezek a mezők a következők: topic, description, start és end.
+
+\subsection{Eloquent ORM}
+Ugyan ez nem modell, hanem az adatbázissal való kommunikációt biztosítja. Azért tartom fontosnak megemlíteni a modellek között, mivel a modell teszi lehetővé az adatbázisba való rekord beszúrást, lekérdezést és törlést. Amennyiben az adatbázisunkban a tábla neve nem azonos a modellével a modellben meg kell adni, hogy mi a tábla neve. Az eloquent orm és query builder előnyeiről a kontroller osztályban fogok még írni.
+\section{Kontrollerek}
+A kontrollerek dolgozzák fel a felhasználói műveleteket és válaszol azokra. A kontrollerekben gyűjtjük össze azokat az adatokat amik a felhasználói felületről érkeznek és ha kell meghívjuk a modellt, hogy tárolja el azokat az adatbázisban. Amennyiben az adatbázisból érkeznek az adatok úgy azt tovább küldjük a megjelenítéshez. 
+A vezérlők általános működése a következőképpen írható le:
+1. A felhasználó valamilyen hatást gyakorol a felületen.
+2. A vezérlő 
+\subsection{Felhasználóhoz tartozó kontroller}
+Ebben található minden olyan metódus ami a felhasználók kezelésre vonatkozik, tehát a CRUD műveletek megvalósítása a felhasználó táblán.
+
+Az első kontroller amit meghívhatunk a regisztrációért felelős. Amikor meghívódik a következő adatokat vizsgáljuk ami a felhasználótól érkezik: név, e-mail cím, jelszó és az ,,aszf''.
+Sorban haladva a névre vonatkozó szabályok aminek meg kell felelni a bevitt adatnak:kötelező kitölteni, maximum 255 hosszú lehet. A következő az e--mail cím ahol a névhez képest annyi kiegészítést tartalmaz, hogy elektronikus levelezési cím formátumnak kell lennie, tehát ,,@'' jelet kell tartalmaznia.
+A jelszó is kötelező adat aminek minimum 6 karakterből kell állnia és meg kell erősíteni. Az utolsó az általános szerződési feltételekhez tartozó jelölőnégyzet (checkbox), amit be kell pipálni.
+
+Ha a validáció sikeres a kontroller megvizsgálja, hogy a beírt e-mailcím már szerepel-e az adatbázisban. Itt elő is jön az eloquent és a query builder előnye, hogy nem kell kézzel lekérdezést írni, hanem egyszerűen meghívjuk a modellt és annak az ahol (where) metódusát. Itt megvizsgáljuk, hogy az e-mailcím szerepel-e már az adatbázisban. Ehhez a ,,count'' aggregátumot használjuk ami megszámolja, hogy a lekérdezés mennyi sort adott vissza. Amennyiben szerepel, tehát a visszatérési érték 1, visszatérünk a nézetre ahol megjelenítjük, hogy hibás az cím, mert szerepel már az adatbázisban. Amennyiben az eredmény 0 eltároljuk az adatokat úgy, hogy az adatbázisban szereplő attribútumához a kérés tömb megegyező adatát társítjuk. Kivételt képez ez alól a jelszó ahol előtte meg kell hívnunk a Hash osztály készít (make) függvényét a kérésben szereplő jelszóra, hogy kódolva tároljuk el azt. Mentés után a felhasználót bejelentkeztetjük 
 \begin{tetel}
 Tétel szövege.
 \end{tetel}
