@@ -40,7 +40,7 @@ class ProfileController extends Controller
 
     public function password_update(Request $request){
         $this-> validate($request,[
-            'password' => "required ",
+            'password' => "required | min:6 ",
             'new_password' => "required | confirmed",
         ]);
         $password=$request->input('password');

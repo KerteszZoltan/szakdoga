@@ -141,8 +141,8 @@ Manapság az Androidos operációs rendszerre történő fejlesztéskor inkább 
 Számomra a Java programozási nyelv a kedveltebb, mivel viszonylag független az operációs rendszertől és olyan könyvtárakat tartalmaz amik elősegítik a programozó munkáját. Mindezek mellett a Java idősebb nyelv, mint a Kotlin így sokkal több ismeret anyag érhető el hozzá.
 
 \chapter{Webes alkalmazás}
-\section{Backend}
-\subsection{Migráció}
+\section{Migráció}
+\subsection{Általános információk}
 A migráció (migration) segít az adatbázis tábláinak létrehozásában, továbbá, ha az adatbázisban valamilyen módosítást kell végrehajtani akkor ezen fájlok lefuttatásával újra tudjuk generálni a táblákat. Ahhoz, hogy új migrációt adjunk a projektünkhöz egy terminálra van szükségünk, ahol a projektünk mappájában tartózkodunk. Ekkor a következő parancsot kell lefuttatni: ,,php artisan make:migration tabla\_neve''.
 
 A migráció létrehozásakor két metódust találunk: ,,up'' és ,,down''. Az ,,up'' metódus új táblák, oszlopok, indexek hozzáadására szolgál, míg a ,,down'' pedig a módosítások visszaállításra szolgál. 
@@ -177,18 +177,49 @@ Az esemény lényegében sokkal egyszerűbb, mint a felhasználónak a modellje,
 \subsection{Eloquent ORM}
 Ugyan ez nem modell, hanem az adatbázissal való kommunikációt biztosítja. Azért tartom fontosnak megemlíteni a modellek között, mivel a modell teszi lehetővé az adatbázisba való rekord beszúrást, lekérdezést és törlést. Amennyiben az adatbázisunkban a tábla neve nem azonos a modellével a modellben meg kell adni, hogy mi a tábla neve. Az eloquent orm és query builder előnyeiről a kontroller osztályban fogok még írni.
 \section{Kontrollerek}
-A kontrollerek dolgozzák fel a felhasználói műveleteket és válaszol azokra. A kontrollerekben gyűjtjük össze azokat az adatokat amik a felhasználói felületről érkeznek és ha kell meghívjuk a modellt, hogy tárolja el azokat az adatbázisban. Amennyiben az adatbázisból érkeznek az adatok úgy azt tovább küldjük a megjelenítéshez. 
+A kontrollerek dolgozzák fel a felhasználói műveleteket és válaszol azokra. A kontrollerekben gyűjtjük össze azokat az adatokat amik a felhasználói felületről érkeznek és ha kell meghívjuk a modellt, hogy tárolja el azokat az adatbázisban. Amennyiben az adatbázisból érkeznek az adatok úgy azt tovább küldjük a megjelenítéshez. Mivel dolgozatomban a felhasználó kétféle szerepkört tölthet be, miszerint lehet látogató vagy bejelentkezett felhasználó így ezt ellenőrizni kell, hogy a jogosultságának megfelelő oldalakat érje el. Ehhez definiálni kell egy konstruktort ahol a köztes szoftver (middleware) ellenőrzi, hogy a felhasználó be van-e jelentkezve vagy vendég.
 A vezérlők általános működése a következőképpen írható le:
 1. A felhasználó valamilyen hatást gyakorol a felületen.
 2. A vezérlő 
-\subsection{Felhasználóhoz tartozó kontroller}
-Ebben található minden olyan metódus ami a felhasználók kezelésre vonatkozik, tehát a CRUD műveletek megvalósítása a felhasználó táblán.
+\subsection{Regisztráció kontroller}
+A regisztráció csak a látogatók (guest) számára elérhető oldal. Első lépésben ezt ellenőrizni kell, hogy a felhasználó be van-e jelentkezve. Ezt a köztes szoftver (middleware) ellenőrzi. Amennyiben bejelentkezett felhasználó hívná meg a regisztrációért felelős kontrollert a profilra kerül átirányításra. Ha ténylegesen a vendégtől érkezik a kérés akkor meghívódik a regisztrációhoz tartozó kontroller.  
 
-Az első kontroller amit meghívhatunk a regisztrációért felelős. Amikor meghívódik a következő adatokat vizsgáljuk ami a felhasználótól érkezik: név, e-mail cím, jelszó és az ,,aszf''.
+Amikor meghívódik a következő adatokat vizsgáljuk ami a felhasználótól érkezik: név, e-mail cím, jelszó és az ,,aszf''.
 Sorban haladva a névre vonatkozó szabályok aminek meg kell felelni a bevitt adatnak:kötelező kitölteni, maximum 255 hosszú lehet. A következő az e--mail cím ahol a névhez képest annyi kiegészítést tartalmaz, hogy elektronikus levelezési cím formátumnak kell lennie, tehát ,,@'' jelet kell tartalmaznia.
 A jelszó is kötelező adat aminek minimum 6 karakterből kell állnia és meg kell erősíteni. Az utolsó az általános szerződési feltételekhez tartozó jelölőnégyzet (checkbox), amit be kell pipálni.
 
-Ha a validáció sikeres a kontroller megvizsgálja, hogy a beírt e-mailcím már szerepel-e az adatbázisban. Itt elő is jön az eloquent és a query builder előnye, hogy nem kell kézzel lekérdezést írni, hanem egyszerűen meghívjuk a modellt és annak az ahol (where) metódusát. Itt megvizsgáljuk, hogy az e-mailcím szerepel-e már az adatbázisban. Ehhez a ,,count'' aggregátumot használjuk ami megszámolja, hogy a lekérdezés mennyi sort adott vissza. Amennyiben szerepel, tehát a visszatérési érték 1, visszatérünk a nézetre ahol megjelenítjük, hogy hibás az cím, mert szerepel már az adatbázisban. Amennyiben az eredmény 0 eltároljuk az adatokat úgy, hogy az adatbázisban szereplő attribútumához a kérés tömb megegyező adatát társítjuk. Kivételt képez ez alól a jelszó ahol előtte meg kell hívnunk a Hash osztály készít (make) függvényét a kérésben szereplő jelszóra, hogy kódolva tároljuk el azt. Mentés után a felhasználót bejelentkeztetjük 
+Ha a validáció sikeres a kontroller megvizsgálja, hogy a beírt e-mailcím már szerepel-e az adatbázisban. Itt elő is jön az eloquent és a query builder előnye, hogy nem kell kézzel lekérdezést írni, hanem egyszerűen meghívjuk a modellt és annak az ahol (where) metódusát. Itt megvizsgáljuk, hogy az e-mailcím szerepel-e már az adatbázisban. Ehhez a ,,count'' aggregátumot társítjuk ami megszámolja, hogy a lekérdezés mennyi sort adott vissza. Amennyiben szerepel, tehát a visszatérési érték 1, visszatérünk a nézetre ahol megjelenítjük, hogy hibás az cím, mert szerepel már az adatbázisban. Amennyiben az eredmény 0 eltároljuk az adatokat úgy, hogy az adatbázisban szereplő attribútumához a kérés tömb megegyező adatát társítjuk. Kivételt képez ez alól a jelszó ahol előtte meg kell hívnunk a Hash osztály készít (make) függvényét a kérésben szereplő jelszóra, hogy kódolva tároljuk el azt. Mentés után a felhasználót bejelentkeztetjük amiben segítségünkre lesz az Auth osztálynak az attempt metódusa ami megvizsgálja, hogy a kérésben kapott e-mail cím és jelszó páros szerepel-e az adatbázisban. A metódus visszatérési értéke lehet igaz vagy hamis, annak megfelelően, hogy sikerült-e megtalálni az beírt adatokat. Ezt követően egy e-mailt küld ki a rendszer a megadott levelezési címre amelyben köszönti a frissen regisztrált felhasználót. Végül pedig átirányítjuk a saját profil oldalára.
+
+\subsection{Bejelentkezéshez használt kontroller}
+A bejelentkezésért felelős kontroller meghívásakor is vizsgálni kell, hogy már be van-e jelentkezve a hívó fél. Ennek az ellenőrzéséért a kontrollerben szereplő konstruktorban lévő middlewear a felelős. Ha egy bejelentkezett felhasználó próbálja elérni a bejelentkezést a profiljára kerül átirányításra, amennyiben nincs bejelentkezve úgy elérni a vezérlőt.
+
+A bejelentkezéskor lefut egy ellenőrzés a felhasználó által beírt adatokra ahol a következő szabályoknak kell megfelelni: az e-mail cím és jelszó nem lehet üres és az e-mail címben szerepelnie kell a ,,@'' karakternek.
+
+Az Auth osztály itt is nagy segítségünkre van és elvégzi az adatvizsgálatot és bejelentkeztetést. Amennyiben mégsem sikerülne neki egy hiba üzenettel vissza irányítja a felhasználót a bejelentkezési felületre. Ha sikeres pedig az aktív események oldal jelenik meg.
+
+\subsection{Kijelentkeztetést végző kontroller} 
+A kijelentkezéshez használt kontrollerben egyetlen egy metódust láthatunk ami az Auth osztálynak a kijelentkezés (logout) metódusát hívja meg. Ez a metódus mikor meghívásra kerül eltávolítja a felhasználót hitelesítő információkat a munkatérből. Amint ez megtörtént a már vendég felhasználó átirányításra kerül a kezdő oldalra.
+
+\subsection{A felhasználóhoz tartozó CRUD kontroller}
+Ezt a kontrollert már csak az authentikált felhasználók érhetik el. Ennek ellenőrzése a már leírt módon a kontroller konstruktorában történik. A CRUD műveletek jelentik azt, hogy egy adaton milyen alapvető műveleteket lehet elvégezni. Ezek a műveletek a következők: Create (létrehozás), Read (olvasás), Update (frissítés) és Delete (törlés). 
+
+A create műveletet itt nem említeném meg újra, mivel az nem a felhasználói kontrollerben található, hanem egy külön regisztrációért felelősben. Azért került különválasztásra a felhasználótól, mivel regisztrálni csak a vendég felhasználó tud. 
+
+Ugyan a kontrollerben nem szerepel a read művelet, azért mivel a bejelentkezett felhasználó adati gyorsabban elérhetők, ha az Auth kontrollertől kérjük le a nézetben.
+
+Térjünk is rá az Update műveletre, ami a kontrollerünk első fontos eleme. Szeretném megemlíteni, hogy a frissítésből több tartozik a felhasználóhoz. Az első frissítés amikor a nevét vagy e-mail címét tudja frissíteni. A szabályok egyszerűek és nem térnek el a regisztráció szabályaitól, miszerint nem lehet üres a mező és az e-mailnek megfelelő formátumúnak kell lennie.
+
+Ha ez megvolt a következő fontos rész, hogy meg kell keresni az adatbázisban azt a rekordot amit módosítani szeretnénk. Ezt a legegyszerűbben úgy tudjuk megtenni, ha meghívjuk a modell-t és hozzá a find metódust. Itt mutatkozik meg újra az eloquent erőssége, hogy nem kell lekérdezést írni. Ebben az esetben a lekérdezés egyetlen modell példányt ad vissza. Ezt eltároljuk, hogy a következő lépésben már csak felül kelljen írni az adatok a felhasználó által kitöltöttel, majd menteni. Ha es sikeresen megtörtént vissza irányítjuk a felhasználót a profiljára, hogy ellenőrizhesse a megváltoztatott adatokat. 
+
+A következő frissítés a jelszóra vonatkozik. A szabály egyszerű és nem tér el a regisztrációs szabályoktól, miszerint ki kell tölteni és minimum 6 karakter hosszúnak kell lennie és meg kell erősíteni az új jelszót. A könnyebb hivatkozás kedvéért egy-egy változóba eltárolásra kerül a jelenlegi és az új jelszó is. Ezután leellenőrizésre kerül, hogy a jelenlegi és az új jelszó megegyezik-e, mivel ha igen egy hiba üzenettel térünk vissza a jelszó változtatáshoz, hogy a két érték ugyan az. Következő lépésben a bejelentkezett felhasználó jelszavát kell ellenőrizni, hogy megegyezik-e azzal amit beírt a felhasználó. Mivel a rendszert használó jelszava kódoltan tárolódik így a kódolt jelszavakat kell összehasonlítani a kódolatlannal. Ehhez nagy segítség a Hash osztályban definiált check metódus ami a kódolatlan értéket hasonlítja össze a kódolt értékkel. Amennyiben az összehasonlítás igaznak bizonyul, tehát megegyezik, lekérjük és eltároljuk az aktuális felhasználó azonosítóját, majd a profil frissítéshez hasonlóan kimentjük az adatokat, hogy felül tudjuk írni a jelszót, a felhasználó által megadott, most már kódolt jelszóra. Amennyiben ezek sikeresen megtörténtek kijelentkeztetjük a felhasználót és átirányítjuk a bejelentkezésre. Itt az átirányításhoz egy üzenetet fűzünk, hogy az új jelszóval kell már bejelentkezni. Ha sikertelen az összehasonlítás egy hiba üzenettel térünk vissza, amelyben leírjuk, hogy a jelenlegi jelszó nem megfelelő. 
+
+Az utolsó műveleti amit a felhasználóval lehet végezni a törlés. Itt fontos kiemelni, hogy a migrationban szereplő kötés miatt, ha a felhasználó törli a profilját úgy az eseményei is törlésre kerülnek. Ahhoz, hogy a törlés sikeresen lefusson a felhasználónak meg kell erősíteni azt a jelszavával. Ezért a kontrollerben vizsgálni kell, hogy a jelszó ne lehessen üres és tartozik hozzá egy megerősítés is. Ha ezek a szabályok teljesülnek akkor összehasonlításra kerül a bejelentkezett felhasználó jelszava és a megadott. Ha nem egyezik meg akkor vissza irányítjuk a törlés oldalra egy hibaüzenettel amiben az szerepel, hogy nem helyes a jelszó. Ha viszont az ellenőrzés sikeres megkeressük a felhasználót a bejelentkezett felhasználó id-ja alapján és töröljük. A következő lépés az átirányítás a főoldalra.
+
+\subsection{Esemény kontroller és CRUD műveletek}
+Itt is ugyan úgy találkozhatunk egy konstruktorral amiben vizsgáljuk, hogy a hívó felé be van-e jelentkezve. Amennyiben igen a szokásos módon itt is eléri a kontroller metódusait, míg, ha nincs bejelentkezve a bejelentkezési oldalra irányul át.
+
+Betűrendben haladva kezdjük a sort az eseményhez tartozó létrehozással. 
+
 \begin{tetel}
 Tétel szövege.
 \end{tetel}

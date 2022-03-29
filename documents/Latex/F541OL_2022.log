@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2022.3.21)  29 MAR 2022 00:32
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2022.3.21)  29 MAR 2022 19:55
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -609,7 +609,7 @@ Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
 LaTeX Info: Redefining \cal on input line 577.
 LaTeX Info: Redefining \mit on input line 578.
 )
-<eszterhazy-logo-hu.pdf, id=121, 256.07971pt x 88.04292pt>
+<eszterhazy-logo-hu.pdf, id=137, 256.07971pt x 88.04292pt>
 File: eszterhazy-logo-hu.pdf Graphic file (type pdf)
 <use eszterhazy-logo-hu.pdf>
 Package pdftex.def Info: eszterhazy-logo-hu.pdf  used on input line 30.
@@ -618,13 +618,13 @@ Package pdftex.def Info: eszterhazy-logo-hu.pdf  used on input line 30.
 
 
 {c:/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <c:/texlive/2021
-/texmf-dist/tex/latex/thesis-ekf/eszterhazy-logo-hu.pdf>] (./F541OL_2022.toc)
+/texmf-dist/tex/latex/thesis-ekf/eszterhazy-logo-hu.pdf>] (./F541OL_2022.toc [2
+
+])
 \tf@toc=\write4
 \openout4 = `F541OL_2022.toc'.
 
- [2
-
-] [3] [4
+ [3] [4
 
 ]
 1. fejezet.
@@ -642,30 +642,30 @@ Package pdftex.def Info: eszterhazy-logo-hu.pdf  used on input line 30.
 4. fejezet.
 [12
 
-] [13] [14] [15] [16
+] [13] [14] [15] [16] [17] [18
 
-] [17
+] [19
 
 ] (./F541OL_2022.aux)
 Package rerunfilecheck Info: File `F541OL_2022.out' has not changed.
-(rerunfilecheck)             Checksum: 06FC36E962358C3626F840A1AA101BF0;4758.
+(rerunfilecheck)             Checksum: A571E7438D4C5296B125C896A730AA8E;5986.
  ) 
 Here is how much of TeX's memory you used:
- 14823 strings out of 478276
- 237389 string characters out of 5850489
+ 14833 strings out of 478276
+ 237539 string characters out of 5850489
  558965 words of memory out of 5000000
- 32700 multiletter control sequences out of 15000+600000
+ 32704 multiletter control sequences out of 15000+600000
  528863 words of font info for 76 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,7n,77p,1052b,439s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 75i,7n,77p,1629b,515s stack positions out of 5000i,500n,10000p,200000b,80000s
 {c:/texlive/2021/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}<c:/texlive/2021/tex
 mf-dist/fonts/type1/public/lm/lmbx12.pfb><c:/texlive/2021/texmf-dist/fonts/type
 1/public/lm/lmcsc10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmr12
 .pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmri12.pfb>
-Output written on F541OL_2022.pdf (17 pages, 163426 bytes).
+Output written on F541OL_2022.pdf (19 pages, 170531 bytes).
 PDF statistics:
- 268 PDF objects out of 1000 (max. 8388607)
- 235 compressed objects within 3 object streams
- 52 named destinations out of 1000 (max. 500000)
- 250 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 298 PDF objects out of 1000 (max. 8388607)
+ 263 compressed objects within 3 object streams
+ 58 named destinations out of 1000 (max. 500000)
+ 282 words of extra memory for PDF output out of 10000 (max. 10000000)
 
