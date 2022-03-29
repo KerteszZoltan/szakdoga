@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2022.3.21)  29 MAR 2022 19:55
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2022.3.21)  29 MAR 2022 23:43
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -642,17 +642,17 @@ Package pdftex.def Info: eszterhazy-logo-hu.pdf  used on input line 30.
 4. fejezet.
 [12
 
-] [13] [14] [15] [16] [17] [18
+] [13] [14] [15] [16] [17] [18] [19
 
-] [19
+] [20
 
 ] (./F541OL_2022.aux)
 Package rerunfilecheck Info: File `F541OL_2022.out' has not changed.
-(rerunfilecheck)             Checksum: A571E7438D4C5296B125C896A730AA8E;5986.
+(rerunfilecheck)             Checksum: A95C6A5641EAE99B4150D1C2B21E416C;5986.
  ) 
 Here is how much of TeX's memory you used:
- 14833 strings out of 478276
- 237539 string characters out of 5850489
+ 14835 strings out of 478276
+ 237556 string characters out of 5850489
  558965 words of memory out of 5000000
  32704 multiletter control sequences out of 15000+600000
  528863 words of font info for 76 fonts, out of 8000000 for 9000
@@ -662,10 +662,10 @@ Here is how much of TeX's memory you used:
 mf-dist/fonts/type1/public/lm/lmbx12.pfb><c:/texlive/2021/texmf-dist/fonts/type
 1/public/lm/lmcsc10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmr12
 .pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmri12.pfb>
-Output written on F541OL_2022.pdf (19 pages, 170531 bytes).
+Output written on F541OL_2022.pdf (20 pages, 173717 bytes).
 PDF statistics:
- 298 PDF objects out of 1000 (max. 8388607)
- 263 compressed objects within 3 object streams
- 58 named destinations out of 1000 (max. 500000)
+ 303 PDF objects out of 1000 (max. 8388607)
+ 267 compressed objects within 3 object streams
+ 60 named destinations out of 1000 (max. 500000)
  282 words of extra memory for PDF output out of 10000 (max. 10000000)
 

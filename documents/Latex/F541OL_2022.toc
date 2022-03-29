@@ -28,5 +28,6 @@
 \select@language {magyar} \contentsline {subsection}{\numberline {4.3.3}Kijelentkeztetést végző kontroller}{15}{subsection.4.3.3}%
 \select@language {magyar} \contentsline {subsection}{\numberline {4.3.4}A felhasználóhoz tartozó CRUD kontroller}{15}{subsection.4.3.4}%
 \select@language {magyar} \contentsline {subsection}{\numberline {4.3.5}Esemény kontroller és CRUD műveletek}{17}{subsection.4.3.5}%
-\select@language {magyar} \contentsline {chapter}{Összegzés}{18}{chapter*.3}%
-\select@language {magyar} \contentsline {chapter}{Irodalomjegyz\'ek}{19}{chapter*.4}%
+\select@language {magyar} \contentsline {subsubsection}{valami}{18}{section*.3}%
+\select@language {magyar} \contentsline {chapter}{Összegzés}{19}{chapter*.4}%
+\select@language {magyar} \contentsline {chapter}{Irodalomjegyz\'ek}{20}{chapter*.5}%
