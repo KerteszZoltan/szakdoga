@@ -36,7 +36,7 @@ A tanulmányaim alatt lehetőségem volt többféle programozási nyelv megismer
 
 A mobil applikáció fejlesztéssel először egy beadandó feladatban találkoztam, majd később az ehhez tartozó órákat is elvégeztem, hogy elmélyítsem a tudásomat. A Java programozási nyelv elsajátítása nem okozott nagy kihívást köszönhetően a tanáraimnak. 
 
-A weboldal fejlesztési ismeretek úgy gondolom, hogy manapság egy alapvető elvárás ezért több erre szolgáló programozási nyelvet is tanultam, de ezek közül az PHP volt számomra a legkedveltebb. A választék igen nagy a PHP alapú keretrendszerek között, de számomra a Laravel lett a preferált.
+A webprogramozási ismeretek megléte úgy gondolom, hogy manapság alapvető elvárás, az itt töltött éveim során több erre szolgáló programozási nyelvel is megismerkedtem, számomra a PHP (PHP:Hypertext Preprocessor) vált a legkedveltebb programozási nyelvé. A számos PHP alapú keretrendszerek közül számomra a Laravel~\cite{laravel_main} volt ideális, alkalmas a terv megvalósítására, valamint az eddigi tanulmányok során áttfogó tudásra tettem szert vele kapcsolatban.
 
 Ezért az lett a célom, hogy szakdolgozatomban ezeket a technológiákat használjam. Ezek felhasználásra rengeteg terv volt a fejemben, mire kialakult a jelenlegi projekt.
 
@@ -96,12 +96,12 @@ A felhasználói adatokat bejelentkezés után megjegyzi a kliens program így n
 
 \chapter{Fejlesztői környezet}
 \section{Web szerver}
-Az alkalmazások működéséhez szükséges egy web szerver. Ehhez több lehetőség is van a fejlesztők részére. Virtualizálhatunk egy Linux alapú szervert ahol kialakítjuk a LAMP (Linux, Apache, PHP, Myadmin) környezetet. Létrehozhatjuk a programunkat Dockerben, ami egy virtuális szervernek felel meg, vagy használhatunk olyan segéd programot, mint a XAMPP vagy a WAMPP. 
+Az alkalmazások működéséhez szükséges egy web szerver. Ehhez több lehetőség is van a fejlesztők részére. Virtualizálhatunk egy Linux alapú szervert ahol kialakítjuk a LAMP~\cite{lamp_book} (Linux, Apache, PHP, Myadmin) környezetet. Létrehozhatjuk a programunkat Dockerben~\cite{docker_doc}, ami egy virtuális szervernek felel meg, vagy használhatunk olyan segéd programot, mint a XAMPP~\cite{xampp_doc} vagy a WAMPP~\cite{wamp_doc}. 
 
 Személy szerint nekem sokkal jobban bevált a XAMPP, így dolgozatom fejlesztése alatt is azt használtam, mivel egyszerű a telepítése és a kezelhetősége. Mindemellett lehetőség van konfigurálni azt is, hogy milyen adatbázist szeretnénk használni. 
 
 \section{Kód szerkesztő}
-Ha már van környezetünk ahol majd a webes projektünk futtathatóvá válik keresnünk kell egy olyan szöveg szerkesztőt amit használni fogunk. Program fejlesztésre több ilyen eszköz is létezik, ami segíti a programozó munkáját szöveg kiemeléssel, kód kiegészítéssel és szintaxis ellenőrzéssel. Számomra a legjobban bevált ilyen program a ,,Visual Studio Code'' ami ingyenes szövegszerkesztő és különböző bővítményekkel lehet kényelmesebbé tenni a használatát.
+Ha már van környezetünk ahol majd a webes projektünk futtathatóvá válik keresnünk kell egy olyan szöveg szerkesztőt amit használni fogunk. Program fejlesztésre több ilyen eszköz is létezik, ami segíti a programozó munkáját szöveg kiemeléssel, kód kiegészítéssel és szintaxis ellenőrzéssel. Számomra a legjobban bevált ilyen program a ,,Visual Studio Code''~\cite{vsc_doc} ami ingyenes szövegszerkesztő és különböző bővítményekkel lehet kényelmesebbé tenni a használatát.
 
 \section{Android alkalmazáshoz Adroid Studio}
 Androidos alkalmazás fejlesztésére többféle eszköz áll a rendelkezésünkre. Ilyen lehetőség lehet az ,,Eclipse'' vagy esetleg a ,,RAD Studio''. Számomra a leginkább preferált fejlesztői környezet az ,,Android Studio''. Azért tartom jobbnak a többinél, mivel nem csak mobil eszközre lehet vele alkalmazást írni, hanem ,,Wear OS''-es órára és TV-re is. A másik előny, hogy a felhasználói kezelő felület kialakításához biztosít egy tervezőt ahol az elemeket fogd és vidd (drag and drop) módszerrel lehet elhelyezni a megjelenítő felületre. 
@@ -116,19 +116,19 @@ A szerver oldali programozási nyelvek között még mindig vezető helyen szere
 
 Számomra a PHP azért lett kedvesebb, mivel széleskörűen használható, gyors, rugalmas és jól dokumentált. 
 
-Mivel tisztán PHP kódot már kevés helyen használnak, leginkább kis projektek esetén így érdemes keresni egy keretrendszert. Nagyon sok lehetőség van az interneten amit használhatunk, de talán a legelterjedtebb ilyen a Laravel. 
+Mivel tisztán PHP kódot már kevés helyen használnak, leginkább kis projektek esetén így érdemes keresni egy keretrendszert. Nagyon sok lehetőség van az interneten amit használhatunk, de talán a legelterjedtebb ilyen a Laravel~\cite{laravel_book}. 
 
-A Laravel több szempontból is ideális választás webes alkalmazásokhoz, mivel megkönnyíti az olyan általános feladatokat, mint az útvonalválasztás (routing) és a hitelesítés. A keretrendszer követi az MVC (Model View Controller / Modell Nézet Vezérlő) tervezési mintát, ezért hatékonyabb, biztonságosabb és a projekt átlátható lesz. 
+A Laravel több szempontból is ideális választás webes alkalmazásokhoz, mivel megkönnyíti az olyan általános feladatokat, mint az útvonalválasztás (routing) és a hitelesítés. A keretrendszer követi az MVC~\cite{mvc_pattern} (Model View Controller / Modell Nézet Vezérlő) tervezési mintát, ezért hatékonyabb, biztonságosabb és a projekt átlátható lesz. 
 
 Szinte minden webes alkalmazás kommunikál valamilyen adatbázissal. A Laravel ezt a kommunikációt teszi egyszerűbbé a Query Builder (lekérdezéskészítő) és az ORM (Object Relational Mapping / Objektum-relációs leképezés) használatával. 
 
 \section{Sass és CSS}
-A CSS állományok gondoskodnak a frontend dizájnjáról. Ez sajnos sok hiba lehetőséggel jár, mivel egyetlen nagy fájlban tároljuk a megjelenésre vonatkozó információkat. Ennek eredménye, hogy nagy projektben strukturálatlanná válik az állomány aminek rendszerezése igen nagy feladat lenne. Erre jó mód lenne külön állományban tárolni az egyes oldalakra vonatkozó CSS információkat, de ez több kérés lenne a szerver felé. 
+A CSS~\cite{css_doc} állományok gondoskodnak a frontend dizájnjáról. Ez sajnos sok hiba lehetőséggel jár, mivel egyetlen nagy fájlban tároljuk a megjelenésre vonatkozó információkat. Ennek eredménye, hogy nagy projektben strukturálatlanná válik az állomány aminek rendszerezése igen nagy feladat lenne. Erre jó mód lenne külön állományban tárolni az egyes oldalakra vonatkozó CSS információkat, de ez több kérés lenne a szerver felé. 
 
-Ennek a problémának a megoldására léteznek olyan előfeldolgozók (pre-processor), mint a Sass, ahol lehetőség van több rész állományt létrehozni ezzel javítva a struktúrát. Az előfeldolgozó végül pedig egyetlen fájlba egyesíti a részeket és nem növeli a kérések számát. 
+Ennek a problémának a megoldására léteznek olyan előfeldolgozók (pre-processor), mint a Sass~\cite{sass_doc}, ahol lehetőség van több rész állományt létrehozni ezzel javítva a struktúrát. Az előfeldolgozó végül pedig egyetlen fájlba egyesíti a részeket és nem növeli a kérések számát. 
 
 \section{Bootstrap}
-A Bootstrap egy olyan nyílt forráskódú CSS keretrendszer ami megkönnyíti a frontend programozást az előre definiált komponensekkel. Ez a technológia minimális erőfeszítést igényel a fejlesztő részéről, hogy implementálja saját projektjében. Az előre definiált komponensek tartalmaznak HTML, JavaScript és CSS elemeket, melyeket a későbbiekben könnyű módosítani.
+A Bootstrap~\cite{bootstrap_doc} egy olyan nyílt forráskódú CSS keretrendszer ami megkönnyíti a frontend programozást az előre definiált komponensekkel. Ez a technológia minimális erőfeszítést igényel a fejlesztő részéről, hogy implementálja saját projektjében. Az előre definiált komponensek tartalmaznak HTML, JavaScript és CSS elemeket, melyeket a későbbiekben könnyű módosítani.
 
 A webes alkalmazásom tervezését ezzel végeztem és a későbbiekben saját ízlésemnek megfelelően írtam felül a szükséges elemeket. 
 
@@ -143,7 +143,7 @@ Számomra a Java programozási nyelv a kedveltebb, mivel viszonylag független a
 \chapter{Webes alkalmazás}
 \section{Migráció}
 \subsection{Általános információk}
-A migráció (migration) segít az adatbázis tábláinak létrehozásában, továbbá, ha az adatbázisban valamilyen módosítást kell végrehajtani akkor ezen fájlok lefuttatásával újra tudjuk generálni a táblákat. Ahhoz, hogy új migrációt adjunk a projektünkhöz egy terminálra van szükségünk, ahol a projektünk mappájában tartózkodunk. Ekkor a következő parancsot kell lefuttatni: ,,php artisan make:migration tabla\_neve''.
+A migráció (migration)~\cite{laravel_migartion} segít az adatbázis tábláinak létrehozásában, továbbá, ha az adatbázisban valamilyen módosítást kell végrehajtani akkor ezen fájlok lefuttatásával újra tudjuk generálni a táblákat. Ahhoz, hogy új migrációt adjunk a projektünkhöz egy terminálra van szükségünk, ahol a projektünk mappájában tartózkodunk. Ekkor a következő parancsot kell lefuttatni: ,,php artisan make:migration tabla\_neve''.
 
 A migráció létrehozásakor két metódust találunk: ,,up'' és ,,down''. Az ,,up'' metódus új táblák, oszlopok, indexek hozzáadására szolgál, míg a ,,down'' pedig a módosítások visszaállításra szolgál. 
 
@@ -167,7 +167,7 @@ A topic az esemény neve, ahol karakterláncot (string) tárolunk el, amelynek m
 Az kezdési és befejezési dátumnál események távozása révén fontos kritérium volt, hogy nem csak dátumot, hanem időt is tárolni kell. Erre a legjobb megoldás a datetime típus ahol a legnagyobb megadható dátum a ,,9999-12-31 23:59:59''.
 
 \section{Modellek}
-A modellek a MVC tervezési mintában az adatbázis és a vezérlő közötti kapcsolat. Itt definiálhatjuk az adatok láthatósági szintjét és, hogy az adott szinten mik érhetőek el.
+A modellek a MVC~\cite{mvc_mozzilla} tervezési mintában az adatbázis és a vezérlő közötti kapcsolat. Itt definiálhatjuk az adatok láthatósági szintjét és, hogy az adott szinten mik érhetőek el.
 \subsection{Felhasználói modell}
 A modell definiálása a kitölthető adatokkal kezdődik, melyek jelen esetben a név, e-mail és jelszó. A következő attribútumokat a rejtettek. Ezek a jelszó és a tokenek. Majd a végén található egy olyan metódus ami a kapcsolatot képezi a felhasználó és az esemény modell között. Itt jelen esetben azt adjuk meg, hogy egy felhasználóhoz több esemény is tartozhat.
 
@@ -175,12 +175,17 @@ A modell definiálása a kitölthető adatokkal kezdődik, melyek jelen esetben 
 Az esemény lényegében sokkal egyszerűbb, mint a felhasználónak a modellje, mivel itt csak kitölthető mezőkkel találkozunk. Ezek a mezők a következők: topic, description, start és end.
 
 \subsection{Eloquent ORM}
-Ugyan ez nem modell, hanem az adatbázissal való kommunikációt biztosítja. Azért tartom fontosnak megemlíteni a modellek között, mivel a modell teszi lehetővé az adatbázisba való rekord beszúrást, lekérdezést és törlést. Amennyiben az adatbázisunkban a tábla neve nem azonos a modellével a modellben meg kell adni, hogy mi a tábla neve. Az eloquent orm és query builder előnyeiről a kontroller osztályban fogok még írni.
+Ugyan ez nem modell, hanem az adatbázissal való kommunikációt biztosítja. Azért tartom fontosnak megemlíteni a modellek között, mivel a modell teszi lehetővé az adatbázisba való rekord beszúrást, lekérdezést és törlést. Amennyiben az adatbázisunkban a tábla neve nem azonos a modellével a modellben meg kell adni, hogy mi a tábla neve. Az eloquent orm~\cite{laravel_eloquent} és query builder előnyeiről a kontroller osztályban fogok még írni.
 \section{Kontrollerek}
-A kontrollerek dolgozzák fel a felhasználói műveleteket és válaszol azokra. A kontrollerekben gyűjtjük össze azokat az adatokat amik a felhasználói felületről érkeznek és ha kell meghívjuk a modellt, hogy tárolja el azokat az adatbázisban. Amennyiben az adatbázisból érkeznek az adatok úgy azt tovább küldjük a megjelenítéshez. Mivel dolgozatomban a felhasználó kétféle szerepkört tölthet be, miszerint lehet látogató vagy bejelentkezett felhasználó így ezt ellenőrizni kell, hogy a jogosultságának megfelelő oldalakat érje el. Ehhez definiálni kell egy konstruktort ahol a köztes szoftver (middleware) ellenőrzi, hogy a felhasználó be van-e jelentkezve vagy vendég.
+A kontrollerek~\cite{laravel_controller} dolgozzák fel a felhasználói műveleteket és válaszol azokra. A kontrollerekben gyűjtjük össze azokat az adatokat amik a felhasználói felületről érkeznek és ha kell meghívjuk a modellt, hogy tárolja el azokat az adatbázisban. Amennyiben az adatbázisból érkeznek az adatok úgy azt tovább küldjük a megjelenítéshez. Mivel dolgozatomban a felhasználó kétféle szerepkört tölthet be, miszerint lehet látogató vagy bejelentkezett felhasználó így ezt ellenőrizni kell, hogy a jogosultságának megfelelő oldalakat érje el. Ehhez definiálni kell egy konstruktort ahol a köztes szoftver (middleware)~\cite{laravel_middlewear} ellenőrzi, hogy a felhasználó be van-e jelentkezve vagy vendég.
 A vezérlők általános működése a következőképpen írható le:
-1. A felhasználó valamilyen hatást gyakorol a felületen.
-2. A vezérlő 
+\begin{itemize}
+\item{A felhasználó valamilyen interakciót létesít a kezelő felülettel.}
+\item{A vezérlő átveszi a küldött adatokat a felhasználó felülettől.}
+\item{Kapcsolat létesítése a modellel, és ha szükséges az adatok módosítása.}
+\item{ A nézet a válasz alapján létrehozza a megfelelő kezelési felületet. A nézet a modellből nyeri az adatokat, de a modellnek nincs közvetlen tudomása a nézetről.}
+\item{A felhasználói felület újabb interakcióra vár és kezdődik elölről a kör.}
+\end{itemize}
 \subsection{Regisztráció kontroller}
 A regisztráció csak a látogatók (guest) számára elérhető oldal. Első lépésben ezt ellenőrizni kell, hogy a felhasználó be van-e jelentkezve. Ezt a köztes szoftver (middleware) ellenőrzi. Amennyiben bejelentkezett felhasználó hívná meg a regisztrációért felelős kontrollert a profilra kerül átirányításra. Ha ténylegesen a vendégtől érkezik a kérés akkor meghívódik a regisztrációhoz tartozó kontroller.  
 
@@ -230,7 +235,7 @@ A teljesített események kiíratása a legegyszerűbb, ugyanis itt pluszba csak
 
 Ezek után egy nézetet adunk vissza a felhasználónak a lekérdezett adatokkal és egy típus változóval amiben az szerepel, hogy melyik csoport került lekérdezésre.
 
-\subsubsection{valami}
+
 
 \begin{tetel}
 Tétel szövege.
@@ -254,6 +259,91 @@ Lórum ipse olyan borzasztóan cogális patás, ami fogás nélkül nem varkál 
 
 \begin{thebibliography}{2}
 \addcontentsline{toc}{chapter}{\bibname}
+
+\bibitem{lamp_book}
+\textsc{Setting up LAMP: getting Linux, Apache, MySQL, and PHP working together}
+\newline
+\emph{Rosebrock, Eric and Filson, Eric}
+\emph{John Wiley \& Sons, 2006}
+
+\bibitem{docker_doc}
+\textsc{A Docker hivatalos dokumentációja:}
+\newline
+\emph{\bf{https://docs.docker.com/get-started/overview/}}
+
+\bibitem{xampp_doc}
+\textsc{Installing, configuring, and developing with Xampp}
+\newline
+\emph{Dvorski, Dalibor D}
+\emph{Skills Canada, 2007}
+
+\bibitem{wamp_doc}
+\textsc{A WAMP hivatalos dokumentációja:}
+\newline
+\emph{\bf{https://www.wamp.net/docs}}
+
+\bibitem{vsc_doc}
+\textsc{A Visual Studio Code hivatalos dokumentációja:}
+\newline
+\emph{\bf{https://code.visualstudio.com/docs}}
+
+\bibitem{laravel_main}
+\textsc{Laravel hivatalos dokumentáció oldala:}
+\newline
+\emph{\bf{https://laravel.com/docs/9.x/}}
+
+\bibitem{laravel_migartion}
+\textsc{Laravelhez tartozó migráció hivatalos dokumentáció oldala:}
+\newline
+\emph{\bf{https://laravel.com/docs/9.x/migrations}}
+
+\bibitem{laravel_eloquent}
+\textsc{Laravelhez tartozó eloquent hivatalos dokumentáció oldala:}
+\newline
+\emph{\bf{https://laravel.com/docs/9.x/eloquent}}
+
+\bibitem{laravel_controller}
+\textsc{Laravelhez tartozó kontroller hivatalos dokumentáció oldala:}
+\newline
+\emph{\bf{https://laravel.com/docs/9.x/controllers}}
+
+\bibitem{laravel_middlewear}
+\textsc{Laravelhez tartozó middlewear hivatalos dokumentáció oldala:}
+\newline
+\emph{\bf{https://laravel.com/docs/9.x/middleware}}
+
+\bibitem{css_doc}
+\textsc{CSS-hez tartozó hivatalos dokumentáció oldala:}
+\newline
+\emph{\bf{https://developer.mozilla.org/en-US/docs/Web/CSS}}
+
+\bibitem{sass_doc}
+\textsc{Sass-hez tartozó hivatalos dokumentáció oldala:}
+\newline
+\emph{\bf{https://sass-lang.com/documentation}}
+
+\bibitem{bootstrap_doc}
+\textsc{Bootstrap-hez tartozó hivatalos dokumentáció oldala:}
+\newline
+\emph{\bf{https://getbootstrap.com/docs/5.1}}
+
+\bibitem{laravel_book}
+\textsc{Laravel: Up \& Running, 2nd Edition}
+\newline
+\emph{Matt Stauffer, 2019}
+\emph{O'Reilly Media, Inc., ISBN: 9781492041214}
+
+\bibitem{mvc_pattern}
+\textsc{Web-application development using the Model/View/Controller design pattern}
+\newline
+\emph{Leff, A. and Rayfield, J.T., 2001}
+\emph{DOI:10.1109/EDOC.2001.950428}
+
+\bibitem{mvc_mozzilla}
+\textsc{A Mozilla által készített leírás az MVC-hez:}
+\newline
+\emph{\bf{https://developer.mozilla.org/en-US/docs/Glossary/MVC}}
+
 \bibitem{Fazekas}
 \textsc{Fazekas István}: \emph{Valószínűségszámítás}, Debreceni Egyetem, Debrecen, 2004.
 \bibitem{Tomacs}
