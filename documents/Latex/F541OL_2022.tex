@@ -36,7 +36,7 @@ A tanulmányaim alatt lehetőségem volt többféle programozási nyelv megismer
 
 A mobil applikáció fejlesztéssel először egy beadandó feladatban találkoztam, majd később az ehhez tartozó órákat is elvégeztem, hogy elmélyítsem a tudásomat. A Java programozási nyelv elsajátítása nem okozott nagy kihívást köszönhetően a tanáraimnak. 
 
-A webprogramozási ismeretek megléte úgy gondolom, hogy manapság alapvető elvárás, az itt töltött éveim során több erre szolgáló programozási nyelvel is megismerkedtem, számomra a PHP (PHP:Hypertext Preprocessor) vált a legkedveltebb programozási nyelvé. A számos PHP alapú keretrendszerek közül számomra a Laravel~\cite{laravel_main} volt ideális, alkalmas a terv megvalósítására, valamint az eddigi tanulmányok során áttfogó tudásra tettem szert vele kapcsolatban.
+A webprogramozási ismeretek megléte úgy gondolom, hogy manapság alapvető elvárás, az itt töltött éveim során több erre szolgáló programozási nyelvel is megismerkedtem, számomra a PHP~\cite{php_doc} (PHP:Hypertext Preprocessor) vált a legkedveltebb programozási nyelvé. A számos PHP alapú keretrendszerek közül számomra a Laravel~\cite{laravel_main} volt ideális, alkalmas a terv megvalósítására, valamint az eddigi tanulmányok során áttfogó tudásra tettem szert vele kapcsolatban.
 
 Ezért az lett a célom, hogy szakdolgozatomban ezeket a technológiákat használjam. Ezek felhasználásra rengeteg terv volt a fejemben, mire kialakult a jelenlegi projekt.
 
@@ -104,15 +104,15 @@ Személy szerint nekem sokkal jobban bevált a XAMPP, így dolgozatom fejleszté
 Ha már van környezetünk ahol majd a webes projektünk futtathatóvá válik keresnünk kell egy olyan szöveg szerkesztőt amit használni fogunk. Program fejlesztésre több ilyen eszköz is létezik, ami segíti a programozó munkáját szöveg kiemeléssel, kód kiegészítéssel és szintaxis ellenőrzéssel. Számomra a legjobban bevált ilyen program a ,,Visual Studio Code''~\cite{vsc_doc} ami ingyenes szövegszerkesztő és különböző bővítményekkel lehet kényelmesebbé tenni a használatát.
 
 \section{Android alkalmazáshoz Adroid Studio}
-Androidos alkalmazás fejlesztésére többféle eszköz áll a rendelkezésünkre. Ilyen lehetőség lehet az ,,Eclipse'' vagy esetleg a ,,RAD Studio''. Számomra a leginkább preferált fejlesztői környezet az ,,Android Studio''. Azért tartom jobbnak a többinél, mivel nem csak mobil eszközre lehet vele alkalmazást írni, hanem ,,Wear OS''-es órára és TV-re is. A másik előny, hogy a felhasználói kezelő felület kialakításához biztosít egy tervezőt ahol az elemeket fogd és vidd (drag and drop) módszerrel lehet elhelyezni a megjelenítő felületre. 
+Androidos alkalmazás fejlesztésére többféle eszköz áll a rendelkezésünkre. Ilyen lehetőség lehet az ,,Eclipse''~\cite{eclipse_doc} vagy esetleg a ,,RAD Studio''~\cite{rad_doc}. Számomra a leginkább preferált fejlesztői környezet az ,,Android Studio''~\cite{androidStudio_doc}. Azért tartom jobbnak a többinél, mivel nem csak mobil eszközre lehet vele alkalmazást írni, hanem Wear OS-es órára és TV-re is. A másik előny, hogy a felhasználói kezelő felület kialakításához biztosít egy tervezőt ahol az elemeket fogd és vidd (drag and drop) módszerrel lehet elhelyezni a megjelenítő felületre. 
 
-Az ,,Android Studio''-ba olyan fontos funkciók vannak beépítve, mint az AVD menedzser (manager), ami egy emulátor, ahol virtuális eszközöket tudunk létrehozni, hogy tesztelni tudjuk az alkalmazásunkat. A másik fontos eszköz ami implementálva van az ADB (Android Debug Bridge) ami a virtuális vagy fizikai eszközünk között kommunikál a számítógéppel így figyelve az alkalmazásunk működését és hiba esetén megkönnyíti a hiba keresést. 
+Az ,,Android Studio''-ba olyan fontos funkciók vannak beépítve, mint az AVD~\cite{androidStudioAvd_doc} menedzser (manager), ami egy emulátor, ahol virtuális eszközöket tudunk létrehozni, hogy tesztelni tudjuk az alkalmazásunkat. A másik fontos eszköz ami implementálva van az ADB~\cite{androidStudioAdb_doc} (Android Debug Bridge) ami a virtuális vagy fizikai eszközünk között kommunikál a számítógéppel így figyelve az alkalmazásunk működését és hiba esetén megkönnyíti a hiba keresést. 
 \section{Postman a REST API-hoz}
-A REST API kapcsolat teszteléséhez szükség volt egy kliens programra, ahol lelehet ellenőrizni, hogy a kérés sikeres-e és a válasz megfelelő-e. Ehhez a ,,Postman'' programot választottam, mivel kliens program, egyszerű a használata ezért nem csak egy személy vehet részt a tesztelésben, mindezek mellett lehetőség van a teszteket kollekcióba elmenteni amiből későbbiekben automatizált teszt is futtatható. A szoftver nagyon sok API szabványt és formátumot támogat köztük a ,,JSON''-t is.
+A REST API kapcsolat teszteléséhez szükség volt egy kliens programra, ahol lelehet ellenőrizni, hogy a kérés sikeres-e és a válasz megfelelő-e. Ehhez a ,,Postman''~\cite{postman_doc} programot választottam, mivel kliens program, egyszerű a használata ezért nem csak egy személy vehet részt a tesztelésben, mindezek mellett lehetőség van a teszteket kollekcióba elmenteni amiből későbbiekben automatizált teszt is futtatható. A szoftver nagyon sok API szabványt és formátumot támogat köztük a ,,JSON''-t~\cite{json_doc} is.
 
 \chapter{Az alkalmazás felépítése}
 \section{Miért PHP és Laravel?}
-A szerver oldali programozási nyelvek között még mindig vezető helyen szerepel a PHP, köszönhetően annak, hogy széles körben használt, egyszerű és könnyen tanulható nyelv. A másik vezető nyelv a JavaScript amit leginkább ,,SPA'' (Single Page Application / Egyoldalas alkalmazások) fejlesztésére használnak. 
+A szerver oldali programozási nyelvek között még mindig vezető helyen szerepel a PHP, köszönhetően annak, hogy széles körben használt, egyszerű és könnyen tanulható nyelv. A másik vezető nyelv a JavaScript~\cite{js_book} amit leginkább ,,SPA'' (Single Page Application / Egyoldalas alkalmazások) fejlesztésére használnak. 
 
 Számomra a PHP azért lett kedvesebb, mivel széleskörűen használható, gyors, rugalmas és jól dokumentált. 
 
@@ -133,10 +133,10 @@ A Bootstrap~\cite{bootstrap_doc} egy olyan nyílt forráskódú CSS keretrendsze
 A webes alkalmazásom tervezését ezzel végeztem és a későbbiekben saját ízlésemnek megfelelően írtam felül a szükséges elemeket. 
 
 \section{MariaDB, mint adatbázis}
-A piacon nagyon sok SQL alapú relációsadatbázis-kezelő szoftver létezik, ezek egyike a MariaDB, ami egy nyílt forráskódú többfelhasználós adatbázisszerver. A legismertebb szerverek közé tartozik a MySql ami az Oracle tulajdona. A MariaDB és a MySql között nagyfokú a kompatibilitás, mivel a MariaDB a MySql-nek a nyílt forráskódú részeiből alakult ki. Másik fontos előny a kompatibilitás tekintetében, hogy egymást ki tudják váltani.
+A piacon nagyon sok SQL~\cite{sql_book} alapú relációsadatbázis-kezelő szoftver létezik, ezek egyike a MariaDB~\cite{mariadb_doc}, ami egy nyílt forráskódú többfelhasználós adatbázisszerver. A legismertebb szerverek közé tartozik a MySql~\cite{mysql_book} ami az Oracle tulajdona. A MariaDB és a MySql között nagyfokú a kompatibilitás, mivel a MariaDB a MySql-nek a nyílt forráskódú részeiből alakult ki. Másik fontos előny a kompatibilitás tekintetében, hogy egymást ki tudják váltani.
 
 \section{Java}
-Manapság az Androidos operációs rendszerre történő fejlesztéskor inkább a Kotlin nyelv van feltörekvőben, mivel a Google ezt támogatja, de nem elhanyagolható a Java programozási nyelv jelenléte sem, hiszen más területeken még mindig fontos szerepe van. 
+Manapság az Androidos operációs rendszerre történő fejlesztéskor inkább a Kotlin~\cite{kotlin_book} nyelv van feltörekvőben, mivel a Google ezt támogatja, de nem elhanyagolható a Java programozási nyelv jelenléte sem, hiszen más területeken még mindig fontos szerepe van. 
 
 Számomra a Java programozási nyelv a kedveltebb, mivel viszonylag független az operációs rendszertől és olyan könyvtárakat tartalmaz amik elősegítik a programozó munkáját. Mindezek mellett a Java idősebb nyelv, mint a Kotlin így sokkal több ismeret anyag érhető el hozzá.
 
@@ -235,8 +235,6 @@ A teljesített események kiíratása a legegyszerűbb, ugyanis itt pluszba csak
 
 Ezek után egy nézetet adunk vissza a felhasználónak a lekérdezett adatokkal és egy típus változóval amiben az szerepel, hogy melyik csoport került lekérdezésre.
 
-
-
 \begin{tetel}
 Tétel szövege.
 \end{tetel}
@@ -287,6 +285,46 @@ Lórum ipse olyan borzasztóan cogális patás, ami fogás nélkül nem varkál 
 \newline
 \emph{\bf{https://code.visualstudio.com/docs}}
 
+\bibitem{eclipse_doc}
+\textsc{A Eclipse hivatalos dokumentációja:}
+\newline
+\emph{\bf{https://help.eclipse.org/latest/index.jsp}}
+
+\bibitem{rad_doc}
+\textsc{A RAD Studio hivatalos dokumentációja:}
+\newline
+\emph{\bf{https://docwiki.embarcadero.com/RADStudio/Alexandria/en/}}
+
+\bibitem{androidStudio_doc}
+\textsc{Az Android Studio hivatalos dokumentációja:}
+\newline
+\emph{\bf{https://developer.android.com/studio/intro}}
+
+\bibitem{androidStudioAvd_doc}
+\textsc{Az Android Studio AVD manager hivatalos dokumentációja:}
+\newline
+\emph{\bf{https://developer.android.com/studio/run/managing-avds}}
+
+\bibitem{androidStudioAdb_doc}
+\textsc{Az Android Studio ADB hivatalos dokumentációja:}
+\newline
+\emph{\bf{https://developer.android.com/studio/run/managing-avds}}
+
+\bibitem{postman_doc}
+\textsc{A Postman alkalmazás hivatalos dokumentációja:}
+\newline
+\emph{\bf{https://learning.postman.com/docs}}
+
+\bibitem{json_doc}
+\textsc{A Json hivatalos dokumentációja:}
+\newline
+\emph{\bf{https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/\\Global\_Objects/JSON}}
+
+\bibitem{php_doc}
+\textsc{A PHP hivatalos dokumentációja:}
+\newline
+\emph{\bf{https://www.php.net/docs.php}}
+
 \bibitem{laravel_main}
 \textsc{Laravel hivatalos dokumentáció oldala:}
 \newline
@@ -327,11 +365,40 @@ Lórum ipse olyan borzasztóan cogális patás, ami fogás nélkül nem varkál 
 \newline
 \emph{\bf{https://getbootstrap.com/docs/5.1}}
 
+\bibitem{mariadb_doc}
+\textsc{MariaDB-hez tartozó hivatalos dokumentáció oldala:}
+\newline
+\emph{\bf{https://mariadb.com/kb/en/documentation/}}
+
+\bibitem{mysql_book}
+\textsc{Learning MySQL: Get a Handle on Your Data 2nd Edition}
+\newline
+\emph{Vinicius M. Grippa, Sergey Kuzmichev,  2021}
+\emph{Yahoo Press, ISBN: 1492085928}
+
+\bibitem{kotlin_book}
+\textsc{Programming Android with Kotlin}
+\newline
+\emph{Pierre-Olivier Laurence, Amanda Hinchman-Dominguez, Mike Dunn, G. Blake Meike,  2021}
+\emph{Yahoo Press, ISBN: 9781492063001}
+
+\bibitem{js_book}
+\textsc{JavaScript: The Good Parts}
+\newline
+\emph{Douglas Crockford, 2008}
+\emph{Yahoo Press, ISBN: 0596517742}
+
 \bibitem{laravel_book}
 \textsc{Laravel: Up \& Running, 2nd Edition}
 \newline
 \emph{Matt Stauffer, 2019}
 \emph{O'Reilly Media, Inc., ISBN: 9781492041214}
+
+\bibitem{sql_book}
+\textsc{Learning SQL}
+\newline
+\emph{Alan Beaulieu, 2005}
+\emph{O'Reilly Media, Inc., ISBN: 9780596007270}
 
 \bibitem{mvc_pattern}
 \textsc{Web-application development using the Model/View/Controller design pattern}
