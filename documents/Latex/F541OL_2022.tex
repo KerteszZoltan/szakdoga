@@ -84,8 +84,6 @@ Az esemény hozzáadása több helyről is elérhető, mivel ez egy alap funkci�
 
 A főoldalon a bejelentkezett felhasználót egy üdvözlő üzenet fogadja, ahol a regisztrációkor megadott név szerepel. Ezen kívül elérhetjük a hozzáadás funkciót és esemény csoportonként a listázást. 
 
-A felugró menüben is elérhetőek a fent említett funkciók és kiegészülnek az esemény kezelésével, profil megjelenítéssel és a kijelentkezéssel. 
-
 A csoportonként megjelenítendő eseményeknél a felhasználó a következő adatokat látja: az esemény azonosítója, neve, leírása, kezdeti és befejezési dátum. A webes felülethez hasonlóan itt is kártyaként jelennek meg az adatok. 
 
 Az ,,Esemény kezelése'' menüpontban van lehetőség módosítani, késznek jelölni és törölni az adott eseményt. Először a felhasználónak le kell ellenőriznie, hogy az esemény létezik-e, ehhez meg kell adnia az azonosítóját. Amennyiben nem létezik egy felugró szöveg buborék jelenik meg, hogy helytelen az azonosító. Ha sikeres volt az ellenőrzés megjelenik a kiválasztott azonosítóhoz tartozó adatok. Mentés esetén a már webes felületen ismertetett szabályok kerülnek ellenőrzésre. Amennyiben üresen hagyja a felhasználó a nevet vagy a dátumok közül valamelyiket egy hiba üzenet kerül kiírásra ahol megjelenítésre kerül, hogy mely adatokat kell leellenőrizni. 
@@ -178,13 +176,20 @@ Az esemény lényegében sokkal egyszerűbb, mint a felhasználónak a modellje,
 Ugyan ez nem modell, hanem az adatbázissal való kommunikációt biztosítja. Azért tartom fontosnak megemlíteni a modellek között, mivel a modell teszi lehetővé az adatbázisba való rekord beszúrást, lekérdezést és törlést. Amennyiben az adatbázisunkban a tábla neve nem azonos a modellével a modellben meg kell adni, hogy mi a tábla neve. Az eloquent orm~\cite{laravel_eloquent} és query builder előnyeiről a kontroller osztályban fogok még írni.
 
 \section{Nézetek}
-A nézetek (view) felelnek a megjelenítésért. Jelen projektben a nézeteket két csoportba osztanám, melyek a következők: felhasználói nézet és e-mailhez tartozó nézet. A Laravel a nézetekhez a Blade~\cite{laravel_blade} sablonozó motort használ, ami egyszerű és ugyan úgy lehet benne PHP kódot futtatni. A blade sablonok meghívhatóak útvonalról és vezérlőből is, ennek köszönhetően teljesül a MVC tervezési minta.
+A nézetek (view) felelnek a megjelenítésért. Jelen projektben a nézeteket két csoportba osztanám, melyek a következők: felhasználói nézet és e-mailhez tartozó nézet. A Laravel a nézetekhez a Blade~\cite{laravel_blade} sablonozó motort használ, ami egyszerű és ugyan úgy lehet benne PHP kódot futtatni. A blade sablonok meghívhatóak útvonalról és vezérlőből is, ennek köszönhetően teljesül a MVC tervezési minta. 
+
+A Blade sablonban lévő PHP kódunkat dupla kapcsos zárójelek közé kell tenni. Ilyen PHP kód lehet egy útvonal hívás vagy olyan adat megjelenítés ami a szervertől érkezik. Ezen kívül a Blade-ban lehetőség van az alapvető vezérlési szerkezetek implementálására, mint például az if, foreach.
 
 \subsection{Felhasználói nézetek}
 
-Egy felhasználói nézet két komponensből tevődik össze, egyik az úgynevezett keret és maga a tartalom. A keret tartalmazza a HTML~\cite{html_doc} fejlécet ami a következőket foglalja magába: milyen néven található a CSS állomány, az alkalmazás ikonja és a JavaScript meghívása. Ezen kívül itt szerepel még a navigációs menü és egy @yield kulcsszó ami egy szakasz tartalmának megjelenítésére szolgál. 
+Egy felhasználói nézet két komponensből tevődik össze, egyik az úgynevezett keret és maga a tartalom. A keret tartalmazza a HTML~\cite{html_doc} fejlécet ami a következőket foglalja magába: milyen néven található a CSS állomány, az alkalmazás ikonja és a JavaScript meghívása. Ezen kívül itt szerepel még a navigációs menü és egy @yield kulcsszó ami egy szakasz tartalmának megjelenítésére szolgál. A navigációs menüben találhatunk egy felhasználó ellenőrzést, ugyan is látogató annak megfelelően láthatja a menü elemeket, hogy be van-e regisztrálva.
+
+Mielőtt definiálnánk egy szakaszt meg kell adni, hogy melyik elrendezést örökölje, illetve esetemben, hogy milyen keretet örököljön erre a @extends kulcsszóval kell hivatkozni. A szakaszokat @section és @endsection segítségével definiáljuk.
+
+Az egyes esemény csoportok megjelenítésénél az if vezérlési szerkezettel ellenőrzöm le, hogy milyen típusú eseményt kapok vissza. Ennek megfelelően lesz az események alatt a módosításhoz vagy törléshez szükséges interakció gombok. Ezen kívül az események megjelenítésénél találkozhatunk még foreach ciklussal ahol az egyes elemek és hozzájuk tartozó gombok külön kártyában jelenítődnek meg. 
 
 \subsection{E-mailhez tartozó nézetek}
+A kiküldött e-mailekhez tartozó nézetek külön vannak definiálva, mivel eltérnek a felhasználóitól, ugyan is, itt a Blade sablonozó motor komponenseit használjuk és a MarkDown~\cite{markdown_page} szintaxisát. Ennek köszönhetően az e-mailünkben nem csak szöveget tudunk küldeni, de gombot is, mely átirányíthat minket az alkalmazásra vagy a már meglévő útvonalak valamelyikére.
 
 \section{Kontrollerek}
 A kontrollerek~\cite{laravel_controller} dolgozzák fel a felhasználói műveleteket és válaszol azokra. A kontrollerekben gyűjtjük össze azokat az adatokat amik a felhasználói felületről érkeznek és ha kell meghívjuk a modellt, hogy tárolja el azokat az adatbázisban. Amennyiben az adatbázisból érkeznek az adatok úgy azt tovább küldjük a megjelenítéshez. Mivel dolgozatomban a felhasználó kétféle szerepkört tölthet be, miszerint lehet látogató vagy bejelentkezett felhasználó így ezt ellenőrizni kell, hogy a jogosultságának megfelelő oldalakat érje el. Ehhez definiálni kell egy konstruktort ahol a köztes szoftver (middleware)~\cite{laravel_middlewear} ellenőrzi, hogy a felhasználó be van-e jelentkezve vagy vendég.
@@ -269,8 +274,27 @@ A Sanctum~\cite{laravel_sanctum} egy hitelesítési rendszer token alapú API-ok
 \section{Útvonalak}
 A projektünk során fontos megemlíteni az útvonalakat~\cite{laravel_route}, mivel szoros összefüggés van köztük és a kontrollerek között, mivel majdnem minden útvonal hívás megfelel egy-egy vezérlőben lévő metódus hívásnak. 
 \subsection{Webes felülethez tartozó útvonalak}
-
+A webes felület esetén két fajta kérést különböztetünk meg. Vannak a szerverhez érkező get és post kérések.~\cite{get_post_difference} Get kérés esetén adatot kapunk a szervertől míg post-kor küldünk a szervernek. A legtöbb kérés esetén vezérlőt hívunk meg, mivel szükséges az authentikáció, amik pedig kivételek azok esetében egy nézettel térünk vissza. A POST metódusoknál megfigyelhető, hogy elvannak nevezve, minderre azért van szükség, hogy a nézetben könnyebb legyen a rájuk való hivatkozás. 
 \subsection{API-hoz tartozó útvonalak}
+A különbség a két útvonal gyűjtemény között, hogy az API útvonalak esetében a bejelentkezésen kívül minden mást elérési utat a sanctum köztes szoftver segítségével hitelesítünk, tehát csak a hitelesített felhasználók számára elérhető. 
+
+\section{Frontend}
+\subsection{Elképzelés}
+Mikor a projekt webes része elkezdett körvonalazódni a fejemben egy fontos elhatározásra jutottam. Az alap elképzelésem az lett, hogy egy könnyen kezelhető felületet kell elkészíteni ahol a fontos funkciók egyben elérhetőek. Színek tekintetében fontosnak találtam, hogy olyanokat használjak amik kellemesek a szemnek. Az alapértelmezett betűkészletet mindenképpen olyanra akartam cserélni ami nem túl különleges, de mégsem a megszokott és illeszkedik az Androidos klienshez is.
+
+Az események kiíratásakor ki kellett küszöbölni az esetleges összemosódást. Ehhez a legjobb lehetőségnek az bizonyult, hogy kártyákon jelenjenek meg az adott eseményhez tartozó adatok. Mivel fontos szempont volt, hogy egységes legyen a dizájn így a kártyás megoldás lett kiválasztva a profil és az alkalmazás leírása oldalra is. 
+
+\subsection{Bootstrap szerepe a kivitelezésben}
+
+A felhasználói felület kialakításában nagy segítséget jelentett a Bootstrap, mivel sok komponens található a dokumentációjában ahol vizuálisan is megtekinthető a kinézet. Mindemellett nagy előnye, hogy a rendszerbe könnyen implementálható és, ha szükséges csak a felül definiálás igényel munkát.
+
+\subsection{CSS helyett SCSS}
+
+Egyre jobban elterjed manapság a CSS pre-processorok használata a webes fejlesztésekkor. A Sass azért lett kedvelt, mivel hatékony és barátságos a szintaxisa. Ezen pre-processor kétféle fájl kiterjesztést tud kezelni, melyek a .sass és .scss. A kettő közti különbség, hogy míg a .sass a saját szintaxisát követi addig az scss kiterjesztésű megőrzi a CSS szintaxist, de többet ad a környezet lehetőségeihez. Mivel a CSS-el kapcsolatban már voltak ismereteim, ezért jobbnak láttam azzal dolgozni. 
+
+\chapter{Továbbfejlesztési lehetőségek}
+
+\chapter{Köszönetnyilvánítás}
 
 \chapter*{Összegzés}
 \addcontentsline{toc}{chapter}{Összegzés}
@@ -410,6 +434,16 @@ Lórum ipse olyan borzasztóan cogális patás, ami fogás nélkül nem varkál 
 \textsc{Laravel rootinghoz tartozó hivatalos dokumentáció:}
 \newline
 \emph{\bf{https://laravel.com/docs/9.x/routing}}
+
+\bibitem{markdown_page}
+\textsc{A Markdown hivatalos weboldala:}
+\newline
+\emph{\bf{https://www.markdownguide.org/}}
+
+\bibitem{get_post_difference}
+\textsc{Különbség GET és POST kérések között:}
+\newline
+\emph{\bf{https://jkorpela.fi/forms/methods.html}}
 
 \bibitem{css_doc}
 \textsc{CSS-hez tartozó hivatalos dokumentáció oldala:}
