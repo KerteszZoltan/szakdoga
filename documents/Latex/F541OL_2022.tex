@@ -74,7 +74,7 @@ Az utolsó funkció amit a felhasználó elér ebben a menüben az a profiljána
 A navigációs fül utolsó lehetőse a ,,Kijelentkezés''. A bejelentkezett felhasználó itt ki tud lépni az alkalmazásból és a kezdőoldalra kerül. 
 
 \section{Androidos alkalmazás}
-A kliens program Androidos telefonokra készült alkalmazás ami REST API kapcsolaton keresztül kommunikál a webes szoftverrel. Az alkalmazás nem tárol lokálisan adatot, ezzel került megoldásra az a probléma, hogy esetleges meghibásodás esetén adat vesztés történne. 
+A kliens program Androidos telefonokra készült alkalmazás ami API~\cite{api_basic} kapcsolaton keresztül kommunikál a webes szoftverrel. Az alkalmazás nem tárol lokálisan adatot, ezzel került megoldásra az a probléma, hogy esetleges meghibásodás esetén adat vesztés történne. 
 
 Az alkalmazás első megnyitása után egy bejelentkezési felület fogadja a felhasználót ahol meg kell adni az e-mail címét és jelszavát. Ezen két adat ellenőrzése két helyen valósul meg. Először az alkalmazás megvizsgálja, hogy nem-e üresek a mezők, amennyiben nem írtunk bele adatot hibaüzenetet kapunk. Ha kivannak töltve a mezők egy REST kérést küldünk. Amennyiben a válasz nem a felhasználó adatai egy szöveg buborék jelenik meg, hogy hibás a bevitt adat, máskülönben sikeres a bejelentkezés és a kezdőképernyő jelenik meg.
 
@@ -178,8 +178,11 @@ Az esemény lényegében sokkal egyszerűbb, mint a felhasználónak a modellje,
 Ugyan ez nem modell, hanem az adatbázissal való kommunikációt biztosítja. Azért tartom fontosnak megemlíteni a modellek között, mivel a modell teszi lehetővé az adatbázisba való rekord beszúrást, lekérdezést és törlést. Amennyiben az adatbázisunkban a tábla neve nem azonos a modellével a modellben meg kell adni, hogy mi a tábla neve. Az eloquent orm~\cite{laravel_eloquent} és query builder előnyeiről a kontroller osztályban fogok még írni.
 
 \section{Nézetek}
+A nézetek (view) felelnek a megjelenítésért. Jelen projektben a nézeteket két csoportba osztanám, melyek a következők: felhasználói nézet és e-mailhez tartozó nézet. A Laravel a nézetekhez a Blade~\cite{laravel_blade} sablonozó motort használ, ami egyszerű és ugyan úgy lehet benne PHP kódot futtatni. A blade sablonok meghívhatóak útvonalról és vezérlőből is, ennek köszönhetően teljesül a MVC tervezési minta.
 
 \subsection{Felhasználói nézetek}
+
+Egy felhasználói nézet két komponensből tevődik össze, egyik az úgynevezett keret és maga a tartalom. A keret tartalmazza a HTML~\cite{html_doc} fejlécet ami a következőket foglalja magába: milyen néven található a CSS állomány, az alkalmazás ikonja és a JavaScript meghívása. Ezen kívül itt szerepel még a navigációs menü és egy @yield kulcsszó ami egy szakasz tartalmának megjelenítésére szolgál. 
 
 \subsection{E-mailhez tartozó nézetek}
 
@@ -200,7 +203,7 @@ Amikor meghívódik a következő adatokat vizsgáljuk ami a felhasználótól �
 Sorban haladva a névre vonatkozó szabályok aminek meg kell felelni a bevitt adatnak:kötelező kitölteni, maximum 255 hosszú lehet. A következő az e--mail cím ahol a névhez képest annyi kiegészítést tartalmaz, hogy elektronikus levelezési cím formátumnak kell lennie, tehát ,,@'' jelet kell tartalmaznia.
 A jelszó is kötelező adat aminek minimum 6 karakterből kell állnia és meg kell erősíteni. Az utolsó az általános szerződési feltételekhez tartozó jelölőnégyzet (checkbox), amit be kell pipálni.
 
-Ha a validáció sikeres a kontroller megvizsgálja, hogy a beírt e-mailcím már szerepel-e az adatbázisban. Itt elő is jön az eloquent és a query builder előnye, hogy nem kell kézzel lekérdezést írni, hanem egyszerűen meghívjuk a modellt és annak az ahol (where) metódusát. Itt megvizsgáljuk, hogy az e-mailcím szerepel-e már az adatbázisban. Ehhez a ,,count'' aggregátumot társítjuk ami megszámolja, hogy a lekérdezés mennyi sort adott vissza. Amennyiben szerepel, tehát a visszatérési érték 1, visszatérünk a nézetre ahol megjelenítjük, hogy hibás az cím, mert szerepel már az adatbázisban. Amennyiben az eredmény 0 eltároljuk az adatokat úgy, hogy az adatbázisban szereplő attribútumához a kérés tömb megegyező adatát társítjuk. Kivételt képez ez alól a jelszó ahol előtte meg kell hívnunk a Hash osztály készít (make) függvényét a kérésben szereplő jelszóra, hogy kódolva tároljuk el azt. Mentés után a felhasználót bejelentkeztetjük amiben segítségünkre lesz az Auth osztálynak az attempt metódusa ami megvizsgálja, hogy a kérésben kapott e-mail cím és jelszó páros szerepel-e az adatbázisban. A metódus visszatérési értéke lehet igaz vagy hamis, annak megfelelően, hogy sikerült-e megtalálni az beírt adatokat. Ezt követően egy e-mailt küld ki a rendszer a megadott levelezési címre amelyben köszönti a frissen regisztrált felhasználót. Végül pedig átirányítjuk a saját profil oldalára.
+Ha a validáció sikeres a kontroller megvizsgálja, hogy a beírt e-mailcím már szerepel-e az adatbázisban. Itt elő is jön az eloquent és a query builder előnye, hogy nem kell kézzel lekérdezést írni, hanem egyszerűen meghívjuk a modellt és annak az ahol (where) metódusát. Itt megvizsgáljuk, hogy az e-mailcím szerepel-e már az adatbázisban. Ehhez a ,,count'' aggregátumot társítjuk ami megszámolja, hogy a lekérdezés mennyi sort adott vissza. Amennyiben szerepel, tehát a visszatérési érték 1, visszatérünk a nézetre ahol megjelenítjük, hogy hibás az cím, mert szerepel már az adatbázisban. Amennyiben az eredmény 0 eltároljuk az adatokat úgy, hogy az adatbázisban szereplő attribútumához a kérés tömb megegyező adatát társítjuk. Kivételt képez ez alól a jelszó ahol előtte meg kell hívnunk a Hash osztály készít (make) függvényét a kérésben szereplő jelszóra, hogy kódolva tároljuk el azt. Mentés után a felhasználót bejelentkeztetjük amiben segítségünkre lesz az Auth~\cite{laravel_auth} osztálynak az attempt metódusa ami megvizsgálja, hogy a kérésben kapott e-mail cím és jelszó páros szerepel-e az adatbázisban. A metódus visszatérési értéke lehet igaz vagy hamis, annak megfelelően, hogy sikerült-e megtalálni az beírt adatokat. Ezt követően egy e-mailt küld ki a rendszer a megadott levelezési címre amelyben köszönti a frissen regisztrált felhasználót. Végül pedig átirányítjuk a saját profil oldalára.
 
 \subsection{Bejelentkezéshez használt kontroller}
 A bejelentkezésért felelős kontroller meghívásakor is vizsgálni kell, hogy már be van-e jelentkezve a hívó fél. Ennek az ellenőrzéséért a kontrollerben szereplő konstruktorban lévő middlewear a felelős. Ha egy bejelentkezett felhasználó próbálja elérni a bejelentkezést a profiljára kerül átirányításra, amennyiben nincs bejelentkezve úgy elérni a vezérlőt.
@@ -259,23 +262,15 @@ Az API vezérlőben a felhasználó törlését nem definiáljuk, ezzel csökken
 
 Az esemény kontrollernél ugyan az a helyzet, mint a felhasználó által használt API kontrollerrel, hogy megegyezik a webes felület vezérlőjével, csak más szintaxist kell alkalmazni. Funkcionalitás tekintetében a webes és az API kontroller megegyezik, ezzel biztosítva a korlátozatlan működést a felhasználó számára.
 
+\section{API hitelesítéshez Sanctum}
 
+A Sanctum~\cite{laravel_sanctum} egy hitelesítési rendszer token alapú API-okhoz és mobil alkalmazásokhoz. A Sanctummal egyszerűen adhatóak ki tokenek a felhasználó számára. Ezek a kiadott elemek nagyon hosszú lejárati idejűek, általában több év, de igény szerint módosíthatóak és a felhasználó visszavonhatja ezeket. Az API útvonalak eléréséhez a felhasználói státuszt a sanctumba épített köztes szoftver (middlewear) végzi. Először megpróbálja a munkamenet hitelesítő cookit ellenőrizni, amennyiben sikertelen megvizsgálja a kérés fejlécét, hogy az authorizationban található token megfelel-e. A hitelesítéshez Bearer~\cite{bearer_token} Tokent használunk, ami egy átláthatatlan karakterlánc, ami nem tartalmaz jelentést.
 
-\begin{tetel}
-Tétel szövege.
-\end{tetel}
+\section{Útvonalak}
+A projektünk során fontos megemlíteni az útvonalakat~\cite{laravel_route}, mivel szoros összefüggés van köztük és a kontrollerek között, mivel majdnem minden útvonal hívás megfelel egy-egy vezérlőben lévő metódus hívásnak. 
+\subsection{Webes felülethez tartozó útvonalak}
 
-\begin{proof}
-Bizonyítás szövege.
-\end{proof}
-
-\begin{definicio}
-Definíció szövege.
-\end{definicio}
-
-\begin{megjegyzes}
-Megjegyzés szövege.
-\end{megjegyzes}
+\subsection{API-hoz tartozó útvonalak}
 
 \chapter*{Összegzés}
 \addcontentsline{toc}{chapter}{Összegzés}
@@ -289,6 +284,11 @@ Lórum ipse olyan borzasztóan cogális patás, ami fogás nélkül nem varkál 
 \newline
 \emph{Rosebrock, Eric and Filson, Eric}
 \emph{John Wiley \& Sons, 2006}
+
+\bibitem{api_basic}
+\textsc{API-hoz tartozó leírás:}
+\newline
+\emph{\bf{https://www.ibm.com/cloud/learn/api}}
 
 \bibitem{docker_doc}
 \textsc{A Docker hivatalos dokumentációja:}
@@ -351,6 +351,11 @@ Lórum ipse olyan borzasztóan cogális patás, ami fogás nélkül nem varkál 
 \newline
 \emph{\bf{https://www.php.net/docs.php}}
 
+\bibitem{html_doc}
+\textsc{A HTML hivatalos dokumentációja:}
+\newline
+\emph{\bf{https://developer.mozilla.org/en-US/docs/Web/HTML}}
+
 \bibitem{laravel_main}
 \textsc{Laravel hivatalos dokumentáció oldala:}
 \newline
@@ -376,10 +381,35 @@ Lórum ipse olyan borzasztóan cogális patás, ami fogás nélkül nem varkál 
 \newline
 \emph{\bf{https://laravel.com/docs/9.x/controllers}}
 
+\bibitem{laravel_blade}
+\textsc{Laravelhez tartozó Blade sablonizáló hivatalos dokumentációja:}
+\newline
+\emph{\bf{https://laravel.com/docs/9.x/blade}}
+
 \bibitem{laravel_middlewear}
 \textsc{Laravelhez tartozó middlewear hivatalos dokumentáció oldala:}
 \newline
 \emph{\bf{https://laravel.com/docs/9.x/middleware}}
+
+\bibitem{laravel_auth}
+\textsc{Laravelhez tartozó authentikáció hivatalos dokumentációja:}
+\newline
+\emph{\bf{https://laravel.com/docs/7.x/authentication}}
+
+\bibitem{bearer_token}
+\textsc{Bearer token dokumentációja:}
+\newline
+\emph{\bf{https://oauth.net/2/bearer-tokens/}}
+
+\bibitem{laravel_sanctum}
+\textsc{Laravelhez tartozó Sanctum hivatalos dokumentációja:}
+\newline
+\emph{\bf{https://laravel.com/docs/9.x/sanctum}}
+
+\bibitem{laravel_route}
+\textsc{Laravel rootinghoz tartozó hivatalos dokumentáció:}
+\newline
+\emph{\bf{https://laravel.com/docs/9.x/routing}}
 
 \bibitem{css_doc}
 \textsc{CSS-hez tartozó hivatalos dokumentáció oldala:}
