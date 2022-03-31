@@ -120,7 +120,7 @@ Mivel tisztán PHP kódot már kevés helyen használnak, leginkább kis projekt
 
 A Laravel több szempontból is ideális választás webes alkalmazásokhoz, mivel megkönnyíti az olyan általános feladatokat, mint az útvonalválasztás (routing) és a hitelesítés. A keretrendszer követi az MVC~\cite{mvc_pattern} (Model View Controller / Modell Nézet Vezérlő) tervezési mintát, ezért hatékonyabb, biztonságosabb és a projekt átlátható lesz. 
 
-Szinte minden webes alkalmazás kommunikál valamilyen adatbázissal. A Laravel ezt a kommunikációt teszi egyszerűbbé a Query Builder (lekérdezéskészítő) és az ORM (Object Relational Mapping / Objektum-relációs leképezés) használatával. 
+Szinte minden webes alkalmazás kommunikál valamilyen adatbázissal. A Laravel ezt a kommunikációt teszi egyszerűbbé a Query Builder~\cite{laravel_querybuilder} (lekérdezéskészítő) és az ORM (Object Relational Mapping / Objektum-relációs leképezés) használatával. 
 
 \section{Sass és CSS}
 A CSS~\cite{css_doc} állományok gondoskodnak a frontend dizájnjáról. Ez sajnos sok hiba lehetőséggel jár, mivel egyetlen nagy fájlban tároljuk a megjelenésre vonatkozó információkat. Ennek eredménye, hogy nagy projektben strukturálatlanná válik az állomány aminek rendszerezése igen nagy feladat lenne. Erre jó mód lenne külön állományban tárolni az egyes oldalakra vonatkozó CSS információkat, de ez több kérés lenne a szerver felé. 
@@ -176,9 +176,16 @@ Az esemény lényegében sokkal egyszerűbb, mint a felhasználónak a modellje,
 
 \subsection{Eloquent ORM}
 Ugyan ez nem modell, hanem az adatbázissal való kommunikációt biztosítja. Azért tartom fontosnak megemlíteni a modellek között, mivel a modell teszi lehetővé az adatbázisba való rekord beszúrást, lekérdezést és törlést. Amennyiben az adatbázisunkban a tábla neve nem azonos a modellével a modellben meg kell adni, hogy mi a tábla neve. Az eloquent orm~\cite{laravel_eloquent} és query builder előnyeiről a kontroller osztályban fogok még írni.
+
+\section{Nézetek}
+
+\subsection{Felhasználói nézetek}
+
+\subsection{E-mailhez tartozó nézetek}
+
 \section{Kontrollerek}
 A kontrollerek~\cite{laravel_controller} dolgozzák fel a felhasználói műveleteket és válaszol azokra. A kontrollerekben gyűjtjük össze azokat az adatokat amik a felhasználói felületről érkeznek és ha kell meghívjuk a modellt, hogy tárolja el azokat az adatbázisban. Amennyiben az adatbázisból érkeznek az adatok úgy azt tovább küldjük a megjelenítéshez. Mivel dolgozatomban a felhasználó kétféle szerepkört tölthet be, miszerint lehet látogató vagy bejelentkezett felhasználó így ezt ellenőrizni kell, hogy a jogosultságának megfelelő oldalakat érje el. Ehhez definiálni kell egy konstruktort ahol a köztes szoftver (middleware)~\cite{laravel_middlewear} ellenőrzi, hogy a felhasználó be van-e jelentkezve vagy vendég.
-A vezérlők általános működése a következőképpen írható le:
+A vezérlők általános működése a következőképpen írható le:~\cite{controller_cicle}
 \begin{itemize}
 \item{A felhasználó valamilyen interakciót létesít a kezelő felülettel.}
 \item{A vezérlő átveszi a küldött adatokat a felhasználó felülettől.}
@@ -234,6 +241,25 @@ Ha a felhasználó a lejárt eseményeket szeretné megjeleníteni ki kell szűr
 A teljesített események kiíratása a legegyszerűbb, ugyanis itt pluszba csak a complete mező értéket kell vizsgálni, ugyan is, ha az értéke 1, akkor az esemény teljesítve van. Itt a rendezési feltétel különbözik a többitől, ugyanis módosítási dátum szerint rendezzük csökkenő sorrendbe.
 
 Ezek után egy nézetet adunk vissza a felhasználónak a lekérdezett adatokkal és egy típus változóval amiben az szerepel, hogy melyik csoport került lekérdezésre.
+
+A következő műveleti csoport a frissítés (update). A webes felületen nincs lehetőség minden esemény módosításra, ilyen csoport a késznek jelöltek csoportja. Ahhoz, hogy a frissítést megvalósítsuk két metódusra lesz szükségünk. Az egyik lekéri az adott azonosítónak megfelelő adatot, míg a másik a frissítést végzi el. Nem szeretnék nagyon kitérni, az egy elemet megjelenítőre, mivel csak az esemény modellhez tartozó find metódus található benne ahol az azonosítóra szűrünk és azt vissza adjuk a nézetnek. A frissítésben található egy kérés ellenőrzés amire ugyan azok a szabályok vonatkoznak, mint a létrehozásnál. Ezután megkeressük az adott azonosítóhoz tartozó eseményt amit kimentünk változóba. Így már csak össze kell párosítani a kérés mezőit a kimentett esemény mezőivel és el kell menteni a változásokat a mentés (save) metódussal. Ezután meghívásra kerül az aktív eseményekhez tartozó nézet. 
+
+A végére maradt a törlés (delete) művelet az alapvető műveletek csoportjából. Törölni minden típusú eseményt lehet, ezért az átirányítás adott nézetre nem megfelelő, mivel nem tároljuk el, hogy honnan érkezik a kérés így a vissza (back) metódust fogjuk visszatéréskor használni ahol az előző oldalra ugrunk vissza. A kérésben itt csak egy azonosítót kapunk, tehát csak meg kell keresnünk a hozzá tartozó rekordot és meghívni hozzá a törlés (delete) metódust. Ezután pedig a már említett módon megtörténik a visszatérés a nézetre. 
+
+\subsection{API kontrollerek}
+
+Az API kontrollerek felelősek azért, hogy a külső alkalmazás tudjon csatlakozni a projektünkhöz. A jobb kezelhetőség érdekében külön vezérlőkben találhatók a felhasználóra és az eseményekre vonatkozó metódusok. A válaszok könnyebb értelmezhetősége miatt azokat JSON formátumban küldjük és fogadjuk. Ahhoz, hogy az eléréseket szűrjük a middleweart kell használni, de itt nem a vezérlő osztályon belül, hanem az elérési útban vizsgáljuk a felhasználói státuszt.
+
+\subsubsection{Felhasználó API kontroller}
+
+A lényegi különbség aközött a kontroller között amit a webes kliens és amit az API használ nem látható, ugyanis ugyan azokat a validációs folyamatokat végzi el. Amiben mégis eltérnek azok a válaszok és a szintaxis. A másik különbség, hogy itt nem nézetet adunk vissza, hanem választ (response). A válasz minden esetben egy kulcs-érték páros lista.
+Az API vezérlőben a felhasználó törlését nem definiáljuk, ezzel csökkentve az illetéktelen használó esetleges károkozását. 
+
+\subsubsection{Esemény API kontroller}
+
+Az esemény kontrollernél ugyan az a helyzet, mint a felhasználó által használt API kontrollerrel, hogy megegyezik a webes felület vezérlőjével, csak más szintaxist kell alkalmazni. Funkcionalitás tekintetében a webes és az API kontroller megegyezik, ezzel biztosítva a korlátozatlan működést a felhasználó számára.
+
+
 
 \begin{tetel}
 Tétel szövege.
@@ -335,6 +361,11 @@ Lórum ipse olyan borzasztóan cogális patás, ami fogás nélkül nem varkál 
 \newline
 \emph{\bf{https://laravel.com/docs/9.x/migrations}}
 
+\bibitem{laravel_querybuilder}
+\textsc{Laravelhez tartozó query builder hivatalos dokumentáció oldala:}
+\newline
+\emph{\bf{https://laravel.com/docs/9.x/queries}}
+
 \bibitem{laravel_eloquent}
 \textsc{Laravelhez tartozó eloquent hivatalos dokumentáció oldala:}
 \newline
@@ -406,15 +437,17 @@ Lórum ipse olyan borzasztóan cogális patás, ami fogás nélkül nem varkál 
 \emph{Leff, A. and Rayfield, J.T., 2001}
 \emph{DOI:10.1109/EDOC.2001.950428}
 
+\bibitem{controller_cicle}
+\textsc{Pattern-Oriented Software Architecture Volume 1: A System of Patterns Volume 1 Edition}
+\newline
+\emph{Frank Buschmann, Regine Meunier, Hans Rohnert, Peter Sommerlad, Michael Stal, 1996}
+\emph{John Wiley \& Sons, ISBN: 0471958697}
+
 \bibitem{mvc_mozzilla}
 \textsc{A Mozilla által készített leírás az MVC-hez:}
 \newline
 \emph{\bf{https://developer.mozilla.org/en-US/docs/Glossary/MVC}}
 
-\bibitem{Fazekas}
-\textsc{Fazekas István}: \emph{Valószínűségszámítás}, Debreceni Egyetem, Debrecen, 2004.
-\bibitem{Tomacs}
-\textsc{Tómács Tibor}: \emph{A valószínűségszámítás alapjai}, Líceum Kiadó, Eger, 2005.
 \end{thebibliography}
 
 % Aláírt, szkennelt nyilatkozat beillesztése a szakdolgozat végére

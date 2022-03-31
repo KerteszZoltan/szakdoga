@@ -44,7 +44,6 @@ class UserController extends Controller
         $usedToken=$request['id'];
         $userId=$request['id'];
         $storedToken=DB::table('personal_access_tokens')->where('tokenable_id', $userId)->value('tokenable_id');
-        //$token=$storedToken->token;
         if($storedToken == $userId){
             return [
                 'id'=> $usedToken

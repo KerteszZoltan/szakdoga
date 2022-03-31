@@ -22,11 +22,17 @@
 \select@language {magyar} \contentsline {subsection}{\numberline {4.2.1}Felhasználói modell}{13}{subsection.4.2.1}%
 \select@language {magyar} \contentsline {subsection}{\numberline {4.2.2}Esemény modell}{13}{subsection.4.2.2}%
 \select@language {magyar} \contentsline {subsection}{\numberline {4.2.3}Eloquent ORM}{14}{subsection.4.2.3}%
-\select@language {magyar} \contentsline {section}{\numberline {4.3}Kontrollerek}{14}{section.4.3}%
-\select@language {magyar} \contentsline {subsection}{\numberline {4.3.1}Regisztráció kontroller}{14}{subsection.4.3.1}%
-\select@language {magyar} \contentsline {subsection}{\numberline {4.3.2}Bejelentkezéshez használt kontroller}{15}{subsection.4.3.2}%
-\select@language {magyar} \contentsline {subsection}{\numberline {4.3.3}Kijelentkeztetést végző kontroller}{16}{subsection.4.3.3}%
-\select@language {magyar} \contentsline {subsection}{\numberline {4.3.4}A felhasználóhoz tartozó CRUD kontroller}{16}{subsection.4.3.4}%
-\select@language {magyar} \contentsline {subsection}{\numberline {4.3.5}Esemény kontroller és CRUD műveletek}{17}{subsection.4.3.5}%
-\select@language {magyar} \contentsline {chapter}{Összegzés}{19}{chapter*.3}%
-\select@language {magyar} \contentsline {chapter}{Irodalomjegyz\'ek}{20}{chapter*.4}%
+\select@language {magyar} \contentsline {section}{\numberline {4.3}Nézetek}{14}{section.4.3}%
+\select@language {magyar} \contentsline {subsection}{\numberline {4.3.1}Felhasználói nézetek}{14}{subsection.4.3.1}%
+\select@language {magyar} \contentsline {subsection}{\numberline {4.3.2}E-mailhez tartozó nézetek}{14}{subsection.4.3.2}%
+\select@language {magyar} \contentsline {section}{\numberline {4.4}Kontrollerek}{14}{section.4.4}%
+\select@language {magyar} \contentsline {subsection}{\numberline {4.4.1}Regisztráció kontroller}{14}{subsection.4.4.1}%
+\select@language {magyar} \contentsline {subsection}{\numberline {4.4.2}Bejelentkezéshez használt kontroller}{15}{subsection.4.4.2}%
+\select@language {magyar} \contentsline {subsection}{\numberline {4.4.3}Kijelentkeztetést végző kontroller}{16}{subsection.4.4.3}%
+\select@language {magyar} \contentsline {subsection}{\numberline {4.4.4}A felhasználóhoz tartozó CRUD kontroller}{16}{subsection.4.4.4}%
+\select@language {magyar} \contentsline {subsection}{\numberline {4.4.5}Esemény kontroller és CRUD műveletek}{17}{subsection.4.4.5}%
+\select@language {magyar} \contentsline {subsection}{\numberline {4.4.6}API kontrollerek}{19}{subsection.4.4.6}%
+\select@language {magyar} \contentsline {subsubsection}{Felhasználó API kontroller}{19}{section*.3}%
+\select@language {magyar} \contentsline {subsubsection}{Esemény API kontroller}{19}{section*.4}%
+\select@language {magyar} \contentsline {chapter}{Összegzés}{20}{chapter*.5}%
+\select@language {magyar} \contentsline {chapter}{Irodalomjegyz\'ek}{21}{chapter*.6}%
