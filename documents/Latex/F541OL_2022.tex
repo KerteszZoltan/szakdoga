@@ -173,7 +173,7 @@ A modell definiálása a kitölthető adatokkal kezdődik, melyek jelen esetben 
 Az esemény lényegében sokkal egyszerűbb, mint a felhasználónak a modellje, mivel itt csak kitölthető mezőkkel találkozunk. Ezek a mezők a következők: topic, description, start és end.
 
 \subsection{Eloquent ORM}
-Ugyan ez nem modell, hanem az adatbázissal való kommunikációt biztosítja. Azért tartom fontosnak megemlíteni a modellek között, mivel a modell teszi lehetővé az adatbázisba való rekord beszúrást, lekérdezést és törlést. Amennyiben az adatbázisunkban a tábla neve nem azonos a modellével a modellben meg kell adni, hogy mi a tábla neve. Az eloquent orm~\cite{laravel_eloquent} és query builder előnyeiről a kontroller osztályban fogok még írni.
+Ugyan ez nem modell, hanem az adatbázissal való kommunikációt biztosítja. Azért tartom fontosnak megemlíteni a modellek között, mivel ez teszi lehetővé az adatbázisba való rekord beszúrást, lekérdezést és törlést. Amennyiben az adatbázisunkban a tábla neve nem azonos a modellével akkor meg kell adni, hogy mi a tábla neve. Az eloquent orm~\cite{laravel_eloquent} és query builder előnyeiről a kontroller osztályban fogok még írni.
 
 \section{Nézetek}
 A nézetek (view) felelnek a megjelenítésért. Jelen projektben a nézeteket két csoportba osztanám, melyek a következők: felhasználói nézet és e-mailhez tartozó nézet. A Laravel a nézetekhez a Blade~\cite{laravel_blade} sablonozó motort használ, ami egyszerű és ugyan úgy lehet benne PHP kódot futtatni. A blade sablonok meghívhatóak útvonalról és vezérlőből is, ennek köszönhetően teljesül a MVC tervezési minta. 
@@ -267,6 +267,14 @@ Az API vezérlőben a felhasználó törlését nem definiáljuk, ezzel csökken
 
 Az esemény kontrollernél ugyan az a helyzet, mint a felhasználó által használt API kontrollerrel, hogy megegyezik a webes felület vezérlőjével, csak más szintaxist kell alkalmazni. Funkcionalitás tekintetében a webes és az API kontroller megegyezik, ezzel biztosítva a korlátozatlan működést a felhasználó számára.
 
+\subsection{CSRF token}
+
+Bár szorosan nem kapcsolódik a kontroller működéséhez mégis itt tüntetném fel, mivel, ha a felhasználó nem rendelkezik CSRF tokennel~\cite{laravel_csrf}, úgy az adatok változtatását sem tudja végrehajtani. Tehát Ez is egy biztonsági intézkedés, mint a middlewear által a felhasználónak az authentikációja. Ezért minden formot CSRF védelemmel kell ellátni a nézeten, hogy ne történjen illetéktelen átirányítás.
+
+\section{Levelzés}
+
+A projektben véleményem szerint fontos a levelezés, mivel így a felhasználó értesül a regisztrációról és az új esemény hozzáadásról. Ehhez nagy segítséget nyújt a Laravelben implementál Mail~\cite{laravel_mail} API. Ahhoz, hogy az alkalmazásunk leveleket küldjön a .env fájlban be kell állítani a levelező szerverhez tartozó adatokat. Ezután létre kell hozni egy e-mail osztályt és nevet adni neki, utána következik a formátum megadás majd után oda kell írni, hogy a hozzá tartozó nézet hol jöjjön létre. A létrejövő osztály build metódusában lehetőség van megadni, hogy milyen tárggyal küldje ki a levelet. A konstruktorban pedig megadásra kerül, hogy milyen modelleket vagy adatokat kívánunk elküldeni.
+
 \section{API hitelesítéshez Sanctum}
 
 A Sanctum~\cite{laravel_sanctum} egy hitelesítési rendszer token alapú API-okhoz és mobil alkalmazásokhoz. A Sanctummal egyszerűen adhatóak ki tokenek a felhasználó számára. Ezek a kiadott elemek nagyon hosszú lejárati idejűek, általában több év, de igény szerint módosíthatóak és a felhasználó visszavonhatja ezeket. Az API útvonalak eléréséhez a felhasználói státuszt a sanctumba épített köztes szoftver (middlewear) végzi. Először megpróbálja a munkamenet hitelesítő cookit ellenőrizni, amennyiben sikertelen megvizsgálja a kérés fejlécét, hogy az authorizationban található token megfelel-e. A hitelesítéshez Bearer~\cite{bearer_token} Tokent használunk, ami egy átláthatatlan karakterlánc, ami nem tartalmaz jelentést.
@@ -278,7 +286,7 @@ A webes felület esetén két fajta kérést különböztetünk meg. Vannak a sz
 \subsection{API-hoz tartozó útvonalak}
 A különbség a két útvonal gyűjtemény között, hogy az API útvonalak esetében a bejelentkezésen kívül minden mást elérési utat a sanctum köztes szoftver segítségével hitelesítünk, tehát csak a hitelesített felhasználók számára elérhető. 
 
-\section{Frontend}
+\section{Frontendhez használt eszközök}
 \subsection{Elképzelés}
 Mikor a projekt webes része elkezdett körvonalazódni a fejemben egy fontos elhatározásra jutottam. Az alap elképzelésem az lett, hogy egy könnyen kezelhető felületet kell elkészíteni ahol a fontos funkciók egyben elérhetőek. Színek tekintetében fontosnak találtam, hogy olyanokat használjak amik kellemesek a szemnek. Az alapértelmezett betűkészletet mindenképpen olyanra akartam cserélni ami nem túl különleges, de mégsem a megszokott és illeszkedik az Androidos klienshez is.
 
@@ -291,6 +299,24 @@ A felhasználói felület kialakításában nagy segítséget jelentett a Bootst
 \subsection{CSS helyett SCSS}
 
 Egyre jobban elterjed manapság a CSS pre-processorok használata a webes fejlesztésekkor. A Sass azért lett kedvelt, mivel hatékony és barátságos a szintaxisa. Ezen pre-processor kétféle fájl kiterjesztést tud kezelni, melyek a .sass és .scss. A kettő közti különbség, hogy míg a .sass a saját szintaxisát követi addig az scss kiterjesztésű megőrzi a CSS szintaxist, de többet ad a környezet lehetőségeihez. Mivel a CSS-el kapcsolatban már voltak ismereteim, ezért jobbnak láttam azzal dolgozni. 
+
+Mivel az Sass-el megoldódik a CSS állományok rendezésének problémája így már csak le kell fordítani őket. A Mix~\cite{laravel_mix} lehetővé teszi, hogy a CSS fájlokat összeállítsa.  
+
+\chapter{API tesztelése Postmannal}
+Miután megírásra kerültek az API kapcsolathoz szükséges útvonalak és vezérlők elkezdődhetett a tesztelés. A Postman nagy segítséget nyújt a kérések megírásához, mivel útvonalat lehet benne eltárolni így nem kell mindig a teljes elérési utat beírni. Mindezek mellett az API kérésen történt bejelentkezés után lehetőség van eltárolni a token-t, ezzel segítve a további munkát. 
+
+\section{Kérés írása}
+A kérések megírásában nagy segítséget nyújt, hogy lehetőségünk van a token és a szerver címének kimentésére, mivel így csak hivatkozni kell az eltárolt címre és az útvonalat megadni.
+
+Amennyiben a bejelentkezési tokent is eltároljuk és a hívásunkban fel kellene használni, azt könnyen megtehetjük az Authorization fülön úgy, hogy kiválasztjuk a token típusát ami esetünkben a Bearer token és ahol a tokent meg kellene adni, ott csak a kimentett adatra kell hivatkozni. 
+
+Sok kérés esetében a fejlécen kívül tartozik adat is hozzá amit a kérés testében (body) küldünk. Ennek megadására a Postman sok lehetőséget kínál. Számomra a legideálisabb ezek közül a JSON formátum. 
+
+\section{Válasz értelmezés}
+A kérésre érkező válasz megjelenítésére is több formátum érhető el, mint a kérés íráshoz. A program lehetőséget kínál a felhasználónak arra is, hogy a választ lementse.
+
+\section{Kollekciók a kérésekből}
+Lehetőség van kollekciókat létrehozni így az egyes kéréseket csoportosítani tudjuk, majd egyben lefuttatni. Erre azért van szükség, hogy lássuk milyen státusz kóddal térnek vissza az esetleges kérések. A kollekció elemeit lehetőség van egyesével is futtatni és az egész kollekciót is megadott iteráció számban elküldeni a szerver felé. A státusz kód mellett olyan adatokat is megkapunk, hogy mennyi idő alatt kaptunk választ és, hogy mekkora volt az adatforgalom. 
 
 \chapter{Továbbfejlesztési lehetőségek}
 
@@ -434,6 +460,21 @@ Lórum ipse olyan borzasztóan cogális patás, ami fogás nélkül nem varkál 
 \textsc{Laravel rootinghoz tartozó hivatalos dokumentáció:}
 \newline
 \emph{\bf{https://laravel.com/docs/9.x/routing}}
+
+\bibitem{laravel_mix}
+\textsc{Laravelhez tartozó Mix hivatalos dokumentációja:}
+\newline
+\emph{\bf{https://laravel.com/docs/9.x/mix}}
+
+\bibitem{laravel_mail}
+\textsc{Laravelhez tartozó Mail hivatalos dokumentációja:}
+\newline
+\emph{\bf{https://laravel.com/docs/9.x/mail}}
+
+\bibitem{laravel_csrf}
+\textsc{Laravelhez tartozó CSRF token hivatalos dokumentációja:}
+\newline
+\emph{\bf{https://laravel.com/docs/9.x/csrf}}
 
 \bibitem{markdown_page}
 \textsc{A Markdown hivatalos weboldala:}
