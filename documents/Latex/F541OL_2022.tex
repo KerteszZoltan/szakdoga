@@ -356,8 +356,38 @@ A nézetre különböző elemeket többféle módon tudunk felhelyezni. Lehetős
 
 \section{Modellek}
 A mobil alkalmazásban is modelleket használunk az adatok kezeléséhez. Itt a modellek kialakítása az API válasz alapján történt, tehát a válaszban szereplő mezők szerepelnek az modellben. A felhasználók és az események számára is definiálni kellett egyet, mivel ezekhez tartozó adatokat kezelünk. 
+A modellekhez tartozik egy konstruktor ahol a kapott értékeket állítjuk be. Ezen mezőkhöz tartoznak külön lekérő és beállító metódusok.
 
 \section{API kapcsolat kialakítása}
+Ahhoz, hogy a kéréseket tudjuk kezelni androidos alkalmazás esetén egy segéd könyvtárra van szükségünk ami egyszerűvé teszi a JSON adatok letöltését. Ehhez a legjobb választás számomra a Retrofit~\cite{retrofit_doc}.
+
+Ahhoz, hogy a projektünk képes legyen a Retrofit kapcsolat kezelésére a könyvtárat hozzá kell adni gradle fájloz, majd a manifest fájlba engedélyt kell adni az internet használatához. Ezután létre kell hozni egy Retrofit kliens ahol felépítjük a kapcsolatot és megadjuk az alap elérhetőség címét. A végpontok definiálásakor ez a cím kerül kiegészítésre. 
+
+\section{Végpontok a Retrofithez}
+Ha létrehoztuk a Retrofithez tartozó klienst, definiálni kell a végpontokat. A végponthoz tartozik egy paraméterezett Call objektum.
+
+A végpontoknál definiálni kell a kérés típusát ami lehet @POST vagy @GET. Az authentikáció miatt ki kell egészíteni a kérés fejlécét egy @Header annotációval ahol egy karakterláncot kell megadni. Ha űrlap adatokat küldünk szükség van a FormUrlEncoded megjegyzésre a HTTP metódus megadása előtt. A küldött adatokat a Filed annotációban tároljuk el.
+
+\section{Válaszok kezelése}
+Mivel a legtöbb végpont esetén típus specifikust választ várunk így ezeket osztályokba kellett rendezni. Az osztályokban található lékérő és beállító metódusok ahol a típushoz felhasználjuk a modelleket.
+
+\section{Kérések használata}
+Amikor meghívjuk a kéréseket két metódus tartozik hozzá. Az egyik arra vonatkozik, hogy mi történjen ha a kérés sikeres volt, a másik metódus a sikertelen kérés után futtatható kód sorokat tartalmazza ami legtöbb esetben egy felugró hiba üzenet a kérés sikertelenségéről. A kérések aszinkron módon hívódnak meg az alkalmazásunkban, ami azt jelenti, hogy a kérés egy háttér szálon fut és elemzés után visszaküldi az eredményt a felhasználói felület szálára.
+
+\section{SharedPreferences az alkalmazásban}
+Mivel az adatok megjelenítése és kérése valós időben történik így nem tárolunk semmilyen adatot a lokális eszközön. Ez azért jó, mivel így az esetleges eszköz károsodás esetén nem történik adatvesztés. Viszont ennek hátránya, hogy minden alkalmazás indításkor a felhasználónak be kell jelentkeznie ami rontja a felhasználói élményt. Ezen hiba kiküszöbölésére a SharedPreferences~\cite{sharedPref_android} nyújt megoldást, mivel így egy kulcs érték pár kerül elmentésre egy fájlba, melyet egyszerűen lehet írni és olvasni, tehát a felhasználóhoz tartozó adatokat célszerű ily módon elmenteni.
+
+\section{Felmerülő hibák}
+A fejlesztés során a webes felülethez hasonlóan több hiba is felmerült. Ilyen hibák a következők:
+\begin{itemize}
+\item Hibás authentikáció.
+\item Megjelenésre vonatkozó hibák.
+\item Adatkitöltésben keletkező hiba.
+\item Hibás kérés és válasz.
+\end{itemize}
+Az hibák kezelésekor úgy láttam a legjobbnak, hogy a felhasználót értesítjük és segítjük a hiba megoldásában. A hibák keletkezhetnek az alkalmazásban amely esetben a kérést el sem küldjük a szerver felé és keletkezhet a szerverről érkező válasz miatt. Ilyen hiba létrejöhet a bejelentkezés folyamán ahol a felhasználó nem tölt ki valamilyen adatot. Ebben az esetben nem küldjük el a kérést a szerver felé, hanem hibaüzenetben tájékoztatjuk és megjelöljük a felhasználónak, hogy melyik mező értékében szerepel a hiba. 
+
+A következő hiba ami előfordulhat, hogy a felhasználó rossz dátum formátumot használna. Ezt kiküszöböltem azzal, hogy egy felugró ablakot biztosítok neki, ahol a kívánt dátumot kiválasztja és ez kerül eltárolásra. 
 
 \chapter{Továbbfejlesztési lehetőségek}
 \section{Webes továbbfejlesztési lehetőségek}
@@ -366,8 +396,6 @@ A mobil alkalmazásban is modelleket használunk az adatok kezeléséhez. Itt a 
 
 \chapter{Köszönetnyilvánítás}
 
-\chapter*{Összegzés}
-\addcontentsline{toc}{chapter}{Összegzés}
 
 \begin{thebibliography}{2}
 \addcontentsline{toc}{chapter}{\bibname}
@@ -375,8 +403,8 @@ A mobil alkalmazásban is modelleket használunk az adatok kezeléséhez. Itt a 
 \bibitem{lamp_book}
 \textsc{Setting up LAMP: getting Linux, Apache, MySQL, and PHP working together}
 \newline
-\emph{Rosebrock, Eric and Filson, Eric}
-\emph{John Wiley \& Sons, 2006}
+\emph{Eric Filson, Erick Rosebrock}
+\emph{2006 ,Sybex, ISBN:0782143377}
 
 \bibitem{api_basic}
 \textsc{API-hoz tartozó leírás:}
@@ -600,6 +628,16 @@ A mobil alkalmazásban is modelleket használunk az adatok kezeléséhez. Itt a 
 \textsc{Táblázat az android verziókhoz és API szinthez:}
 \newline
 \emph{\bf{https://apilevels.com}}
+
+\bibitem{retrofit_doc}
+\textsc{A Retrofithez tartozó dokumentáció:}
+\newline
+\emph{\bf{https://square.github.io/retrofit/}}
+
+\bibitem{sharedPref_android}
+\textsc{A Shared Preferences hivatalos dokumentációja:}
+\newline
+\emph{\bf{https://developer.android.com/training/data-storage/shared-preferences}}
 
 \end{thebibliography}
 

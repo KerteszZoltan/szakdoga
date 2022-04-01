@@ -1,64 +1,68 @@
-\select@language {magyar} \contentsline {chapter}{Bevezetés}{4}{chapter*.2}%
-\select@language {magyar} \contentsline {chapter}{\numberline {1}Az alkalmazás bemutatása}{5}{chapter.1}%
-\select@language {magyar} \contentsline {section}{\numberline {1.1}Webes alkalmazás}{5}{section.1.1}%
-\select@language {magyar} \contentsline {section}{\numberline {1.2}Androidos alkalmazás}{6}{section.1.2}%
-\select@language {magyar} \contentsline {chapter}{\numberline {2}Fejlesztői környezet}{8}{chapter.2}%
-\select@language {magyar} \contentsline {section}{\numberline {2.1}Web szerver}{8}{section.2.1}%
-\select@language {magyar} \contentsline {section}{\numberline {2.2}Kód szerkesztő}{8}{section.2.2}%
-\select@language {magyar} \contentsline {section}{\numberline {2.3}Android alkalmazáshoz Adroid Studio}{8}{section.2.3}%
-\select@language {magyar} \contentsline {section}{\numberline {2.4}Postman a REST API-hoz}{9}{section.2.4}%
-\select@language {magyar} \contentsline {chapter}{\numberline {3}Az alkalmazás felépítése}{10}{chapter.3}%
-\select@language {magyar} \contentsline {section}{\numberline {3.1}Miért PHP és Laravel?}{10}{section.3.1}%
-\select@language {magyar} \contentsline {section}{\numberline {3.2}Sass és CSS}{10}{section.3.2}%
-\select@language {magyar} \contentsline {section}{\numberline {3.3}Bootstrap}{11}{section.3.3}%
-\select@language {magyar} \contentsline {section}{\numberline {3.4}MariaDB, mint adatbázis}{11}{section.3.4}%
-\select@language {magyar} \contentsline {section}{\numberline {3.5}Java}{11}{section.3.5}%
-\select@language {magyar} \contentsline {chapter}{\numberline {4}Webes alkalmazás}{12}{chapter.4}%
-\select@language {magyar} \contentsline {section}{\numberline {4.1}Migráció}{12}{section.4.1}%
-\select@language {magyar} \contentsline {subsection}{\numberline {4.1.1}Általános információk}{12}{subsection.4.1.1}%
-\select@language {magyar} \contentsline {subsection}{\numberline {4.1.2}Migráció a felhasználóhoz}{12}{subsection.4.1.2}%
-\select@language {magyar} \contentsline {subsection}{\numberline {4.1.3}Migráció az eseményhez}{13}{subsection.4.1.3}%
-\select@language {magyar} \contentsline {section}{\numberline {4.2}Modellek}{13}{section.4.2}%
-\select@language {magyar} \contentsline {subsection}{\numberline {4.2.1}Felhasználói modell}{13}{subsection.4.2.1}%
-\select@language {magyar} \contentsline {subsection}{\numberline {4.2.2}Esemény modell}{13}{subsection.4.2.2}%
-\select@language {magyar} \contentsline {subsection}{\numberline {4.2.3}Eloquent ORM}{14}{subsection.4.2.3}%
-\select@language {magyar} \contentsline {section}{\numberline {4.3}Nézetek}{14}{section.4.3}%
-\select@language {magyar} \contentsline {subsection}{\numberline {4.3.1}Felhasználói nézetek}{14}{subsection.4.3.1}%
-\select@language {magyar} \contentsline {subsection}{\numberline {4.3.2}E-mailhez tartozó nézetek}{15}{subsection.4.3.2}%
-\select@language {magyar} \contentsline {section}{\numberline {4.4}Kontrollerek}{15}{section.4.4}%
-\select@language {magyar} \contentsline {subsection}{\numberline {4.4.1}Regisztráció kontroller}{15}{subsection.4.4.1}%
-\select@language {magyar} \contentsline {subsection}{\numberline {4.4.2}Bejelentkezéshez használt kontroller}{16}{subsection.4.4.2}%
-\select@language {magyar} \contentsline {subsection}{\numberline {4.4.3}Kijelentkeztetést végző kontroller}{17}{subsection.4.4.3}%
-\select@language {magyar} \contentsline {subsection}{\numberline {4.4.4}A felhasználóhoz tartozó CRUD kontroller}{17}{subsection.4.4.4}%
-\select@language {magyar} \contentsline {subsection}{\numberline {4.4.5}Esemény kontroller és CRUD műveletek}{18}{subsection.4.4.5}%
-\select@language {magyar} \contentsline {subsection}{\numberline {4.4.6}API kontrollerek}{20}{subsection.4.4.6}%
-\select@language {magyar} \contentsline {subsubsection}{Felhasználó API kontroller}{20}{section*.3}%
-\select@language {magyar} \contentsline {subsubsection}{Esemény API kontroller}{20}{section*.4}%
-\select@language {magyar} \contentsline {subsection}{\numberline {4.4.7}CSRF token}{20}{subsection.4.4.7}%
-\select@language {magyar} \contentsline {subsection}{\numberline {4.4.8}Felmerülő hibák}{21}{subsection.4.4.8}%
-\select@language {magyar} \contentsline {section}{\numberline {4.5}Levelzés}{21}{section.4.5}%
-\select@language {magyar} \contentsline {section}{\numberline {4.6}API hitelesítéshez Sanctum}{21}{section.4.6}%
-\select@language {magyar} \contentsline {section}{\numberline {4.7}Útvonalak}{22}{section.4.7}%
-\select@language {magyar} \contentsline {subsection}{\numberline {4.7.1}Webes felülethez tartozó útvonalak}{22}{subsection.4.7.1}%
-\select@language {magyar} \contentsline {subsection}{\numberline {4.7.2}API-hoz tartozó útvonalak}{22}{subsection.4.7.2}%
-\select@language {magyar} \contentsline {section}{\numberline {4.8}Frontendhez használt eszközök}{22}{section.4.8}%
-\select@language {magyar} \contentsline {subsection}{\numberline {4.8.1}Elképzelés}{22}{subsection.4.8.1}%
-\select@language {magyar} \contentsline {subsection}{\numberline {4.8.2}Bootstrap szerepe a kivitelezésben}{22}{subsection.4.8.2}%
-\select@language {magyar} \contentsline {subsection}{\numberline {4.8.3}CSS helyett SCSS}{23}{subsection.4.8.3}%
-\select@language {magyar} \contentsline {chapter}{\numberline {5}API tesztelése Postmannal}{24}{chapter.5}%
-\select@language {magyar} \contentsline {section}{\numberline {5.1}Kérés írása}{24}{section.5.1}%
-\select@language {magyar} \contentsline {section}{\numberline {5.2}Válasz értelmezés}{24}{section.5.2}%
-\select@language {magyar} \contentsline {section}{\numberline {5.3}Kollekciók a kérésekből}{25}{section.5.3}%
-\select@language {magyar} \contentsline {section}{\numberline {5.4}Teszt írás a kéréshez}{25}{section.5.4}%
-\select@language {magyar} \contentsline {chapter}{\numberline {6}Androidos alkalmazás}{26}{chapter.6}%
-\select@language {magyar} \contentsline {section}{\numberline {6.1}Miért 21-es API szint?}{26}{section.6.1}%
-\select@language {magyar} \contentsline {section}{\numberline {6.2}AndroidManifest fájl}{26}{section.6.2}%
-\select@language {magyar} \contentsline {section}{\numberline {6.3}Activityk meghatározása}{27}{section.6.3}%
-\select@language {magyar} \contentsline {section}{\numberline {6.4}Modellek}{27}{section.6.4}%
-\select@language {magyar} \contentsline {section}{\numberline {6.5}API kapcsolat kialakítása}{27}{section.6.5}%
-\select@language {magyar} \contentsline {chapter}{\numberline {7}Továbbfejlesztési lehetőségek}{28}{chapter.7}%
-\select@language {magyar} \contentsline {section}{\numberline {7.1}Webes továbbfejlesztési lehetőségek}{28}{section.7.1}%
-\select@language {magyar} \contentsline {section}{\numberline {7.2}Mobil alkalmazás bővítési és fejleszthetőségi lehetőségek}{28}{section.7.2}%
-\select@language {magyar} \contentsline {chapter}{\numberline {8}Köszönetnyilvánítás}{29}{chapter.8}%
-\select@language {magyar} \contentsline {chapter}{Összegzés}{30}{chapter*.5}%
-\select@language {magyar} \contentsline {chapter}{Irodalomjegyz\'ek}{31}{chapter*.6}%
+\select@language {magyar} \contentsline {chapter}{Bevezetés}{5}{chapter*.2}%
+\select@language {magyar} \contentsline {chapter}{\numberline {1}Az alkalmazás bemutatása}{6}{chapter.1}%
+\select@language {magyar} \contentsline {section}{\numberline {1.1}Webes alkalmazás}{6}{section.1.1}%
+\select@language {magyar} \contentsline {section}{\numberline {1.2}Androidos alkalmazás}{7}{section.1.2}%
+\select@language {magyar} \contentsline {chapter}{\numberline {2}Fejlesztői környezet}{9}{chapter.2}%
+\select@language {magyar} \contentsline {section}{\numberline {2.1}Web szerver}{9}{section.2.1}%
+\select@language {magyar} \contentsline {section}{\numberline {2.2}Kód szerkesztő}{9}{section.2.2}%
+\select@language {magyar} \contentsline {section}{\numberline {2.3}Android alkalmazáshoz Adroid Studio}{9}{section.2.3}%
+\select@language {magyar} \contentsline {section}{\numberline {2.4}Postman a REST API-hoz}{10}{section.2.4}%
+\select@language {magyar} \contentsline {chapter}{\numberline {3}Az alkalmazás felépítése}{11}{chapter.3}%
+\select@language {magyar} \contentsline {section}{\numberline {3.1}Miért PHP és Laravel?}{11}{section.3.1}%
+\select@language {magyar} \contentsline {section}{\numberline {3.2}Sass és CSS}{11}{section.3.2}%
+\select@language {magyar} \contentsline {section}{\numberline {3.3}Bootstrap}{12}{section.3.3}%
+\select@language {magyar} \contentsline {section}{\numberline {3.4}MariaDB, mint adatbázis}{12}{section.3.4}%
+\select@language {magyar} \contentsline {section}{\numberline {3.5}Java}{12}{section.3.5}%
+\select@language {magyar} \contentsline {chapter}{\numberline {4}Webes alkalmazás}{13}{chapter.4}%
+\select@language {magyar} \contentsline {section}{\numberline {4.1}Migráció}{13}{section.4.1}%
+\select@language {magyar} \contentsline {subsection}{\numberline {4.1.1}Általános információk}{13}{subsection.4.1.1}%
+\select@language {magyar} \contentsline {subsection}{\numberline {4.1.2}Migráció a felhasználóhoz}{13}{subsection.4.1.2}%
+\select@language {magyar} \contentsline {subsection}{\numberline {4.1.3}Migráció az eseményhez}{14}{subsection.4.1.3}%
+\select@language {magyar} \contentsline {section}{\numberline {4.2}Modellek}{14}{section.4.2}%
+\select@language {magyar} \contentsline {subsection}{\numberline {4.2.1}Felhasználói modell}{14}{subsection.4.2.1}%
+\select@language {magyar} \contentsline {subsection}{\numberline {4.2.2}Esemény modell}{14}{subsection.4.2.2}%
+\select@language {magyar} \contentsline {subsection}{\numberline {4.2.3}Eloquent ORM}{15}{subsection.4.2.3}%
+\select@language {magyar} \contentsline {section}{\numberline {4.3}Nézetek}{15}{section.4.3}%
+\select@language {magyar} \contentsline {subsection}{\numberline {4.3.1}Felhasználói nézetek}{15}{subsection.4.3.1}%
+\select@language {magyar} \contentsline {subsection}{\numberline {4.3.2}E-mailhez tartozó nézetek}{16}{subsection.4.3.2}%
+\select@language {magyar} \contentsline {section}{\numberline {4.4}Kontrollerek}{16}{section.4.4}%
+\select@language {magyar} \contentsline {subsection}{\numberline {4.4.1}Regisztráció kontroller}{16}{subsection.4.4.1}%
+\select@language {magyar} \contentsline {subsection}{\numberline {4.4.2}Bejelentkezéshez használt kontroller}{17}{subsection.4.4.2}%
+\select@language {magyar} \contentsline {subsection}{\numberline {4.4.3}Kijelentkeztetést végző kontroller}{18}{subsection.4.4.3}%
+\select@language {magyar} \contentsline {subsection}{\numberline {4.4.4}A felhasználóhoz tartozó CRUD kontroller}{18}{subsection.4.4.4}%
+\select@language {magyar} \contentsline {subsection}{\numberline {4.4.5}Esemény kontroller és CRUD műveletek}{19}{subsection.4.4.5}%
+\select@language {magyar} \contentsline {subsection}{\numberline {4.4.6}API kontrollerek}{21}{subsection.4.4.6}%
+\select@language {magyar} \contentsline {subsubsection}{Felhasználó API kontroller}{21}{section*.3}%
+\select@language {magyar} \contentsline {subsubsection}{Esemény API kontroller}{21}{section*.4}%
+\select@language {magyar} \contentsline {subsection}{\numberline {4.4.7}CSRF token}{21}{subsection.4.4.7}%
+\select@language {magyar} \contentsline {subsection}{\numberline {4.4.8}Felmerülő hibák}{22}{subsection.4.4.8}%
+\select@language {magyar} \contentsline {section}{\numberline {4.5}Levelzés}{22}{section.4.5}%
+\select@language {magyar} \contentsline {section}{\numberline {4.6}API hitelesítéshez Sanctum}{22}{section.4.6}%
+\select@language {magyar} \contentsline {section}{\numberline {4.7}Útvonalak}{23}{section.4.7}%
+\select@language {magyar} \contentsline {subsection}{\numberline {4.7.1}Webes felülethez tartozó útvonalak}{23}{subsection.4.7.1}%
+\select@language {magyar} \contentsline {subsection}{\numberline {4.7.2}API-hoz tartozó útvonalak}{23}{subsection.4.7.2}%
+\select@language {magyar} \contentsline {section}{\numberline {4.8}Frontendhez használt eszközök}{23}{section.4.8}%
+\select@language {magyar} \contentsline {subsection}{\numberline {4.8.1}Elképzelés}{23}{subsection.4.8.1}%
+\select@language {magyar} \contentsline {subsection}{\numberline {4.8.2}Bootstrap szerepe a kivitelezésben}{23}{subsection.4.8.2}%
+\select@language {magyar} \contentsline {subsection}{\numberline {4.8.3}CSS helyett SCSS}{24}{subsection.4.8.3}%
+\select@language {magyar} \contentsline {chapter}{\numberline {5}API tesztelése Postmannal}{25}{chapter.5}%
+\select@language {magyar} \contentsline {section}{\numberline {5.1}Kérés írása}{25}{section.5.1}%
+\select@language {magyar} \contentsline {section}{\numberline {5.2}Válasz értelmezés}{25}{section.5.2}%
+\select@language {magyar} \contentsline {section}{\numberline {5.3}Kollekciók a kérésekből}{26}{section.5.3}%
+\select@language {magyar} \contentsline {section}{\numberline {5.4}Teszt írás a kéréshez}{26}{section.5.4}%
+\select@language {magyar} \contentsline {chapter}{\numberline {6}Androidos alkalmazás}{27}{chapter.6}%
+\select@language {magyar} \contentsline {section}{\numberline {6.1}Miért 21-es API szint?}{27}{section.6.1}%
+\select@language {magyar} \contentsline {section}{\numberline {6.2}AndroidManifest fájl}{27}{section.6.2}%
+\select@language {magyar} \contentsline {section}{\numberline {6.3}Activityk meghatározása}{28}{section.6.3}%
+\select@language {magyar} \contentsline {section}{\numberline {6.4}Modellek}{28}{section.6.4}%
+\select@language {magyar} \contentsline {section}{\numberline {6.5}API kapcsolat kialakítása}{28}{section.6.5}%
+\select@language {magyar} \contentsline {section}{\numberline {6.6}Végpontok a Retrofithez}{28}{section.6.6}%
+\select@language {magyar} \contentsline {section}{\numberline {6.7}Válaszok kezelése}{29}{section.6.7}%
+\select@language {magyar} \contentsline {section}{\numberline {6.8}Kérések használata}{29}{section.6.8}%
+\select@language {magyar} \contentsline {section}{\numberline {6.9}SharedPreferences az alkalmazásban}{29}{section.6.9}%
+\select@language {magyar} \contentsline {section}{\numberline {6.10}Felmerülő hibák}{29}{section.6.10}%
+\select@language {magyar} \contentsline {chapter}{\numberline {7}Továbbfejlesztési lehetőségek}{31}{chapter.7}%
+\select@language {magyar} \contentsline {section}{\numberline {7.1}Webes továbbfejlesztési lehetőségek}{31}{section.7.1}%
+\select@language {magyar} \contentsline {section}{\numberline {7.2}Mobil alkalmazás bővítési és fejleszthetőségi lehetőségek}{31}{section.7.2}%
+\select@language {magyar} \contentsline {chapter}{\numberline {8}Köszönetnyilvánítás}{32}{chapter.8}%
+\select@language {magyar} \contentsline {chapter}{Irodalomjegyz\'ek}{33}{chapter*.5}%
