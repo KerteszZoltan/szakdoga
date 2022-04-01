@@ -46,6 +46,7 @@ Véleményem szerint az emberek manapság inkább különböző applikációkat 
 A szakdolgozatom projektje két részből tevődik össze. Az első rész egy webes alkalmazás a második pedig egy mobil applikáció. A fő összetevője a webes felület, mivel Androidon a projekt nem minden funkciója érhető el. 
 
 A webes és az androidos alkalmazás tekintetében is törekedtem egy minimalista, mégis modern dizájn kialakításra, ami illeszkedik a világos és sötét témához is.
+
 \section{Webes alkalmazás}
 A projekt fő eleme a böngészőből elérhető alkalmazás. Itt került kialakításra a regisztráció és egy rövid ismertető a programról, hogy milyen feladatok, problémák megoldására terveztem. Ezek az oldalak elérhetőek a látogatók számára regisztráció nélkül. 
 
@@ -105,6 +106,7 @@ Ha már van környezetünk ahol majd a webes projektünk futtathatóvá válik k
 Androidos alkalmazás fejlesztésére többféle eszköz áll a rendelkezésünkre. Ilyen lehetőség lehet az ,,Eclipse''~\cite{eclipse_doc} vagy esetleg a ,,RAD Studio''~\cite{rad_doc}. Számomra a leginkább preferált fejlesztői környezet az ,,Android Studio''~\cite{androidStudio_doc}. Azért tartom jobbnak a többinél, mivel nem csak mobil eszközre lehet vele alkalmazást írni, hanem Wear OS-es órára és TV-re is. A másik előny, hogy a felhasználói kezelő felület kialakításához biztosít egy tervezőt ahol az elemeket fogd és vidd (drag and drop) módszerrel lehet elhelyezni a megjelenítő felületre. 
 
 Az ,,Android Studio''-ba olyan fontos funkciók vannak beépítve, mint az AVD~\cite{androidStudioAvd_doc} menedzser (manager), ami egy emulátor, ahol virtuális eszközöket tudunk létrehozni, hogy tesztelni tudjuk az alkalmazásunkat. A másik fontos eszköz ami implementálva van az ADB~\cite{androidStudioAdb_doc} (Android Debug Bridge) ami a virtuális vagy fizikai eszközünk között kommunikál a számítógéppel így figyelve az alkalmazásunk működését és hiba esetén megkönnyíti a hiba keresést. 
+
 \section{Postman a REST API-hoz}
 A REST API kapcsolat teszteléséhez szükség volt egy kliens programra, ahol lelehet ellenőrizni, hogy a kérés sikeres-e és a válasz megfelelő-e. Ehhez a ,,Postman''~\cite{postman_doc} programot választottam, mivel kliens program, egyszerű a használata ezért nem csak egy személy vehet részt a tesztelésben, mindezek mellett lehetőség van a teszteket kollekcióba elmenteni amiből későbbiekben automatizált teszt is futtatható. A szoftver nagyon sok API szabványt és formátumot támogat köztük a ,,JSON''-t~\cite{json_doc} is.
 
@@ -153,6 +155,7 @@ A generált adatok a következőek: id, remember\_token, created\_at, updated\_a
 A created\_at és updated\_at egy dátum típusú mező ami szintén legenerálódik, amikor a felhasználó regisztrál vagy módosítja az adatait. 
 
 Az id attribútum automatikusan növekvő szám sorozat amivel egy egyed beazonosítható, tehát ez az elsődleges kulcs az adattáblában.  A kulcs minden esetben előjel nélküli szám.
+
 \subsection{Migráció az eseményhez}
 Az eseményben is szerepelnek generált és felvitt adatok. A generáltról nem beszélnék, mivel nagyban megegyezik a felhasználó migrációban szerepelt generált adatokkal. A különbség az eseményre vonatkozó, felhasználó által beírt adatokban van. 
 
@@ -164,8 +167,11 @@ A topic az esemény neve, ahol karakterláncot (string) tárolunk el, amelynek m
 
 Az kezdési és befejezési dátumnál események távozása révén fontos kritérium volt, hogy nem csak dátumot, hanem időt is tárolni kell. Erre a legjobb megoldás a datetime típus ahol a legnagyobb megadható dátum a ,,9999-12-31 23:59:59''.
 
+\subsection{Létrehozott táblák}
+
 \section{Modellek}
 A modellek a MVC~\cite{mvc_mozzilla} tervezési mintában az adatbázis és a vezérlő közötti kapcsolat. Itt definiálhatjuk az adatok láthatósági szintjét és, hogy az adott szinten mik érhetőek el.
+
 \subsection{Felhasználói modell}
 A modell definiálása a kitölthető adatokkal kezdődik, melyek jelen esetben a név, e-mail és jelszó. A következő attribútumokat a rejtettek. Ezek a jelszó és a tokenek. Majd a végén található egy olyan metódus ami a kapcsolatot képezi a felhasználó és az esemény modell között. Itt jelen esetben azt adjuk meg, hogy egy felhasználóhoz több esemény is tartozhat.
 
@@ -181,7 +187,6 @@ A nézetek (view) felelnek a megjelenítésért. Jelen projektben a nézeteket k
 A Blade sablonban lévő PHP kódunkat dupla kapcsos zárójelek közé kell tenni. Ilyen PHP kód lehet egy útvonal hívás vagy olyan adat megjelenítés ami a szervertől érkezik. Ezen kívül a Blade-ban lehetőség van az alapvető vezérlési szerkezetek implementálására, mint például az if, foreach.
 
 \subsection{Felhasználói nézetek}
-
 Egy felhasználói nézet két komponensből tevődik össze, egyik az úgynevezett keret és maga a tartalom. A keret tartalmazza a HTML~\cite{html_doc} fejlécet ami a következőket foglalja magába: milyen néven található a CSS állomány, az alkalmazás ikonja és a JavaScript meghívása. Ezen kívül itt szerepel még a navigációs menü és egy @yield kulcsszó ami egy szakasz tartalmának megjelenítésére szolgál. A navigációs menüben találhatunk egy felhasználó ellenőrzést, ugyan is látogató annak megfelelően láthatja a menü elemeket, hogy be van-e regisztrálva.
 
 Mielőtt definiálnánk egy szakaszt meg kell adni, hogy melyik elrendezést örökölje, illetve esetemben, hogy milyen keretet örököljön erre a @extends kulcsszóval kell hivatkozni. A szakaszokat @section és @endsection segítségével definiáljuk.
@@ -201,6 +206,7 @@ A vezérlők általános működése a következőképpen írható le:~\cite{con
 \item{ A nézet a válasz alapján létrehozza a megfelelő kezelési felületet. A nézet a modellből nyeri az adatokat, de a modellnek nincs közvetlen tudomása a nézetről.}
 \item{A felhasználói felület újabb interakcióra vár és kezdődik elölről a kör.}
 \end{itemize}
+
 \subsection{Regisztráció kontroller}
 A regisztráció csak a látogatók (guest) számára elérhető oldal. Első lépésben ezt ellenőrizni kell, hogy a felhasználó be van-e jelentkezve. Ezt a köztes szoftver (middleware) ellenőrzi. Amennyiben bejelentkezett felhasználó hívná meg a regisztrációért felelős kontrollert a profilra kerül átirányításra. Ha ténylegesen a vendégtől érkezik a kérés akkor meghívódik a regisztrációhoz tartozó kontroller.  
 
@@ -255,24 +261,19 @@ A következő műveleti csoport a frissítés (update). A webes felületen nincs
 A végére maradt a törlés (delete) művelet az alapvető műveletek csoportjából. Törölni minden típusú eseményt lehet, ezért az átirányítás adott nézetre nem megfelelő, mivel nem tároljuk el, hogy honnan érkezik a kérés így a vissza (back) metódust fogjuk visszatéréskor használni ahol az előző oldalra ugrunk vissza. A kérésben itt csak egy azonosítót kapunk, tehát csak meg kell keresnünk a hozzá tartozó rekordot és meghívni hozzá a törlés (delete) metódust. Ezután pedig a már említett módon megtörténik a visszatérés a nézetre. 
 
 \subsection{API kontrollerek}
-
 Az API kontrollerek felelősek azért, hogy a külső alkalmazás tudjon csatlakozni a projektünkhöz. A jobb kezelhetőség érdekében külön vezérlőkben találhatók a felhasználóra és az eseményekre vonatkozó metódusok. A válaszok könnyebb értelmezhetősége miatt azokat JSON formátumban küldjük és fogadjuk. Ahhoz, hogy az eléréseket szűrjük a middleweart kell használni, de itt nem a vezérlő osztályon belül, hanem az elérési útban vizsgáljuk a felhasználói státuszt.
 
 \subsubsection{Felhasználó API kontroller}
-
 A lényegi különbség aközött a kontroller között amit a webes kliens és amit az API használ nem látható, ugyanis ugyan azokat a validációs folyamatokat végzi el. Amiben mégis eltérnek azok a válaszok és a szintaxis. A másik különbség, hogy itt nem nézetet adunk vissza, hanem választ (response). A válasz minden esetben egy kulcs-érték páros lista.
 Az API vezérlőben a felhasználó törlését nem definiáljuk, ezzel csökkentve az illetéktelen használó esetleges károkozását. 
 
 \subsubsection{Esemény API kontroller}
-
 Az esemény kontrollernél ugyan az a helyzet, mint a felhasználó által használt API kontrollerrel, hogy megegyezik a webes felület vezérlőjével, csak más szintaxist kell alkalmazni. Funkcionalitás tekintetében a webes és az API kontroller megegyezik, ezzel biztosítva a korlátozatlan működést a felhasználó számára.
 
 \subsection{CSRF token}
-
 Bár szorosan nem kapcsolódik a kontroller működéséhez mégis itt tüntetném fel, mivel, ha a felhasználó nem rendelkezik CSRF tokennel~\cite{laravel_csrf}, úgy az adatok változtatását sem tudja végrehajtani. Tehát Ez is egy biztonsági intézkedés, mint a middlewear által a felhasználónak az authentikációja. Ezért minden formot CSRF védelemmel kell ellátni a nézeten, hogy ne történjen illetéktelen átirányítás.
 
 \subsection{Felmerülő hibák}
-
 A kontrollerhez tartozó adat felvitel és menedzselés közben sok hiba történhet. Ilyen hibák lehetnek a tipikus hibák:
 \begin{itemize}
 \item Sikertelen bejelentkezés. 
@@ -283,20 +284,31 @@ A hibák kezelésekor minden esetben az aktuálisan futó eljárás felfüggeszt
 
 A másik módja a hibakezelésnek, hogy a felhasználó által kitöltendő adatok mennyiségét csökkentjük. Ezt jelenleg a dátumok kitöltésénél alkalmazom ahol egy naptárban kell a felhasználónak dátumokat kiválasztania. 
 
-
 \section{Levelzés}
 A projektben véleményem szerint fontos a levelezés, mivel így a felhasználó értesül a regisztrációról és az új esemény hozzáadásról. Ehhez nagy segítséget nyújt a Laravelben implementál Mail~\cite{laravel_mail} API. Ahhoz, hogy az alkalmazásunk leveleket küldjön a .env fájlban be kell állítani a levelező szerverhez tartozó adatokat. Ezután létre kell hozni egy e-mail osztályt és nevet adni neki, utána következik a formátum megadás majd után oda kell írni, hogy a hozzá tartozó nézet hol jöjjön létre. A létrejövő osztály build metódusában lehetőség van megadni, hogy milyen tárggyal küldje ki a levelet. A konstruktorban pedig megadásra kerül, hogy milyen modelleket vagy adatokat kívánunk elküldeni.
 
 \section{API hitelesítéshez Sanctum}
-
 A Sanctum~\cite{laravel_sanctum} egy hitelesítési rendszer token alapú API-okhoz és mobil alkalmazásokhoz. A Sanctummal egyszerűen adhatóak ki tokenek a felhasználó számára. Ezek a kiadott elemek nagyon hosszú lejárati idejűek, általában több év, de igény szerint módosíthatóak és a felhasználó visszavonhatja ezeket. Az API útvonalak eléréséhez a felhasználói státuszt a sanctumba épített köztes szoftver (middlewear) végzi. Először megpróbálja a munkamenet hitelesítő cookit ellenőrizni, amennyiben sikertelen megvizsgálja a kérés fejlécét, hogy az authorizationban található token megfelel-e. A hitelesítéshez Bearer~\cite{bearer_token} Tokent használunk, ami egy átláthatatlan karakterlánc, ami nem tartalmaz jelentést.
 
 \section{Útvonalak}
 A projektünk során fontos megemlíteni az útvonalakat~\cite{laravel_route}, mivel szoros összefüggés van köztük és a kontrollerek között, mivel majdnem minden útvonal hívás megfelel egy-egy vezérlőben lévő metódus hívásnak. 
+
 \subsection{Webes felülethez tartozó útvonalak}
 A webes felület esetén két fajta kérést különböztetünk meg. Vannak a szerverhez érkező get és post kérések.~\cite{get_post_difference} Get kérés esetén adatot kapunk a szervertől míg post-kor küldünk a szervernek. A legtöbb kérés esetén vezérlőt hívunk meg, mivel szükséges az authentikáció, amik pedig kivételek azok esetében egy nézettel térünk vissza. A POST metódusoknál megfigyelhető, hogy elvannak nevezve, minderre azért van szükség, hogy a nézetben könnyebb legyen a rájuk való hivatkozás. 
+
 \subsection{API-hoz tartozó útvonalak}
-A különbség a két útvonal gyűjtemény között, hogy az API útvonalak esetében a bejelentkezésen kívül minden mást elérési utat a sanctum köztes szoftver segítségével hitelesítünk, tehát csak a hitelesített felhasználók számára elérhető. 
+A különbség a két útvonal gyűjtemény között, hogy az API útvonalak esetében a bejelentkezésen kívül minden mást elérési utat a sanctum köztes szoftver segítségével hitelesítünk, tehát csak a hitelesített felhasználók számára elérhető.
+ 
+\subsection{Felmerülő hibák}
+Az útvonal kérések esetén is merülhetnek fel hibák amiket le kell kezelni úgy, hogy a felhasználó ne érzékelje a hibát. Ilyen hibák lehetnek a következők:
+\begin{itemize}
+\item Nem létező útvonal hívása.
+\item Jogosultságnak nem megfelelő hívás
+\end{itemize}
+
+Amennyiben nem létező útvonalat hív meg a felhasználó ekkor 404-es hiba oldal jelenik meg a felhasználónak. 
+
+Az útvonalak nem mindegyike érhető el a vendégek számára. Amennyiben bejelentkezés nélkül próbálunk meg meghívni egy létező útvonalat úgy a felhasználó átirányításra kerül a bejelentkezési oldalra és így már megtudja hívni a kívánt létező útvonalat. Amennyiben nem definiált útvonal kerül hívásra a 404-es hiba oldal jelenik meg, hogy nem találja az útvonalat.
 
 \section{Frontendhez használt eszközök}
 \subsection{Elképzelés}
@@ -354,6 +366,8 @@ A nézetek kialakításkor a színek összeállításában törekedtem arra, hog
 
 A nézetre különböző elemeket többféle módon tudunk felhelyezni. Lehetőség van a beépített grafikus tervezőt használni ahol fogd és vidd (drag and drop) módszerrel tudjuk a felületre felhelyezni az elemeket vagy XML kódként is megtudjuk írni. Amennyiben a kijelző méretének változásakor is dinamikus megjelenítést szeretnénk biztosítani az elemekre olyan megkötéseket kell definiálni, hogy a szülőhöz képest hol helyezkedik el. A tartalom megjelenítő elemek esetén azok méretét meg tudjuk határozni úgy, hogy a tartalomhoz igazodjon (wrap content).
 
+Az események kiíratáshoz egy gyűjtő nézetet kellett biztosítani, hogy az adatok elkülönítve jelenjenek meg. Mivel a megjeleníteni kívánt elemek API kérés alapján kerülnek a felhasználóhoz így egy dinamikus tartalom megjelenítőre volt szükség. Ehhez a recycler view volt a legjobban megfelelő és az itt megjelenő adatoknak egy különálló xml-ben lett definiálva a megjelenítőben használt elem. Ez egyedi megjelenítést végül pedig egy adapter segítségével lett hozzá illesztve a viewhoz. Ehhez a megjelenítéshez is a webes felület dizájnja volt segítségül hívva és egy ahhoz hasonló kialakítás volt a cél.
+
 \section{Modellek}
 A mobil alkalmazásban is modelleket használunk az adatok kezeléséhez. Itt a modellek kialakítása az API válasz alapján történt, tehát a válaszban szereplő mezők szerepelnek az modellben. A felhasználók és az események számára is definiálni kellett egyet, mivel ezekhez tartozó adatokat kezelünk. 
 A modellekhez tartozik egy konstruktor ahol a kapott értékeket állítjuk be. Ezen mezőkhöz tartoznak külön lekérő és beállító metódusok.
@@ -385,14 +399,29 @@ A fejlesztés során a webes felülethez hasonlóan több hiba is felmerült. Il
 \item Adatkitöltésben keletkező hiba.
 \item Hibás kérés és válasz.
 \end{itemize}
-Az hibák kezelésekor úgy láttam a legjobbnak, hogy a felhasználót értesítjük és segítjük a hiba megoldásában. A hibák keletkezhetnek az alkalmazásban amely esetben a kérést el sem küldjük a szerver felé és keletkezhet a szerverről érkező válasz miatt. Ilyen hiba létrejöhet a bejelentkezés folyamán ahol a felhasználó nem tölt ki valamilyen adatot. Ebben az esetben nem küldjük el a kérést a szerver felé, hanem hibaüzenetben tájékoztatjuk és megjelöljük a felhasználónak, hogy melyik mező értékében szerepel a hiba. 
+Az hibák kezelésekor úgy láttam a legjobbnak, hogy a felhasználót értesítjük és segítjük a hiba megoldásában. A hibák keletkezhetnek az alkalmazásban amely esetben a kérést el sem küldjük a szerver felé és keletkezhet a szerverről érkező válasz miatt. Ilyen hiba létrejöhet a bejelentkezés folyamán ahol a felhasználó nem tölt ki valamilyen adatot. Ebben az esetben nem küldjük el a kérést a szerver felé, hanem hibaüzenetben tájékoztatjuk és megjelöljük a felhasználónak, hogy melyik mező értékében szerepel a hiba. Ezt a megoldást több helyen is alkalmazhatjuk, mint a profil módosítás esetében ahol a nevet és e-mail címet kötelező kitölteni vagy éppen az új esemény hozzáadásnál ahol nem lehet üres a név és a dátumok. 
 
 A következő hiba ami előfordulhat, hogy a felhasználó rossz dátum formátumot használna. Ezt kiküszöböltem azzal, hogy egy felugró ablakot biztosítok neki, ahol a kívánt dátumot kiválasztja és ez kerül eltárolásra. 
 
+A felhasználó generálhat olyan kérést ahol a visszatérés nem elfogadó választ küld. Ilyen kérés lehet az, ha rossz adatot adunk meg bejelentkezéskor. Ebben az esetben a válasz sikertelen ágra fut és felugró üzenetben kerül értesítésre a felhasználó. 
+
 \chapter{Továbbfejlesztési lehetőségek}
 \section{Webes továbbfejlesztési lehetőségek}
+A webes felület még bőven tartogat magában továbbfejlesztési lehetőséget kód és funkcionalitás szinten is. 
+
+Amit kód szinten tovább lehet fejleszteni, hogy a HTML elemekből komponenseket lehetne létre hozni így könnyebb lenne egységesíteni a dizájnt is. Amit még ezen felül érdemes lenne megcsinálni, hogy a kontroller osztályokat újra definiálni az egyetlen felelősség elve alapján, tehát külön vezérlőket létrehozni a következő műveletekhez: létrehozás, adat kiolvasás, frissítés és törlés. 
+
+Funkcionalitás szintjén több lehetséges ötletem is van. Az legelső ilyen, hogy a felhasználó kitudja jelentkeztetni a bejelentkezett eszközöket. A másik tovább fejlesztés ami funkcionálisan hasznos lenne, egy olyan adminisztrátori felület ahol lehetőség van a felhasználók és azok adatainak kezelésére. Ezen felül még a felhasználóknak lehetne egy fiók szüneteltetési funkciót programozni, hogy az adati ne törlődjenek amennyiben már nem kívánja használni a rendszerünket. Mindezek mellett az e-mail funkciót lehetne még bővíteni, hogy a felhasználónak az esemény módosításakor is küldjön értesítést a rendszer és akkor is, és a lejárati idő előtt is egy megadott idővel.
+
+Megjelenítés szempontjából a dizájnon még lehetne javítani, esetleg minimális animációt a felülethez rendelni ami még nem rontja a felhasználói élményt, de különlegessé teszi az oldalunkat. Mivel események tárolására szolgál a rendszer lehetne az oldalhoz egyedi kurzort is rendelni ami még vonzóbbá teszi a felhasználó számára az oldalunkat. 
+
 
 \section{Mobil alkalmazás bővítési és fejleszthetőségi lehetőségek}
+Lehetőség még itt is van bőven a továbbfejlesztésre, többek között a nézetek átdolgozása fregmentekre, hogy ne mindig activityt kelljen indítani. Külső megjelenésre jobban össze lehetne igazítani a kinézetet annak megfelelően, hogy az adott telefon sötét módban van-e vagy simán használják. Mivel az alkalmazásunk jelenleg nem támogatja az elforgatott képernyőt így ahhoz is ellehetne készíteni a nézetet. További lehetőség amik a nézethez kapcsolódnak, hogy amikor a felhasználó egy adott eseményt szeretne módosítani az jelenleg úgy tudja megtenni, hogy adott azonosítóra kell szűrnie. Ezt meglehetne úgy oldani, hogy a kilistázott eseményeknél kattinthatóvá tenni az adott elemet és úgy meglehessen nyitni a módosítást. 
+
+Amit még érdemes lenne fejleszteni, hogy a felhasználó által lekért adatokat a készüléken eltárolni egy noSQL adatbázisban vagy Room-ban, így nem kell mindig kéréssel fordulni a szerver felé, ha az eseményeket szeretnénk látni és internet elérés nélkül is használható lenne a szoftverünk. 
+
+Funkciók tekintetében amivel érdemes lenne kibővíteni még a szoftvert, hogy ne csak egyesével lehessen törölni az eseményeket. Ehhez nézet tekintetében megfelelő lenne egy olyan megoldás ahol a törölni kívánt eseményeket be kellene pipálni és így futna le a törlés. 
 
 \chapter{Köszönetnyilvánítás}
 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2022.3.21)  1 APR 2022 16:50
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2022.3.21)  1 APR 2022 23:50
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -609,7 +609,7 @@ Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
 LaTeX Info: Redefining \cal on input line 577.
 LaTeX Info: Redefining \mit on input line 578.
 )
-<eszterhazy-logo-hu.pdf, id=274, 256.07971pt x 88.04292pt>
+<eszterhazy-logo-hu.pdf, id=278, 256.07971pt x 88.04292pt>
 File: eszterhazy-logo-hu.pdf Graphic file (type pdf)
 <use eszterhazy-logo-hu.pdf>
 Package pdftex.def Info: eszterhazy-logo-hu.pdf  used on input line 30.
@@ -654,32 +654,38 @@ Package pdftex.def Info: eszterhazy-logo-hu.pdf  used on input line 30.
 7. fejezet.
 [31
 
-]
+] [32]
 8. fejezet.
-[32
+[33
 
-] [33
+] [34
 
-] [34]
-Underfull \hbox (badness 1454) in paragraph at lines 581--585
+] [35]
+Underfull \hbox (badness 1454) in paragraph at lines 610--614
 \T1/lmr/m/it/12 Vinicius M. Grip-pa, Ser-gey Kuz-michev, 2021 O'Reilly Me-dia, 
 Inc., ISBN:
  []
 
-[35]
-Underfull \hbox (badness 10000) in paragraph at lines 638--641
+[36]
+Underfull \hbox (badness 10000) in paragraph at lines 667--670
 \T1/lmr/bx/n/12 https://developer.android.com/training/data-storage/shared-
  []
 
-[36] (./F541OL_2022.aux)
-Package rerunfilecheck Info: File `F541OL_2022.out' has not changed.
-(rerunfilecheck)             Checksum: CFD45A2F64F4F2CF81B02E7B0A9A7DF0;13010.
+[37] (./F541OL_2022.aux)
+
+Package rerunfilecheck Warning: File `F541OL_2022.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `F541OL_2022.out':
+(rerunfilecheck)             Before: 3E9DADA41762ADB4AE1AB9437B194256;13197
+(rerunfilecheck)             After:  2A165A8104B8E3FEA25983CCBF13CEC0;13399.
  ) 
 Here is how much of TeX's memory you used:
- 15005 strings out of 478276
- 239971 string characters out of 5850489
- 563589 words of memory out of 5000000
- 32782 multiletter control sequences out of 15000+600000
+ 15009 strings out of 478276
+ 240028 string characters out of 5850489
+ 564589 words of memory out of 5000000
+ 32783 multiletter control sequences out of 15000+600000
  528863 words of font info for 76 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  75i,7n,77p,1629b,515s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -687,10 +693,10 @@ Here is how much of TeX's memory you used:
 mf-dist/fonts/type1/public/lm/lmbx12.pfb><c:/texlive/2021/texmf-dist/fonts/type
 1/public/lm/lmcsc10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmr12
 .pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmri12.pfb>
-Output written on F541OL_2022.pdf (36 pages, 223842 bytes).
+Output written on F541OL_2022.pdf (37 pages, 228365 bytes).
 PDF statistics:
- 649 PDF objects out of 1000 (max. 8388607)
- 594 compressed objects within 6 object streams
- 152 named destinations out of 1000 (max. 500000)
- 554 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 663 PDF objects out of 1000 (max. 8388607)
+ 606 compressed objects within 7 object streams
+ 155 named destinations out of 1000 (max. 500000)
+ 562 words of extra memory for PDF output out of 10000 (max. 10000000)
 
