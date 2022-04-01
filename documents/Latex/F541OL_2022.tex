@@ -271,8 +271,20 @@ Az esemény kontrollernél ugyan az a helyzet, mint a felhasználó által haszn
 
 Bár szorosan nem kapcsolódik a kontroller működéséhez mégis itt tüntetném fel, mivel, ha a felhasználó nem rendelkezik CSRF tokennel~\cite{laravel_csrf}, úgy az adatok változtatását sem tudja végrehajtani. Tehát Ez is egy biztonsági intézkedés, mint a middlewear által a felhasználónak az authentikációja. Ezért minden formot CSRF védelemmel kell ellátni a nézeten, hogy ne történjen illetéktelen átirányítás.
 
-\section{Levelzés}
+\subsection{Felmerülő hibák}
 
+A kontrollerhez tartozó adat felvitel és menedzselés közben sok hiba történhet. Ilyen hibák lehetnek a tipikus hibák:
+\begin{itemize}
+\item Sikertelen bejelentkezés. 
+\item Már létező felhasználó próbál regisztrálni.
+\item Hibásan kitöltött adatok.
+\end{itemize}
+A hibák kezelésekor minden esetben az aktuálisan futó eljárás felfüggesztésre kerül és a felhasználót vissza irányítjuk a kiindulási oldalra, ahol tájékoztatjuk, hogy mivel volt a hiba. 
+
+A másik módja a hibakezelésnek, hogy a felhasználó által kitöltendő adatok mennyiségét csökkentjük. Ezt jelenleg a dátumok kitöltésénél alkalmazom ahol egy naptárban kell a felhasználónak dátumokat kiválasztania. 
+
+
+\section{Levelzés}
 A projektben véleményem szerint fontos a levelezés, mivel így a felhasználó értesül a regisztrációról és az új esemény hozzáadásról. Ehhez nagy segítséget nyújt a Laravelben implementál Mail~\cite{laravel_mail} API. Ahhoz, hogy az alkalmazásunk leveleket küldjön a .env fájlban be kell állítani a levelező szerverhez tartozó adatokat. Ezután létre kell hozni egy e-mail osztályt és nevet adni neki, utána következik a formátum megadás majd után oda kell írni, hogy a hozzá tartozó nézet hol jöjjön létre. A létrejövő osztály build metódusában lehetőség van megadni, hogy milyen tárggyal küldje ki a levelet. A konstruktorban pedig megadásra kerül, hogy milyen modelleket vagy adatokat kívánunk elküldeni.
 
 \section{API hitelesítéshez Sanctum}
@@ -306,7 +318,7 @@ Mivel az Sass-el megoldódik a CSS állományok rendezésének problémája így
 Miután megírásra kerültek az API kapcsolathoz szükséges útvonalak és vezérlők elkezdődhetett a tesztelés. A Postman nagy segítséget nyújt a kérések megírásához, mivel útvonalat lehet benne eltárolni így nem kell mindig a teljes elérési utat beírni. Mindezek mellett az API kérésen történt bejelentkezés után lehetőség van eltárolni a token-t, ezzel segítve a további munkát. 
 
 \section{Kérés írása}
-A kérések megírásában nagy segítséget nyújt, hogy lehetőségünk van a token és a szerver címének kimentésére, mivel így csak hivatkozni kell az eltárolt címre és az útvonalat megadni.
+A kérések megírásában nagy segítséget nyújt, hogy lehetőségünk van a token és a szerver címének kimentésére, mivel így csak hivatkozni kell az eltárolt címre és az útvonalat megadni. A kérések definiálásakor meg kell adni, hogy milyen típusú a kérés. Ezt a Postmanban egy legördülő menüből lehet kiválasztani. 
 
 Amennyiben a bejelentkezési tokent is eltároljuk és a hívásunkban fel kellene használni, azt könnyen megtehetjük az Authorization fülön úgy, hogy kiválasztjuk a token típusát ami esetünkben a Bearer token és ahol a tokent meg kellene adni, ott csak a kimentett adatra kell hivatkozni. 
 
@@ -318,13 +330,44 @@ A kérésre érkező válasz megjelenítésére is több formátum érhető el, 
 \section{Kollekciók a kérésekből}
 Lehetőség van kollekciókat létrehozni így az egyes kéréseket csoportosítani tudjuk, majd egyben lefuttatni. Erre azért van szükség, hogy lássuk milyen státusz kóddal térnek vissza az esetleges kérések. A kollekció elemeit lehetőség van egyesével is futtatni és az egész kollekciót is megadott iteráció számban elküldeni a szerver felé. A státusz kód mellett olyan adatokat is megkapunk, hogy mennyi idő alatt kaptunk választ és, hogy mekkora volt az adatforgalom. 
 
+\section{Teszt írás a kéréshez}
+A Postman lehetőséget biztosít teszt írásra a kéréshez. A fejlesztőnek lehetősége van saját tesztek írására is, de ezek mellett a program kód töredékeket (snippet) biztosít a hatékony teszteléshez. Az általános tesztek esetén a státuszt és a válasz kerül vizsgálatra.
+
+Csoportos kérés futtatása esetén a tesztek is lefutnak és az eredmények között szerepel, hogy mely tesztek futottak le és milyen eredménnyel. 
+
+\chapter{Androidos alkalmazás}
+Az mobil platformra írt kliensprogram nem pótolja a webes alkalmazást, mivel regisztrálni csak a böngészőn keresztül lehet. 
+\section{Miért 21-es API szint?}
+Ahhoz, hogy androidos eszközre fejlesszünk meg kell határozni az API~\cite{android_api_level} szintet. Ehhez figyelembe kell venni, hogy melyik androidos operációs rendszer verzió legyen a legkisebb amin projektünk futhat. Itt számomra a minél alacsonyabb verzió szám volt az optimális, hogy széles körben használható legyen az alkalmazásunk. A következő fontos szempont, hogy az Android verzió API szintje támogassa azokat a funkciókat, melyeket megszeretnék valósítani. Ezen feltételeknek számomra a legjobb a 21-es API szint, ami az Android 5.0-ás verziója. Ez az manapság használt eszközök 98\%-ával kompatibilis.
+
+\section{AndroidManifest fájl}
+Fejlesztés közben a Manifest fáj dinamikusan fog növekedni ugyan is az alkalmazásról tárolni kell azokat az információkat amelyeket minden futás előtt tudnia kell a rendszernek az alkalmazásról.
+
+Itt találhatók meg azok az engedélyek melyek a program futásához szükségesek, ezen kívül az alkalmazáshoz tartozó komponenseket. 
+
+Lehetőség van még ezeken kívül olyan feltételeket definiálni ami az alkalmazás egészére vonatkozik. Ilyen feltétel lehet a projektünk orientációja, tehát a képernyő elforgatása esetén az alkalmazás is elforduljon-e.
+
+\section{Activityk meghatározása}
+Az androidos alkalmazás fejlesztésekor a megjelenített felületet Activitynek hívjuk. Minden nézetnek van egy életciklusa ami a létrehozástól a megszüntetéséig tart.
+
+A nézetek kialakításkor a színek összeállításában törekedtem arra, hogy a weboldalon használtakhoz hasonló legyen, így egységesítve a két nézetet. 
+
+A nézetre különböző elemeket többféle módon tudunk felhelyezni. Lehetőség van a beépített grafikus tervezőt használni ahol fogd és vidd (drag and drop) módszerrel tudjuk a felületre felhelyezni az elemeket vagy XML kódként is megtudjuk írni. Amennyiben a kijelző méretének változásakor is dinamikus megjelenítést szeretnénk biztosítani az elemekre olyan megkötéseket kell definiálni, hogy a szülőhöz képest hol helyezkedik el. A tartalom megjelenítő elemek esetén azok méretét meg tudjuk határozni úgy, hogy a tartalomhoz igazodjon (wrap content).
+
+\section{Modellek}
+A mobil alkalmazásban is modelleket használunk az adatok kezeléséhez. Itt a modellek kialakítása az API válasz alapján történt, tehát a válaszban szereplő mezők szerepelnek az modellben. A felhasználók és az események számára is definiálni kellett egyet, mivel ezekhez tartozó adatokat kezelünk. 
+
+\section{API kapcsolat kialakítása}
+
 \chapter{Továbbfejlesztési lehetőségek}
+\section{Webes továbbfejlesztési lehetőségek}
+
+\section{Mobil alkalmazás bővítési és fejleszthetőségi lehetőségek}
 
 \chapter{Köszönetnyilvánítás}
 
 \chapter*{Összegzés}
 \addcontentsline{toc}{chapter}{Összegzés}
-Lórum ipse olyan borzasztóan cogális patás, ami fogás nélkül nem varkál megfelelően. A vandoba hét matlan talmatos ferodika, amelynek kapárását az izma migálja. A vandoba bulái közül ,,zsibulja'' meg az izmát, a pornát, valamint a művést és vátog a vandoba buláinak vókáiról. Vókája a raktil prozása két emen között. Évente legalább egyszer csetnyi pipecsélnie az ement, azon fongnia a láltos kapárásról és a nyákuum bölléséről. A vandoba ninti és az emen elé redőzi a szamlan radalmakan érvést. Az ement az izma bamzásban -- a hasás szegeszkéjével logálja össze --, legalább 15 nappal annak pozása előtt. Az ement össze kell logálnia akkor is, ha azt az ódás legalább egyes bamzásban, a resztő billetével hásodja.
 
 \begin{thebibliography}{2}
 \addcontentsline{toc}{chapter}{\bibname}
@@ -552,6 +595,11 @@ Lórum ipse olyan borzasztóan cogális patás, ami fogás nélkül nem varkál 
 \textsc{A Mozilla által készített leírás az MVC-hez:}
 \newline
 \emph{\bf{https://developer.mozilla.org/en-US/docs/Glossary/MVC}}
+
+\bibitem{android_api_level}
+\textsc{Táblázat az android verziókhoz és API szinthez:}
+\newline
+\emph{\bf{https://apilevels.com}}
 
 \end{thebibliography}
 
