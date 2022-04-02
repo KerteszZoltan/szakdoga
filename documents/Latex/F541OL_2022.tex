@@ -168,6 +168,10 @@ A topic az esemény neve, ahol karakterláncot (string) tárolunk el, amelynek m
 Az kezdési és befejezési dátumnál események távozása révén fontos kritérium volt, hogy nem csak dátumot, hanem időt is tárolni kell. Erre a legjobb megoldás a datetime típus ahol a legnagyobb megadható dátum a ,,9999-12-31 23:59:59''.
 
 \subsection{Létrehozott táblák}
+A migráció lefuttatásával a definiált táblák létrejönnek az adatbázisban. A Laravel keretrendszerben vannak olyan előre definiált táblák amelyek a projekt legenerálásakor létrejönnek. Ilyen tábla például a personal\_access\_token nevezetű ahol a felhasználói API tokenek találhatóak. Ez egy külön álló tábla ahol eltárolásra kerülnek a tokenek, de nincs összekötve a felhasználóval, de id alapján azonosítható. A létrehozott felhasználó és esemény tábla között ,,egy a többhöz'' kapcsolat kerül kialakításra.
+
+\subsection{Migrációs hiba lehetőség}
+Ahhoz, hogy a migráció sikeresen fusson le, figyelni kell a lefuttatás sorrendjére, ugyan is, ha előbb kerül létrehozásra az események tábla, mint a felhasználóhoz tartozó, hiba generálódik a külső kulcsra való hivatkozás miatt. Ez a hiba könnyen orvosolható a migrációs fájlok átnevezésével.
 
 \section{Modellek}
 A modellek a MVC~\cite{mvc_mozzilla} tervezési mintában az adatbázis és a vezérlő közötti kapcsolat. Itt definiálhatjuk az adatok láthatósági szintjét és, hogy az adott szinten mik érhetőek el.
@@ -350,14 +354,17 @@ Csoportos kérés futtatása esetén a tesztek is lefutnak és az eredmények k�
 \chapter{Androidos alkalmazás}
 Az mobil platformra írt kliensprogram nem pótolja a webes alkalmazást, mivel regisztrálni csak a böngészőn keresztül lehet. 
 \section{Miért 21-es API szint?}
-Ahhoz, hogy androidos eszközre fejlesszünk meg kell határozni az API~\cite{android_api_level} szintet. Ehhez figyelembe kell venni, hogy melyik androidos operációs rendszer verzió legyen a legkisebb amin projektünk futhat. Itt számomra a minél alacsonyabb verzió szám volt az optimális, hogy széles körben használható legyen az alkalmazásunk. A következő fontos szempont, hogy az Android verzió API szintje támogassa azokat a funkciókat, melyeket megszeretnék valósítani. Ezen feltételeknek számomra a legjobb a 21-es API szint, ami az Android 5.0-ás verziója. Ez az manapság használt eszközök 98\%-ával kompatibilis.
+Ahhoz, hogy androidos eszközre fejlesszünk meg kell határozni az API~\cite{android_api_level} szintet. Ehhez figyelembe kell venni, hogy melyik androidos operációs rendszer verzió legyen a legkisebb amin projektünk futhat. Itt számomra a minél alacsonyabb verzió szám volt az optimális, hogy széles körben használható legyen az alkalmazásunk. A következő fontos szempont, hogy az Android verzió API szintje támogassa azokat a funkciókat, melyeket megszeretnék valósítani. Ezen feltételeknek számomra a legjobb a 21-es API szint, ami az Android 5.0-ás verziója. Ez a manapság használt eszközök 98\%-ával kompatibilis.
 
 \section{AndroidManifest fájl}
-Fejlesztés közben a Manifest fáj dinamikusan fog növekedni ugyan is az alkalmazásról tárolni kell azokat az információkat amelyeket minden futás előtt tudnia kell a rendszernek az alkalmazásról.
+Fejlesztés közben a Manifest~\cite{android_manifest} fáj dinamikusan fog növekedni ugyan is az alkalmazásról tárolni kell azokat az információkat amelyeket minden futás előtt tudnia kell a rendszernek az alkalmazásról.
 
 Itt találhatók meg azok az engedélyek melyek a program futásához szükségesek, ezen kívül az alkalmazáshoz tartozó komponenseket. 
 
 Lehetőség van még ezeken kívül olyan feltételeket definiálni ami az alkalmazás egészére vonatkozik. Ilyen feltétel lehet a projektünk orientációja, tehát a képernyő elforgatása esetén az alkalmazás is elforduljon-e.
+
+\section{Activity indítás}
+Az activity indítás történhet adattal és adat nélkül. Dolgozatom során az utóbbit használom, mivel minden adatot a Retrofit kérésből kapunk, így nincs szükség adat átadásra. Az intenteket~\cite{android_intent} lehet implicit és explicit módon használni. Amennyiben explicit módon szeretnénk felhasználni meg kell határozni az összetevőket, hogy honnan indítjuk és mit hívunk meg. Projektem során ezt részesítem előnyben, mivel minden híváshoz tartozik egy egyértelműen megállapítható osztály.
 
 \section{Activityk meghatározása}
 Az androidos alkalmazás fejlesztésekor a megjelenített felületet Activitynek hívjuk. Minden nézetnek van egy életciklusa ami a létrehozástól a megszüntetéséig tart.
@@ -366,7 +373,12 @@ A nézetek kialakításkor a színek összeállításában törekedtem arra, hog
 
 A nézetre különböző elemeket többféle módon tudunk felhelyezni. Lehetőség van a beépített grafikus tervezőt használni ahol fogd és vidd (drag and drop) módszerrel tudjuk a felületre felhelyezni az elemeket vagy XML kódként is megtudjuk írni. Amennyiben a kijelző méretének változásakor is dinamikus megjelenítést szeretnénk biztosítani az elemekre olyan megkötéseket kell definiálni, hogy a szülőhöz képest hol helyezkedik el. A tartalom megjelenítő elemek esetén azok méretét meg tudjuk határozni úgy, hogy a tartalomhoz igazodjon (wrap content).
 
-Az események kiíratáshoz egy gyűjtő nézetet kellett biztosítani, hogy az adatok elkülönítve jelenjenek meg. Mivel a megjeleníteni kívánt elemek API kérés alapján kerülnek a felhasználóhoz így egy dinamikus tartalom megjelenítőre volt szükség. Ehhez a recycler view volt a legjobban megfelelő és az itt megjelenő adatoknak egy különálló xml-ben lett definiálva a megjelenítőben használt elem. Ez egyedi megjelenítést végül pedig egy adapter segítségével lett hozzá illesztve a viewhoz. Ehhez a megjelenítéshez is a webes felület dizájnja volt segítségül hívva és egy ahhoz hasonló kialakítás volt a cél.
+Az események kiíratáshoz egy gyűjtő nézetet kellett biztosítani, hogy az adatok elkülönítve jelenjenek meg. Mivel a megjeleníteni kívánt elemek API kérés alapján kerülnek a felhasználóhoz így egy dinamikus tartalom megjelenítőre volt szükség. Ehhez a recycler view~\cite{android_recycler} volt a legjobban megfelelő és az itt megjelenő adatoknak egy különálló xml-ben lett definiálva a megjelenítőben használt elem. Ez egyedi megjelenítést végül pedig egy adapter segítségével lett hozzá illesztve a viewhoz. Ehhez a megjelenítéshez is a webes felület dizájnja volt segítségül hívva és egy ahhoz hasonló kialakítás volt a cél. Mivel az eszközök között képernyőben és az alkalmazás által használt kijelző felületben vannak eltérések így egy kisebb megjelenítőre volt célszerű definiálni a méretet.
+
+\section{Erőforrások hozzárendelése az alkalmazáshoz}
+A kliens programhoz többféle erőforrást kell hozzárendelni. A legtöbb ilyen hozzárendelés alatt a képek implementálása jelenti a projektben. A webes felülethez használt alkalmazás ikon az androidos felületen is több helyen megjelenik. Ezen kívül több kép is lett a projektbe importálva, ezzel is egyedivé téve a programunkat. Képek tekintetében a beépített ikonok közül is kerültek felhasználásra, amiket vektor eszközként (vector asset) tudunk a projektünkhöz adni.
+
+Mivel minden activity elrendezés xml fájlban található így ezek is az erőforrások között tárolódnak el. Ilyen xml fájlok tartoznak a beimportált képekhez is. Ezen kívül az erőforrások mappában találatunk egy értékek (values) almappát. Az itt található stings.xml fájlban lehetőségünk van az alkalmazás használata során használt szövegek eltárolására. Amennyiben alkalmazásunkban figyelni szeretnénk a rendszer nyelvét és ahhoz igazítanánk a programunkon megjelenő szövegeket segítségünkre van a Translations Editor~\cite{android_translations}. 
 
 \section{Modellek}
 A mobil alkalmazásban is modelleket használunk az adatok kezeléséhez. Itt a modellek kialakítása az API válasz alapján történt, tehát a válaszban szereplő mezők szerepelnek az modellben. A felhasználók és az események számára is definiálni kellett egyet, mivel ezekhez tartozó adatokat kezelünk. 
@@ -386,7 +398,7 @@ A végpontoknál definiálni kell a kérés típusát ami lehet @POST vagy @GET.
 Mivel a legtöbb végpont esetén típus specifikust választ várunk így ezeket osztályokba kellett rendezni. Az osztályokban található lékérő és beállító metódusok ahol a típushoz felhasználjuk a modelleket.
 
 \section{Kérések használata}
-Amikor meghívjuk a kéréseket két metódus tartozik hozzá. Az egyik arra vonatkozik, hogy mi történjen ha a kérés sikeres volt, a másik metódus a sikertelen kérés után futtatható kód sorokat tartalmazza ami legtöbb esetben egy felugró hiba üzenet a kérés sikertelenségéről. A kérések aszinkron módon hívódnak meg az alkalmazásunkban, ami azt jelenti, hogy a kérés egy háttér szálon fut és elemzés után visszaküldi az eredményt a felhasználói felület szálára.
+ A kérések aszinkron módon hívódnak meg az alkalmazásunkban, ami azt jelenti, hogy a kérés egy háttér szálon fut és elemzés után visszaküldi az eredményt a felhasználói felület szálára. Amikor meghívjuk a kéréseket két metódus tartozik hozzá. Az egyik arra vonatkozik, hogy mi történjen ha a kérés sikeres volt, a másik metódus a sikertelen kérés után futtatható kód sorokat tartalmazza ami legtöbb esetben egy felugró hiba üzenet a kérés sikertelenségéről.
 
 \section{SharedPreferences az alkalmazásban}
 Mivel az adatok megjelenítése és kérése valós időben történik így nem tárolunk semmilyen adatot a lokális eszközön. Ez azért jó, mivel így az esetleges eszköz károsodás esetén nem történik adatvesztés. Viszont ennek hátránya, hogy minden alkalmazás indításkor a felhasználónak be kell jelentkeznie ami rontja a felhasználói élményt. Ezen hiba kiküszöbölésére a SharedPreferences~\cite{sharedPref_android} nyújt megoldást, mivel így egy kulcs érték pár kerül elmentésre egy fájlba, melyet egyszerűen lehet írni és olvasni, tehát a felhasználóhoz tartozó adatokat célszerű ily módon elmenteni.
@@ -419,12 +431,26 @@ Megjelenítés szempontjából a dizájnon még lehetne javítani, esetleg minim
 \section{Mobil alkalmazás bővítési és fejleszthetőségi lehetőségek}
 Lehetőség még itt is van bőven a továbbfejlesztésre, többek között a nézetek átdolgozása fregmentekre, hogy ne mindig activityt kelljen indítani. Külső megjelenésre jobban össze lehetne igazítani a kinézetet annak megfelelően, hogy az adott telefon sötét módban van-e vagy simán használják. Mivel az alkalmazásunk jelenleg nem támogatja az elforgatott képernyőt így ahhoz is ellehetne készíteni a nézetet. További lehetőség amik a nézethez kapcsolódnak, hogy amikor a felhasználó egy adott eseményt szeretne módosítani az jelenleg úgy tudja megtenni, hogy adott azonosítóra kell szűrnie. Ezt meglehetne úgy oldani, hogy a kilistázott eseményeknél kattinthatóvá tenni az adott elemet és úgy meglehessen nyitni a módosítást. 
 
+Ezen felül a megjelenített szövegeket érdemes lenne kimenteni a szövegekhez tartozó erőforrások közé. Ez azért indokolt, hogy a továbbfejlesztéskor az alkalmazásunk már ne csak magyar nyelven legyen elérhető. 
+
 Amit még érdemes lenne fejleszteni, hogy a felhasználó által lekért adatokat a készüléken eltárolni egy noSQL adatbázisban vagy Room-ban, így nem kell mindig kéréssel fordulni a szerver felé, ha az eseményeket szeretnénk látni és internet elérés nélkül is használható lenne a szoftverünk. 
 
 Funkciók tekintetében amivel érdemes lenne kibővíteni még a szoftvert, hogy ne csak egyesével lehessen törölni az eseményeket. Ehhez nézet tekintetében megfelelő lenne egy olyan megoldás ahol a törölni kívánt eseményeket be kellene pipálni és így futna le a törlés. 
 
 \chapter{Köszönetnyilvánítás}
+Szeretnék köszönetet mondani egyetemi tanáraimnak a fáradhatatlan munkájukért és az évek alatt átadott tudásuk és tapasztalataikért. 
 
+Külön szeretném kiemelni Dr. Tajti Tibor Gábor tanár urat, aki szakmai tapasztalatával és útmutatásával segítette szakdolgozatom létrejöttét. Rengeteg tudást és tapasztalatot átadott számomra és hallgatói társaim számára, arról, hogy milyen csapatban dolgozni és egy projekt életét végig kísérni a tervezéstől a kivitelezésig. Ezen kívül szeretnék köszönetet mondani Neki, hogy felügyeli és kezeli a szakmai gyakorlatok végrehajtását. 
+
+Köszönetet szeretnék mondani Balla Tamásnak, aki a webes technológiákkal kapcsolatos órákkal felkeltette érdeklődésem és segítette fejlődésem a web programozásban.
+
+Szeretnék köszönetet mondani Dr. Kusper Gábornak aki egy kis projekt keretében bevezetett az Android programozás világába.
+
+Megszeretném megköszönni Fazekas Csaba munkáját aki a Mobilprogramozás című tárgyakat tartotta és segített elmélyíteni tudásomat ezen a területen.
+
+Köszönetet szeretnék mondani szaktársaimnak, barátaimnak akikkel együtt haladtunk végig ezen az úton és támogattuk, segítettük egymást mindenben. Bízom benne, hogy az egyetemen szerzett barátokkal megmarad a kapcsolatunk. 
+
+Végül szeretnék köszönetet mondani nagyszüleimnek, szüleimnek, nővéremnek, sógoromnak, barátnőmnek és lakótársaimnak. Köszönöm nekik, hogy támogattak és biztattak egyetemi éveim alatt és köszönöm nekik a türelmet és nyugodt környezetet, hogy sikeresen létrejöhessen a szakdolgozatom.
 
 \begin{thebibliography}{2}
 \addcontentsline{toc}{chapter}{\bibname}
@@ -667,6 +693,26 @@ Funkciók tekintetében amivel érdemes lenne kibővíteni még a szoftvert, hog
 \textsc{A Shared Preferences hivatalos dokumentációja:}
 \newline
 \emph{\bf{https://developer.android.com/training/data-storage/shared-preferences}}
+
+\bibitem{android_manifest}
+\textsc{Az AndroidManifest hivatalos dokumentációja:}
+\newline
+\emph{\bf{https://developer.android.com/guide/topics/manifest/manifest-intro}}
+
+\bibitem{android_intent}
+\textsc{Az intent hivatalos dokumentációja:}
+\newline
+\emph{\bf{https://developer.android.com/reference/android/content/Intent}}
+
+\bibitem{android_recycler}
+\textsc{A recycler view hivatalos dokumentációja:}
+\newline
+\emph{\bf{https://developer.android.com/reference/kotlin/androidx/recyclerview/widget/RecyclerView}}
+
+\bibitem{android_translations}
+\textsc{A Translations Editor hivatalos dokumentációja:}
+\newline
+\emph{\bf{https://developer.android.com/studio/write/translations-editor}}
 
 \end{thebibliography}
 
