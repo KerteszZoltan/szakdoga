@@ -60,14 +60,16 @@
 \select@language {magyar} \contentsline {section}{\numberline {6.4}Activityk meghatározása}{28}{section.6.4}%
 \select@language {magyar} \contentsline {section}{\numberline {6.5}Erőforrások hozzárendelése az alkalmazáshoz}{28}{section.6.5}%
 \select@language {magyar} \contentsline {section}{\numberline {6.6}Modellek}{29}{section.6.6}%
-\select@language {magyar} \contentsline {section}{\numberline {6.7}API kapcsolat kialakítása}{29}{section.6.7}%
-\select@language {magyar} \contentsline {section}{\numberline {6.8}Végpontok a Retrofithez}{29}{section.6.8}%
-\select@language {magyar} \contentsline {section}{\numberline {6.9}Válaszok kezelése}{30}{section.6.9}%
-\select@language {magyar} \contentsline {section}{\numberline {6.10}Kérések használata}{30}{section.6.10}%
-\select@language {magyar} \contentsline {section}{\numberline {6.11}SharedPreferences az alkalmazásban}{30}{section.6.11}%
-\select@language {magyar} \contentsline {section}{\numberline {6.12}Felmerülő hibák}{30}{section.6.12}%
+\select@language {magyar} \contentsline {section}{\numberline {6.7}Külső könyvtárak és Gradle}{29}{section.6.7}%
+\select@language {magyar} \contentsline {section}{\numberline {6.8}API kapcsolat kialakítása}{29}{section.6.8}%
+\select@language {magyar} \contentsline {section}{\numberline {6.9}Végpontok a Retrofithez}{30}{section.6.9}%
+\select@language {magyar} \contentsline {section}{\numberline {6.10}Válaszok kezelése}{30}{section.6.10}%
+\select@language {magyar} \contentsline {section}{\numberline {6.11}Kérések használata}{30}{section.6.11}%
+\select@language {magyar} \contentsline {section}{\numberline {6.12}SharedPreferences az alkalmazásban}{30}{section.6.12}%
+\select@language {magyar} \contentsline {section}{\numberline {6.13}Felmerülő hibák}{31}{section.6.13}%
 \select@language {magyar} \contentsline {chapter}{\numberline {7}Továbbfejlesztési lehetőségek}{32}{chapter.7}%
 \select@language {magyar} \contentsline {section}{\numberline {7.1}Webes továbbfejlesztési lehetőségek}{32}{section.7.1}%
 \select@language {magyar} \contentsline {section}{\numberline {7.2}Mobil alkalmazás bővítési és fejleszthetőségi lehetőségek}{32}{section.7.2}%
-\select@language {magyar} \contentsline {chapter}{\numberline {8}Köszönetnyilvánítás}{34}{chapter.8}%
-\select@language {magyar} \contentsline {chapter}{Irodalomjegyz\'ek}{35}{chapter*.5}%
+\select@language {magyar} \contentsline {chapter}{\numberline {8}Összegzés}{34}{chapter.8}%
+\select@language {magyar} \contentsline {chapter}{\numberline {9}Köszönetnyilvánítás}{35}{chapter.9}%
+\select@language {magyar} \contentsline {chapter}{Irodalomjegyz\'ek}{36}{chapter*.5}%

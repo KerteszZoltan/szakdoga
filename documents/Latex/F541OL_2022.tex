@@ -36,7 +36,7 @@
 	
 	A mobil applikáció fejlesztéssel először egy beadandó feladatban találkoztam, majd később az ehhez tartozó órákat is elvégeztem, hogy elmélyítsem a tudásomat. A Java programozási nyelv elsajátítása nem okozott nagy kihívást köszönhetően a tanáraimnak. 
 	
-	A webprogramozási ismeretek megléte úgy gondolom, hogy manapság alapvető elvárás, az itt töltött éveim során több erre szolgáló programozási nyelvel is megismerkedtem, számomra a PHP~\cite{php_doc} (PHP:Hypertext Preprocessor) vált a legkedveltebb programozási nyelvé. A számos PHP alapú keretrendszerek közül számomra a Laravel~\cite{laravel_main} volt ideális, alkalmas a terv megvalósítására, valamint az eddigi tanulmányok során átfogó tudásra tettem szert vele kapcsolatban.
+	A webprogramozási ismeretek megléte úgy gondolom, hogy manapság alapvető elvárás, az itt töltött éveim során több erre szolgáló programozási nyelvel is megismerkedtem. De számomra a PHP~\cite{php_doc} (PHP:Hypertext Preprocessor) vált a legkedveltebb programozási nyelvé. A számos PHP alapú keretrendszerek közül számomra a Laravel~\cite{laravel_main} volt ideális, alkalmas a terv megvalósítására, valamint az eddigi tanulmányok során átfogó tudásra tettem szert vele kapcsolatban.
 	
 	Ezért az lett a célom, hogy szakdolgozatomban ezeket a technológiákat használjam. Ezek felhasználásra rengeteg terv volt a fejemben, mire kialakult a jelenlegi projekt.
 	
@@ -384,10 +384,17 @@
 	A mobil alkalmazásban is modelleket használunk az adatok kezeléséhez. Itt a modellek kialakítása az API válasz alapján történt, tehát a válaszban szereplő mezők szerepelnek az modellben. A felhasználók és az események számára is definiálni kellett egyet, mivel ezekhez tartozó adatokat kezelünk. 
 	A modellekhez tartozik egy konstruktor ahol a kapott értékeket állítjuk be. Ezen mezőkhöz tartoznak külön lekérő és beállító metódusok.
 	
-	\section{API kapcsolat kialakítása}
-	Ahhoz, hogy a kéréseket tudjuk kezelni androidos alkalmazás esetén egy segéd könyvtárra van szükségünk ami egyszerűvé teszi a JSON adatok letöltését. Ehhez a legjobb választás számomra a Retrofit~\cite{retrofit_doc}.
+	\section{Külső könyvtárak és Gradle}
+	Ahhoz, hogy az alkalmazásunk képes legyen REST API kapcsolatra külső könyvtárat kell használni. Ilyen könyvtár a Retrofit~\cite{retrofit_doc}. Ahhoz, hogy alkalmazásunk kommunikációja gördülékenyen működjön még szükséges egy konvertert alkalmazni a kérések értelmezéséhez, ehhez a Gson konverter könyvtár a legegyszerűbb. 
 	
-	Ahhoz, hogy a projektünk képes legyen a Retrofit kapcsolat kezelésére a könyvtárat hozzá kell adni gradle fájloz, majd a manifest fájlba engedélyt kell adni az internet használatához. Ezután létre kell hozni egy Retrofit kliens ahol felépítjük a kapcsolatot és megadjuk az alap elérhetőség címét. A végpontok definiálásakor ez a cím kerül kiegészítésre. 
+	Az adatok megjelenítése szempontjából is szükséges egy külső könyvtár használata ami implementálja a recycler view nézetet.
+	
+	A projektünkben használt könyvtárakat a gradle fájlban kell megadni. Miután ezt az állományt módosítottuk minden esetben le kell szinkronizálni. Ez a fájl tartalmaz az alkalmazásunkról információkat. Ilyenek azok, hogy melyik a minimum használható API szint és mi a cél szint, ezen kívül, hogy az alkalmazásunk milyen verzió számmal rendelkezik. Ezen kívül fordításra vonatkozó információk is találhatóak, hogy az alkalmazást a Java mely verziójára szeretnénk fordítani. A gradle segít összeállítani az alkalmazásunkat.
+	
+	\section{API kapcsolat kialakítása}
+	Ahhoz, hogy a kéréseket tudjuk kezelni androidos alkalmazás esetén egy segéd könyvtárra van szükségünk ami egyszerűvé teszi a JSON adatok letöltését. Ehhez a legjobb választás számomra a Retrofit.
+	
+	Ahhoz, hogy a projektünk képes legyen a Retrofit kapcsolat kezelésére a manifest fájlba engedélyt kell adni az internet használatához. Ezután létre kell hozni egy Retrofit kliens ahol felépítjük a kapcsolatot és megadjuk az alap elérhetőség címét. A végpontok definiálásakor ez a cím kerül kiegészítésre. 
 	
 	\section{Végpontok a Retrofithez}
 	Ha létrehoztuk a Retrofithez tartozó klienst, definiálni kell a végpontokat. A végponthoz tartozik egy paraméterezett Call objektum.
@@ -436,6 +443,21 @@
 	Amit még érdemes lenne fejleszteni, hogy a felhasználó által lekért adatokat a készüléken eltárolni egy noSQL adatbázisban vagy Room-ban, így nem kell mindig kéréssel fordulni a szerver felé, ha az eseményeket szeretnénk látni és internet elérés nélkül is használható lenne a szoftverünk. 
 	
 	Funkciók tekintetében amivel érdemes lenne kibővíteni még a szoftvert, hogy ne csak egyesével lehessen törölni az eseményeket. Ehhez nézet tekintetében megfelelő lenne egy olyan megoldás ahol a törölni kívánt eseményeket be kellene pipálni és így futna le a törlés. 
+	
+	Mivel eseményeket kezelünk így hasznos lenne az alkalmazást widgetekkel bővíteni, ami az új esemény felvételét megkönnyítené a felhasználó számára. Mindezek mellett gyors elérhetőséget lehetne biztosítani az alkalmazás használójának, hogy az esemény csoportokat közvetlenül a képernyőjén láthassa. 
+	
+	\chapter{Összegzés}
+	Dolgozatom zárásaként szeretném összefoglalni a munkát, vele járó tapasztalatot és mindezek után még egyetemi éveimet is. 
+	
+	A webes applikáció elkészítéséhez előzetesen meg kellett tervezni az adatbázist, ami ugyan elég egyszerű lett, de van lehetőség a továbbfejlesztésre. Szükséges volt meghatározni, hogy milyen funkciókat kell ellátni a projektemnek és ehhez tartva magam kellett kivitelezni a projektet. 
+	
+	Az androidos alkalmazás elkészítése már nem igényelt annyi előkészületet, mivel funkcionalitás tekintetében a weboldal megadta a hozzá tartozó követelményeket. Az alkalmazás dizájnja tekintetében is támaszkodhattam a már kész webes felületre, de ennek ellenére a legnagyobb kihívást az okozta, hogy egy olyan felhasználói felületet hozzak létre aminek használata egyszerű és egyértelmű. Tudásomat gyarapítottam az alkalmazás létrehozása közben, mivel külső könyvtárat kellett használni és implementálni a rendszerbe.
+	
+	Úgy gondolom, hogy nagyon sokat fejlődtem az alkalmazások fejlesztése közben és különböző technológiákkal ismerkedhettem meg, amiket implementálni kellett az alkalmazásban. 
+	
+	Dolgozatom megírása alatt igen erős elhatározás alakult ki bennem, hogy tanulmányaim után web vagy Android fejlesztéssel szeretnék foglalkozni, mivel ezek az alkalmazások egyre nagyobb teret hódítanak. 
+	
+	Egyetemi éveim alatt nagyon sok szép emléket szereztem, annak ellenére is, hogy volt egy-egy vizsga ami igen nehéz volt, de a nehézség ellenére ezeket az emlékeket is megszínesítették a szaktársaim és barátaim. Véleményem szerint az egyetemen barátkozni igen erősen ajánlott, mivel sok mindenben lehettek egymás segítségére. 
 	
 	\chapter{Köszönetnyilvánítás}
 	Szeretnék köszönetet mondani egyetemi tanáraimnak a fáradhatatlan munkájukért és az évek alatt átadott tudásuk és tapasztalataikért. 
