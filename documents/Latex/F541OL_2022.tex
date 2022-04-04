@@ -436,11 +436,11 @@
 	
 	
 	\section{Mobil alkalmazás bővítési és fejleszthetőségi lehetőségek}
-	Lehetőség még itt is van bőven a továbbfejlesztésre, többek között a nézetek átdolgozása fregmentekre, hogy ne mindig activityt kelljen indítani. Külső megjelenésre jobban össze lehetne igazítani a kinézetet annak megfelelően, hogy az adott telefon sötét módban van-e vagy simán használják. Mivel az alkalmazásunk jelenleg nem támogatja az elforgatott képernyőt így ahhoz is el lehetne készíteni a nézetet. További lehetőség amik a nézethez kapcsolódnak, hogy amikor a felhasználó egy adott eseményt szeretne módosítani az jelenleg úgy tudja megtenni, hogy adott azonosítóra kell szűrnie. Ezt meglehetne úgy oldani, hogy a kilistázott eseményeknél kattinthatóvá tenni az adott elemet és úgy meglehessen nyitni a módosítást. 
+	Lehetőség még itt is van bőven a továbbfejlesztésre, többek között a nézetek átdolgozása fregmentekre~\cite{android_fregment}, hogy ne mindig activityt kelljen indítani. Külső megjelenésre jobban össze lehetne igazítani a kinézetet annak megfelelően, hogy az adott telefon sötét módban van-e vagy simán használják. Mivel az alkalmazásunk jelenleg nem támogatja az elforgatott képernyőt így ahhoz is el lehetne készíteni a nézetet. További lehetőség amik a nézethez kapcsolódnak, hogy amikor a felhasználó egy adott eseményt szeretne módosítani az jelenleg úgy tudja megtenni, hogy adott azonosítóra kell szűrnie. Ezt meglehetne úgy oldani, hogy a kilistázott eseményeknél kattinthatóvá tenni az adott elemet és úgy meglehessen nyitni a módosítást. 
 	
 	Ezen felül a megjelenített szövegeket érdemes lenne kimenteni a szövegekhez tartozó erőforrások közé. Ez azért indokolt, hogy a továbbfejlesztéskor az alkalmazásunk már ne csak magyar nyelven legyen elérhető. 
 	
-	Amit még érdemes lenne fejleszteni, hogy a felhasználó által lekért adatokat a készüléken eltárolni egy noSQL adatbázisban vagy Room-ban, így nem kell mindig kéréssel fordulni a szerver felé, ha az eseményeket szeretnénk látni és internet elérés nélkül is használható lenne a szoftverünk. 
+	Amit még érdemes lenne fejleszteni, hogy a felhasználó által lekért adatokat a készüléken eltárolni egy noSQL adatbázisban vagy Room-ban~\cite{android_room}, így nem kell mindig kéréssel fordulni a szerver felé, ha az eseményeket szeretnénk látni és internet elérés nélkül is használható lenne a szoftverünk. 
 	
 	Funkciók tekintetében amivel érdemes lenne kibővíteni még a szoftvert, hogy ne csak egyesével lehessen törölni az eseményeket. Ehhez nézet tekintetében megfelelő lenne egy olyan megoldás ahol a törölni kívánt eseményeket be kellene pipálni és így futna le a törlés. 
 	
@@ -735,6 +735,16 @@
 		\textsc{A Translations Editor hivatalos dokumentációja:}
 		\newline
 		\emph{\bf{https://developer.android.com/studio/write/translations-editor}}
+		
+		\bibitem{android_room}
+		\textsc{Az Android Room hivatalos dokumentációja:}
+		\newline
+		\emph{\bf{https://developer.android.com/training/data-storage/room}}
+		
+		\bibitem{android_fregment}
+		\textsc{Az Androidhoz tartózó fregmentek hivatalos dokumentációja:}
+		\newline
+		\emph{\bf{https://developer.android.com/reference/android/app/Fragment}}
 		
 	\end{thebibliography}
 	
