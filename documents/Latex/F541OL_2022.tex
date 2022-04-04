@@ -36,7 +36,7 @@
 	
 	A mobil applikáció fejlesztéssel először egy beadandó feladatban találkoztam, majd később az ehhez tartozó órákat is elvégeztem, hogy elmélyítsem a tudásomat. A Java programozási nyelv elsajátítása nem okozott nagy kihívást köszönhetően a tanáraimnak. 
 	
-	A webprogramozási ismeretek megléte úgy gondolom, hogy manapság alapvető elvárás, az itt töltött éveim során több erre szolgáló programozási nyelvel is megismerkedtem. De számomra a PHP~\cite{php_doc} (PHP:Hypertext Preprocessor) vált a legkedveltebb programozási nyelvé. A számos PHP alapú keretrendszerek közül számomra a Laravel~\cite{laravel_main} volt ideális, alkalmas a terv megvalósítására, valamint az eddigi tanulmányok során átfogó tudásra tettem szert vele kapcsolatban.
+	A webprogramozási ismeretek megléte úgy gondolom, hogy manapság alapvető elvárás, az itt töltött éveim során több erre szolgáló programozási nyelvel is megismerkedtem. De számomra a PHP~\cite{php_doc} (PHP:Hypertext Pre-processor) vált a legkedveltebb programozási nyelvé. A számos PHP alapú keretrendszerek közül számomra a Laravel~\cite{laravel_main} volt ideális, alkalmas a terv megvalósítására, valamint az eddigi tanulmányok során átfogó tudásra tettem szert vele kapcsolatban.
 	
 	Ezért az lett a célom, hogy szakdolgozatomban ezeket a technológiákat használjam. Ezek felhasználásra rengeteg terv volt a fejemben, mire kialakult a jelenlegi projekt.
 	
@@ -50,7 +50,7 @@
 	\section{Webes alkalmazás}
 	A projekt fő eleme a böngészőből elérhető alkalmazás. Itt került kialakításra a regisztráció és egy rövid ismertető a programról, hogy milyen feladatok, problémák megoldására terveztem. Ezek az oldalak elérhetőek a látogatók számára regisztráció nélkül. 
 	
-	A felhasználónak regisztrációkor meg kell adnia a nevét, email címét és jelszavát. Ha a regisztráció sikeres egy levelet küld ki az alkalmazás a megadott címre ahol a regisztrációkor kitöltött név jelenik meg és egy gomb ami átirányítja a felhasználót a webes felületre. Bejelentkezés után a felhasználó korlátozás nélkül tudja használni az alkalmazás nyújtotta lehetőségeket. 
+	A felhasználónak regisztrációkor meg kell adnia a nevét, e-mail-címét és jelszavát. Ha a regisztráció sikeres egy levelet küld ki az alkalmazás a megadott címre ahol a regisztrációkor kitöltött név jelenik meg és egy gomb ami átirányítja a felhasználót a webes felületre. Bejelentkezés után a felhasználó korlátozás nélkül tudja használni az alkalmazás nyújtotta lehetőségeket. 
 	
 	A navigációs részben a legördülő menüben az események alatt lehetőség van új esemény hozzáadására, a meglévők kilistázására annak megfelelően, hogy melyik csoportba tartozókat szeretnénk megjeleníteni. Ilyen kategóriák az aktív, teljesített és lejárt események. 
 	
@@ -77,7 +77,7 @@
 	\section{Androidos alkalmazás}
 	A kliens program Androidos telefonokra készült alkalmazás ami API~\cite{api_basic} kapcsolaton keresztül kommunikál a webes szoftverrel. Az alkalmazás nem tárol lokálisan adatot, ezzel került megoldásra az a probléma, hogy esetleges meghibásodás esetén adat vesztés történne. 
 	
-	Az alkalmazás első megnyitása után egy bejelentkezési felület fogadja a felhasználót ahol meg kell adni az e-mail címét és jelszavát. Ezen két adat ellenőrzése két helyen valósul meg. Először az alkalmazás megvizsgálja, hogy nem-e üresek a mezők, amennyiben nem írtunk bele adatot hibaüzenetet kapunk. Ha ki vannak töltve a mezők egy REST kérést küldünk. Amennyiben a válasz nem a felhasználó adatai egy szöveg buborék jelenik meg, hogy hibás a bevitt adat, máskülönben sikeres a bejelentkezés és a kezdőképernyő jelenik meg.
+	Az alkalmazás első megnyitása után egy bejelentkezési felület fogadja a felhasználót ahol meg kell adni az e-mail-címét és jelszavát. Ezen két adat ellenőrzése két helyen valósul meg. Először az alkalmazás megvizsgálja, hogy nem-e üresek a mezők, amennyiben nem írtunk bele adatot hibaüzenetet kapunk. Ha ki vannak töltve a mezők egy REST kérést küldünk. Amennyiben a válasz nem a felhasználó adatai egy szöveg buborék jelenik meg, hogy hibás a bevitt adat, máskülönben sikeres a bejelentkezés és a kezdőképernyő jelenik meg.
 	
 	A főoldalon lehetőség van új eseményt hozzáadni vagy kilistázni az aktív, lejárt vagy teljesített feljegyzéseket. Ezen kívül található még egy felugró menü ahol minden funkciót megtalálunk amit elérhetünk az alkalmazásban. A menüben olyan pontokat találhatunk ami az esemény hozzáadás, listázás típusonként, feljegyzés kezelése, profil szerkesztése és a kijelentkezés. 
 	
@@ -102,10 +102,10 @@
 	\section{Kód szerkesztő}
 	Ha már van környezetünk ahol majd a webes projektünk futtathatóvá válik keresnünk kell egy olyan szöveg szerkesztőt amit használni fogunk. Program fejlesztésre több ilyen eszköz is létezik, ami segíti a programozó munkáját szöveg kiemeléssel, kód kiegészítéssel és szintaxis ellenőrzéssel. Számomra a legjobban bevált ilyen program a ,,Visual Studio Code''~\cite{vsc_doc} ami ingyenes szövegszerkesztő és különböző bővítményekkel lehet kényelmesebbé tenni a használatát.
 	
-	\section{Android alkalmazáshoz Adroid Studio}
+	\section{Android alkalmazáshoz Android Studio}
 	Androidos alkalmazás fejlesztésére többféle eszköz áll a rendelkezésünkre. Ilyen lehetőség lehet az ,,Eclipse''~\cite{eclipse_doc} vagy esetleg a ,,RAD Studio''~\cite{rad_doc}. Számomra a leginkább preferált fejlesztői környezet az ,,Android Studio''~\cite{androidStudio_doc}. Azért tartom jobbnak a többinél, mivel nem csak mobil eszközre lehet vele alkalmazást írni, hanem Wear OS-es órára és TV-re is. A másik előny, hogy a felhasználói kezelő felület kialakításához biztosít egy tervezőt ahol az elemeket fogd és vidd (drag and drop) módszerrel lehet elhelyezni a megjelenítő felületre. 
 	
-	Az ,,Android Studio''-ba olyan fontos funkciók vannak beépítve, mint az AVD~\cite{androidStudioAvd_doc} menedzser (manager), ami egy emulátor, ahol virtuális eszközöket tudunk létrehozni, hogy tesztelni tudjuk az alkalmazásunkat. A másik fontos eszköz ami implementálva van az ADB~\cite{androidStudioAdb_doc} (Android Debug Bridge) ami a virtuális vagy fizikai eszközünk között kommunikál a számítógéppel így figyelve az alkalmazásunk működését és hiba esetén megkönnyíti a hiba keresést. 
+	Az ,,Android Studio''-ban olyan fontos funkciók vannak beépítve, mint az AVD~\cite{androidStudioAvd_doc} menedzser (manager), ami egy emulátor, ahol virtuális eszközöket tudunk létrehozni, hogy tesztelni tudjuk az alkalmazásunkat. A másik fontos eszköz ami implementálva van az ADB~\cite{androidStudioAdb_doc} (Android Debug Bridge) ami a virtuális vagy fizikai eszközünk között kommunikál a számítógéppel így figyelve az alkalmazásunk működését és hiba esetén megkönnyíti a hiba keresést. 
 	
 	\section{Postman a REST API-hoz}
 	A REST API kapcsolat teszteléséhez szükség volt egy kliens programra, ahol lelehet ellenőrizni, hogy a kérés sikeres-e és a válasz megfelelő-e. Ehhez a ,,Postman''~\cite{postman_doc} programot választottam, mivel kliens program, egyszerű a használata ezért nem csak egy személy vehet részt a tesztelésben, mindezek mellett lehetőség van a teszteket kollekcióba elmenteni amiből későbbiekben automatizált teszt is futtatható. A szoftver nagyon sok API szabványt és formátumot támogat köztük a ,,JSON''-t~\cite{json_doc} is.
@@ -188,14 +188,14 @@
 	\section{Nézetek}
 	A nézetek (view) felelnek a megjelenítésért. Jelen projektben a nézeteket két csoportba osztanám, melyek a következők: felhasználói nézet és e-mailhez tartozó nézet. A Laravel a nézetekhez a Blade~\cite{laravel_blade} sablonozó motort használ, ami egyszerű és ugyan úgy lehet benne PHP kódot futtatni. A blade sablonok meghívhatóak útvonalról és vezérlőből is, ennek köszönhetően teljesül a MVC tervezési minta. 
 	
-	A Blade sablonban lévő PHP kódunkat dupla kapcsos zárójelek közé kell tenni. Ilyen PHP kód lehet egy útvonal hívás vagy olyan adat megjelenítés ami a szervertől érkezik. Ezen kívül a Blade-ban lehetőség van az alapvető vezérlési szerkezetek implementálására, mint például az if, foreach.
+	A Blade sablonban lévő PHP kódunkat dupla kapcsos zárójelek közé kell tenni. Ilyen PHP kód lehet egy útvonal hívás vagy olyan adat megjelenítés ami a szervertől érkezik. Ezen kívül a Blade-ben lehetőség van az alapvető vezérlési szerkezetek implementálására, mint például az ,,if’’, ,,foreach’’.
 	
 	\subsection{Felhasználói nézetek}
 	Egy felhasználói nézet két komponensből tevődik össze, egyik az úgynevezett keret és maga a tartalom. A keret tartalmazza a HTML~\cite{html_doc} fejlécet ami a következőket foglalja magába: milyen néven található a CSS állomány, az alkalmazás ikonja és a JavaScript meghívása. Ezen kívül itt szerepel még a navigációs menü és egy @yield kulcsszó ami egy szakasz tartalmának megjelenítésére szolgál. A navigációs menüben találhatunk egy felhasználó ellenőrzést, ugyan is látogató annak megfelelően láthatja a menü elemeket, hogy be van-e regisztrálva.
 	
 	Mielőtt definiálnánk egy szakaszt meg kell adni, hogy melyik elrendezést örökölje, illetve esetemben, hogy milyen keretet örököljön erre a @extends kulcsszóval kell hivatkozni. A szakaszokat @section és @endsection segítségével definiáljuk.
 	
-	Az egyes esemény csoportok megjelenítésénél az if vezérlési szerkezettel ellenőrzöm le, hogy milyen típusú eseményt kapok vissza. Ennek megfelelően lesz az események alatt a módosításhoz vagy törléshez szükséges interakció gombok. Ezen kívül az események megjelenítésénél találkozhatunk még foreach ciklussal ahol az egyes elemek és hozzájuk tartozó gombok külön kártyában jelenítődnek meg. 
+	Az egyes esemény csoportok megjelenítésénél az ,,if’’ vezérlési szerkezettel ellenőrzöm le, hogy milyen típusú eseményt kapok vissza. Ennek megfelelően lesz az események alatt a módosításhoz vagy törléshez szükséges interakció gombok. Ezen kívül az események megjelenítésénél találkozhatunk még ,,foreach’’ ciklussal ahol az egyes elemek és hozzájuk tartozó gombok külön kártyában jelenítődnek meg. 
 	
 	\subsection{E-mailhez tartozó nézetek}
 	A kiküldött e-mailekhez tartozó nézetek külön vannak definiálva, mivel eltérnek a felhasználóitól, ugyan is, itt a Blade sablonozó motor komponenseit használjuk és a MarkDown~\cite{markdown_page} szintaxisát. Ennek köszönhetően az e-mailünkben nem csak szöveget tudunk küldeni, de gombot is, mely átirányíthat minket az alkalmazásra vagy a már meglévő útvonalak valamelyikére.
@@ -239,7 +239,7 @@
 	
 	Térjünk is rá az Update műveletre, ami a kontrollerünk első fontos eleme. Szeretném megemlíteni, hogy a frissítésből több tartozik a felhasználóhoz. Az első frissítés amikor a nevét vagy e-mail címét tudja frissíteni. A szabályok egyszerűek és nem térnek el a regisztráció szabályaitól, miszerint nem lehet üres a mező és az e-mailnek megfelelő formátumúnak kell lennie.
 	
-	Ha ez megvolt a következő fontos rész, hogy meg kell keresni az adatbázisban azt a rekordot amit módosítani szeretnénk. Ezt a legegyszerűbben úgy tudjuk megtenni, ha meghívjuk a modell-t és hozzá a find metódust. Itt mutatkozik meg újra az eloquent erőssége, hogy nem kell lekérdezést írni. Ebben az esetben a lekérdezés egyetlen modell példányt ad vissza. Ezt eltároljuk, hogy a következő lépésben már csak felül kelljen írni az adatok a felhasználó által kitöltöttel, majd menteni. Ha es sikeresen megtörtént vissza irányítjuk a felhasználót a profiljára, hogy ellenőrizhesse a megváltoztatott adatokat. 
+	Ha ez megvolt a következő fontos rész, hogy meg kell keresni az adatbázisban azt a rekordot amit módosítani szeretnénk. Ezt a legegyszerűbben úgy tudjuk megtenni, ha meghívjuk a modell-t és hozzá a find metódust. Itt mutatkozik meg újra az eloquent erőssége, hogy nem kell lekérdezést írni. Ebben az esetben a lekérdezés egyetlen modell példányt ad vissza. Ezt eltároljuk, hogy a következő lépésben már csak felül kelljen írni az adatok a felhasználó által kitöltöttel, majd menteni. Ha ez sikeresen megtörtént vissza irányítjuk a felhasználót a profiljára, hogy ellenőrizhesse a megváltoztatott adatokat. 
 	
 	A következő frissítés a jelszóra vonatkozik. A szabály egyszerű és nem tér el a regisztrációs szabályoktól, miszerint ki kell tölteni és minimum 6 karakter hosszúnak kell lennie és meg kell erősíteni az új jelszót. A könnyebb hivatkozás kedvéért egy-egy változóba eltárolásra kerül a jelenlegi és az új jelszó is. Ezután leellenőrizésre kerül, hogy a jelenlegi és az új jelszó megegyezik-e, mivel ha igen egy hiba üzenettel térünk vissza a jelszó változtatáshoz, hogy a két érték ugyan az. Következő lépésben a bejelentkezett felhasználó jelszavát kell ellenőrizni, hogy megegyezik-e azzal amit beírt a felhasználó. Mivel a rendszert használó jelszava kódoltan tárolódik így a kódolt jelszavakat kell összehasonlítani a kódolatlannal. Ehhez nagy segítség a Hash osztályban definiált check metódus ami a kódolatlan értéket hasonlítja össze a kódolt értékkel. Amennyiben az összehasonlítás igaznak bizonyul, tehát megegyezik, lekérjük és eltároljuk az aktuális felhasználó azonosítóját, majd a profil frissítéshez hasonlóan kimentjük az adatokat, hogy felül tudjuk írni a jelszót, a felhasználó által megadott, most már kódolt jelszóra. Amennyiben ezek sikeresen megtörténtek kijelentkeztetjük a felhasználót és átirányítjuk a bejelentkezésre. Itt az átirányításhoz egy üzenetet fűzünk, hogy az új jelszóval kell már bejelentkezni. Ha sikertelen az összehasonlítás egy hiba üzenettel térünk vissza, amelyben leírjuk, hogy a jelenlegi jelszó nem megfelelő. 
 	
@@ -248,7 +248,7 @@
 	\subsection{Esemény kontroller és CRUD műveletek}
 	Itt is ugyan úgy találkozhatunk egy konstruktorral amiben vizsgáljuk, hogy a hívó felé be van-e jelentkezve. Amennyiben igen a szokásos módon itt is eléri a kontroller metódusait, míg, ha nincs bejelentkezve a bejelentkezési oldalra irányul át.
 	
-	Betűrendben haladva kezdjük a sort az esemény létrehozással. Létrehozáskor a felhasználónak meg kell adni a következő adatokat: név, leírás, start és end. Ezekre ellenőrzés fut le, hogy megfelelőek-e a szabályoknak, tehát, hogy a név és kezdési, befejezési dátum nem üres és, hogy az esemény kezdete nem-e hamarabbi mint a jelenlegi dátum, illetve a befejezési időpontnak vagy az aktuális dátumnak kell lennie vagy későbbinek, mint a kezdési idő. Amennyiben a fenti szabályok valamelyike nem teljesül, úgy a felhasználó felé hibát küldünk amiben a helytelen adatokat megjelöljük. Ha sikeresen lefut az ellenőrzés a kérésből létrehozzuk az eseményt és az adatokat hozzáadjuk. Sikeres mentés esetén, hogy e-mailt tudjunk küldeni a felhasználó le kell kérdeznünk és egy változóba elmenteni az aktuális felhasználót, ha ez megvan a rendszerben meg kell keresni azt az eseményt amit a felhasználó utoljára adott hozzá. Ehhez nagy segítség, megint, hogy nem kell lekérdezéseket kézzel készítenünk, így a where feltételben meg kell adni, hogy melyik felhasználó eseményét keressük, majd, hogy a legutolsót (latest), ezután nincs más dolgunk, mint, hogy az első (first) metódust használva az első találatot kérjük le és tároljuk el. Az e-mail kiküldésre kerül a bejelentkezett felhasználó által megadott e-mail címre az esemény adataival ezután pedig az aktív események listájának nézetére ugrunk.
+	Betűrendben haladva kezdjük a sort az esemény létrehozással. Létrehozáskor a felhasználónak meg kell adni a következő adatokat: név, leírás, start és end. Ezekre ellenőrzés fut le, hogy megfelelőek-e a szabályoknak, tehát, hogy a név és kezdési, befejezési dátum nem üres és, hogy az esemény kezdete nem-e hamarabbi mint a jelenlegi dátum, illetve a befejezési időpontnak vagy az aktuális dátumnak kell lennie vagy későbbinek, mint a kezdési idő. Amennyiben a fenti szabályok valamelyike nem teljesül, úgy a felhasználó felé hibát küldünk amiben a helytelen adatokat megjelöljük. Ha sikeresen lefut az ellenőrzés a kérésből létrehozzuk az eseményt és az adatokat hozzáadjuk. Sikeres mentés esetén, hogy e-mailt tudjunk küldeni a felhasználó le kell kérdeznünk és egy változóba elmenteni az aktuális felhasználót, ha ez megvan a rendszerben meg kell keresni azt az eseményt amit a felhasználó utoljára adott hozzá. Ehhez nagy segítség, megint, hogy nem kell lekérdezéseket kézzel készítenünk, így a where feltételben meg kell adni, hogy melyik felhasználó eseményét keressük, majd, hogy a legutolsót (latest), ezután nincs más dolgunk, mint, hogy az első (first) metódust használva az első találatot kérjük le és tároljuk el. Az e-mail kiküldésre kerül a bejelentkezett felhasználó által megadott e-mail-címre az esemény adataival ezután pedig az aktív események listájának nézetére ugrunk.
 	
 	A következő amit az adatokkal lehet csinálni a kiolvasás (read). Ez a projektemben több csoportra osztható, mivel az összes adatot egyben nem lehet kiolvasni. A kiolvasható adatok csoportja a következők: aktív, lejárt és teljesített események. Nem is írnám le az összes működését, hiszen a különbség csak a szűrési feltételekben tapasztalható. Így egy általánosan írom és kitérek a különbségekre. Egy feltétel van ami minden lekérdezés esetén megegyezik, az pedig a felhasználó vizsgálat, hogy az aktuálisan bejelentkezett felhasználó csak a saját eseményeihez férhessen hozzá. Itt az aktuális felhasználói azonosítót hasonlítjuk össze az adatbázisban tárolt user\_id nevű külső kulccsal. Ami még megegyezik minden lekérdezés esetében a megjelenítésre is vonatkozik, ez a paginate metódus ahol megadjuk, hogy egy oldalon hány rekord jelenhet meg, így a nézeten létre jön egy lapozó az adatok megjelenítéséhez.
 	
@@ -275,7 +275,7 @@
 	Az esemény kontrollernél ugyan az a helyzet, mint a felhasználó által használt API kontrollerrel, hogy megegyezik a webes felület vezérlőjével, csak más szintaxist kell alkalmazni. Funkcionalitás tekintetében a webes és az API kontroller megegyezik, ezzel biztosítva a korlátozatlan működést a felhasználó számára.
 	
 	\subsection{CSRF token}
-	Bár szorosan nem kapcsolódik a kontroller működéséhez mégis itt tüntetném fel, mivel, ha a felhasználó nem rendelkezik CSRF tokennel~\cite{laravel_csrf}, úgy az adatok változtatását sem tudja végrehajtani. Tehát Ez is egy biztonsági intézkedés, mint a middlewear által a felhasználónak az authentikációja. Ezért minden formot CSRF védelemmel kell ellátni a nézeten, hogy ne történjen illetéktelen átirányítás.
+	Bár szorosan nem kapcsolódik a kontroller működéséhez mégis itt tüntetném fel, mivel, ha a felhasználó nem rendelkezik CSRF tokennel~\cite{laravel_csrf}, úgy az adatok változtatását sem tudja végrehajtani. Tehát Ez is egy biztonsági intézkedés, mint a middlewear által a felhasználónak az autentikációja. Ezért minden formot CSRF védelemmel kell ellátni a nézeten, hogy ne történjen illetéktelen átirányítás.
 	
 	\subsection{Felmerülő hibák}
 	A kontrollerhez tartozó adat felvitel és menedzselés közben sok hiba történhet. Ilyen hibák lehetnek a tipikus hibák:
@@ -288,7 +288,7 @@
 	
 	A másik módja a hibakezelésnek, hogy a felhasználó által kitöltendő adatok mennyiségét csökkentjük. Ezt jelenleg a dátumok kitöltésénél alkalmazom ahol egy naptárban kell a felhasználónak dátumokat kiválasztania. 
 	
-	\section{Levelzés}
+	\section{Levelezés}
 	A projektben véleményem szerint fontos a levelezés, mivel így a felhasználó értesül a regisztrációról és az új esemény hozzáadásról. Ehhez nagy segítséget nyújt a Laravelben implementál Mail~\cite{laravel_mail} API. Ahhoz, hogy az alkalmazásunk leveleket küldjön a .env fájlban be kell állítani a levelező szerverhez tartozó adatokat. Ezután létre kell hozni egy e-mail osztályt és nevet adni neki, utána következik a formátum megadás majd után oda kell írni, hogy a hozzá tartozó nézet hol jöjjön létre. A létrejövő osztály build metódusában lehetőség van megadni, hogy milyen tárggyal küldje ki a levelet. A konstruktorban pedig megadásra kerül, hogy milyen modelleket vagy adatokat kívánunk elküldeni.
 	
 	\section{API hitelesítéshez Sanctum}
@@ -354,7 +354,7 @@
 	\chapter{Androidos alkalmazás}
 	Az mobil platformra írt kliensprogram nem pótolja a webes alkalmazást, mivel regisztrálni csak a böngészőn keresztül lehet. 
 	\section{Miért 21-es API szint?}
-	Ahhoz, hogy androidos eszközre fejlesszünk meg kell határozni az API~\cite{android_api_level} szintet. Ehhez figyelembe kell venni, hogy melyik androidos operációs rendszer verzió legyen a legkisebb amin projektünk futhat. Itt számomra a minél alacsonyabb verzió szám volt az optimális, hogy széles körben használható legyen az alkalmazásunk. A következő fontos szempont, hogy az Android verzió API szintje támogassa azokat a funkciókat, melyeket megszeretnék valósítani. Ezen feltételeknek számomra a legjobb a 21-es API szint, ami az Android 5.0-ás verziója. Ez a manapság használt eszközök 98\%-ával kompatibilis.
+	Ahhoz, hogy androidos eszközre fejlesszünk meg kell határozni az API~\cite{android_api_level} szintet. Ehhez figyelembe kell venni, hogy melyik androidos operációs rendszer verzió legyen a legkisebb amin projektünk futhat. Itt számomra a minél alacsonyabb verzió szám volt az optimális, hogy széles körben használható legyen az alkalmazásunk. A következő fontos szempont, hogy az Android verzió API szintje támogassa azokat a funkciókat, melyeket meg szeretnék valósítani. Ezen feltételeknek számomra a legjobb a 21-es API szint, ami az Android 5.0-ás verziója. Ez a manapság használt eszközök 98\%-ával kompatibilis.
 	
 	\section{AndroidManifest fájl}
 	Fejlesztés közben a Manifest~\cite{android_manifest} fáj dinamikusan fog növekedni ugyan is az alkalmazásról tárolni kell azokat az információkat amelyeket minden futás előtt tudnia kell a rendszernek az alkalmazásról.
@@ -371,7 +371,7 @@
 	
 	A nézetek kialakításkor a színek összeállításában törekedtem arra, hogy a weboldalon használtakhoz hasonló legyen, így egységesítve a két nézetet. 
 	
-	A nézetre különböző elemeket többféle módon tudunk felhelyezni. Lehetőség van a beépített grafikus tervezőt használni ahol fogd és vidd (drag and drop) módszerrel tudjuk a felületre felhelyezni az elemeket vagy XML kódként is megtudjuk írni. Amennyiben a kijelző méretének változásakor is dinamikus megjelenítést szeretnénk biztosítani az elemekre olyan megkötéseket kell definiálni, hogy a szülőhöz képest hol helyezkedik el. A tartalom megjelenítő elemek esetén azok méretét meg tudjuk határozni úgy, hogy a tartalomhoz igazodjon (wrap content).
+	A nézetre különböző elemeket többféle módon tudunk felhelyezni. Lehetőség van a beépített grafikus tervezőt használni ahol fogd és vidd (drag and drop) módszerrel tudjuk a felületre felhelyezni az elemeket vagy XML kódként is meg tudjuk írni. Amennyiben a kijelző méretének változásakor is dinamikus megjelenítést szeretnénk biztosítani az elemekre olyan megkötéseket kell definiálni, hogy a szülőhöz képest hol helyezkedik el. A tartalom megjelenítő elemek esetén azok méretét meg tudjuk határozni úgy, hogy a tartalomhoz igazodjon (wrap content).
 	
 	Az események kiíratáshoz egy gyűjtő nézetet kellett biztosítani, hogy az adatok elkülönítve jelenjenek meg. Mivel a megjeleníteni kívánt elemek API kérés alapján kerülnek a felhasználóhoz így egy dinamikus tartalom megjelenítőre volt szükség. Ehhez a recycler view~\cite{android_recycler} volt a legjobban megfelelő és az itt megjelenő adatoknak egy különálló xml-ben lett definiálva a megjelenítőben használt elem. Ez egyedi megjelenítést végül pedig egy adapter segítségével lett hozzá illesztve a viewhoz. Ehhez a megjelenítéshez is a webes felület dizájnja volt segítségül hívva és egy ahhoz hasonló kialakítás volt a cél. Mivel az eszközök között képernyőben és az alkalmazás által használt kijelző felületben vannak eltérések így egy kisebb megjelenítőre volt célszerű definiálni a méretet.
 	
@@ -418,7 +418,7 @@
 		\item Adatkitöltésben keletkező hiba.
 		\item Hibás kérés és válasz.
 	\end{itemize}
-	Az hibák kezelésekor úgy láttam a legjobbnak, hogy a felhasználót értesítjük és segítjük a hiba megoldásában. A hibák keletkezhetnek az alkalmazásban amely esetben a kérést el sem küldjük a szerver felé és keletkezhet a szerverről érkező válasz miatt. Ilyen hiba létrejöhet a bejelentkezés folyamán ahol a felhasználó nem tölt ki valamilyen adatot. Ebben az esetben nem küldjük el a kérést a szerver felé, hanem hibaüzenetben tájékoztatjuk és megjelöljük a felhasználónak, hogy melyik mező értékében szerepel a hiba. Ezt a megoldást több helyen is alkalmazhatjuk, mint a profil módosítás esetében ahol a nevet és e-mail címet kötelező kitölteni vagy éppen az új esemény hozzáadásnál ahol nem lehet üres a név és a dátumok. 
+	Az hibák kezelésekor úgy láttam a legjobbnak, hogy a felhasználót értesítjük és segítjük a hiba megoldásában. A hibák keletkezhetnek az alkalmazásban amely esetben a kérést el sem küldjük a szerver felé és keletkezhet a szerverről érkező válasz miatt. Ilyen hiba létrejöhet a bejelentkezés folyamán ahol a felhasználó nem tölt ki valamilyen adatot. Ebben az esetben nem küldjük el a kérést a szerver felé, hanem hibaüzenetben tájékoztatjuk és megjelöljük a felhasználónak, hogy melyik mező értékében szerepel a hiba. Ezt a megoldást több helyen is alkalmazhatjuk, mint a profil módosítás esetében ahol a nevet és e-mail-címet kötelező kitölteni vagy éppen az új esemény hozzáadásnál ahol nem lehet üres a név és a dátumok. 
 	
 	A következő hiba ami előfordulhat, hogy a felhasználó rossz dátum formátumot használna. Ezt kiküszöböltem azzal, hogy egy felugró ablakot biztosítok neki, ahol a kívánt dátumot kiválasztja és ez kerül eltárolásra. 
 	
@@ -436,7 +436,7 @@
 	
 	
 	\section{Mobil alkalmazás bővítési és fejleszthetőségi lehetőségek}
-	Lehetőség még itt is van bőven a továbbfejlesztésre, többek között a nézetek átdolgozása fregmentekre~\cite{android_fregment}, hogy ne mindig activityt kelljen indítani. Külső megjelenésre jobban össze lehetne igazítani a kinézetet annak megfelelően, hogy az adott telefon sötét módban van-e vagy simán használják. Mivel az alkalmazásunk jelenleg nem támogatja az elforgatott képernyőt így ahhoz is el lehetne készíteni a nézetet. További lehetőség amik a nézethez kapcsolódnak, hogy amikor a felhasználó egy adott eseményt szeretne módosítani az jelenleg úgy tudja megtenni, hogy adott azonosítóra kell szűrnie. Ezt meglehetne úgy oldani, hogy a kilistázott eseményeknél kattinthatóvá tenni az adott elemet és úgy meglehessen nyitni a módosítást. 
+	Lehetőség még itt is van bőven a továbbfejlesztésre, többek között a nézetek átdolgozása fragmentekre~\cite{android_fragment}, hogy ne mindig activity-t kelljen indítani. Külső megjelenésre jobban össze lehetne igazítani a kinézetet annak megfelelően, hogy az adott telefon sötét módban van-e vagy simán használják. Mivel az alkalmazásunk jelenleg nem támogatja az elforgatott képernyőt így ahhoz is el lehetne készíteni a nézetet. További lehetőség amik a nézethez kapcsolódnak, hogy amikor a felhasználó egy adott eseményt szeretne módosítani az jelenleg úgy tudja megtenni, hogy adott azonosítóra kell szűrnie. Ezt meglehetne úgy oldani, hogy a kilistázott eseményeknél kattinthatóvá tenni az adott elemet és úgy meglehessen nyitni a módosítást. 
 	
 	Ezen felül a megjelenített szövegeket érdemes lenne kimenteni a szövegekhez tartozó erőforrások közé. Ez azért indokolt, hogy a továbbfejlesztéskor az alkalmazásunk már ne csak magyar nyelven legyen elérhető. 
 	
@@ -444,7 +444,7 @@
 	
 	Funkciók tekintetében amivel érdemes lenne kibővíteni még a szoftvert, hogy ne csak egyesével lehessen törölni az eseményeket. Ehhez nézet tekintetében megfelelő lenne egy olyan megoldás ahol a törölni kívánt eseményeket be kellene pipálni és így futna le a törlés. 
 	
-	Mivel eseményeket kezelünk így hasznos lenne az alkalmazást widgetekkel bővíteni, ami az új esemény felvételét megkönnyítené a felhasználó számára. Mindezek mellett gyors elérhetőséget lehetne biztosítani az alkalmazás használójának, hogy az esemény csoportokat közvetlenül a képernyőjén láthassa. 
+	Mivel eseményeket kezelünk így hasznos lenne az alkalmazáshoz több widget-et készíteni, ami az új esemény felvételét megkönnyítené a felhasználó számára. Mindezek mellett gyors elérhetőséget lehetne biztosítani az alkalmazás használójának, hogy az esemény csoportokat közvetlenül a képernyőjén láthassa. 
 	
 	\chapter{Összegzés}
 	Dolgozatom zárásaként szeretném összefoglalni a munkát, vele járó tapasztalatot és mindezek után még egyetemi éveimet is. 
@@ -473,6 +473,7 @@
 	Köszönetet szeretnék mondani szaktársaimnak, barátaimnak akikkel együtt haladtunk végig ezen az úton és támogattuk, segítettük egymást mindenben. Bízom benne, hogy az egyetemen szerzett barátokkal megmarad a kapcsolatunk. 
 	
 	Végül szeretnék köszönetet mondani nagyszüleimnek, szüleimnek, nővéremnek, sógoromnak, barátnőmnek és lakótársaimnak. Köszönöm nekik, hogy támogattak és biztattak egyetemi éveim alatt és köszönöm nekik a türelmet és nyugodt környezetet, hogy sikeresen létrejöhessen a szakdolgozatom.
+	
 	
 	\begin{thebibliography}{2}
 		\addcontentsline{toc}{chapter}{\bibname}
@@ -741,7 +742,7 @@
 		\newline
 		\emph{\bf{https://developer.android.com/training/data-storage/room}}
 		
-		\bibitem{android_fregment}
+		\bibitem{android_fragment}
 		\textsc{Az Androidhoz tartózó fregmentek hivatalos dokumentációja:}
 		\newline
 		\emph{\bf{https://developer.android.com/reference/android/app/Fragment}}

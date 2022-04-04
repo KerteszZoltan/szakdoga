@@ -5,7 +5,7 @@
 \select@language {magyar} \contentsline {chapter}{\numberline {2}Fejlesztői környezet}{9}{chapter.2}%
 \select@language {magyar} \contentsline {section}{\numberline {2.1}Web szerver}{9}{section.2.1}%
 \select@language {magyar} \contentsline {section}{\numberline {2.2}Kód szerkesztő}{9}{section.2.2}%
-\select@language {magyar} \contentsline {section}{\numberline {2.3}Android alkalmazáshoz Adroid Studio}{9}{section.2.3}%
+\select@language {magyar} \contentsline {section}{\numberline {2.3}Android alkalmazáshoz Android Studio}{9}{section.2.3}%
 \select@language {magyar} \contentsline {section}{\numberline {2.4}Postman a REST API-hoz}{10}{section.2.4}%
 \select@language {magyar} \contentsline {chapter}{\numberline {3}Az alkalmazás felépítése}{11}{chapter.3}%
 \select@language {magyar} \contentsline {section}{\numberline {3.1}Miért PHP és Laravel?}{11}{section.3.1}%
@@ -38,7 +38,7 @@
 \select@language {magyar} \contentsline {subsubsection}{Esemény API kontroller}{21}{section*.4}%
 \select@language {magyar} \contentsline {subsection}{\numberline {4.4.7}CSRF token}{22}{subsection.4.4.7}%
 \select@language {magyar} \contentsline {subsection}{\numberline {4.4.8}Felmerülő hibák}{22}{subsection.4.4.8}%
-\select@language {magyar} \contentsline {section}{\numberline {4.5}Levelzés}{22}{section.4.5}%
+\select@language {magyar} \contentsline {section}{\numberline {4.5}Levelezés}{22}{section.4.5}%
 \select@language {magyar} \contentsline {section}{\numberline {4.6}API hitelesítéshez Sanctum}{22}{section.4.6}%
 \select@language {magyar} \contentsline {section}{\numberline {4.7}Útvonalak}{23}{section.4.7}%
 \select@language {magyar} \contentsline {subsection}{\numberline {4.7.1}Webes felülethez tartozó útvonalak}{23}{subsection.4.7.1}%

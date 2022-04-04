@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2022.3.21)  3 APR 2022 23:38
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2022.3.21)  5 APR 2022 01:07
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -665,25 +665,25 @@ Package pdftex.def Info: eszterhazy-logo-hu.pdf  used on input line 30.
 ] [36
 
 ] [37]
-Underfull \hbox (badness 1454) in paragraph at lines 658--662
+Underfull \hbox (badness 1454) in paragraph at lines 659--663
 \T1/lmr/m/it/12 Vinicius M. Grip-pa, Ser-gey Kuz-michev, 2021 O'Reilly Me-dia, 
 Inc., ISBN:
  []
 
 [38]
-Underfull \hbox (badness 10000) in paragraph at lines 715--718
+Underfull \hbox (badness 10000) in paragraph at lines 716--719
 \T1/lmr/bx/n/12 https://developer.android.com/training/data-storage/shared-
  []
 
 
-Overfull \hbox (132.09033pt too wide) in paragraph at lines 730--733
+Overfull \hbox (132.09033pt too wide) in paragraph at lines 731--734
 \T1/lmr/bx/n/12 https://developer.android.com/reference/kotlin/androidx/recycle
 rview/widget/RecyclerView 
  []
 
 [39] (./F541OL_2022.aux)
 Package rerunfilecheck Info: File `F541OL_2022.out' has not changed.
-(rerunfilecheck)             Checksum: BF300069F538C38F1C40717C183D9756;14499.
+(rerunfilecheck)             Checksum: 774C0AECE1180817F41AA84C36D34A4E;14509.
  ) 
 Here is how much of TeX's memory you used:
  15034 strings out of 478276
@@ -697,7 +697,7 @@ Here is how much of TeX's memory you used:
 mf-dist/fonts/type1/public/lm/lmbx12.pfb><c:/texlive/2021/texmf-dist/fonts/type
 1/public/lm/lmcsc10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmr12
 .pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmri12.pfb>
-Output written on F541OL_2022.pdf (39 pages, 236848 bytes).
+Output written on F541OL_2022.pdf (39 pages, 236899 bytes).
 PDF statistics:
  714 PDF objects out of 1000 (max. 8388607)
  655 compressed objects within 7 object streams
