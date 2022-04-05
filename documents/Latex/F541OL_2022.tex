@@ -14,6 +14,48 @@
 \usepackage{mathtools,amssymb,amsthm,pdfpages}
 \footnotestyle{rule=fourth}
 
+\usepackage{fancyvrb,listingsutf8,xcolor,caption,url,listing}
+\usepackage{listings, xcolor}
+\renewcommand{\lstlistingname}{kód}
+\usepackage{color}
+\usepackage{pdfpages}
+\definecolor{lightgray}{rgb}{.9,.9,.9}
+\definecolor{darkgray}{rgb}{.4,.4,.4}
+\definecolor{purple}{rgb}{0.65, 0.12, 0.82}
+
+\lstdefinelanguage{JavaScript}{
+	keywords={break, case, catch, continue, debugger, default, delete, do, else, false, finally, for, function, if, in, instanceof, new, null, return, switch, this, throw, true, try, typeof, var, void, while, with, let},
+	morecomment=[l]{//},
+	morecomment=[s]{/*}{*/},
+	morestring=[b]',
+	morestring=[b]",
+	ndkeywords={class, export, boolean, throw, implements, import, this},
+	keywordstyle=\color{blue}\bfseries,
+	ndkeywordstyle=\color{darkgray}\bfseries,
+	identifierstyle=\color{black},
+	commentstyle=\color{purple}\ttfamily,
+	stringstyle=\color{red}\ttfamily,
+	sensitive=true
+}
+
+\lstset{
+	language=JavaScript,
+	xleftmargin=2cm,
+	xrightmargin=2cm,
+	backgroundcolor=\color{lightgray},
+	extendedchars=true,
+	basicstyle=\footnotesize\ttfamily,
+	showstringspaces=false,
+	showspaces=false,
+	numbers=left,
+	numberstyle=\footnotesize,
+	numbersep=9pt,
+	tabsize=2,
+	breaklines=true,
+	showtabs=false,
+	captionpos=b
+}
+
 \newtheorem{tetel}{Tétel}[chapter]
 \theoremstyle{definition}
 \newtheorem{definicio}[tetel]{Definíció}
@@ -48,13 +90,27 @@
 	A webes és az androidos alkalmazás tekintetében is törekedtem egy minimalista, mégis modern dizájn kialakításra, ami illeszkedik a világos és sötét témához is.
 	
 	\section{Webes alkalmazás}
-	A projekt fő eleme a böngészőből elérhető alkalmazás. Itt került kialakításra a regisztráció és egy rövid ismertető a programról, hogy milyen feladatok, problémák megoldására terveztem. Ezek az oldalak elérhetőek a látogatók számára regisztráció nélkül. 
+	A projekt fő eleme a böngészőből elérhető alkalmazás. Itt került kialakításra a regisztráció, bejelentkezési felület és egy rövid ismertető a programról, hogy milyen feladatok, problémák megoldására terveztem. Ezek az oldalak elérhetőek a látogatók számára regisztráció nélkül.	
+		
+	A felhasználónak regisztrációkor meg kell adnia a nevét, e-mail-címét és jelszavát, mint ahogyan az látható is a~\ref{figure:webapp_register}-es képen. Ha a regisztráció sikeres egy levelet küld ki az alkalmazás a megadott címre ahol a regisztrációkor kitöltött név jelenik meg és egy gomb ami átirányítja a felhasználót a webes felületre. Bejelentkezés után a felhasználó korlátozás nélkül tudja használni az alkalmazás nyújtotta lehetőségeket. 
 	
-	A felhasználónak regisztrációkor meg kell adnia a nevét, e-mail-címét és jelszavát. Ha a regisztráció sikeres egy levelet küld ki az alkalmazás a megadott címre ahol a regisztrációkor kitöltött név jelenik meg és egy gomb ami átirányítja a felhasználót a webes felületre. Bejelentkezés után a felhasználó korlátozás nélkül tudja használni az alkalmazás nyújtotta lehetőségeket. 
+	\begin{figure}[ht!]
+		\centering
+		\includegraphics[width=0.6\textwidth]{web_app/web_register}
+		\caption{Regisztrációs form}
+		\label{figure:webapp_register}
+	\end{figure}
 	
 	A navigációs részben a legördülő menüben az események alatt lehetőség van új esemény hozzáadására, a meglévők kilistázására annak megfelelően, hogy melyik csoportba tartozókat szeretnénk megjeleníteni. Ilyen kategóriák az aktív, teljesített és lejárt események. 
 	
-	Ahhoz, hogy a használó új eseményt tudjon hozzáadni kötelező annak nevet, kezdési és befejezési dátumot adni. Mentés közben ezeken az adatokon ellenőrzés fut le, hogy a kitöltés a szabályoknak megfelelő legyen. Ilyen előírás, hogy a név és dátumok ki legyenek töltve. A dátumokra másik szabály is vonatkozik, mégpedig, hogy a kezdési időpont ne lehessen korábban, mint az aktuális dátum és a befejezési idő nem lehet korábban, mint a kezdési. Ha ezeknek a bevitt értékek megfelelnek akkor megtörténik az eseménynek a mentése és közben az alkalmazás levélben értesíti a felhasználót, amiben leírja neki az eseményhez tartozó elnevezést, leírást, kezdési és befejezési dátumot. 
+	Ahhoz, hogy a használó új eseményt tudjon hozzáadni kötelező annak nevet, kezdési és befejezési dátumot adni. Ennek az oldalnak a felépítése a~\ref{figure:web_add_event}-es ábrán látható. Mentés közben ezeken az adatokon ellenőrzés fut le, hogy a kitöltés a szabályoknak megfelelő legyen. Ilyen előírás, hogy a név és dátumok ki legyenek töltve. A dátumokra másik szabály is vonatkozik, mégpedig, hogy a kezdési időpont ne lehessen korábban, mint az aktuális dátum és a befejezési idő nem lehet korábban, mint a kezdési. Ha ezeknek a bevitt értékek megfelelnek akkor megtörténik az eseménynek a mentése és közben az alkalmazás levélben értesíti a felhasználót, amiben leírja neki az eseményhez tartozó elnevezést, leírást, kezdési és befejezési dátumot. 
+	
+	\begin{figure}[ht!]
+		\centering
+		\includegraphics[width=0.8\textwidth]{web_app/web_add_event}
+		\caption{Esemény hozzáadásához tartozó form}
+		\label{figure:web_add_event}
+	\end{figure}
 	
 	Az feljegyzések közötti kilistázás első eleme az ,,Aktív események''. Az alkalmazásomban az számít futónak, ahol a befejezési időpont nem korábbi, mint az éppen aktuális dátum és az adatbázisban a ,,complete''  attribútumban 0 szerepel.
 	
@@ -64,11 +120,27 @@
 	
 	A legördülő menü utolsó eleme pedig a ,,Teljesített események''. Itt lehet megtalálni azokat az eseményeket ahol a ,,complete'' oszlopnak 1 az értéke. A megjelenő rekordok a módosítási dátumuk alapján csökkenő sorrendben kerülnek megjelenítésre. A teljesített események fontos különbsége, hogy a módosításra már nincsen lehetősége a felhasználónak, csak a törlésre.
 	
-	A következő választható menü elem a ,,Profil''. Itt egy olyan oldal jelenik meg, ahol a bejelentkezett felhasználó adati kerülnek kiíratásra. Az információk alatt egy legördülő menü található amiben a profilon elvégezhető műveleteket érhetjük el.
+	Az események megjelenítése és a hozzájuk tartozó funkciók az~\ref{figure:webapp_event_list_functions}-as ábrán láthatóak.
+	
+	\begin{figure}[ht!]
+		\centering
+		\includegraphics[width=1\textwidth]{web_app/web_events_list_and_functions}
+		\caption{Események megjelenítésének stílusa és az azokhoz tartozó funkció gombok}
+		\label{figure:webapp_event_list_functions}
+	\end{figure}
+	
+	A következő választható menü elem a ,,Profil''. Itt egy olyan oldal jelenik meg, ahol a bejelentkezett felhasználó adati kerülnek kiíratásra. Az információk alatt egy legördülő menü található amiben a profilon elvégezhető műveleteket érhetjük el az~\ref{figure:webapp_profile_functions}-es ábrán látható módon.
+	
+	\begin{figure}[ht!]
+		\centering
+		\includegraphics[width=0.7\textwidth]{web_app/web_profile_functions}
+		\caption{Profilhoz tartozó funkciók listája}
+		\label{figure:webapp_profile_functions}
+	\end{figure}
 	
 	A ,,Profil módosítás''-t választva megjelennek a felhasználó adatai. Amennyiben egy adatot nem szeretnénk módosítani úgy azt nem kell átírni. A mentésre kattintva az adatokat ellenőrízük,  ahol a következő szabályoknak meg kell felelni: a név mező nem lehet üres, az e-mail cím nem lehet üres és tartalmaznia kell ,,@'' írásjelet.
 	
-	Lehetőség van jelszó módosításra is, amit a következő menüpont biztosít. Jelszó módosításkor egyértelmű, hogy az üres mezők esetén hibával térünk vissza. Ezen kívül az új jelszót kétszer kell megadni és vizsgáljuk, hogy ugyan azok-e a jelszavak. Ezt követően az új jelszónak beírt karakterláncot kódolva eltároljuk, kijelentkeztetésre kerül a felhasználó és át lesz irányítva a bejelentkező oldalra, ahol már az új jelszóval kell bejelentkeznie.
+	Lehetőség van jelszó módosításra is, amit a következő menüpont biztosít. Ezen elem módosításkor egyértelmű, hogy az üres mezők esetén hibával térünk vissza. Ezen kívül az új jelszót kétszer kell megadni és vizsgáljuk, hogy ugyan azok-e a jelszavak. Ezt követően az új jelszónak beírt karakterláncot kódolva eltároljuk, kijelentkeztetésre kerül a felhasználó és át lesz irányítva a bejelentkező oldalra, ahol már az új jelszóval kell bejelentkeznie.
 	
 	Az utolsó funkció amit a felhasználó elér ebben a menüben az a profiljának a törlése. Hogy ez sikeres legyen meg kell adni kétszer a jelenlegi jelszót. Ha a törlés sikeres a felhasználó az applikáció főoldalára lesz irányítva, amennyiben sikertelen egy hiba üzenettel küldjük vissza a törlési oldalra.
 	
@@ -77,17 +149,42 @@
 	\section{Androidos alkalmazás}
 	A kliens program Androidos telefonokra készült alkalmazás ami API~\cite{api_basic} kapcsolaton keresztül kommunikál a webes szoftverrel. Az alkalmazás nem tárol lokálisan adatot, ezzel került megoldásra az a probléma, hogy esetleges meghibásodás esetén adat vesztés történne. 
 	
-	Az alkalmazás első megnyitása után egy bejelentkezési felület fogadja a felhasználót ahol meg kell adni az e-mail-címét és jelszavát. Ezen két adat ellenőrzése két helyen valósul meg. Először az alkalmazás megvizsgálja, hogy nem-e üresek a mezők, amennyiben nem írtunk bele adatot hibaüzenetet kapunk. Ha ki vannak töltve a mezők egy REST kérést küldünk. Amennyiben a válasz nem a felhasználó adatai egy szöveg buborék jelenik meg, hogy hibás a bevitt adat, máskülönben sikeres a bejelentkezés és a kezdőképernyő jelenik meg.
+	Az alkalmazás első megnyitása után egy bejelentkezési felület fogadja a felhasználót ahol meg kell adni az e-mail-címét és jelszavát. Ezen két adat ellenőrzése több rétegben valósul meg. Először az alkalmazás megvizsgálja, hogy nem-e üresek a mezők, amennyiben nem írtunk bele adatot hibaüzenetet kapunk. Ha ki vannak töltve a mezők egy REST kérést küldünk. Amennyiben a válasz nem a felhasználó adatai egy szöveg buborék jelenik meg, hogy hibás a bevitt adat, máskülönben sikeres a bejelentkezés és a kezdőképernyő jelenik meg.
+	
+	A még nem regisztrált felhasználók számára egy ikon segítségével gyors elérést biztosítunk az alkalmazásunk főoldalára, hogy a regisztrációt végre tudja hajtani.
+	
+	Ezen oldal kinézete és elrendezése az~\ref{figure:androidapp_main}-ös ábrán látható.
+	
+	\begin{figure}[ht!]
+		\centering
+		\includegraphics[width=0.5\textwidth]{android_app/android_main}
+		\caption{Androidos alkalmazás belépéshez tartozó felülete}
+		\label{figure:androidapp_main}
+	\end{figure}
 	
 	A főoldalon lehetőség van új eseményt hozzáadni vagy kilistázni az aktív, lejárt vagy teljesített feljegyzéseket. Ezen kívül található még egy felugró menü ahol minden funkciót megtalálunk amit elérhetünk az alkalmazásban. A menüben olyan pontokat találhatunk ami az esemény hozzáadás, listázás típusonként, feljegyzés kezelése, profil szerkesztése és a kijelentkezés. 
 	
-	Az esemény hozzáadása több helyről is elérhető, mivel ez egy alap funkció, ezért kézközelben kell lennie. Amikor megnyílik a hozzáadásért felelős nézet a már webes felületen megszokott adatok bevitelére van lehetőség. Dátumot egy felugró ablak segítségével lehet beállítani, majd megjelenítjük a kiválasztott időpontot. 
+	Az esemény hozzáadása több helyről is elérhető, mivel ez egy alap funkció, ezért kézközelben kell lennie. Amikor megnyílik a hozzáadásért felelős nézet, amit az~\ref{figure:androidapp_add_event}-os ábrán szemléltetek. Itt látható, hogy a webes felületen megszokott adatok bevitelére van lehetőség. Dátumot egy felugró ablak segítségével lehet beállítani, majd megjelenítjük a kiválasztott időpontot. 
+	
+	\begin{figure}[ht!]
+		\centering
+		\includegraphics[width=0.5\textwidth]{android_app/android_add_event}
+		\caption{Esemény hozzáadása mobilos alkalmazásban}
+		\label{figure:androidapp_add_event}
+	\end{figure}
 	
 	A főoldalon a bejelentkezett felhasználót egy üdvözlő üzenet fogadja, ahol a regisztrációkor megadott név szerepel. Ezen kívül elérhetjük a hozzáadás funkciót és esemény csoportonként a listázást. 
 	
 	A csoportonként megjelenítendő eseményeknél a felhasználó a következő adatokat látja: az esemény azonosítója, neve, leírása, kezdeti és befejezési dátum. A webes felülethez hasonlóan itt is kártyaként jelennek meg az adatok. 
 	
-	Az ,,Esemény kezelése'' menüpontban van lehetőség módosítani, késznek jelölni és törölni az adott eseményt. Először a felhasználónak le kell ellenőriznie, hogy az esemény létezik-e, ehhez meg kell adnia az azonosítóját. Amennyiben nem létezik egy felugró szöveg buborék jelenik meg, hogy helytelen az azonosító. Ha sikeres volt az ellenőrzés megjelenik a kiválasztott azonosítóhoz tartozó adatok. Mentés esetén a már webes felületen ismertetett szabályok kerülnek ellenőrzésre. Amennyiben üresen hagyja a felhasználó a nevet vagy a dátumok közül valamelyiket egy hiba üzenet kerül kiírásra ahol megjelenítésre kerül, hogy mely adatokat kell leellenőrizni. 
+	Az ,,Esemény kezelése'' menüpontban van lehetőség módosítani, késznek jelölni és törölni az adott eseményt. Először a felhasználónak le kell ellenőriznie, hogy az esemény létezik-e, ehhez meg kell adnia az azonosítóját. Amennyiben nem létezik egy felugró szöveg buborék jelenik meg, hogy helytelen az azonosító. Ha sikeres volt az ellenőrzés megjelenik a kiválasztott azonosítóhoz tartozó adatok. Mentés esetén a már webes felületen ismertetett szabályok kerülnek ellenőrzésre. Amennyiben üresen hagyja a felhasználó a nevet vagy a dátumok közül valamelyiket egy hiba üzenet kerül kiírásra ahol megjelenítésre kerül, hogy mely adatokat kell leellenőrizni vagy pótolni. Az~\ref{figure:android_specify_event}-es ábrán látható a lekérdezett esemény azonosítója, ahhoz tartozó értékek és elvégezhető műveletek. 
+	
+	\begin{figure}[ht!]
+		\centering
+		\includegraphics[width=0.5\textwidth]{android_app/android_specify_event}
+		\caption{Kiválasztott azonosítóhoz tartozó adatok és műveletek}
+		\label{figure:android_specify_event}
+	\end{figure}
 	
 	A ,,Profil'' menüpontot választva megjelenik az aktuálisan bejelentkezett felhasználó adatai amit módosítani lehet. A sikeres módosítás után az alkalmazás egy szöveg buborékban tájékoztatja a felhasználót a sikerességről. 
 	
@@ -145,7 +242,7 @@
 	\subsection{Általános információk}
 	A migráció (migration)~\cite{laravel_migartion} segít az adatbázis tábláinak létrehozásában, továbbá, ha az adatbázisban valamilyen módosítást kell végrehajtani akkor ezen fájlok lefuttatásával újra tudjuk generálni a táblákat. Ahhoz, hogy új migrációt adjunk a projektünkhöz egy terminálra van szükségünk, ahol a projektünk mappájában tartózkodunk. Ekkor a következő parancsot kell lefuttatni: ,,php artisan make:migration tabla\_neve''.
 	
-	A migráció létrehozásakor két metódust találunk: ,,up'' és ,,down''. Az ,,up'' metódus új táblák, oszlopok, indexek hozzáadására szolgál, míg a ,,down'' pedig a módosítások visszaállításra szolgál. 
+	A migráció létrehozásakor két metódust találunk: ,,up'' és ,,down''. Az ,,up'' metódus új táblák, oszlopok, indexek hozzáadására szolgál, míg a ,,down'' pedig a módosítások visszaállításra szolgál. Ahogy megfigyelhető a~\ref{user_migration} és a~\ref{event_migration} kódokban is, ha a ,,down'' metódus kerül meghívásra azokat a táblákat ahol a tábla név megegyezik, azok eldobásra kerülnek.
 	
 	\subsection{Migráció a felhasználóhoz}
 	Az felhasználóhoz tartozó tábla migrációjában kétféle adat szerepel: felhasználó által kitöltött, generált. A bevitt adatok közé tartozik a név, e-mail cím, jelszó. Az elektronikus levelezési címhez tartozik egy megkötés ami biztosítja, hogy egyedi (unique) minden felhasználónál. 
@@ -155,6 +252,10 @@
 	A created\_at és updated\_at egy dátum típusú mező ami szintén legenerálódik, amikor a felhasználó regisztrál vagy módosítja az adatait. 
 	
 	Az id attribútum automatikusan növekvő szám sorozat amivel egy egyed beazonosítható, tehát ez az elsődleges kulcs az adattáblában.  A kulcs minden esetben előjel nélküli szám.
+	
+	A felhasználói migrációhoz tartozó kód a~\ref{user_migration}-es kód részletben látható.
+	
+	\lstinputlisting[caption=Felhasználói migráció,label=user_migration]{codes/migration_user.php}
 	
 	\subsection{Migráció az eseményhez}
 	Az eseményben is szerepelnek generált és felvitt adatok. A generáltról nem beszélnék, mivel nagyban megegyezik a felhasználó migrációban szerepelt generált adatokkal. A különbség az eseményre vonatkozó, felhasználó által beírt adatokban van. 
@@ -167,8 +268,19 @@
 	
 	Az kezdési és befejezési dátumnál események távozása révén fontos kritérium volt, hogy nem csak dátumot, hanem időt is tárolni kell. Erre a legjobb megoldás a datetime típus ahol a legnagyobb megadható dátum a ,,9999-12-31 23:59:59''.
 	
+	Az eseményhez tartozó migrációt a~\ref{event_migration} kód részlet tartalmazza, ahol megfigyelhető a kitöltési szintaxis is. 
+	
+	\lstinputlisting[caption=Eseményhez tartozó migrációs kód,label=event_migration]{codes/migration_event.php}
+	
 	\subsection{Létrehozott táblák}
-	A migráció lefuttatásával a definiált táblák létrejönnek az adatbázisban. A Laravel keretrendszerben vannak olyan előre definiált táblák amelyek a projekt legenerálásakor létrejönnek. Ilyen tábla például a personal\_access\_token nevezetű ahol a felhasználói API tokenek találhatóak. Ez egy külön álló tábla ahol eltárolásra kerülnek a tokenek, de nincs összekötve a felhasználóval, de id alapján azonosítható. A létrehozott felhasználó és esemény tábla között ,,egy a többhöz'' kapcsolat kerül kialakításra.
+	A migráció lefuttatásával a definiált táblák létrejönnek az adatbázisban. A Laravel keretrendszerben vannak olyan előre definiált táblák amelyek a projekt legenerálásakor létrejönnek. Ilyen tábla például a personal\_access\_token nevezetű ahol a felhasználói API tokenek találhatóak. Ez egy külön álló tábla ahol eltárolásra kerülnek a tokenek, de nincs összekötve a felhasználóval, de id alapján azonosítható. A létrehozott felhasználó és esemény tábla között ,,egy a többhöz'' kapcsolat kerül kialakításra. Az~\ref{figure:eer_diagram} ábrán áthatjuk az adatbázishoz tartozó relációs modell kapcsolatát.
+	
+	\begin{figure}[ht!]
+		\centering
+		\includegraphics[width=0.6\textwidth]{database/EER_diagram}
+		\caption{EER diagram az adatbázis tábláihoz}
+		\label{figure:eer_diagram}
+	\end{figure}
 	
 	\subsection{Migrációs hiba lehetőség}
 	Ahhoz, hogy a migráció sikeresen fusson le, figyelni kell a lefuttatás sorrendjére, ugyan is, ha előbb kerül létrehozásra az események tábla, mint a felhasználóhoz tartozó, hiba generálódik a külső kulcsra való hivatkozás miatt. Ez a hiba könnyen orvosolható a migrációs fájlok átnevezésével.
