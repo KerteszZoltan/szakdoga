@@ -23,7 +23,7 @@
 \definecolor{darkgray}{rgb}{.4,.4,.4}
 \definecolor{purple}{rgb}{0.65, 0.12, 0.82}
 
-\lstdefinelanguage{JavaScript}{
+\lstdefinelanguage{PHP}{
 	keywords={break, case, catch, continue, debugger, default, delete, do, else, false, finally, for, function, if, in, instanceof, new, null, return, switch, this, throw, true, try, typeof, var, void, while, with, let},
 	morecomment=[l]{//},
 	morecomment=[s]{/*}{*/},
@@ -39,7 +39,7 @@
 }
 
 \lstset{
-	language=JavaScript,
+	language=PHP,
 	xleftmargin=2cm,
 	xrightmargin=2cm,
 	backgroundcolor=\color{lightgray},
@@ -290,6 +290,10 @@
 	
 	\subsection{Felhasználói modell}
 	A modell definiálása a kitölthető adatokkal kezdődik, melyek jelen esetben a név, e-mail és jelszó. A következő attribútumokat a rejtettek. Ezek a jelszó és a tokenek. Majd a végén található egy olyan metódus ami a kapcsolatot képezi a felhasználó és az esemény modell között. Itt jelen esetben azt adjuk meg, hogy egy felhasználóhoz több esemény is tartozhat.
+	
+	A modellhez tartozó implementációt a~\ref{user_modell} kód részlet tartalmazza.
+	
+	\lstinputlisting[caption=Felhasználóhoz tartozó modell,label=user_modell]{codes/modell_user.php}
 	
 	\subsection{Esemény modell}
 	Az esemény lényegében sokkal egyszerűbb, mint a felhasználónak a modellje, mivel itt csak kitölthető mezőkkel találkozunk. Ezek a mezők a következők: topic, description, start és end.

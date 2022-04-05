@@ -22,31 +22,31 @@
 \select@language {magyar} \contentsline {subsection}{\numberline {4.1.5}Migrációs hiba lehetőség}{21}{subsection.4.1.5}%
 \select@language {magyar} \contentsline {section}{\numberline {4.2}Modellek}{21}{section.4.2}%
 \select@language {magyar} \contentsline {subsection}{\numberline {4.2.1}Felhasználói modell}{21}{subsection.4.2.1}%
-\select@language {magyar} \contentsline {subsection}{\numberline {4.2.2}Esemény modell}{21}{subsection.4.2.2}%
-\select@language {magyar} \contentsline {subsection}{\numberline {4.2.3}Eloquent ORM}{21}{subsection.4.2.3}%
-\select@language {magyar} \contentsline {section}{\numberline {4.3}Nézetek}{21}{section.4.3}%
+\select@language {magyar} \contentsline {subsection}{\numberline {4.2.2}Esemény modell}{22}{subsection.4.2.2}%
+\select@language {magyar} \contentsline {subsection}{\numberline {4.2.3}Eloquent ORM}{22}{subsection.4.2.3}%
+\select@language {magyar} \contentsline {section}{\numberline {4.3}Nézetek}{22}{section.4.3}%
 \select@language {magyar} \contentsline {subsection}{\numberline {4.3.1}Felhasználói nézetek}{22}{subsection.4.3.1}%
-\select@language {magyar} \contentsline {subsection}{\numberline {4.3.2}E-mailhez tartozó nézetek}{22}{subsection.4.3.2}%
-\select@language {magyar} \contentsline {section}{\numberline {4.4}Kontrollerek}{22}{section.4.4}%
+\select@language {magyar} \contentsline {subsection}{\numberline {4.3.2}E-mailhez tartozó nézetek}{23}{subsection.4.3.2}%
+\select@language {magyar} \contentsline {section}{\numberline {4.4}Kontrollerek}{23}{section.4.4}%
 \select@language {magyar} \contentsline {subsection}{\numberline {4.4.1}Regisztráció kontroller}{23}{subsection.4.4.1}%
 \select@language {magyar} \contentsline {subsection}{\numberline {4.4.2}Bejelentkezéshez használt kontroller}{24}{subsection.4.4.2}%
-\select@language {magyar} \contentsline {subsection}{\numberline {4.4.3}Kijelentkeztetést végző kontroller}{24}{subsection.4.4.3}%
-\select@language {magyar} \contentsline {subsection}{\numberline {4.4.4}A felhasználóhoz tartozó CRUD kontroller}{24}{subsection.4.4.4}%
+\select@language {magyar} \contentsline {subsection}{\numberline {4.4.3}Kijelentkeztetést végző kontroller}{25}{subsection.4.4.3}%
+\select@language {magyar} \contentsline {subsection}{\numberline {4.4.4}A felhasználóhoz tartozó CRUD kontroller}{25}{subsection.4.4.4}%
 \select@language {magyar} \contentsline {subsection}{\numberline {4.4.5}Esemény kontroller és CRUD műveletek}{26}{subsection.4.4.5}%
-\select@language {magyar} \contentsline {subsection}{\numberline {4.4.6}API kontrollerek}{27}{subsection.4.4.6}%
+\select@language {magyar} \contentsline {subsection}{\numberline {4.4.6}API kontrollerek}{28}{subsection.4.4.6}%
 \select@language {magyar} \contentsline {subsubsection}{Felhasználó API kontroller}{28}{section*.11}%
 \select@language {magyar} \contentsline {subsubsection}{Esemény API kontroller}{28}{section*.12}%
 \select@language {magyar} \contentsline {subsection}{\numberline {4.4.7}CSRF token}{28}{subsection.4.4.7}%
-\select@language {magyar} \contentsline {subsection}{\numberline {4.4.8}Felmerülő hibák}{28}{subsection.4.4.8}%
+\select@language {magyar} \contentsline {subsection}{\numberline {4.4.8}Felmerülő hibák}{29}{subsection.4.4.8}%
 \select@language {magyar} \contentsline {section}{\numberline {4.5}Levelezés}{29}{section.4.5}%
 \select@language {magyar} \contentsline {section}{\numberline {4.6}API hitelesítéshez Sanctum}{29}{section.4.6}%
-\select@language {magyar} \contentsline {section}{\numberline {4.7}Útvonalak}{29}{section.4.7}%
-\select@language {magyar} \contentsline {subsection}{\numberline {4.7.1}Webes felülethez tartozó útvonalak}{29}{subsection.4.7.1}%
+\select@language {magyar} \contentsline {section}{\numberline {4.7}Útvonalak}{30}{section.4.7}%
+\select@language {magyar} \contentsline {subsection}{\numberline {4.7.1}Webes felülethez tartozó útvonalak}{30}{subsection.4.7.1}%
 \select@language {magyar} \contentsline {subsection}{\numberline {4.7.2}API-hoz tartozó útvonalak}{30}{subsection.4.7.2}%
 \select@language {magyar} \contentsline {subsection}{\numberline {4.7.3}Felmerülő hibák}{30}{subsection.4.7.3}%
-\select@language {magyar} \contentsline {section}{\numberline {4.8}Frontendhez használt eszközök}{30}{section.4.8}%
-\select@language {magyar} \contentsline {subsection}{\numberline {4.8.1}Elképzelés}{30}{subsection.4.8.1}%
-\select@language {magyar} \contentsline {subsection}{\numberline {4.8.2}Bootstrap szerepe a kivitelezésben}{30}{subsection.4.8.2}%
+\select@language {magyar} \contentsline {section}{\numberline {4.8}Frontendhez használt eszközök}{31}{section.4.8}%
+\select@language {magyar} \contentsline {subsection}{\numberline {4.8.1}Elképzelés}{31}{subsection.4.8.1}%
+\select@language {magyar} \contentsline {subsection}{\numberline {4.8.2}Bootstrap szerepe a kivitelezésben}{31}{subsection.4.8.2}%
 \select@language {magyar} \contentsline {subsection}{\numberline {4.8.3}CSS helyett SCSS}{31}{subsection.4.8.3}%
 \select@language {magyar} \contentsline {chapter}{\numberline {5}API tesztelése Postmannal}{32}{chapter.5}%
 \select@language {magyar} \contentsline {section}{\numberline {5.1}Kérés írása}{32}{section.5.1}%
