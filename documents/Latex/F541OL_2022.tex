@@ -242,7 +242,7 @@
 	\subsection{Általános információk}
 	A migráció (migration)~\cite{laravel_migartion} segít az adatbázis tábláinak létrehozásában, továbbá, ha az adatbázisban valamilyen módosítást kell végrehajtani akkor ezen fájlok lefuttatásával újra tudjuk generálni a táblákat. Ahhoz, hogy új migrációt adjunk a projektünkhöz egy terminálra van szükségünk, ahol a projektünk mappájában tartózkodunk. Ekkor a következő parancsot kell lefuttatni: ,,php artisan make:migration tabla\_neve''.
 	
-	A migráció létrehozásakor két metódust találunk: ,,up'' és ,,down''. Az ,,up'' metódus új táblák, oszlopok, indexek hozzáadására szolgál, míg a ,,down'' pedig a módosítások visszaállításra szolgál. Ahogy megfigyelhető a~\ref{user_migration} és a~\ref{event_migration} kódokban is, ha a ,,down'' metódus kerül meghívásra azokat a táblákat ahol a tábla név megegyezik, azok eldobásra kerülnek.
+	A migráció létrehozásakor két metódust találunk: ,,up'' és ,,down''. Az ,,up'' metódus új táblák, oszlopok, indexek hozzáadására szolgál, míg a ,,down'' pedig a módosítások visszaállításra szolgál. Ahogy megfigyelhető a~\ref{user_migration}-es és a~\ref{event_migration}-es kódokban is, ha a ,,down'' metódus kerül meghívásra azokat a táblákat ahol a tábla név megegyezik, azok eldobásra kerülnek.
 	
 	\subsection{Migráció a felhasználóhoz}
 	Az felhasználóhoz tartozó tábla migrációjában kétféle adat szerepel: felhasználó által kitöltött, generált. A bevitt adatok közé tartozik a név, e-mail cím, jelszó. Az elektronikus levelezési címhez tartozik egy megkötés ami biztosítja, hogy egyedi (unique) minden felhasználónál. 
@@ -268,12 +268,12 @@
 	
 	Az kezdési és befejezési dátumnál események távozása révén fontos kritérium volt, hogy nem csak dátumot, hanem időt is tárolni kell. Erre a legjobb megoldás a datetime típus ahol a legnagyobb megadható dátum a ,,9999-12-31 23:59:59''.
 	
-	Az eseményhez tartozó migrációt a~\ref{event_migration} kód részlet tartalmazza, ahol megfigyelhető a kitöltési szintaxis is. 
+	Az eseményhez tartozó migrációt a~\ref{event_migration}-es kód részlet tartalmazza, ahol megfigyelhető a kitöltési szintaxis is. 
 	
 	\lstinputlisting[caption=Eseményhez tartozó migrációs kód,label=event_migration]{codes/migration_event.php}
 	
 	\subsection{Létrehozott táblák}
-	A migráció lefuttatásával a definiált táblák létrejönnek az adatbázisban. A Laravel keretrendszerben vannak olyan előre definiált táblák amelyek a projekt legenerálásakor létrejönnek. Ilyen tábla például a personal\_access\_token nevezetű ahol a felhasználói API tokenek találhatóak. Ez egy külön álló tábla ahol eltárolásra kerülnek a tokenek, de nincs összekötve a felhasználóval, de id alapján azonosítható. A létrehozott felhasználó és esemény tábla között ,,egy a többhöz'' kapcsolat kerül kialakításra. Az~\ref{figure:eer_diagram} ábrán áthatjuk az adatbázishoz tartozó relációs modell kapcsolatát.
+	A migráció lefuttatásával a definiált táblák létrejönnek az adatbázisban. A Laravel keretrendszerben vannak olyan előre definiált táblák amelyek a projekt legenerálásakor létrejönnek. Ilyen tábla például a personal\_access\_token nevezetű ahol a felhasználói API tokenek találhatóak. Ez egy külön álló tábla ahol eltárolásra kerülnek a tokenek, de nincs összekötve a felhasználóval, de id alapján azonosítható. A létrehozott felhasználó és esemény tábla között ,,egy a többhöz'' kapcsolat kerül kialakításra. A~\ref{figure:eer_diagram}-es ábrán áthatjuk az adatbázishoz tartozó relációs modell kapcsolatát.
 	
 	\begin{figure}[ht!]
 		\centering
@@ -291,7 +291,7 @@
 	\subsection{Felhasználói modell}
 	A modell definiálása a kitölthető adatokkal kezdődik, melyek jelen esetben a név, e-mail és jelszó. A következő attribútumokat a rejtettek. Ezek a jelszó és a tokenek. Majd a végén található egy olyan metódus ami a kapcsolatot képezi a felhasználó és az esemény modell között. Itt jelen esetben azt adjuk meg, hogy egy felhasználóhoz több esemény is tartozhat.
 	
-	A modellhez tartozó implementációt a~\ref{user_modell} kód részlet tartalmazza.
+	A modellhez tartozó implementációt a~\ref{user_modell}-as kód részlet tartalmazza.
 	
 	\lstinputlisting[caption=Felhasználóhoz tartozó modell,label=user_modell]{codes/modell_user.php}
 	
@@ -316,6 +316,10 @@
 	\subsection{E-mailhez tartozó nézetek}
 	A kiküldött e-mailekhez tartozó nézetek külön vannak definiálva, mivel eltérnek a felhasználóitól, ugyan is, itt a Blade sablonozó motor komponenseit használjuk és a MarkDown~\cite{markdown_page} szintaxisát. Ennek köszönhetően az e-mailünkben nem csak szöveget tudunk küldeni, de gombot is, mely átirányíthat minket az alkalmazásra vagy a már meglévő útvonalak valamelyikére.
 	
+	Az e-mailek-hez tartozó nézet felépítését az új esemény esetén kiküldött e-mail nézetet szemlélteti, a~\ref{email_view}-es kód részletben, mivel itt kezelünk adatot is. 
+	
+	\lstinputlisting[caption=Új eseményhez tartozó e-mail felépítése,label=email_view]{codes/email_view.php}
+	
 	\section{Kontrollerek}
 	A kontrollerek~\cite{laravel_controller} dolgozzák fel a felhasználói műveleteket és válaszol azokra. A kontrollerekben gyűjtjük össze azokat az adatokat amik a felhasználói felületről érkeznek és ha kell meghívjuk a modellt, hogy tárolja el azokat az adatbázisban. Amennyiben az adatbázisból érkeznek az adatok úgy azt tovább küldjük a megjelenítéshez. Mivel dolgozatomban a felhasználó kétféle szerepkört tölthet be, miszerint lehet látogató vagy bejelentkezett felhasználó így ezt ellenőrizni kell, hogy a jogosultságának megfelelő oldalakat érje el. Ehhez definiálni kell egy konstruktort ahol a köztes szoftver (middleware)~\cite{laravel_middlewear} ellenőrzi, hogy a felhasználó be van-e jelentkezve vagy vendég.
 	A vezérlők általános működése a következőképpen írható le:~\cite{controller_cicle}
@@ -335,6 +339,10 @@
 	A jelszó is kötelező adat aminek minimum 6 karakterből kell állnia és meg kell erősíteni. Az utolsó az általános szerződési feltételekhez tartozó jelölőnégyzet (checkbox), amit be kell pipálni.
 	
 	Ha a validáció sikeres a kontroller megvizsgálja, hogy a beírt e-mailcím már szerepel-e az adatbázisban. Itt elő is jön az eloquent és a query builder előnye, hogy nem kell kézzel lekérdezést írni, hanem egyszerűen meghívjuk a modellt és annak az ahol (where) metódusát. Itt megvizsgáljuk, hogy az e-mailcím szerepel-e már az adatbázisban. Ehhez a ,,count'' aggregátumot társítjuk ami megszámolja, hogy a lekérdezés mennyi sort adott vissza. Amennyiben szerepel, tehát a visszatérési érték 1, visszatérünk a nézetre ahol megjelenítjük, hogy hibás az cím, mert szerepel már az adatbázisban. Amennyiben az eredmény 0 eltároljuk az adatokat úgy, hogy az adatbázisban szereplő attribútumához a kérés tömb megegyező adatát társítjuk. Kivételt képez ez alól a jelszó ahol előtte meg kell hívnunk a Hash osztály készít (make) függvényét a kérésben szereplő jelszóra, hogy kódolva tároljuk el azt. Mentés után a felhasználót bejelentkeztetjük amiben segítségünkre lesz az Auth~\cite{laravel_auth} osztálynak az attempt metódusa ami megvizsgálja, hogy a kérésben kapott e-mail cím és jelszó páros szerepel-e az adatbázisban. A metódus visszatérési értéke lehet igaz vagy hamis, annak megfelelően, hogy sikerült-e megtalálni az beírt adatokat. Ezt követően egy e-mailt küld ki a rendszer a megadott levelezési címre amelyben köszönti a frissen regisztrált felhasználót. Végül pedig átirányítjuk a saját profil oldalára.
+	
+	Ezen folyamat a~\ref{register_validation}-ös kód részletben tekinthető meg.
+	
+	\lstinputlisting[caption=Regisztrációhoz használt adatok validálása és eltárolás ,label=register_validation]{codes/register_validation.php}
 	
 	\subsection{Bejelentkezéshez használt kontroller}
 	A bejelentkezésért felelős kontroller meghívásakor is vizsgálni kell, hogy már be van-e jelentkezve a hívó fél. Ennek az ellenőrzéséért a kontrollerben szereplő konstruktorban lévő middlewear a felelős. Ha egy bejelentkezett felhasználó próbálja elérni a bejelentkezést a profiljára kerül átirányításra, amennyiben nincs bejelentkezve úgy elérni a vezérlőt.
@@ -407,6 +415,10 @@
 	\section{Levelezés}
 	A projektben véleményem szerint fontos a levelezés, mivel így a felhasználó értesül a regisztrációról és az új esemény hozzáadásról. Ehhez nagy segítséget nyújt a Laravelben implementál Mail~\cite{laravel_mail} API. Ahhoz, hogy az alkalmazásunk leveleket küldjön a .env fájlban be kell állítani a levelező szerverhez tartozó adatokat. Ezután létre kell hozni egy e-mail osztályt és nevet adni neki, utána következik a formátum megadás majd után oda kell írni, hogy a hozzá tartozó nézet hol jöjjön létre. A létrejövő osztály build metódusában lehetőség van megadni, hogy milyen tárggyal küldje ki a levelet. A konstruktorban pedig megadásra kerül, hogy milyen modelleket vagy adatokat kívánunk elküldeni.
 	
+	Ennek megvalósítását a~\ref{event_mail_controller}-os ábrán látható, ahol az új esemény hozzáadásakor küldünk ki levelet a felhasználó számára.
+	
+	\lstinputlisting[caption=Eseményhez tartozó levél küldő kontroller,label=event_mail_controller]{codes/event_mail_controller.php}
+	
 	\section{API hitelesítéshez Sanctum}
 	A Sanctum~\cite{laravel_sanctum} egy hitelesítési rendszer token alapú API-okhoz és mobil alkalmazásokhoz. A Sanctummal egyszerűen adhatóak ki tokenek a felhasználó számára. Ezek a kiadott elemek nagyon hosszú lejárati idejűek, általában több év, de igény szerint módosíthatóak és a felhasználó visszavonhatja ezeket. Az API útvonalak eléréséhez a felhasználói státuszt a sanctumba épített köztes szoftver (middlewear) végzi. Először megpróbálja a munkamenet hitelesítő cookit ellenőrizni, amennyiben sikertelen megvizsgálja a kérés fejlécét, hogy az authorizationban található token megfelel-e. A hitelesítéshez Bearer~\cite{bearer_token} Tokent használunk, ami egy átláthatatlan karakterlánc, ami nem tartalmaz jelentést.
 	
@@ -417,7 +429,9 @@
 	A webes felület esetén két fajta kérést különböztetünk meg. Vannak a szerverhez érkező get és post kérések.~\cite{get_post_difference} Get kérés esetén adatot kapunk a szervertől míg post-kor küldünk a szervernek. A legtöbb kérés esetén vezérlőt hívunk meg, mivel szükséges az authentikáció, amik pedig kivételek azok esetében egy nézettel térünk vissza. A POST metódusoknál megfigyelhető, hogy elvannak nevezve, minderre azért van szükség, hogy a nézetben könnyebb legyen a rájuk való hivatkozás. 
 	
 	\subsection{API-hoz tartozó útvonalak}
-	A különbség a két útvonal gyűjtemény között, hogy az API útvonalak esetében a bejelentkezésen kívül minden mást elérési utat a sanctum köztes szoftver segítségével hitelesítünk, tehát csak a hitelesített felhasználók számára elérhető.
+	A különbség a két útvonal gyűjtemény között, hogy az API útvonalak esetében a bejelentkezésen kívül minden mást elérési utat a sanctum köztes szoftver segítségével hitelesítünk, tehát csak a hitelesített felhasználók számára elérhető. Éppen ezen különbség miatt a~\ref{api_routes}-es kódban szeretném bemutatni az itt használt útvonalakat és azok deklarálását.
+	
+	\lstinputlisting[caption=API-hoz használt útvonalak,label=api_routes]{codes/api_routes.php}
 	
 	\subsection{Felmerülő hibák}
 	Az útvonal kérések esetén is merülhetnek fel hibák amiket le kell kezelni úgy, hogy a felhasználó ne érzékelje a hibát. Ilyen hibák lehetnek a következők:
@@ -455,6 +469,15 @@
 	Amennyiben a bejelentkezési tokent is eltároljuk és a hívásunkban fel kellene használni, azt könnyen megtehetjük az Authorization fülön úgy, hogy kiválasztjuk a token típusát ami esetünkben a Bearer token és ahol a tokent meg kellene adni, ott csak a kimentett adatra kell hivatkozni. 
 	
 	Sok kérés esetében a fejlécen kívül tartozik adat is hozzá amit a kérés testében (body) küldünk. Ennek megadására a Postman sok lehetőséget kínál. Számomra a legideálisabb ezek közül a JSON formátum. 
+	
+	A bejelentkezéshez használt kérést és annak formáját a~\ref{figure:postman_login}-es képen szeretném szemléltetni. 
+	
+	\begin{figure}[ht!]
+		\centering
+		\includegraphics[width=1\textwidth]{postman/login_post}
+		\caption{Bejelentkezéshez használt POST kérés}
+		\label{figure:postman_login}
+	\end{figure}
 	
 	\section{Válasz értelmezés}
 	A kérésre érkező válasz megjelenítésére is több formátum érhető el, mint a kérés íráshoz. A program lehetőséget kínál a felhasználónak arra is, hogy a választ lementse.

@@ -1,0 +1,29 @@
+public function store(Request $request){
+        $this->validate($request,[
+            'name'=>'required|max:255',
+            'email'=>'required|email|max:255',
+            'password'=>'required|confirmed|min:6',
+            'aszf'=>'required',
+        ]);
+        $email=$request->email;
+        $emailcheck=User::where('email','=',$email)->count();
+        $bad_email='';
+        if ($emailcheck>0) {
+            return view('auth.register',[
+                'bad_email' => $emailcheck,
+                'respose' => $request,
+            ]);
+        }else{
+            User::create([
+                'name' => $request->name,
+                'username' => $request->username,
+                'email' => $request->email,
+                'password' => Hash::make($request->password),
+            ]);
+            auth()->attempt($request->only('email', 'password'));
+            $user=auth()->user();
+            $token=$user->createToken('eveldartoken')->plainTextToken;
+            Mail::to($user)->send(new NewRegisteredUser(auth()->user()));
+            return redirect()->route('profile');
+        }
+}
