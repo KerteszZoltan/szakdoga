@@ -65,7 +65,7 @@
 \select@language {magyar} \contentsline {section}{\numberline {6.9}Végpontok a Retrofithez}{40}{section.6.9}%
 \select@language {magyar} \contentsline {section}{\numberline {6.10}Válaszok kezelése}{40}{section.6.10}%
 \select@language {magyar} \contentsline {section}{\numberline {6.11}Kérések használata}{40}{section.6.11}%
-\select@language {magyar} \contentsline {section}{\numberline {6.12}SharedPreferences az alkalmazásban}{40}{section.6.12}%
+\select@language {magyar} \contentsline {section}{\numberline {6.12}SharedPreferences az alkalmazásban}{41}{section.6.12}%
 \select@language {magyar} \contentsline {section}{\numberline {6.13}Felmerülő hibák}{41}{section.6.13}%
 \select@language {magyar} \contentsline {chapter}{\numberline {7}Továbbfejlesztési lehetőségek}{42}{chapter.7}%
 \select@language {magyar} \contentsline {section}{\numberline {7.1}Webes továbbfejlesztési lehetőségek}{42}{section.7.1}%

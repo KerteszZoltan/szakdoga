@@ -540,6 +540,12 @@
 	
 	A végpontoknál definiálni kell a kérés típusát ami lehet @POST vagy @GET. Az authentikáció miatt ki kell egészíteni a kérés fejlécét egy @Header annotációval ahol egy karakterláncot kell megadni. Ha űrlap adatokat küldünk szükség van a FormUrlEncoded megjegyzésre a HTTP metódus megadása előtt. A küldött adatokat a Filed annotációban tároljuk el.
 	
+	A~\ref{retrofit_end_point}-os ábrán látható példa a POST és GET típusú végpontok definiálásra.
+	
+	\lstinputlisting[caption=Eseményhez tartozó migrációs kód,label=retrofit_end_point]{codes/retrofit_end_point.java}
+	
+	
+	
 	\section{Válaszok kezelése}
 	Mivel a legtöbb végpont esetén típus specifikust választ várunk így ezeket osztályokba kellett rendezni. Az osztályokban található lékérő és beállító metódusok ahol a típushoz felhasználjuk a modelleket.
 	
