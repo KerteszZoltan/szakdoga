@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2022.3.21)  6 APR 2022 11:11
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2022.3.21)  6 APR 2022 12:14
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -763,86 +763,97 @@ ine 184.
 
 ] [17]
 4. fejezet.
+
+LaTeX Warning: Reference `user_migration' on page 18 undefined on input line 24
+5.
+
 [18
 
 ]
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
-nput line 258.
+nput line 269.
 LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 2
-58.
+69.
  (c:/texlive/2021/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-(./codes/migration_user.php
+(./codes/migration_event.php
 LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <10> not available
 (Font)              Font shape `T1/lmtt/b/n' tried instead on input line 1.
 LaTeX Font Info:    Trying to load font information for TS1+lmtt on input line 
 2.
- (c:/texlive/2021/texmf-dist/tex/latex/lm/ts1lmtt.fd
+
+(c:/texlive/2021/texmf-dist/tex/latex/lm/ts1lmtt.fd
 File: ts1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)) (./codes/migration_event.php [19])
-<database/EER_diagram.png, id=577, 355.3275pt x 210.7875pt>
+)) [19]
+<database/EER_diagram.png, id=573, 355.3275pt x 210.7875pt>
 File: database/EER_diagram.png Graphic file (type png)
 <use database/EER_diagram.png>
-Package pdftex.def Info: database/EER_diagram.png  used on input line 280.
+Package pdftex.def Info: database/EER_diagram.png  used on input line 276.
 (pdftex.def)             Requested size: 264.61333pt x 156.97737pt.
- [20 <./database/EER_diagram.png>]
-(./codes/modell_user.php) [21] [22] (./codes/email_view.php) [23] [24]
-(./codes/register_validation.php) [25] [26] [27] [28] [29] [30]
-(./codes/event_mail_controller.php) [31] (./codes/api_routes.php) [32] [33]
-[34]
+ [20 <./database/EER_diagram.png>] (./codes/modell_user.php) [21] (./codes/emai
+l_view.php [22])
+[23] (./codes/register_validation.php [24]) [25] (./codes/user_crud_update.php)
+[26] (./codes/user_crud_delete.php [27]) (./codes/event_crud_store.php [28])
+(./codes/event_crud_active_read.php) [29] [30] [31]
+(./codes/event_mail_controller.php) [32] (./codes/api_routes.php [33]) [34]
+[35]
 5. fejezet.
-<postman/login_post.png, id=794, 822.6735pt x 249.93375pt>
+<postman/login_post.png, id=848, 921.4425pt x 416.55624pt>
 File: postman/login_post.png Graphic file (type png)
 <use postman/login_post.png>
-Package pdftex.def Info: postman/login_post.png  used on input line 477.
-(pdftex.def)             Requested size: 441.01773pt x 133.9859pt.
-[35
+Package pdftex.def Info: postman/login_post.png  used on input line 490.
+(pdftex.def)             Requested size: 441.01773pt x 199.36632pt.
+[36
 
-] [36 <./postman/login_post.png>]
+] [37 <./postman/login_post.png>]
 6. fejezet.
-[37
+[38
 
-] [38] [39] (./codes/retrofit_end_point.java) [40] [41]
+] (./codes/android_intent_from_add_to_main.java) [39] [40]
+(./codes/retrofit_end_point.java) [41] [42] [43]
 7. fejezet.
-[42
-
-] [43]
-8. fejezet.
 [44
+
+] [45]
+8. fejezet.
+[46
 
 ]
 9. fejezet.
-[45
+[47
 
-] [46
+] [48
 
-] [47]
-Underfull \hbox (badness 1454) in paragraph at lines 804--808
+] [49]
+Underfull \hbox (badness 1454) in paragraph at lines 821--825
 \T1/lmr/m/it/12 Vinicius M. Grip-pa, Ser-gey Kuz-michev, 2021 O'Reilly Me-dia, 
 Inc., ISBN:
  []
 
-[48]
-Underfull \hbox (badness 10000) in paragraph at lines 861--864
+[50]
+Underfull \hbox (badness 10000) in paragraph at lines 878--881
 \T1/lmr/bx/n/12 https://developer.android.com/training/data-storage/shared-
  []
 
 
-Overfull \hbox (132.09033pt too wide) in paragraph at lines 876--879
+Overfull \hbox (132.09033pt too wide) in paragraph at lines 893--896
 \T1/lmr/bx/n/12 https://developer.android.com/reference/kotlin/androidx/recycle
 rview/widget/RecyclerView 
  []
 
-[49] (./F541OL_2022.aux)
+[51] (./F541OL_2022.aux)
+
+LaTeX Warning: There were undefined references.
+
 Package rerunfilecheck Info: File `F541OL_2022.out' has not changed.
 (rerunfilecheck)             Checksum: 91FD190349568994D3D1B01D8BE670A9;14510.
  ) 
 Here is how much of TeX's memory you used:
- 19168 strings out of 478276
- 309588 string characters out of 5850489
- 784402 words of memory out of 5000000
- 36675 multiletter control sequences out of 15000+600000
+ 19266 strings out of 478276
+ 311406 string characters out of 5850489
+ 733621 words of memory out of 5000000
+ 36709 multiletter control sequences out of 15000+600000
  533113 words of font info for 81 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  75i,7n,77p,1630b,1916s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -853,10 +864,10 @@ fb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmr10.pfb><c:/texlive/2021
 /texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/texlive/2021/texmf-dist/fonts/t
 ype1/public/lm/lmri12.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmt
 k10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmtt10.pfb>
-Output written on F541OL_2022.pdf (49 pages, 598302 bytes).
+Output written on F541OL_2022.pdf (51 pages, 606011 bytes).
 PDF statistics:
- 995 PDF objects out of 1000 (max. 8388607)
- 901 compressed objects within 10 object streams
- 326 named destinations out of 1000 (max. 500000)
+ 1065 PDF objects out of 1200 (max. 8388607)
+ 969 compressed objects within 10 object streams
+ 378 named destinations out of 1000 (max. 500000)
  655 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -253,10 +253,6 @@
 	
 	Az id attribútum automatikusan növekvő szám sorozat amivel egy egyed beazonosítható, tehát ez az elsődleges kulcs az adattáblában.  A kulcs minden esetben előjel nélküli szám.
 	
-	A felhasználói migrációhoz tartozó kód a~\ref{user_migration}-es kód részletben látható.
-	
-	\lstinputlisting[caption=Felhasználói migráció,label=user_migration]{codes/migration_user.php}
-	
 	\subsection{Migráció az eseményhez}
 	Az eseményben is szerepelnek generált és felvitt adatok. A generáltról nem beszélnék, mivel nagyban megegyezik a felhasználó migrációban szerepelt generált adatokkal. A különbség az eseményre vonatkozó, felhasználó által beírt adatokban van. 
 	
@@ -268,7 +264,7 @@
 	
 	Az kezdési és befejezési dátumnál események távozása révén fontos kritérium volt, hogy nem csak dátumot, hanem időt is tárolni kell. Erre a legjobb megoldás a datetime típus ahol a legnagyobb megadható dátum a ,,9999-12-31 23:59:59''.
 	
-	Az eseményhez tartozó migrációt a~\ref{event_migration}-es kód részlet tartalmazza, ahol megfigyelhető a kitöltési szintaxis is. 
+	Az eseményhez tartozó migrációt a~\ref{event_migration}-es kódrészlet tartalmazza, ahol megfigyelhető a kitöltési szintaxis is. 
 	
 	\lstinputlisting[caption=Eseményhez tartozó migrációs kód,label=event_migration]{codes/migration_event.php}
 	
@@ -291,7 +287,7 @@
 	\subsection{Felhasználói modell}
 	A modell definiálása a kitölthető adatokkal kezdődik, melyek jelen esetben a név, e-mail és jelszó. A következő attribútumokat a rejtettek. Ezek a jelszó és a tokenek. Majd a végén található egy olyan metódus ami a kapcsolatot képezi a felhasználó és az esemény modell között. Itt jelen esetben azt adjuk meg, hogy egy felhasználóhoz több esemény is tartozhat.
 	
-	A modellhez tartozó implementációt a~\ref{user_modell}-as kód részlet tartalmazza.
+	A modellhez tartozó implementációt a~\ref{user_modell}-as kódrészlet tartalmazza.
 	
 	\lstinputlisting[caption=Felhasználóhoz tartozó modell,label=user_modell]{codes/modell_user.php}
 	
@@ -316,7 +312,7 @@
 	\subsection{E-mailhez tartozó nézetek}
 	A kiküldött e-mailekhez tartozó nézetek külön vannak definiálva, mivel eltérnek a felhasználóitól, ugyan is, itt a Blade sablonozó motor komponenseit használjuk és a MarkDown~\cite{markdown_page} szintaxisát. Ennek köszönhetően az e-mailünkben nem csak szöveget tudunk küldeni, de gombot is, mely átirányíthat minket az alkalmazásra vagy a már meglévő útvonalak valamelyikére.
 	
-	Az e-mailek-hez tartozó nézet felépítését az új esemény esetén kiküldött e-mail nézetet szemlélteti, a~\ref{email_view}-es kód részletben, mivel itt kezelünk adatot is. 
+	Az e-mailek-hez tartozó nézet felépítését az új esemény esetén kiküldött e-mail nézetet szemlélteti, a~\ref{email_view}-es kódrészletben, mivel itt kezelünk adatot is. 
 	
 	\lstinputlisting[caption=Új eseményhez tartozó e-mail felépítése,label=email_view]{codes/email_view.php}
 	
@@ -340,7 +336,7 @@
 	
 	Ha a validáció sikeres a kontroller megvizsgálja, hogy a beírt e-mailcím már szerepel-e az adatbázisban. Itt elő is jön az eloquent és a query builder előnye, hogy nem kell kézzel lekérdezést írni, hanem egyszerűen meghívjuk a modellt és annak az ahol (where) metódusát. Itt megvizsgáljuk, hogy az e-mailcím szerepel-e már az adatbázisban. Ehhez a ,,count'' aggregátumot társítjuk ami megszámolja, hogy a lekérdezés mennyi sort adott vissza. Amennyiben szerepel, tehát a visszatérési érték 1, visszatérünk a nézetre ahol megjelenítjük, hogy hibás az cím, mert szerepel már az adatbázisban. Amennyiben az eredmény 0 eltároljuk az adatokat úgy, hogy az adatbázisban szereplő attribútumához a kérés tömb megegyező adatát társítjuk. Kivételt képez ez alól a jelszó ahol előtte meg kell hívnunk a Hash osztály készít (make) függvényét a kérésben szereplő jelszóra, hogy kódolva tároljuk el azt. Mentés után a felhasználót bejelentkeztetjük amiben segítségünkre lesz az Auth~\cite{laravel_auth} osztálynak az attempt metódusa ami megvizsgálja, hogy a kérésben kapott e-mail cím és jelszó páros szerepel-e az adatbázisban. A metódus visszatérési értéke lehet igaz vagy hamis, annak megfelelően, hogy sikerült-e megtalálni az beírt adatokat. Ezt követően egy e-mailt küld ki a rendszer a megadott levelezési címre amelyben köszönti a frissen regisztrált felhasználót. Végül pedig átirányítjuk a saját profil oldalára.
 	
-	Ezen folyamat a~\ref{register_validation}-ös kód részletben tekinthető meg.
+	Ezen folyamat a~\ref{register_validation}-ös kódrészletben tekinthető meg.
 	
 	\lstinputlisting[caption=Regisztrációhoz használt adatok validálása és eltárolás ,label=register_validation]{codes/register_validation.php}
 	
@@ -365,18 +361,35 @@
 	
 	Ha ez megvolt a következő fontos rész, hogy meg kell keresni az adatbázisban azt a rekordot amit módosítani szeretnénk. Ezt a legegyszerűbben úgy tudjuk megtenni, ha meghívjuk a modell-t és hozzá a find metódust. Itt mutatkozik meg újra az eloquent erőssége, hogy nem kell lekérdezést írni. Ebben az esetben a lekérdezés egyetlen modell példányt ad vissza. Ezt eltároljuk, hogy a következő lépésben már csak felül kelljen írni az adatok a felhasználó által kitöltöttel, majd menteni. Ha ez sikeresen megtörtént vissza irányítjuk a felhasználót a profiljára, hogy ellenőrizhesse a megváltoztatott adatokat. 
 	
+	Ezt a folyamatot a~\ref{user_crud_update}-ös kódrészlet szemlélteti.
+	
+	\lstinputlisting[caption=Felhasználói adat frissítés,label=user_crud_update]{codes/user_crud_update.php}
+	
 	A következő frissítés a jelszóra vonatkozik. A szabály egyszerű és nem tér el a regisztrációs szabályoktól, miszerint ki kell tölteni és minimum 6 karakter hosszúnak kell lennie és meg kell erősíteni az új jelszót. A könnyebb hivatkozás kedvéért egy-egy változóba eltárolásra kerül a jelenlegi és az új jelszó is. Ezután leellenőrizésre kerül, hogy a jelenlegi és az új jelszó megegyezik-e, mivel ha igen egy hiba üzenettel térünk vissza a jelszó változtatáshoz, hogy a két érték ugyan az. Következő lépésben a bejelentkezett felhasználó jelszavát kell ellenőrizni, hogy megegyezik-e azzal amit beírt a felhasználó. Mivel a rendszert használó jelszava kódoltan tárolódik így a kódolt jelszavakat kell összehasonlítani a kódolatlannal. Ehhez nagy segítség a Hash osztályban definiált check metódus ami a kódolatlan értéket hasonlítja össze a kódolt értékkel. Amennyiben az összehasonlítás igaznak bizonyul, tehát megegyezik, lekérjük és eltároljuk az aktuális felhasználó azonosítóját, majd a profil frissítéshez hasonlóan kimentjük az adatokat, hogy felül tudjuk írni a jelszót, a felhasználó által megadott, most már kódolt jelszóra. Amennyiben ezek sikeresen megtörténtek kijelentkeztetjük a felhasználót és átirányítjuk a bejelentkezésre. Itt az átirányításhoz egy üzenetet fűzünk, hogy az új jelszóval kell már bejelentkezni. Ha sikertelen az összehasonlítás egy hiba üzenettel térünk vissza, amelyben leírjuk, hogy a jelenlegi jelszó nem megfelelő. 
 	
 	Az utolsó műveleti amit a felhasználóval lehet végezni a törlés. Itt fontos kiemelni, hogy a migrationban szereplő kötés miatt, ha a felhasználó törli a profilját úgy az eseményei is törlésre kerülnek. Ahhoz, hogy a törlés sikeresen lefusson a felhasználónak meg kell erősíteni azt a jelszavával. Ezért a kontrollerben vizsgálni kell, hogy a jelszó ne lehessen üres és tartozik hozzá egy megerősítés is. Ha ezek a szabályok teljesülnek akkor összehasonlításra kerül a bejelentkezett felhasználó jelszava és a megadott. Ha nem egyezik meg akkor vissza irányítjuk a törlés oldalra egy hibaüzenettel amiben az szerepel, hogy nem helyes a jelszó. Ha viszont az ellenőrzés sikeres megkeressük a felhasználót a bejelentkezett felhasználó id-ja alapján és töröljük. A következő lépés az átirányítás a főoldalra.
+	
+	A törlésre vonatkozó kódrészlet a~\ref{user_crud_delete}-os.
+	
+	\lstinputlisting[caption=Felhasználó törlése,label=user_crud_delete]{codes/user_crud_delete.php}
 	
 	\subsection{Esemény kontroller és CRUD műveletek}
 	Itt is ugyan úgy találkozhatunk egy konstruktorral amiben vizsgáljuk, hogy a hívó felé be van-e jelentkezve. Amennyiben igen a szokásos módon itt is eléri a kontroller metódusait, míg, ha nincs bejelentkezve a bejelentkezési oldalra irányul át.
 	
 	Betűrendben haladva kezdjük a sort az esemény létrehozással. Létrehozáskor a felhasználónak meg kell adni a következő adatokat: név, leírás, start és end. Ezekre ellenőrzés fut le, hogy megfelelőek-e a szabályoknak, tehát, hogy a név és kezdési, befejezési dátum nem üres és, hogy az esemény kezdete nem-e hamarabbi mint a jelenlegi dátum, illetve a befejezési időpontnak vagy az aktuális dátumnak kell lennie vagy későbbinek, mint a kezdési idő. Amennyiben a fenti szabályok valamelyike nem teljesül, úgy a felhasználó felé hibát küldünk amiben a helytelen adatokat megjelöljük. Ha sikeresen lefut az ellenőrzés a kérésből létrehozzuk az eseményt és az adatokat hozzáadjuk. Sikeres mentés esetén, hogy e-mailt tudjunk küldeni a felhasználó le kell kérdeznünk és egy változóba elmenteni az aktuális felhasználót, ha ez megvan a rendszerben meg kell keresni azt az eseményt amit a felhasználó utoljára adott hozzá. Ehhez nagy segítség, megint, hogy nem kell lekérdezéseket kézzel készítenünk, így a where feltételben meg kell adni, hogy melyik felhasználó eseményét keressük, majd, hogy a legutolsót (latest), ezután nincs más dolgunk, mint, hogy az első (first) metódust használva az első találatot kérjük le és tároljuk el. Az e-mail kiküldésre kerül a bejelentkezett felhasználó által megadott e-mail-címre az esemény adataival ezután pedig az aktív események listájának nézetére ugrunk.
 	
+	Ezen folyamathoz tartozó kódrészlet a~\ref{event_crud_store}-es.
+	
+	\lstinputlisting[caption=Esemény mentése,label=event_crud_store]{codes/event_crud_store.php}
+	
 	A következő amit az adatokkal lehet csinálni a kiolvasás (read). Ez a projektemben több csoportra osztható, mivel az összes adatot egyben nem lehet kiolvasni. A kiolvasható adatok csoportja a következők: aktív, lejárt és teljesített események. Nem is írnám le az összes működését, hiszen a különbség csak a szűrési feltételekben tapasztalható. Így egy általánosan írom és kitérek a különbségekre. Egy feltétel van ami minden lekérdezés esetén megegyezik, az pedig a felhasználó vizsgálat, hogy az aktuálisan bejelentkezett felhasználó csak a saját eseményeihez férhessen hozzá. Itt az aktuális felhasználói azonosítót hasonlítjuk össze az adatbázisban tárolt user\_id nevű külső kulccsal. Ami még megegyezik minden lekérdezés esetében a megjelenítésre is vonatkozik, ez a paginate metódus ahol megadjuk, hogy egy oldalon hány rekord jelenhet meg, így a nézeten létre jön egy lapozó az adatok megjelenítéséhez.
 	
+	
 	Amennyiben az aktív eseményekre vagyunk kíváncsiak a következő feltételeket kell definiálnunk: a befejezési dátumnak később kell lenni-e, mint az aktuális dátum, és a compelte mező értékének 0-nak kell lennie. Ezen feltételeket az ahol (where) metódussal tudjuk meghatározni. A lekérdezett eseményeket pedig befejezési dátum szerint emelkedő sorrendben rendezzük.
+	
+	A fent leírt folyamatot és az aktív esemény szűrési feltételei a~\ref{event_crud_active_read}-as kódrészletben látható.
+	
+	\lstinputlisting[caption=Aktív események lekérdezése,label=event_crud_active_read]{codes/event_crud_active_read.php}
 	
 	Ha a felhasználó a lejárt eseményeket szeretné megjeleníteni ki kell szűrni azokat a rekordokat ahol a befejezési dátum hamarabb van, mint az aktuális és a complete mező értéke 0. Az utolsó pedig, hogy az adatokat rendezzük befejezési dátum szerint emelkedő sorrendbe.
 	
@@ -504,6 +517,10 @@
 	
 	\section{Activity indítás}
 	Az activity indítás történhet adattal és adat nélkül. Dolgozatom során az utóbbit használom, mivel minden adatot a Retrofit kérésből kapunk, így nincs szükség adat átadásra. Az intenteket~\cite{android_intent} lehet implicit és explicit módon használni. Amennyiben explicit módon szeretnénk felhasználni meg kell határozni az összetevőket, hogy honnan indítjuk és mit hívunk meg. Projektem során ezt részesítem előnyben, mivel minden híváshoz tartozik egy egyértelműen megállapítható osztály.
+	
+	Erre példa a~\ref{android_intent_from_add_to_main} kódrészletben látható, ahol az esemény hozzáadáshoz tartozó activity-ről lépünk tovább a bejelentkezés után használt főképernyőre.
+	
+	\lstinputlisting[caption=Intent indítás,label=android_intent_from_add_to_main]{codes/android_intent_from_add_to_main.java}
 	
 	\section{Activityk meghatározása}
 	Az androidos alkalmazás fejlesztésekor a megjelenített felületet Activitynek hívjuk. Minden nézetnek van egy életciklusa ami a létrehozástól a megszüntetéséig tart.
