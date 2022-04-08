@@ -65,8 +65,8 @@ public class AddEventActivity extends AppCompatActivity {
         imv_main.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent secound = new Intent(AddEventActivity.this, SecoundActivity.class);
-                startActivity(secound);
+                Intent active = new Intent(AddEventActivity.this, ActiveEvents.class);
+                startActivity(active);
                 finish();
             }
         });

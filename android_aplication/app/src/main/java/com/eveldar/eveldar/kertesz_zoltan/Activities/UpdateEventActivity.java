@@ -57,8 +57,8 @@ public class UpdateEventActivity extends AppCompatActivity {
         imv_main.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent secound = new Intent(UpdateEventActivity.this, SecoundActivity.class);
-                startActivity(secound);
+                Intent active = new Intent(UpdateEventActivity.this, ActiveEvents.class);
+                startActivity(active);
                 finish();
             }
         });
@@ -273,8 +273,8 @@ public class UpdateEventActivity extends AppCompatActivity {
                             public void onResponse(Call<ResponseEvent> call, Response<ResponseEvent> response) {
                                 recreate();
                                 Toast.makeText(UpdateEventActivity.this,"A törlés sikeres!", Toast.LENGTH_SHORT).show();
-                                Intent secound = new Intent(UpdateEventActivity.this, SecoundActivity.class);
-                                startActivity(secound);
+                                Intent active = new Intent(UpdateEventActivity.this, ActiveEvents.class);
+                                startActivity(active);
                                 finish();
                             }
 

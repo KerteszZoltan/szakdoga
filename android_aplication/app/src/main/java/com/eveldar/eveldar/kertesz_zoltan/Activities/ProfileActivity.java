@@ -49,8 +49,8 @@ public class ProfileActivity extends AppCompatActivity {
         imv_main.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent secound = new Intent(ProfileActivity.this, SecoundActivity.class);
-                startActivity(secound);
+                Intent active = new Intent(ProfileActivity.this, ActiveEvents.class);
+                startActivity(active);
                 finish();
             }
         });

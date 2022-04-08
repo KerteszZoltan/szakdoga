@@ -92,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
                 if (response.isSuccessful()){
                     sharedPrefManager.saveUser(loginResponse.getUser());
                     Toast.makeText(MainActivity.this, "Bejelentkezés...", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(MainActivity.this, SecoundActivity.class);
+                    Intent intent = new Intent(MainActivity.this, ActiveEvents.class);
                     intent.setFlags(intent.FLAG_ACTIVITY_NEW_TASK | intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(intent);
                     finish();
@@ -113,7 +113,7 @@ public class MainActivity extends AppCompatActivity {
         super.onStart();
 
         if(sharedPrefManager.isLoggedIn()){
-            Intent intent = new Intent(MainActivity.this, SecoundActivity.class);
+            Intent intent = new Intent(MainActivity.this, ActiveEvents.class);
             intent.setFlags(intent.FLAG_ACTIVITY_NEW_TASK | intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
         }

@@ -3,8 +3,8 @@
 \select@language {magyar} \contentsline {section}{\numberline {1.1}Webes alkalmazás}{6}{section.1.1}%
 \select@language {magyar} \contentsline {section}{\numberline {1.2}Androidos alkalmazás}{9}{section.1.2}%
 \select@language {magyar} \contentsline {chapter}{\numberline {2}Fejlesztői környezet}{14}{chapter.2}%
-\select@language {magyar} \contentsline {section}{\numberline {2.1}Web szerver}{14}{section.2.1}%
-\select@language {magyar} \contentsline {section}{\numberline {2.2}Kód szerkesztő}{14}{section.2.2}%
+\select@language {magyar} \contentsline {section}{\numberline {2.1}Webszerver}{14}{section.2.1}%
+\select@language {magyar} \contentsline {section}{\numberline {2.2}Kódszerkesztő}{14}{section.2.2}%
 \select@language {magyar} \contentsline {section}{\numberline {2.3}Android alkalmazáshoz Android Studio}{14}{section.2.3}%
 \select@language {magyar} \contentsline {section}{\numberline {2.4}Postman a REST API-hoz}{15}{section.2.4}%
 \select@language {magyar} \contentsline {chapter}{\numberline {3}Az alkalmazás felépítése}{16}{chapter.3}%

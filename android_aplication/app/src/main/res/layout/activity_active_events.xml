@@ -80,4 +80,47 @@
         app:layout_constraintVertical_bias="0.875"
         app:srcCompat="@drawable/balck_control_point" />
 
+    <Button
+        android:id="@+id/btn_complete_list"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#65B86D"
+        android:text="Teljesített események listája"
+        android:textAllCaps="false"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.421" />
+
+    <Button
+        android:id="@+id/btn_expired_list"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#65B86D"
+        android:text="Lejárt események listája"
+        android:textAllCaps="false"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_complete_list"
+        app:layout_constraintVertical_bias="0.115" />
+
+    <TextView
+        android:id="@+id/tw_no_active"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nincs jelenleg aktív esemény"
+        android:textSize="16sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.325" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

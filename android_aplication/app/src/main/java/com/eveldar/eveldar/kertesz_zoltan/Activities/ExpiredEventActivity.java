@@ -14,7 +14,9 @@ import android.os.Bundle;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.eveldar.eveldar.kertesz_zoltan.EventAdapter;
@@ -39,6 +41,8 @@ public class ExpiredEventActivity extends AppCompatActivity {
     RecyclerView rcv;
     List<Event> eventList;
     EventAdapter eventAdapter;
+    Button btn_exp_active, btn_exp_complete;
+    TextView tw_no_exp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,8 +54,8 @@ public class ExpiredEventActivity extends AppCompatActivity {
         imv_expired_main.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent secound = new Intent(ExpiredEventActivity.this, SecoundActivity.class);
-                startActivity(secound);
+                Intent active = new Intent(ExpiredEventActivity.this, ActiveEvents.class);
+                startActivity(active);
                 finish();
             }
         });
@@ -146,6 +150,28 @@ public class ExpiredEventActivity extends AppCompatActivity {
                 rcv.setLayoutManager(new LinearLayoutManager(ExpiredEventActivity.this));
                 eventAdapter = new EventAdapter(ExpiredEventActivity.this, eventList);
                 rcv.setAdapter(eventAdapter);
+                if (eventList.isEmpty()){
+                    tw_no_exp = findViewById(R.id.tw_exp_no_exp);
+                    tw_no_exp.setVisibility(View.VISIBLE);
+                    btn_exp_active=findViewById(R.id.btn_exp_active_list);
+                    btn_exp_active.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Intent active = new Intent(ExpiredEventActivity.this, ActiveEvents.class);
+                            startActivity(active);
+                            finish();
+                        }
+                    });
+                    btn_exp_complete = findViewById(R.id.btn_exp_complete_list);
+                    btn_exp_complete.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Intent complete = new Intent(ExpiredEventActivity.this, CompleteEventsActivity.class);
+                            startActivity(complete);
+                            finish();
+                        }
+                    });
+                }
             }
 
             @Override

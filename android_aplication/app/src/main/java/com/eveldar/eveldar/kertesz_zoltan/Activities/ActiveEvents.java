@@ -14,7 +14,9 @@ import android.os.Bundle;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.eveldar.eveldar.kertesz_zoltan.EventAdapter;
@@ -32,12 +34,14 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class ActiveEvents extends AppCompatActivity {
-    ImageView menu_show, btn_eventAdd, imv_main;
+    ImageView menu_show, btn_eventAdd;
     MenuBuilder menuBuilder;
     SharedPrefManager sharedPrefManager;
     RecyclerView rcv;
     List<Event> eventList;
     EventAdapter eventAdapter;
+    Button btn_complete, btn_expired;
+    TextView tw_no_active;
 
     @SuppressLint("RestrictedApi")
     @Override
@@ -48,15 +52,6 @@ public class ActiveEvents extends AppCompatActivity {
         getSupportActionBar().hide();
 
         sharedPrefManager=new SharedPrefManager(ActiveEvents.this);
-        imv_main= findViewById(R.id.imv_active_main);
-        imv_main.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent secound = new Intent(ActiveEvents.this,SecoundActivity.class);
-                startActivity(secound);
-                finish();
-            }
-        });
         btn_eventAdd = findViewById(R.id.imv_active_add);
         btn_eventAdd.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -141,6 +136,30 @@ public class ActiveEvents extends AppCompatActivity {
                 rcv.setLayoutManager(new LinearLayoutManager(ActiveEvents.this));
                 eventAdapter = new EventAdapter(ActiveEvents.this, eventList);
                 rcv.setAdapter(eventAdapter);
+                if(eventList.isEmpty()){
+                    tw_no_active = findViewById(R.id.tw_no_active);
+                    tw_no_active.setVisibility(View.VISIBLE);
+                    btn_complete = findViewById(R.id.btn_complete_list);
+                    btn_expired = findViewById(R.id.btn_expired_list);
+                    btn_complete.setVisibility(View.VISIBLE);
+                    btn_expired.setVisibility(View.VISIBLE);
+                    btn_complete.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Intent complete = new Intent(ActiveEvents.this, CompleteEventsActivity.class);
+                            startActivity(complete);
+                            finish();
+                        }
+                    });
+                    btn_expired.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Intent expired = new Intent(ActiveEvents.this, ExpiredEventActivity.class);
+                            startActivity(expired);
+                            finish();
+                        }
+                    });
+                }
             }
 
             @Override
