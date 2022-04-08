@@ -29,7 +29,7 @@
                 <li><a class="dropdown-item" href=" {{ route('new_event') }} ">Esemény hozzáadása</a></li>
                 <li><a class="dropdown-item" href="{{ route('active_events') }}">Aktív események</a></li>
                 <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="{{ route('event') }}">Lejárt események</a></li>
+                <li><a class="dropdown-item" href="{{ route('expired_event') }}">Lejárt események</a></li>
                 <li><a class="dropdown-item" href="{{ route('complete_list') }}">Teljesített események</a></li>
             </ul>
         </li>

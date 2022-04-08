@@ -61,7 +61,7 @@ Route::post('/new_event', [EventController::class, 'store']);
 
 Route::get('/complete_event', [EventController::class, 'complete_list'])->name('complete_list');
 
-Route::get('/expired_event', [EventController::class, 'expired_list'])->name('event');
+Route::get('/expired_event', [EventController::class, 'expired_list'])->name('expired_event');
 Route::get('/active_event', [EventController::class, 'active_events'])->name('active_events');
 
 

@@ -66,12 +66,59 @@
         <div class="error-msg">
             @if ($type=='active')
                 Nincs aktív esemény a rendszerben!
+            </div>
+        </div>
+        <div class="card event-card">
+            <div class="row">
+                <div class="col">
+                    <form action="{{ route('complete_list') }}" method="GET">
+                        <button class="btn btn-page" type="submit"> Teljesített<br> események</button>
+                    </form>
+                </div>
+                <div class="col">
+                    <form action="{{ route('expired_event') }}" method="GET">
+                        <button class="btn btn-page" type="submit"> Lejárt<br> események</button>
+                    </form>
+                </div>
+            </div>
+        </div>
             @elseif ($type=='expired')
                 Nincs lejárt esemény a rendszerben!
+            </div>
+        </div>
+        <div class="card event-card">
+            <div class="row">
+                <div class="col">
+                    <form action="{{ route('active_events') }}" method="GET">
+                        <button class="btn btn-page" type="submit"> Aktív<br> események</button>
+                    </form>
+                </div>
+                <div class="col">
+                    <form action="{{ route('complete_list') }}" method="GET">
+                        <button class="btn btn-page" type="submit"> Teljesített<br> események</button>
+                    </form>
+                </div>
+            </div>
+        </div>
             @elseif ($type=='complete')
                 Nincs még telejesített eseményed!
-            @endif
+            </div>
         </div>
+        <div class="card event-card">
+            <div class="row">
+                <div class="col">
+                    <form action="{{ route('active_events') }}" method="GET">
+                        <button class="btn btn-page" type="submit"> Aktív<br> események</button>
+                    </form>
+                </div>
+                <div class="col">
+                    <form action="{{ route('expired_event') }}" method="GET">
+                        <button class="btn btn-page" type="submit"> Lejárt<br> események</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+            @endif
     </div>
 
 </div>
