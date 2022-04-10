@@ -120,6 +120,8 @@
 	
 	A legördülő menü utolsó eleme pedig a ,,Teljesített események''. Itt lehet megtalálni azokat az eseményeket, ahol a ,,complete'' oszlopnak 1 az értéke. A megjelenő rekordok a módosítási dátumuk alapján csökkenő sorrendben kerülnek megjelenítésre. A teljesített események fontos különbsége, hogy a módosításra már nincsen lehetősége a felhasználónak, csak a törlésre.
 	
+	Amennyiben a csoport nem tartalmaz eseményeket a felhasználónak gyors elérést biztosítunk, hogy ne csak a menüből legyenek számára elérhetőek a további esemény csoportok.
+	
 	Az események megjelenítése és a hozzájuk tartozó funkciók az~\ref{figure:webapp_event_list_functions}-as ábrán láthatóak.
 	
 	\begin{figure}[ht!]
@@ -162,7 +164,7 @@
 		\label{figure:androidapp_main}
 	\end{figure}
 	
-	A főoldalon lehetőség van új eseményt hozzáadni, vagy kilistázni az aktív, lejárt vagy teljesített feljegyzéseket. Ezen kívül található még egy felugró menü, ahol minden funkciót megtalálunk, amit elérhetünk az alkalmazásban. A menüben olyan pontokat találhatunk, mint az esemény hozzáadás, listázás típusonként, feljegyzés kezelése, profil szerkesztése és a kijelentkezés. 
+	A már bejelentkezett felhasználó a webes felülethez hasonlóan, az aktív események megjelenítésének oldalára kerül. Ezen kívül található még egy felugró menü, ahol minden funkciót megtalálunk, amit elérhetünk az alkalmazásban. A menüben olyan pontokat találhatunk, mint az esemény hozzáadás, listázás típusonként, feljegyzés kezelése, profil szerkesztése és a kijelentkezés. 
 	
 	Az esemény hozzáadása több helyről is elérhető, mivel ez egy alap funkció, ezért kézközelben kell lennie. Amikor megnyílik a hozzáadásért felelős nézet, amit az~\ref{figure:androidapp_add_event}-os ábrán szemléltetek, látható, hogy a webes felületen megszokott adatok bevitelére van lehetőség. Dátumot egy felugró ablak segítségével lehet beállítani, majd megjelenítjük a kiválasztott időpontot. 
 	
@@ -173,9 +175,7 @@
 		\label{figure:androidapp_add_event}
 	\end{figure}
 	
-	A főoldalon a bejelentkezett felhasználót egy üdvözlő üzenet fogadja, ahol a regisztrációkor megadott név szerepel. Ezen kívül elérhetjük a hozzáadás funkciót és esemény csoportonként a listázást. 
-	
-	A csoportonként megjelenítendő eseményeknél a felhasználó a következő adatokat látja: az esemény azonosítója, neve, leírása, kezdeti és befejezési dátum. A webes felülethez hasonlóan, itt is kártyaként jelennek meg az adatok. 
+	A csoportonként megjelenítendő eseményeknél a felhasználó a következő adatokat látja: az esemény azonosítója, neve, leírása, kezdeti és befejezési dátum. A webes felülethez hasonlóan, itt is kártyaként jelennek meg az adatok. Ugyan úgy, mint a böngészős alkalmazás esetén, ha nem tartalmaz elemeket valamelyik lista, gombokat biztosítunk, hogy a további esemény csoportok gyorsan elérhetőek legyenek.
 	
 	Az ,,Esemény kezelése'' menüpontban van lehetőség módosítani, késznek jelölni és törölni az adott eseményt. Először a felhasználónak le kell ellenőriznie, hogy az esemény létezik-e, ehhez meg kell adnia az azonosítóját. Amennyiben nem létezik, egy felugró szövegbuborék jelenik meg, hogy helytelen az azonosító. Ha sikeres volt az ellenőrzés, megjelennek a kiválasztott azonosítóhoz tartozó adatok. Mentés esetén a már webes felületen ismertetett szabályok kerülnek ellenőrzésre. Amennyiben üresen hagyja a felhasználó a nevet vagy a dátumok közül valamelyiket, egy hibaüzenet kerül kiírásra, ahol megjelenítésre kerül, hogy mely adatokat kell leellenőrizni vagy pótolni. Az~\ref{figure:android_specify_event}-es ábrán látható a lekérdezett esemény azonosítója, ahhoz tartozó értékek, és elvégezhető műveletek. 
 	

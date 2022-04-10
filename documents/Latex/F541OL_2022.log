@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2022.3.21)  8 APR 2022 00:47
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2022.3.21)  10 APR 2022 13:41
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -724,27 +724,27 @@ Package pdftex.def Info: web_app/web_add_event.png  used on input line 110.
 File: web_app/web_events_list_and_functions.png Graphic file (type png)
 <use web_app/web_events_list_and_functions.png>
 Package pdftex.def Info: web_app/web_events_list_and_functions.png  used on inp
-ut line 127.
+ut line 129.
 (pdftex.def)             Requested size: 441.01773pt x 418.3172pt.
  [8 <./web_app/web_events_list_and_functions.png>]
 <web_app/web_profile_functions.png, id=438, 467.346pt x 320.397pt>
 File: web_app/web_profile_functions.png Graphic file (type png)
 <use web_app/web_profile_functions.png>
 Package pdftex.def Info: web_app/web_profile_functions.png  used on input line 
-136.
+138.
 (pdftex.def)             Requested size: 308.71106pt x 211.63866pt.
  [9 <./web_app/web_profile_functions.png>]
 <android_app/android_main.png, id=448, 213.79875pt x 410.7345pt>
 File: android_app/android_main.png Graphic file (type png)
 <use android_app/android_main.png>
-Package pdftex.def Info: android_app/android_main.png  used on input line 160.
+Package pdftex.def Info: android_app/android_main.png  used on input line 162.
 (pdftex.def)             Requested size: 220.50887pt x 423.6253pt.
 [10 <./android_app/android_main.png>]
 <android_app/android_add_event.png, id=456, 211.992pt x 411.33675pt>
 File: android_app/android_add_event.png Graphic file (type png)
 <use android_app/android_add_event.png>
 Package pdftex.def Info: android_app/android_add_event.png  used on input line 
-171.
+173.
 (pdftex.def)             Requested size: 220.50887pt x 427.87427pt.
  [11 <./android_app/android_add_event.png>]
 <android_app/android_specify_event.png, id=464, 212.59425pt x 410.7345pt>
@@ -862,7 +862,7 @@ fb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmr10.pfb><c:/texlive/2021
 /texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/texlive/2021/texmf-dist/fonts/t
 ype1/public/lm/lmri12.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmt
 k10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmtt10.pfb>
-Output written on F541OL_2022.pdf (51 pages, 606179 bytes).
+Output written on F541OL_2022.pdf (51 pages, 606290 bytes).
 PDF statistics:
  1065 PDF objects out of 1200 (max. 8388607)
  969 compressed objects within 10 object streams
