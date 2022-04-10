@@ -154,6 +154,7 @@ public class ExpiredEventActivity extends AppCompatActivity {
                     tw_no_exp = findViewById(R.id.tw_exp_no_exp);
                     tw_no_exp.setVisibility(View.VISIBLE);
                     btn_exp_active=findViewById(R.id.btn_exp_active_list);
+                    btn_exp_active.setVisibility(View.VISIBLE);
                     btn_exp_active.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
@@ -163,6 +164,7 @@ public class ExpiredEventActivity extends AppCompatActivity {
                         }
                     });
                     btn_exp_complete = findViewById(R.id.btn_exp_complete_list);
+                    btn_exp_complete.setVisibility(View.VISIBLE);
                     btn_exp_complete.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {

@@ -6,9 +6,11 @@
     android:layout_height="wrap_content"
     android:paddingLeft="10dp"
     android:paddingTop="10dp"
-    android:paddingRight="10dp">
+    android:paddingRight="10dp"
+    android:visibility="visible">
 
     <LinearLayout
+        android:id="@+id/event_item_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -18,10 +20,11 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/textView6"
+            android:id="@+id/tw_ev_id_s"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#D3F3D4" />
+            android:background="#D3F3D4"
+            android:visibility="invisible" />
 
         <TextView
             android:id="@+id/tw_event_id"
@@ -33,16 +36,16 @@
             android:paddingBottom="10dp"
             android:text="Azonosító"
             android:textColor="@color/black"
-            android:textSize="16sp"/>
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/tw_event_topic"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#CCFFA7"
-            android:textColor="@color/black"
             android:gravity="center_horizontal"
             android:text="név"
+            android:textColor="@color/black"
             android:textSize="16sp" />
 
         <TextView
@@ -50,10 +53,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#CCFFA7"
-            android:textColor="@color/black"
             android:gravity="center_horizontal"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
+            android:textColor="@color/black"
             android:textSize="16sp" />
 
         <TextView
@@ -61,11 +64,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#CCFFA7"
-            android:textColor="@color/black"
             android:gravity="center_horizontal"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
             android:text="start"
+            android:textColor="@color/black"
             android:textSize="16sp" />
 
         <TextView
@@ -73,11 +76,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/event_border_bottom"
-            android:textColor="@color/black"
             android:gravity="center_horizontal"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
             android:text="end"
+            android:textColor="@color/black"
             android:textSize="16sp" />
 
     </LinearLayout>

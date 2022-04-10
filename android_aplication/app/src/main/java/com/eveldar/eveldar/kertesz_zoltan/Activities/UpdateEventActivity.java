@@ -54,6 +54,18 @@ public class UpdateEventActivity extends AppCompatActivity {
         getSupportActionBar().hide();
         sharedPrefManager=new SharedPrefManager(UpdateEventActivity.this);
         imv_main = findViewById(R.id.imv_update_main);
+
+        eventUpTopic = findViewById(R.id.et_event_up_name);
+        eventUpDesc = findViewById(R.id.et_event_up_desc);
+        eventUpStart = findViewById(R.id.et_event_up_start);
+        eventUpEnd = findViewById(R.id.et_event_up_end);
+        eventUpComplete = findViewById(R.id.chb_evnt_up_comp);
+        updateEvent = findViewById(R.id.btn_event_up);
+        etUpdaterId = findViewById(R.id.et_updater_id);
+        update = findViewById(R.id.updater_layout);
+        updateCheck= findViewById(R.id.btn_checkId);
+
+
         imv_main.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -63,26 +75,145 @@ public class UpdateEventActivity extends AppCompatActivity {
             }
         });
 
-        update = findViewById(R.id.updater_layout);
-        updateCheck= findViewById(R.id.btn_checkId);
-        etUpdaterId = findViewById(R.id.et_updater_id);
+        if(getIntent().hasExtra("id")){
+            getSpecialEvent();
+        }
+        else {
 
-        update.setVisibility(View.INVISIBLE);
-        updateCheck.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String eventId = etUpdaterId.getText().toString();
-                if (eventId.isEmpty()){
-                    recreate();
+
+            update.setVisibility(View.INVISIBLE);
+            updateCheck.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    String eventId = etUpdaterId.getText().toString();
+                    if (eventId.isEmpty()){
+                        recreate();
+                    }
+                    else {
+                        getEventData();
+                    }
                 }
-                else {
-                    getEventData();
-                }
-            }
-        });
+            });
+        }
+
 
         getMenu();
 
+    }
+
+    private void getSpecialEvent() {
+        Integer sendId = Integer.parseInt(getIntent().getStringExtra("id"));
+        String token = "Bearer "+sharedPrefManager.getUser().getToken();
+        etUpdaterId.setText(getIntent().getStringExtra("id"));
+        etUpdaterId.setInputType(InputType.TYPE_NULL);
+        etUpdaterId.setEnabled(false);
+        etUpdaterId.setFocusable(false);
+        etUpdaterId.setFocusableInTouchMode(false);
+        updateCheck.setVisibility(View.INVISIBLE);
+
+
+        Call<ResponseEvent> callSpecEvent = RetrofitClient.getInstance().getApi().specifiedEvent(token,sendId);
+        callSpecEvent.enqueue(new Callback<ResponseEvent>() {
+            @Override
+            public void onResponse(Call<ResponseEvent> call, Response<ResponseEvent> response) {
+                etUpdaterId.setEnabled(false);
+                etUpdaterId.setFocusable(false);
+                etUpdaterId.setFocusableInTouchMode(false);
+                eventUpTopic.setText(response.body().getEvent().getTopic());
+                eventUpDesc.setText(response.body().getEvent().getDescription());
+                eventUpStart.setText(response.body().getEvent().getStart());
+                eventUpStart.setInputType(InputType.TYPE_NULL);
+                eventUpStart.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        showDateTimeStartPickerDialog();
+                    }
+                });
+                eventUpEnd.setText(response.body().getEvent().getEnd());
+                eventUpEnd.setInputType(InputType.TYPE_NULL);
+                eventUpEnd.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        showDateTimeEndPickerDialog();
+                    }
+                });
+                Integer complete = response.body().getEvent().getComplete();
+                Boolean completeB = null;
+                if (complete==0) {
+                    completeB=Boolean.FALSE;
+                }else if (complete == 1 ){
+                    completeB=Boolean.TRUE;
+                }
+                eventUpComplete.setChecked(completeB);
+                update.setVisibility(View.VISIBLE);
+
+                updateEvent.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Integer sendComplete = 0;
+                        String sendTopic = eventUpTopic.getText().toString();
+                        String sendDescription = eventUpDesc.getText().toString();
+                        String sendStart=eventUpStart.getText().toString();
+                        String sendEnd=eventUpEnd.getText().toString();
+                        if (eventUpComplete.isChecked()){
+                            sendComplete = 1;
+                        }
+                        if(sendTopic.isEmpty()){
+                            eventUpTopic.requestFocus();
+                            eventUpTopic.setError("A név nem lehet üres");
+                        }else {
+                            Call<ResponseEvent> callEvent = RetrofitClient.getInstance().getApi().updateEvent(token, sendId, sendTopic, sendDescription, sendStart, sendEnd, sendComplete);
+                            callEvent.enqueue(new Callback<ResponseEvent>() {
+                                @Override
+                                public void onResponse(Call<ResponseEvent> call, Response<ResponseEvent> response) {
+                                    Toast.makeText(UpdateEventActivity.this, "Sikeres módosítás", Toast.LENGTH_SHORT).show();
+                                    getEventData();
+                                }
+
+                                @Override
+                                public void onFailure(Call<ResponseEvent> call, Throwable t) {
+                                    Toast.makeText(UpdateEventActivity.this, "Sikertelen módosítás!", Toast.LENGTH_SHORT).show();
+                                    eventUpStart.requestFocus();
+                                    eventUpStart.setError("A dátum nem lehet korábbi az aktuálisnál!");
+                                    eventUpEnd.requestFocus();
+                                    eventUpEnd.setError("A dátum nem lehet korábbi mint a kezdés és az aktuális dátum");
+
+                                }
+                            });
+                        }
+                    }
+                });
+                deleteEvent = findViewById(R.id.btn_event_del);
+                deleteEvent.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        String token = "Bearer "+sharedPrefManager.getUser().getToken();
+                        String deleteID=etUpdaterId.getText().toString();
+                        Call<ResponseEvent> callDelete = RetrofitClient.getInstance().getApi().deleteEvent(token,deleteID);
+                        callDelete.enqueue(new Callback<ResponseEvent>() {
+                            @Override
+                            public void onResponse(Call<ResponseEvent> call, Response<ResponseEvent> response) {
+                                recreate();
+                                Toast.makeText(UpdateEventActivity.this,"A törlés sikeres!", Toast.LENGTH_SHORT).show();
+                                Intent active = new Intent(UpdateEventActivity.this, ActiveEvents.class);
+                                startActivity(active);
+                                finish();
+                            }
+
+                            @Override
+                            public void onFailure(Call<ResponseEvent> call, Throwable t) {
+                                Toast.makeText(UpdateEventActivity.this,"Sikertelen törlés", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                    }
+                });
+            }
+
+            @Override
+            public void onFailure(Call<ResponseEvent> call, Throwable t) {
+
+            }
+        });
     }
 
     @SuppressLint("RestrictedApi")
@@ -177,16 +308,10 @@ public class UpdateEventActivity extends AppCompatActivity {
     }
 
     private void getEventData() {
+
         String getIdFromForm = etUpdaterId.getText().toString();
         Integer parsedId = Integer.parseInt(getIdFromForm);
         String token = "Bearer "+sharedPrefManager.getUser().getToken();
-        eventUpTopic = findViewById(R.id.et_event_up_name);
-        eventUpDesc = findViewById(R.id.et_event_up_desc);
-        eventUpStart = findViewById(R.id.et_event_up_start);
-        eventUpEnd = findViewById(R.id.et_event_up_end);
-        eventUpComplete = findViewById(R.id.chb_evnt_up_comp);
-        updateEvent = findViewById(R.id.btn_event_up);
-
 
         Call<ResponseEvent> call = RetrofitClient.getInstance().getApi().specifiedEvent(token, parsedId);
         call.enqueue(new Callback<ResponseEvent>() {
