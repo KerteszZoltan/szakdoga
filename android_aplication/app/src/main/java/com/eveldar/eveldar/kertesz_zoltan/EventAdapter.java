@@ -78,8 +78,6 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder>{
             end = itemView.findViewById(R.id.tw_event_end);
             event_item_layout = itemView.findViewById(R.id.event_item_layout);
             idSend = itemView.findViewById(R.id.tw_ev_id_s);
-
-
         }
     }
 }
