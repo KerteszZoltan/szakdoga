@@ -36,7 +36,7 @@ public class ProfileActivity extends AppCompatActivity {
     MenuBuilder menuBuilder;
     EditText et_profile_email, et_profile_name;
     SharedPrefManager sharedPrefManager;
-    Button btn_save;
+    Button btn_save, btn_change_password, btn_profile_logout;
 
     @SuppressLint("RestrictedApi")
     @Override
@@ -114,8 +114,22 @@ public class ProfileActivity extends AppCompatActivity {
         });
         et_profile_name = findViewById(R.id.et_profile_name);
         et_profile_email = findViewById(R.id.et_profil_email);
+        btn_change_password = findViewById(R.id.btn_change_password);
+        btn_change_password.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
         profileGet();
 
+        btn_profile_logout=findViewById(R.id.btn_profile_logout);
+        btn_profile_logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                logoutUser();
+            }
+        });
         btn_save=findViewById(R.id.btn_save_profil);
         btn_save.setOnClickListener(new View.OnClickListener() {
             @Override
