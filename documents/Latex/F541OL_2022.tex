@@ -579,12 +579,15 @@
 		\item Megjelenésre vonatkozó hibák.
 		\item Adatkitöltésben keletkező hiba.
 		\item Hibás kérés és válasz.
+		\item Nem kattintható esemény.
 	\end{itemize}
 	A hibák kezelésekor úgy láttam a legjobbnak, hogy a felhasználót értesítjük és segítjük a hiba megoldásában. A hibák keletkezhetnek az alkalmazásban, amely esetben a kérést el sem küldjük a szerver felé, és keletkezhetnek a szerverről érkező válasz miatt. Ilyen hiba létrejöhet a bejelentkezés folyamán, ahol a felhasználó nem tölt ki valamilyen adatot. Ebben az esetben nem küldjük el a kérést a szerver felé, hanem hibaüzenetben tájékoztatjuk és megjelöljük a felhasználónak, hogy melyik mező értékében szerepel a hiba. Ezt a megoldást több helyen is alkalmazhatjuk, például a profil módosítás esetében, ahol a nevet és e-mail-címet kötelező kitölteni, vagy éppen az új esemény hozzáadásnál, ahol nem lehet üres a név és a dátumok. 
 	
 	A következő hiba, ami előfordulhat, hogy a felhasználó rossz dátum formátumot használna. Ezt kiküszöböltem azzal, hogy egy felugró ablakot biztosítok neki, ahol a kívánt dátumot kiválasztja, és ez kerül eltárolásra. 
 	
 	A felhasználó generálhat olyan kérést, ahol a visszatérés nem elfogadó választ küld. Ilyen kérés lehet az, ha rossz adatot adunk meg bejelentkezéskor. Ebben az esetben, a válasz sikertelen ágra fut, és felugró üzenetben kerül értesítésre a felhasználó. 
+	
+	Ahhoz, hogy az eseményt kattintás hatására lehessen módosítani, az adaptert kell módosítanunk. Az adapter felelős azért, hogy a kérésben szereplő adatok megjelenítődjenek a kijelzőn. Ezt az osztályt kellett annak megfelelően kialakítani, hogy egy kattintás figyelő vizsgálja az elemeket, és felhasználói interakció hatására az adott eseményhez tartozó nézet jelenjen meg. Ennek a megvalósításához egy YouTube videó nyújtott segítséget. 
 	
 	\chapter{Továbbfejlesztési lehetőségek}
 	\section{Webes továbbfejlesztési lehetőségek}

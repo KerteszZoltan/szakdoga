@@ -86,7 +86,7 @@ class EventsController extends Controller
         $event=Event::find($id);
         if ($request['start']!=$event['start'] || $request['end']!=$event['end']) {
             $this-> validate($request,[
-                'start'=> 'required | date | after:today',
+                'start'=> 'required | date | after_or_equal:today',
                 'end'=> 'required | date | after:start',
             ]);
         }
@@ -134,7 +134,7 @@ class EventsController extends Controller
     public function store(Request $request){
         $this-> validate($request,[
             'topic'=>'required',
-            'start'=> 'required | date | after:today',
+            'start'=> 'required | date | after_or_equal:today',
             'end'=> 'required | date | after:start',
         ]);
 
