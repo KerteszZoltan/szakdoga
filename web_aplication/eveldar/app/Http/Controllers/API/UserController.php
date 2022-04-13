@@ -92,6 +92,10 @@ class UserController extends Controller
     }
 
     public function updatePassword(Request $request){
+        $this-> validate($request,[
+            'password' => "required | min:6 ",
+            'new_password' => "required | confirmed",
+        ]);
         $user=auth()->user();
         $user_id=$user['id'];
         $update_user = User::find($user_id);

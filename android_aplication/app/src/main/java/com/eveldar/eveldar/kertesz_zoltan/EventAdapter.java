@@ -48,7 +48,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder>{
         }
         holder.start.setText("Esemény kezdete: "+eventList.get(position).getStart());
         holder.end.setText("Esemény vége: "+eventList.get(position).getEnd());
-
+        // Megvalósításhoz használt minta: https://github.com/mitchtabian/Recyclerview
         holder.event_item_layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

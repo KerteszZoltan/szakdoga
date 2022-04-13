@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2022.3.21)  10 APR 2022 13:41
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2022.3.21)  13 APR 2022 22:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -827,18 +827,18 @@ Package pdftex.def Info: postman/login_post.png  used on input line 490.
 ] [48
 
 ] [49]
-Underfull \hbox (badness 1454) in paragraph at lines 821--825
+Underfull \hbox (badness 1454) in paragraph at lines 824--828
 \T1/lmr/m/it/12 Vinicius M. Grip-pa, Ser-gey Kuz-michev, 2021 O'Reilly Me-dia, 
 Inc., ISBN:
  []
 
 [50]
-Underfull \hbox (badness 10000) in paragraph at lines 878--881
+Underfull \hbox (badness 10000) in paragraph at lines 881--884
 \T1/lmr/bx/n/12 https://developer.android.com/training/data-storage/shared-
  []
 
 
-Overfull \hbox (132.09033pt too wide) in paragraph at lines 893--896
+Overfull \hbox (132.09033pt too wide) in paragraph at lines 896--899
 \T1/lmr/bx/n/12 https://developer.android.com/reference/kotlin/androidx/recycle
 rview/widget/RecyclerView 
  []
@@ -848,10 +848,10 @@ Package rerunfilecheck Info: File `F541OL_2022.out' has not changed.
 (rerunfilecheck)             Checksum: 67EA089360079412AFA3051C3B5DBFBA;14494.
  ) 
 Here is how much of TeX's memory you used:
- 19265 strings out of 478276
- 311390 string characters out of 5850489
- 719620 words of memory out of 5000000
- 36708 multiletter control sequences out of 15000+600000
+ 19267 strings out of 478276
+ 311427 string characters out of 5850489
+ 719659 words of memory out of 5000000
+ 36709 multiletter control sequences out of 15000+600000
  533113 words of font info for 81 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  75i,7n,77p,1628b,1916s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -862,10 +862,10 @@ fb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmr10.pfb><c:/texlive/2021
 /texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/texlive/2021/texmf-dist/fonts/t
 ype1/public/lm/lmri12.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmt
 k10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmtt10.pfb>
-Output written on F541OL_2022.pdf (51 pages, 606290 bytes).
+Output written on F541OL_2022.pdf (51 pages, 606859 bytes).
 PDF statistics:
- 1065 PDF objects out of 1200 (max. 8388607)
- 969 compressed objects within 10 object streams
- 378 named destinations out of 1000 (max. 500000)
+ 1068 PDF objects out of 1200 (max. 8388607)
+ 972 compressed objects within 10 object streams
+ 379 named destinations out of 1000 (max. 500000)
  655 words of extra memory for PDF output out of 10000 (max. 10000000)
 

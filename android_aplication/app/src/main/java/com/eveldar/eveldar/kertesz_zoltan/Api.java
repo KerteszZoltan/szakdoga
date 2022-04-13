@@ -98,4 +98,13 @@ public interface Api {
             @Field("start") String start,
             @Field("end") String end
     );
+
+    @FormUrlEncoded
+    @POST("update_password")
+    Call<LogoutResponse> updatePassword(
+            @Header("Authorization") String authHeader,
+            @Field("password") String password,
+            @Field("new_password") String new_password,
+            @Field("new_password_confirmation") String new_password_confirmation
+    );
 }
