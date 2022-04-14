@@ -99,12 +99,18 @@ class UserController extends Controller
         $user=auth()->user();
         $user_id=$user['id'];
         $update_user = User::find($user_id);
-        $request['password']=Hash::make($request['password']);
-        $update_user->update($request->all());
-        auth()->user()->tokens()->delete();
-        return [
-            'message'=>'Sikeres jelszo modositas'
-        ];
+        if(Hash::check($request['password'], $update_user['password'])){
+            $request['password']=Hash::make($request['new_password']);
+            $update_user->update($request->all());
+            auth()->user()->tokens()->delete();
+            return [
+                'message'=>'Sikeres jelszo modositas'
+            ];
+        }else{
+            return [
+                'message'=>'A megadott jelszó hibás'
+            ];
+        }
     }
 
     public function logout(Request $request){

@@ -118,7 +118,9 @@ public class ProfileActivity extends AppCompatActivity {
         btn_change_password.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent cp = new Intent(ProfileActivity.this, ChangePassword.class);
+                startActivity(cp);
+                finish();
             }
         });
         profileGet();

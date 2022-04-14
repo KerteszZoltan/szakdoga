@@ -7,6 +7,7 @@ import androidx.appcompat.view.menu.MenuPopupHelper;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -31,13 +32,14 @@ public class ChangePassword extends AppCompatActivity {
     EditText et_old_password, et_new_password, et_new_password_confirmation;
     Button btn_cp_save;
     private MenuBuilder menuBuilder;
-    private View menu_show;
     private SharedPrefManager sharedPrefManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_change_password);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        getSupportActionBar().hide();
         imv_cp_active = findViewById(R.id.imv_cp_active);
         imv_cp_active.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,12 +50,50 @@ public class ChangePassword extends AppCompatActivity {
             }
         });
         getMenu();
-
+        et_old_password = findViewById(R.id.et_old_password);
+        et_new_password = findViewById(R.id.et_new_password);
+        et_new_password_confirmation = findViewById(R.id.et_new_password_confirm);
         btn_cp_save = findViewById(R.id.btn_cp_save);
         btn_cp_save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                
+                sharedPrefManager=new SharedPrefManager(ChangePassword.this);
+                String password= et_old_password.getText().toString();
+                String newPassword = et_new_password.getText().toString();
+                String newPasswordConfirm = et_new_password_confirmation.getText().toString();
+                if (password.isEmpty()){
+                    et_old_password.setError("A jelszó nem lehet üres!");
+                }else if (password.length()<6){
+                    et_old_password.setError("A jelszó nem lehet 6 karakternél rövidebb!");
+                }else if (newPassword.isEmpty()){
+                    et_new_password.setError("Az új jelszó nem lehet üres!");
+                }else if (newPassword.length()<6){
+                    et_new_password.setError("Az új jelszó nem lehet 6 karakternél rövidebb!");
+                }else if(newPasswordConfirm.isEmpty()) {
+                    et_new_password_confirmation.setError("Meg kell erősíteni a beállítani kívánt jelszót!");
+                }else if (password.equals(newPassword)){
+                    et_new_password.requestFocus();
+                    et_new_password.setError("Az új és a régi jelszó nem egyezhet meg!");
+                }else if (!newPassword.equals(newPasswordConfirm)){
+                    et_new_password.setError("");
+                    et_new_password_confirmation.setError("A két jelszó nem egyezik meg!");
+                }else {
+                    String token = "Bearer " + sharedPrefManager.getUser().getToken();
+                    Call<LogoutResponse> savePassword = RetrofitClient.getInstance().getApi().updatePassword(token, password, newPassword, newPasswordConfirm);
+                    savePassword.enqueue(new Callback<LogoutResponse>() {
+                        @Override
+                        public void onResponse(Call<LogoutResponse> call, Response<LogoutResponse> response) {
+                            String res = response.body().getMessage();
+                            Toast.makeText(ChangePassword.this, res, Toast.LENGTH_SHORT).show();
+                            logoutUser();
+                        }
+
+                        @Override
+                        public void onFailure(Call<LogoutResponse> call, Throwable t) {
+                            Toast.makeText(ChangePassword.this, "A módosítás sikertelen!", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                }
             }
         });
 
@@ -65,7 +105,7 @@ public class ChangePassword extends AppCompatActivity {
         menuBuilder = new MenuBuilder(ChangePassword.this);
         MenuInflater menuInflater=new MenuInflater(this);
         menuInflater.inflate(R.menu.popup, menuBuilder);
-        menu_show.setOnClickListener(new View.OnClickListener() {
+        imv_cp_menu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 MenuPopupHelper optionMenu=new MenuPopupHelper(ChangePassword.this, menuBuilder, view);
@@ -128,25 +168,8 @@ public class ChangePassword extends AppCompatActivity {
         Intent intent = new Intent(ChangePassword.this, MainActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
         Toast.makeText(ChangePassword.this,"Kijelentkezés...", Toast.LENGTH_LONG).show();
-        String token = "Bearer "+sharedPrefManager.getUser().getToken();
-        Call<LogoutResponse> call = RetrofitClient.getInstance().getApi().logout(token);
-        call.enqueue(new Callback<LogoutResponse>() {
-            @Override
-            public void onResponse(Call<LogoutResponse> call, Response<LogoutResponse> response) {
-                String res = response.body().getMessage().toString();
-                sharedPrefManager.logout();
-                startActivity(intent);
-                finish();
-                Toast.makeText(ChangePassword.this,res,Toast.LENGTH_SHORT).show();
-            }
-
-            @Override
-            public void onFailure(Call<LogoutResponse> call, Throwable t) {
-                Toast.makeText(ChangePassword.this,"nem törölt token",Toast.LENGTH_SHORT).show();
-                sharedPrefManager.logout();
-                startActivity(intent);
-                finish();
-            }
-        });
+        sharedPrefManager.logout();
+        startActivity(intent);
+        finish();
     }
 }
