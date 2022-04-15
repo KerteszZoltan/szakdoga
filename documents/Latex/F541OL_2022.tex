@@ -188,6 +188,8 @@
 	
 	A ,,Profil'' menüpontot választva, megjelennek az aktuálisan bejelentkezett felhasználó adatai, amiket módosítani lehet. A sikeres módosítás után az alkalmazás egy szövegbuborékban tájékoztatja a felhasználót a sikerességről. 
 	
+	Ezen felül lehetőséget biztosít az alkalmazás a felhasználó számára, hogy a jelszavát tudja módosítani. Sikeres jelszó változtatás esetén a rendszer kijelentkezteti a felhasználót. Amennyiben a kérés sikertelen, egy hibaüzenet jelenik meg a felhasználó számára. Ahhoz, hogy a kérés lefusson az alkalmazás megvizsgálja, hogy a felhasználó által megadott jelszó megfelel-e a következő szabályoknak: nem lehet üres egyik mező sem, minimum 6 karakterből kell állnia a jelszónak, nem lehet a jelenlegi és új jelszó ugyan az.
+	
 	A felhasználói adatokat bejelentkezés után megjegyzi a kliens program, így nem kell minden megnyitáskor belépni csak, ha a menüben kijelentkezünk az alkalmazásból. 
 	
 	\chapter{Fejlesztői környezet}
@@ -197,7 +199,7 @@
 	Személy szerint nekem sokkal jobban bevált a XAMPP, így dolgozatom fejlesztése alatt is azt használtam, mivel egyszerű a telepítése és a kezelhetősége. Mindemellett lehetőség van konfigurálni azt is, hogy milyen adatbázist szeretnénk használni. 
 	
 	\section{Kódszerkesztő}
-	Ha már van környezetünk ahol majd a webes projektünk futtathatóvá válik, keresnünk kell egy olyan szövegszerkesztőt amit használni fogunk. Programfejlesztésre több ilyen eszköz is létezik, ami segíti a programozó munkáját szövegkiemeléssel, kód kiegészítéssel és szintaxis ellenőrzéssel. Számomra a legjobban bevált ilyen program a ,,Visual Studio Code'',~\cite{vsc_doc} ami ingyenes szövegszerkesztő és különböző bővítményekkel lehet kényelmesebbé tenni a használatát.
+	Ha már van környezetünk ahol majd a webes projektünk futtathatóvá válik, keresnünk kell egy olyan szövegszerkesztőt amit használni fogunk. Programfejlesztésre több ilyen eszköz is létezik, ami segíti a programozó munkáját szövegkiemeléssel, kód kiegészítéssel és szintaxis ellenőrzéssel. Számomra a legjobban bevált ilyen program a ,,Visual Studio Code''~\cite{vsc_doc}, ami ingyenes szövegszerkesztő és különböző bővítményekkel lehet kényelmesebbé tenni a használatát.
 	
 	\section{Android alkalmazáshoz Android Studio}
 	Androidos alkalmazás fejlesztésére többféle eszköz áll a rendelkezésünkre. Ilyen lehetőség lehet az ,,Eclipse''~\cite{eclipse_doc} vagy esetleg a ,,RAD Studio''~\cite{rad_doc}. Számomra a leginkább preferált fejlesztői környezet az ,,Android Studio''~\cite{androidStudio_doc}. Azért tartom jobbnak a többinél, mivel nem csak mobil eszközre lehet vele alkalmazást írni, hanem Wear OS-es órára és TV-re is. A másik előny, hogy a felhasználói kezelőfelület kialakításához biztosít egy tervezőt, ahol az elemeket fogd és vidd (drag and drop) módszerrel lehet elhelyezni a megjelenítő felületre. 
@@ -318,13 +320,14 @@
 	
 	\section{Kontrollerek}
 	A kontrollerek~\cite{laravel_controller} dolgozzák fel a felhasználói műveleteket és válaszol azokra. A kontrollerekben gyűjtjük össze azokat az adatokat, amik a felhasználói felületről érkeznek, és ha kell, meghívjuk a modellt, hogy tárolja el azokat az adatbázisban. Amennyiben az adatbázisból érkeznek az adatok, úgy azt tovább küldjük a megjelenítéshez. Mivel dolgozatomban a felhasználó kétféle szerepkört tölthet be, miszerint lehet látogató vagy bejelentkezett felhasználó, így ezt ellenőrizni kell, hogy a jogosultságának megfelelő oldalakat érje el. Ehhez definiálni kell egy konstruktort, ahol a köztes szoftver (middleware)~\cite{laravel_middlewear} ellenőrzi, hogy a felhasználó be van-e jelentkezve vagy vendég.
-	A vezérlők általános működése a következőképpen írható le:~\cite{controller_cicle}
+	
+	A vezérlők általános működése a következőképpen írható le:
 	\begin{itemize}
 		\item{A felhasználó valamilyen interakciót létesít a kezelő felülettel.}
 		\item{A vezérlő átveszi a küldött adatokat a felhasználó felülettől.}
 		\item{Kapcsolat létesítése a modellel, és ha szükséges az adatok módosítása.}
 		\item{ A nézet a válasz alapján létrehozza a megfelelő kezelési felületet. A nézet a modellből nyeri az adatokat, de a modellnek nincs közvetlen tudomása a nézetről.}
-		\item{A felhasználói felület újabb interakcióra vár és kezdődik elölről a kör.}
+		\item{A felhasználói felület újabb interakcióra vár és kezdődik elölről a kör.}~\cite{controller_cicle}
 	\end{itemize}
 	
 	\subsection{Regisztráció kontroller}
@@ -499,9 +502,15 @@
 	Lehetőség van kollekciókat létrehozni, így az egyes kéréseket csoportosítani tudjuk, majd egyben lefuttatni. Erre azért van szükség, hogy lássuk milyen státusz kóddal térnek vissza az esetleges kérések. A kollekció elemeit lehetőség van egyesével is futtatni és az egész kollekciót is megadott iteráció számban elküldeni a szerver felé. A státusz kód mellett olyan adatokat is megkapunk, hogy mennyi idő alatt kaptunk választ és, hogy mekkora volt az adatforgalom. 
 	
 	\section{Teszt írás a kéréshez}
-	A Postman lehetőséget biztosít teszt írásra a kéréshez. A fejlesztőnek lehetősége van saját tesztek írására is, de ezek mellett a program, kód töredékeket (snippet) biztosít a hatékony teszteléshez. Az általános tesztek esetén a státusz és a válasz kerül vizsgálatra.
+	A Postman lehetőséget biztosít teszt írásra a kéréshez. A fejlesztőnek lehetősége van saját tesztek írására is, de ezek mellett a program, kód töredékeket (snippet) biztosít a hatékony teszteléshez. Az általános tesztek esetén a státusz és a válasz kerül vizsgálatra. 
 	
-	Csoportos kérés futtatása esetén, a tesztek is lefutnak és az eredmények között szerepel, hogy mely tesztek futottak le és milyen eredménnyel. 
+	Mivel a tesztek lefutnak amikor elküldésre kerül a kérés, lehetőség van olyan metódusok futtatására ami futtatási környezet változtatására alkalmas. Ilyen változtatás lehet az authentikációs token eltárolása.
+	
+	A státuszkód vizsgálatra és token eltárolásra az~\ref{postman_login_test}-es kódrészletben látható példa.
+	
+	Csoportos kérés futtatása esetén, a tesztek is lefutnak és az eredmények között szerepel, hogy mely tesztek futottak le és milyen eredménnyel.
+	
+	\lstinputlisting[caption=Token mentése és státuszkód vizsgálata,label=postman_login_test]{codes/postman_login_test.js} 
 	
 	\chapter{Androidos alkalmazás}
 	A mobil platformra írt kliensprogram nem pótolja a webes alkalmazást, mivel regisztrálni csak a böngészőn keresztül lehet. 
@@ -516,11 +525,13 @@
 	Lehetőség van még ezeken kívül olyan feltételeket definiálni, amik az alkalmazás egészére vonatkoznak. Ilyen feltétel lehet a projektünk orientációja, tehát a képernyő elforgatása esetén az alkalmazás is elforduljon-e.
 	
 	\section{Activity indítás}
-	Az activity indítás történhet adattal és adat nélkül. Dolgozatom során az utóbbit használom. Mivel minden adatot a Retrofit kérésből kapunk, így nincs szükség adat átadásra. Az intenteket~\cite{android_intent} lehet implicit és explicit módon használni. Amennyiben explicit módon szeretnénk felhasználni, meg kell határozni az összetevőket, hogy honnan indítjuk és mit hívunk meg. Projektem során ezt részesítem előnyben, mivel minden híváshoz tartozik egy egyértelműen megállapítható osztály.
+	Az activity indítás történhet adattal és adat nélkül. Dolgozatomban a legtöbb helyen indításakor nem küldünk adatot, mivel azt a szervertől kapjuk. Kivételt képez ez alól az eseményhez tartozó módosítás. Ahhoz, hogy esemény módosítható legyen kattintásra, muszáj elküldenünk a hozzá tartozó azonosítót, hogy megkapjunk minden attribútumát.
 	
-	Erre példa a~\ref{android_intent_from_add_to_main} kódrészletben látható, ahol az esemény hozzáadáshoz tartozó activity-ről lépünk tovább a bejelentkezés után használt főképernyőre.
+	Az intenteket~\cite{android_intent} lehet implicit és explicit módon használni. Amennyiben explicit módon szeretnénk felhasználni, meg kell határozni az összetevőket, hogy honnan indítjuk és mit hívunk meg. Projektem során ezt részesítem előnyben, mivel minden híváshoz tartozik egy egyértelműen megállapítható osztály.
 	
-	\lstinputlisting[caption=Intent indítás,label=android_intent_from_add_to_main]{codes/android_intent_from_add_to_main.java}
+	A fent leírtakra példa a~\ref{android_intent_from_acitve_to_specify} kódrészletben látható, ahol az aktív eseményeknek az oldaláról explicit módon definiáljuk az indítani kívánt activity-t, majd hozzá adjuk az adott esemény azonosítóját.
+	
+	\lstinputlisting[caption=Intent indítás explicit módon adattal,label=android_intent_from_acitve_to_specify]{codes/android_intent_from_acitve_to_specify.java}
 	
 	\section{Activityk meghatározása}
 	Az androidos alkalmazás fejlesztésekor a megjelenített felületet Activitynek hívjuk. Minden nézetnek van egy életciklusa, ami a létrehozástól a megszüntetéséig tart.
@@ -555,11 +566,11 @@
 	\section{Végpontok a Retrofithez}
 	Ha létrehoztuk a Retrofithez tartozó klienst, definiálni kell a végpontokat. A végponthoz tartozik egy paraméterezett Call objektum.
 	
-	A végpontoknál definiálni kell a kérés típusát, ami lehet @POST vagy @GET. Az authentikáció miatt, ki kell egészíteni a kérés fejlécét egy @Header annotációval, ahol egy karakterláncot kell megadni. Ha űrlap adatokat küldünk, szükség van a FormUrlEncoded megjegyzésre a HTTP metódus megadása előtt. A küldött adatokat a Filed annotációban tároljuk el.
+	A végpontoknál definiálni kell a kérés típusát, ami lehet POST vagy GET. Az authentikáció miatt, ki kell egészíteni a kérés fejlécét egy Header annotációval aminek a kulcsa az ,,Authorization'', ahol egy karakterláncot kell megadni. Ha űrlap adatokat küldünk, szükség van a FormUrlEncoded megjegyzésre a HTTP metódus megadása előtt. A küldött adatokat a Filed annotációban tároljuk el, ahol először megadjuk a kulcsot, majd a hozzá tartozó érték típusát és nevét.
 	
 	A~\ref{retrofit_end_point}-os ábrán látható példa a POST és GET típusú végpontok definiálásra.
 	
-	\lstinputlisting[caption=Eseményhez tartozó migrációs kód,label=retrofit_end_point]{codes/retrofit_end_point.java}
+	\lstinputlisting[caption=POST és GET típusú végpont definiálás,label=retrofit_end_point]{codes/retrofit_end_point.java}
 	
 	\section{Válaszok kezelése}
 	Mivel a legtöbb végpont esetén típus specifikus választ várunk, így ezeket osztályokba kellett rendezni. Az osztályokban találhatók lekérő és beállító metódusok, ahol a típushoz felhasználjuk a modelleket.
@@ -570,7 +581,12 @@
 	A kérések aszinkron módon hívódnak meg az alkalmazásunkban, ami azt jelenti, hogy a kérés egy háttér szálon fut és elemzés után visszaküldi az eredményt a felhasználói felület szálára. Amikor meghívjuk a kéréseket, két metódus tartozik hozzá. Az egyik arra vonatkozik, hogy mi történjen, ha a kérés sikeres volt, a másik metódus, a sikertelen kérés után futtatható kód sorokat tartalmazza, ami legtöbb esetben egy felugró hibaüzenet a kérés sikertelenségéről.
 	
 	\section{SharedPreferences az alkalmazásban}
-	Mivel az adatok megjelenítése és kérése valós időben történik, így nem tárolunk semmilyen adatot a lokális eszközön. Ez azért jó, mivel így az esetleges eszköz károsodás esetén, nem történik adatvesztés. Viszont ennek hátránya, hogy minden alkalmazás indításkor, a felhasználónak be kell jelentkeznie, ami rontja a felhasználói élményt. Ezen hiba kiküszöbölésére a SharedPreferences~\cite{sharedPref_android} nyújt megoldást, mivel így egy kulcs-érték pár kerül elmentésre egy fájlba, melyet egyszerűen lehet írni és olvasni, tehát a felhasználóhoz tartozó adatokat célszerű ily módon elmenteni.
+	Mivel az adatok megjelenítése és kérése valós időben történik, így nem tárolunk semmilyen adatot a lokális eszközön. Ez azért jó, mivel így az esetleges eszköz károsodás esetén, nem történik adatvesztés. Viszont ennek hátránya, hogy minden alkalmazás indításkor, a felhasználónak be kell jelentkeznie, ami rontja a felhasználói élményt. Ezen hiba kiküszöbölésére a SharedPreferences~\cite{sharedPref_android} nyújt megoldást, mivel így egy kulcs-érték pár kerül elmentésre egy fájlba, melyet egyszerűen lehet írni és olvasni, tehát a felhasználóhoz tartozó adatokat célszerű ezen a módon elmenteni.
+	Ezen adatokhoz a mentésen kívül tartozik három metódus. Az első megvizsgálja, hogy a felhasználó be van-e jelentkezve. Ezt a metódust minden alkalmazás indításkor meghívjuk, mivel a már bejelentkezett felhasználó kezdő oldala az aktív eseményekhez tartozó oldal, máskülönben a bejelentkezési felület kerül elindításra.
+	
+	A következő metódusok, a már bejelentkezett felhasználókra vonatkoznak. Az első ilyen, hogy lekérjük a felhasználó adatait. Ezt felhasználjuk a profil oldalon, és minden kérés indításkor, mivel a felhasználó tokenjét szükséges elküldeni a szerver számára, hogy authentikálja a kérést.
+	
+	Az utolsó metódus felel azért, hogy a felhasználó ki legyen jelentkeztetve az alkalmazásból. Itt nincs más dolgunk, mint a SharedPreferences-hez tartozó editor-ban meghívni a kiürítés metódust és érvényesíteni a módosításokat.  
 	
 	\section{Felmerülő hibák}
 	A fejlesztés során a webes felülethez hasonlóan több hiba is felmerült. Ilyen hibák a következők:

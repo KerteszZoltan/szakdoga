@@ -53,23 +53,23 @@
 \select@language {magyar} \contentsline {section}{\numberline {5.2}Válasz értelmezés}{36}{section.5.2}%
 \select@language {magyar} \contentsline {section}{\numberline {5.3}Kollekciók a kérésekből}{37}{section.5.3}%
 \select@language {magyar} \contentsline {section}{\numberline {5.4}Teszt írás a kéréshez}{37}{section.5.4}%
-\select@language {magyar} \contentsline {chapter}{\numberline {6}Androidos alkalmazás}{38}{chapter.6}%
-\select@language {magyar} \contentsline {section}{\numberline {6.1}Miért 21-es API szint?}{38}{section.6.1}%
-\select@language {magyar} \contentsline {section}{\numberline {6.2}AndroidManifest fájl}{38}{section.6.2}%
-\select@language {magyar} \contentsline {section}{\numberline {6.3}Activity indítás}{39}{section.6.3}%
-\select@language {magyar} \contentsline {section}{\numberline {6.4}Activityk meghatározása}{39}{section.6.4}%
-\select@language {magyar} \contentsline {section}{\numberline {6.5}Erőforrások hozzárendelése az alkalmazáshoz}{40}{section.6.5}%
-\select@language {magyar} \contentsline {section}{\numberline {6.6}Modellek}{40}{section.6.6}%
-\select@language {magyar} \contentsline {section}{\numberline {6.7}Külső könyvtárak és Gradle}{40}{section.6.7}%
-\select@language {magyar} \contentsline {section}{\numberline {6.8}API kapcsolat kialakítása}{41}{section.6.8}%
-\select@language {magyar} \contentsline {section}{\numberline {6.9}Végpontok a Retrofithez}{41}{section.6.9}%
-\select@language {magyar} \contentsline {section}{\numberline {6.10}Válaszok kezelése}{41}{section.6.10}%
-\select@language {magyar} \contentsline {section}{\numberline {6.11}Kérések használata}{42}{section.6.11}%
-\select@language {magyar} \contentsline {section}{\numberline {6.12}SharedPreferences az alkalmazásban}{42}{section.6.12}%
-\select@language {magyar} \contentsline {section}{\numberline {6.13}Felmerülő hibák}{42}{section.6.13}%
-\select@language {magyar} \contentsline {chapter}{\numberline {7}Továbbfejlesztési lehetőségek}{44}{chapter.7}%
-\select@language {magyar} \contentsline {section}{\numberline {7.1}Webes továbbfejlesztési lehetőségek}{44}{section.7.1}%
-\select@language {magyar} \contentsline {section}{\numberline {7.2}Mobil alkalmazás bővítési és fejleszthetőségi lehetőségek}{44}{section.7.2}%
-\select@language {magyar} \contentsline {chapter}{\numberline {8}Összegzés}{46}{chapter.8}%
-\select@language {magyar} \contentsline {chapter}{\numberline {9}Köszönetnyilvánítás}{47}{chapter.9}%
-\select@language {magyar} \contentsline {chapter}{Irodalomjegyz\'ek}{48}{chapter*.14}%
+\select@language {magyar} \contentsline {chapter}{\numberline {6}Androidos alkalmazás}{39}{chapter.6}%
+\select@language {magyar} \contentsline {section}{\numberline {6.1}Miért 21-es API szint?}{39}{section.6.1}%
+\select@language {magyar} \contentsline {section}{\numberline {6.2}AndroidManifest fájl}{39}{section.6.2}%
+\select@language {magyar} \contentsline {section}{\numberline {6.3}Activity indítás}{40}{section.6.3}%
+\select@language {magyar} \contentsline {section}{\numberline {6.4}Activityk meghatározása}{40}{section.6.4}%
+\select@language {magyar} \contentsline {section}{\numberline {6.5}Erőforrások hozzárendelése az alkalmazáshoz}{41}{section.6.5}%
+\select@language {magyar} \contentsline {section}{\numberline {6.6}Modellek}{41}{section.6.6}%
+\select@language {magyar} \contentsline {section}{\numberline {6.7}Külső könyvtárak és Gradle}{41}{section.6.7}%
+\select@language {magyar} \contentsline {section}{\numberline {6.8}API kapcsolat kialakítása}{42}{section.6.8}%
+\select@language {magyar} \contentsline {section}{\numberline {6.9}Végpontok a Retrofithez}{42}{section.6.9}%
+\select@language {magyar} \contentsline {section}{\numberline {6.10}Válaszok kezelése}{43}{section.6.10}%
+\select@language {magyar} \contentsline {section}{\numberline {6.11}Kérések használata}{43}{section.6.11}%
+\select@language {magyar} \contentsline {section}{\numberline {6.12}SharedPreferences az alkalmazásban}{43}{section.6.12}%
+\select@language {magyar} \contentsline {section}{\numberline {6.13}Felmerülő hibák}{44}{section.6.13}%
+\select@language {magyar} \contentsline {chapter}{\numberline {7}Továbbfejlesztési lehetőségek}{45}{chapter.7}%
+\select@language {magyar} \contentsline {section}{\numberline {7.1}Webes továbbfejlesztési lehetőségek}{45}{section.7.1}%
+\select@language {magyar} \contentsline {section}{\numberline {7.2}Mobil alkalmazás bővítési és fejleszthetőségi lehetőségek}{45}{section.7.2}%
+\select@language {magyar} \contentsline {chapter}{\numberline {8}Összegzés}{47}{chapter.8}%
+\select@language {magyar} \contentsline {chapter}{\numberline {9}Köszönetnyilvánítás}{48}{chapter.9}%
+\select@language {magyar} \contentsline {chapter}{Irodalomjegyz\'ek}{49}{chapter*.14}%
