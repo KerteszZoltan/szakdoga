@@ -11,7 +11,7 @@
 \select@language {magyar} \contentsline {section}{\numberline {3.1}Miért PHP és Laravel?}{16}{section.3.1}%
 \select@language {magyar} \contentsline {section}{\numberline {3.2}Sass és CSS}{16}{section.3.2}%
 \select@language {magyar} \contentsline {section}{\numberline {3.3}Bootstrap}{17}{section.3.3}%
-\select@language {magyar} \contentsline {section}{\numberline {3.4}MariaDB, mint adatbázis}{17}{section.3.4}%
+\select@language {magyar} \contentsline {section}{\numberline {3.4}MariaDB adatbázis}{17}{section.3.4}%
 \select@language {magyar} \contentsline {section}{\numberline {3.5}Java}{17}{section.3.5}%
 \select@language {magyar} \contentsline {chapter}{\numberline {4}Webes alkalmazás}{18}{chapter.4}%
 \select@language {magyar} \contentsline {section}{\numberline {4.1}Migráció}{18}{section.4.1}%
@@ -48,7 +48,7 @@
 \select@language {magyar} \contentsline {subsection}{\numberline {4.8.1}Elképzelés}{34}{subsection.4.8.1}%
 \select@language {magyar} \contentsline {subsection}{\numberline {4.8.2}Bootstrap szerepe a kivitelezésben}{35}{subsection.4.8.2}%
 \select@language {magyar} \contentsline {subsection}{\numberline {4.8.3}CSS helyett SCSS}{35}{subsection.4.8.3}%
-\select@language {magyar} \contentsline {chapter}{\numberline {5}API tesztelése Postmannal}{36}{chapter.5}%
+\select@language {magyar} \contentsline {chapter}{\numberline {5}API tesztelése Postman segítségével}{36}{chapter.5}%
 \select@language {magyar} \contentsline {section}{\numberline {5.1}Kérés írása}{36}{section.5.1}%
 \select@language {magyar} \contentsline {section}{\numberline {5.2}Válasz értelmezés}{36}{section.5.2}%
 \select@language {magyar} \contentsline {section}{\numberline {5.3}Kollekciók a kérésekből}{37}{section.5.3}%

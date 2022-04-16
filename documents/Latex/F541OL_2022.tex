@@ -76,13 +76,13 @@
 	\addcontentsline{toc}{chapter}{Bevezetés}
 	A tanulmányaim alatt lehetőségem volt többféle programozási nyelv megismerésére. A szerver és a kliens oldali nyelvek között is találtam olyat, ami elnyerte a tetszésemet. 
 	
-	A mobil applikáció fejlesztéssel először egy beadandó feladatban találkoztam, majd később az ehhez tartozó órákat is elvégeztem, hogy elmélyítsem a tudásomat. A Java programozási nyelv elsajátítása nem okozott nagy kihívást, köszönhetően a tanáraimnak. 
+	A mobil applikáció fejlesztéssel először egy beadandó feladatban találkoztam, majd később az ehhez tartozó órákat is elvégeztem, hogy elmélyítsem a tudásomat. A Java~\cite{java_book} programozási nyelv elsajátítása nem okozott nagy kihívást, köszönhetően a tanáraimnak. 
 	
 	A webprogramozási ismeretek megléte úgy gondolom, hogy manapság alapvető elvárás, az itt töltött éveim során több erre szolgáló programozási nyelvvel is megismerkedtem. De számomra a PHP~\cite{php_doc} (PHP:Hypertext Pre-processor) vált a legkedveltebb programozási nyelvvé. A számos PHP alapú keretrendszerek közül számomra a Laravel~\cite{laravel_main} volt ideális, alkalmas a terv megvalósítására, valamint az eddigi tanulmányok során átfogó tudásra tettem szert vele kapcsolatban.
 	
 	Ezért az lett a célom, hogy szakdolgozatomban ezeket a technológiákat használjam. Ezek felhasználására rengeteg terv volt a fejemben, mire kialakult a jelenlegi projekt.
 	
-	Véleményem szerint az emberek manapság inkább különböző applikációkat használnak, hogy a teendőiket nyilvántartsák, mint a hagyományos papír alapú noteszt. Viszont csak a mobilon tárolni a fontos feljegyzéseinket veszélyes, mivel az egy sérülékeny eszköz. A dolgozatom lényege, hogy egy olyan alkalmazást hozzak létre, amiben a felhasználók el tudják tárolni az eseményeiket és el is érjék azokat távolról is, platformfüggetlenül. Mivel az okostelefonok rendelkeznek beépített böngészővel, így elég lenne, a probléma megoldásához csak a webes alkalmazás is, de szívesebben használják a felhasználók a kliens programokat. 
+	Véleményem szerint az emberek manapság inkább különböző applikációkat használnak, hogy a teendőiket nyilvántartsák, mint a hagyományos papír alapú noteszt. Viszont csak a mobilon tárolni a fontos feljegyzéseinket veszélyes, mivel az egy sérülékeny eszköz. A dolgozatom lényege, hogy egy olyan alkalmazást hozzak létre, amiben a felhasználók el tudják tárolni az eseményeiket és el is érjék azokat távolról is, platformfüggetlenül. Mivel az okostelefonok rendelkeznek beépített böngészővel, így elég lenne a probléma megoldásához csak a webes alkalmazás is, de szívesebben használják a felhasználók a kliens programokat. 
 	
 	\chapter{Az alkalmazás bemutatása}
 	A szakdolgozatom projektje két részből tevődik össze. Az első rész egy webes alkalmazás, a második pedig egy mobil applikáció. A fő összetevője a webes felület, mivel Androidon a projekt nem minden funkciója érhető el. 
@@ -112,9 +112,9 @@
 		\label{figure:web_add_event}
 	\end{figure}
 	
-	Az feljegyzések közötti kilistázás első eleme az ,,Aktív események''. Az alkalmazásomban az számít futónak, ahol a befejezési időpont nem korábbi, mint az éppen aktuális dátum és az adatbázisban a ,,complete''  attribútumban 0 szerepel.
+	A feljegyzések közötti kilistázás első eleme az ,,Aktív események''. Az alkalmazásomban az számít futónak, ahol a befejezési időpont nem korábbi, mint az éppen aktuális dátum és az adatbázisban a ,,complete''  attribútumban 0 szerepel.
 	
-	A menüben a következő választható lehetőség a ,,Lejárt események'' listája. Itt van lehetősége a felhasználónak megtekintenie azokat az eseményeket, amiket nem teljesített, de már nem is aktívak. Lejárt eseménynek a rendszerben az számít, ahol a befejezési dátum korábbi, mint az aktuális dátum és a ,,complete'' oszlop értéke szintén 0. 
+	A menüben a következő választható lehetőség a ,,Lejárt események'' listája. Itt van lehetősége a felhasználónak megtekinteni azokat az eseményeket, amiket nem teljesített, de már nem is aktívak. Lejárt eseménynek a rendszerben az számít, ahol a befejezési dátum korábbi, mint az aktuális dátum és a ,,complete'' oszlop értéke 0. 
 	
 	A fenti két eseményben az a közös, hogy a kliensnek lehetősége van a módosításra, teljesítésre és a törlésre is. Módosításkor a hozzáadási szabályok érvényesek az adatokra.
 	
@@ -151,7 +151,7 @@
 	\section{Androidos alkalmazás}
 	A kliens program Androidos telefonokra készült alkalmazás, ami API~\cite{api_basic} kapcsolaton keresztül kommunikál a webes szoftverrel. Az alkalmazás nem tárol lokálisan adatot, ezzel került megoldásra az a probléma, hogy esetleges meghibásodás esetén adatvesztés történne. 
 	
-	Az alkalmazás első megnyitása után, egy bejelentkezési felület fogadja a felhasználót, ahol meg kell adni az e-mail-címét és jelszavát. Ezen két adat ellenőrzése több rétegben valósul meg. Először az alkalmazás megvizsgálja, hogy nem-e üresek a mezők, amennyiben nem írtunk bele adatot, hibaüzenetet kapunk. Ha ki vannak töltve a mezők, egy REST kérést küldünk. Amennyiben a válasz nem a felhasználó adatai, egy szövegbuborék jelenik meg, hogy hibás a bevitt adat. Máskülönben sikeres a bejelentkezés és a kezdőképernyő jelenik meg.
+	Az alkalmazás első megnyitása után, egy bejelentkezési felület fogadja a felhasználót, ahol meg kell adni az e-mail-címét és jelszavát. Ezen két adat ellenőrzése több rétegben valósul meg. Először az alkalmazás megvizsgálja, hogy nem-e üresek a mezők, amennyiben nem írtunk bele adatot, hibaüzenetet kapunk. Ha ki vannak töltve a mezők, egy REST kérést küldünk. Amennyiben a szerverről érkező válaszban nem kapjuk meg a kért felhasználóhoz tartozó adatokat, egy szövegbuborék jelenik meg, hogy hibás a bevitt adat. Máskülönben sikeres a bejelentkezés és az aktív eseményekhez tartozó nézet jelenik meg.
 	
 	A még nem regisztrált felhasználók számára egy ikon segítségével gyors elérést biztosítunk az alkalmazásunk főoldalára, hogy a regisztrációt végre tudják hajtani.
 	
@@ -177,7 +177,9 @@
 	
 	A csoportonként megjelenítendő eseményeknél a felhasználó a következő adatokat látja: az esemény azonosítója, neve, leírása, kezdeti és befejezési dátum. A webes felülethez hasonlóan, itt is kártyaként jelennek meg az adatok. Ugyan úgy, mint a böngészős alkalmazás esetén, ha nem tartalmaz elemeket valamelyik lista, gombokat biztosítunk, hogy a további esemény csoportok gyorsan elérhetőek legyenek.
 	
-	Az ,,Esemény kezelése'' menüpontban van lehetőség módosítani, késznek jelölni és törölni az adott eseményt. Először a felhasználónak le kell ellenőriznie, hogy az esemény létezik-e, ehhez meg kell adnia az azonosítóját. Amennyiben nem létezik, egy felugró szövegbuborék jelenik meg, hogy helytelen az azonosító. Ha sikeres volt az ellenőrzés, megjelennek a kiválasztott azonosítóhoz tartozó adatok. Mentés esetén a már webes felületen ismertetett szabályok kerülnek ellenőrzésre. Amennyiben üresen hagyja a felhasználó a nevet vagy a dátumok közül valamelyiket, egy hibaüzenet kerül kiírásra, ahol megjelenítésre kerül, hogy mely adatokat kell leellenőrizni vagy pótolni. Az~\ref{figure:android_specify_event}-es ábrán látható a lekérdezett esemény azonosítója, ahhoz tartozó értékek, és elvégezhető műveletek. 
+	Az ,,Esemény kezelése'' menüpontban van lehetőség módosítani, késznek jelölni és törölni az adott eseményt. Először a felhasználónak le kell ellenőriznie, hogy az esemény létezik-e, ehhez meg kell adnia az azonosítóját. Amennyiben nem létezik, egy felugró szövegbuborék jelenik meg, hogy helytelen az azonosító. Ha sikeres volt az ellenőrzés, megjelennek a kiválasztott azonosítóhoz tartozó adatok. Mentés esetén a már webes felületen ismertetett szabályok kerülnek ellenőrzésre. Amennyiben üresen hagyja a felhasználó az eseményhez tartozó nevet vagy a dátumok közül valamelyiket, egy hibaüzenet kerül kiírásra, ahol megjelenítésre kerül, hogy mely adatokat kell leellenőrizni vagy pótolni. Az~\ref{figure:android_specify_event}-es ábrán látható a lekérdezett esemény azonosítója, ahhoz tartozó értékek, és elvégezhető műveletek. 
+	
+	A másik módja, hogy egy esemény adatait módosítani tudjuk, hogy a kilistázott elemek valamelyikére kattintunk és megjelenik a módosításhoz tartozó nézet. Ebben az esetben nem kell megadni az azonosítót, hanem az automatikusan megjelenik. 
 	
 	\begin{figure}[ht!]
 		\centering
@@ -231,7 +233,7 @@
 	
 	A webes alkalmazásom tervezését ezzel végeztem és a későbbiekben saját ízlésemnek megfelelően írtam felül a szükséges elemeket. 
 	
-	\section{MariaDB, mint adatbázis}
+	\section{MariaDB adatbázis}
 	A piacon nagyon sok SQL~\cite{sql_book} alapú relációsadatbázis-kezelő szoftver létezik, ezek egyike a MariaDB~\cite{mariadb_doc}, ami egy nyílt forráskódú, többfelhasználós adatbázisszerver. A legismertebb szerverek közé tartozik a MySQL~\cite{mysql_book}, amit az Oracle fejleszt. A MariaDB és a MySQL között nagyfokú a kompatibilitás, mivel a MariaDB a MySQL-nek a nyílt forráskódú részeiből alakult ki. Másik fontos előny a kompatibilitás tekintetében, hogy egymást ki tudják váltani.
 	
 	\section{Java}
@@ -297,7 +299,7 @@
 	Az esemény lényegében sokkal egyszerűbb, mint a felhasználó modellje, mivel itt csak kitölthető mezőkkel találkozunk. Ezek a mezők a következők: topic, description, start és end.
 	
 	\subsection{Eloquent ORM}
-	Ugyan ez nem modell, hanem az adatbázissal való kommunikációt biztosítja, azért tartom fontosnak megemlíteni a modellek között, mivel ez teszi lehetővé az adatbázisba való rekord beszúrást, lekérdezést és törlést. Amennyiben az adatbázisunkban a tábla neve nem azonos a modellével, akkor meg kell adni, hogy mi a tábla neve. Az eloquent orm~\cite{laravel_eloquent} és query builder előnyeiről a kontroller osztályban fogok még írni.
+	Ugyan ez nem modell, hanem az adatbázissal való kommunikációt biztosítja, azért tartom fontosnak megemlíteni a modellek között, mivel ez teszi lehetővé az adatbázisba való rekord beszúrást, lekérdezést és törlést. Amennyiben az adatbázisunkban a tábla neve nem azonos a modellével, akkor meg kell adni, hogy mi a tábla neve. Az Eloquent Object Relational Mapper (Objektum Reláció Leképző)~\cite{laravel_eloquent} és Query Builder (lekérdezéskészítő) előnyeiről a kontroller osztályban fogok még írni.
 	
 	\section{Nézetek}
 	A nézetek (view) felelnek a megjelenítésért. Jelen projektben a nézeteket két csoportba osztanám, melyek a következők: felhasználói nézet, és e-mailhez tartozó nézet. A Laravel a nézetekhez a Blade~\cite{laravel_blade} sablonozó motort használja, ami egyszerű és ugyanúgy lehet benne PHP kódot futtatni. A blade sablonok meghívhatóak útvonalról és vezérlőből is, ennek köszönhetően teljesül a MVC tervezési minta. 
@@ -312,9 +314,9 @@
 	Az egyes eseménycsoportok megjelenítésénél az ,,if’’ vezérlési szerkezettel ellenőrzöm le, hogy milyen típusú eseményt kapok vissza. Ennek megfelelően lesznek az események alatt a módosításhoz vagy törléshez szükséges interakció gombok. Ezen kívül az események megjelenítésénél találkozhatunk még ,,foreach’’ ciklussal, ahol az egyes elemek és hozzájuk tartozó gombok külön kártyában jelenítődnek meg. 
 	
 	\subsection{E-mailhez tartozó nézetek}
-	A kiküldött e-mailekhez tartozó nézetek külön vannak definiálva, mivel eltérnek a felhasználóitól, ugyanis, itt a Blade sablonozómotor komponenseit, és a MarkDown~\cite{markdown_page} szintaxisát használjuk. Ennek köszönhetően az e-mailünkben nem csak szöveget tudunk küldeni, de gombot is, mely átirányíthat minket az alkalmazásra, vagy a már meglévő útvonalak valamelyikére.
+	A kiküldött e-mailekhez tartozó nézetek külön vannak definiálva, mivel eltérnek a felhasználóitól, ugyanis itt a Blade sablonozómotor komponenseit, és a MarkDown~\cite{markdown_page} szintaxisát használjuk. Ennek köszönhetően az e-mailünkben nem csak szöveget tudunk küldeni, de gombot is, mely átirányíthat minket az alkalmazásra, vagy a már meglévő útvonalak valamelyikére.
 	
-	Az e-mailek-hez tartozó nézet felépítését, az új esemény esetén kiküldött e-mail nézetet szemlélteti, a~\ref{email_view}-es kódrészlet, mivel itt kezelünk adatot is. 
+	Az e-mailek-hez tartozó nézet felépítését az új esemény esetén kiküldött e-mail nézetet szemlélteti, a~\ref{email_view}-es kódrészlet, mivel itt kezelünk adatot is. 
 	
 	\lstinputlisting[caption=Új eseményhez tartozó e-mail felépítése,label=email_view]{codes/email_view.php}
 	
@@ -333,7 +335,7 @@
 	\subsection{Regisztráció kontroller}
 	A regisztráció csak a látogatók (guest) számára elérhető oldal. Első lépésben ezt ellenőrizni kell, hogy a felhasználó be van-e jelentkezve. Ezt a köztes szoftver (middleware) ellenőrzi. Amennyiben bejelentkezett felhasználó hívná meg a regisztrációért felelős kontrollert, a profilra kerül átirányításra. Ha ténylegesen a vendégtől érkezik a kérés, akkor meghívódik a regisztrációhoz tartozó kontroller.  
 	
-	Amikor meghívódik a következő adatokat vizsgáljuk, amik a felhasználótól érkeznek: név, e-mail cím, jelszó és az ,,aszf''.
+	Amikor meghívódik, a következő adatokat vizsgáljuk, amik a felhasználótól érkeznek: név, e-mail cím, jelszó és az ,,aszf''.
 	Sorban haladva, a névre vonatkozó szabályok, aminek meg kell felelni a bevitt adatnak: kötelező kitölteni, maximum 255 hosszú lehet. A következő az e-mail-cím, ahol a névhez képest annyi a kiegészítés, hogy elektronikus levelezési cím formátumnak kell lennie, tehát ,,@'' jelet kell tartalmaznia.
 	A jelszó is kötelező adat, aminek minimum 6 karakterből kell állnia, és meg kell erősíteni. Az utolsó az általános szerződési feltételekhez tartozó jelölőnégyzet (checkbox), amit be kell pipálni.
 	
@@ -368,7 +370,7 @@
 	
 	\lstinputlisting[caption=Felhasználói adat frissítés,label=user_crud_update]{codes/user_crud_update.php}
 	
-	A következő frissítés a jelszóra vonatkozik. A szabály egyszerű és nem tér el a regisztrációs szabályoktól, miszerint ki kell tölteni, minimum 6 karakter hosszúnak kell lennie és meg kell erősíteni az új jelszót. A könnyebb hivatkozás kedvéért, egy-egy változóba eltárolásra kerül a jelenlegi és az új jelszó is. Ezután, leellenőrzésre kerül, hogy a jelenlegi és az új jelszó megegyezik-e, mivel ha igen, egy hibaüzenettel térünk vissza a jelszóváltoztatáshoz, hogy a két érték ugyanaz. Következő lépésben, a bejelentkezett felhasználó jelszavát kell ellenőrizni, hogy megegyezik-e azzal, amit beírt a felhasználó. Mivel a rendszert használó jelszava kódoltan tárolódik, így a kódolt jelszót kell összehasonlítani a kódolatlannal. Ehhez nagy segítség a Hash osztályban definiált check metódus, ami a kódolatlan értéket hasonlítja össze a kódolt értékkel. Amennyiben az összehasonlítás igaznak bizonyul, tehát megegyezik, lekérjük és eltároljuk az aktuális felhasználó azonosítóját, majd a profilfrissítéshez hasonlóan, kimentjük az adatokat, hogy felül tudjuk írni a jelszót, a felhasználó által megadott, most már kódolt jelszóra. Amennyiben ezek sikeresen megtörténtek, kijelentkeztetjük a felhasználót és átirányítjuk a bejelentkezésre. Itt az átirányításhoz egy üzenetet fűzünk, hogy az új jelszóval kell már bejelentkezni. Ha sikertelen az összehasonlítás, egy hibaüzenettel térünk vissza, amelyben leírjuk, hogy a jelenlegi jelszó nem megfelelő. 
+	A következő frissítés a jelszóra vonatkozik. A szabály egyszerű és nem tér el a regisztrációs szabályoktól, miszerint ki kell tölteni, minimum 6 karakter hosszúnak kell lennie, és meg kell erősíteni az új jelszót. A könnyebb hivatkozás kedvéért, egy-egy változóba eltárolásra kerül a jelenlegi és az új jelszó is. Ezután leellenőrzésre kerül, hogy a jelenlegi és az új jelszó megegyezik-e, mivel ha igen, egy hibaüzenettel térünk vissza a jelszóváltoztatáshoz, hogy a két érték ugyanaz. Következő lépésben, a bejelentkezett felhasználó jelszavát kell ellenőrizni, hogy megegyezik-e azzal, amit beírt a felhasználó. Mivel a rendszert használó jelszava kódoltan tárolódik, így a kódolt jelszót kell összehasonlítani a kódolatlannal. Ehhez nagy segítség a Hash osztályban definiált check metódus, ami a kódolatlan értéket hasonlítja össze a kódolt értékkel. Amennyiben az összehasonlítás igaznak bizonyul, tehát megegyezik, lekérjük és eltároljuk az aktuális felhasználó azonosítóját, majd a profilfrissítéshez hasonlóan kimentjük az adatokat, hogy felül tudjuk írni a jelszót, a felhasználó által megadott, most már kódolt jelszóra. Amennyiben ezek sikeresen megtörténtek, kijelentkeztetjük a felhasználót és átirányítjuk a bejelentkezésre. Itt az átirányításhoz egy üzenetet fűzünk, hogy az új jelszóval kell már bejelentkezni. Ha sikertelen az összehasonlítás, egy hibaüzenettel térünk vissza, amelyben leírjuk, hogy a jelenlegi jelszó nem megfelelő. 
 	
 	Az utolsó művelet amit a felhasználóval lehet végezni, a törlés. Itt fontos kiemelni, hogy a migrationban szereplő kötés miatt, ha a felhasználó törli a profilját, úgy az eseményei is törlésre kerülnek. Ahhoz, hogy a törlés sikeresen lefusson, a felhasználónak meg kell erősítenie azt a jelszavával. Ezért a kontrollerben vizsgálni kell, hogy a jelszó ne lehessen üres és tartozik hozzá egy megerősítés is. Ha ezek a szabályok teljesülnek, akkor összehasonlításra kerül a bejelentkezett felhasználó jelszava és a megadott. Ha nem egyezik meg, akkor visszairányítjuk a törlés oldalra egy hibaüzenettel, amiben az szerepel, hogy nem helyes a jelszó. Ha viszont az ellenőrzés sikeres, megkeressük a felhasználót a bejelentkezett felhasználó id-ja alapján és töröljük. A következő lépés az átirányítás a főoldalra.
 	
@@ -429,7 +431,7 @@
 	A másik módja a hibakezelésnek, hogy a felhasználó által kitöltendő adatok mennyiségét csökkentjük. Ezt jelenleg a dátumok kitöltésénél alkalmazom, ahol egy naptárban kell a felhasználónak dátumokat kiválasztania. 
 	
 	\section{Levelezés}
-	A projektben, véleményem szerint, fontos a levelezés, mivel így a felhasználó értesül a regisztrációról és az új esemény hozzáadásról. Ehhez nagy segítséget nyújt a Laravelben implementál Mail~\cite{laravel_mail} API. Ahhoz, hogy az alkalmazásunk leveleket küldjön, a .env fájlban be kell állítani a levelező szerverhez tartozó adatokat. Ezután, létre kell hozni egy e-mail osztályt és nevet adni neki, utána következik a formátum megadás, majd ezután oda kell írni, hogy a hozzá tartozó nézet hol jöjjön létre. A létrejövő osztály build metódusában, lehetőség van megadni, hogy milyen tárggyal küldje ki a levelet. A konstruktorban pedig megadásra kerül, hogy milyen modelleket vagy adatokat kívánunk elküldeni.
+	A projektben, véleményem szerint, fontos a levelezés, mivel így a felhasználó értesül a regisztrációról és az új esemény hozzáadásról. Ehhez nagy segítséget nyújt a Laravelben beépített Mail~\cite{laravel_mail} API. Ahhoz, hogy az alkalmazásunk leveleket küldjön, a .env fájlban be kell állítani a levelező szerverhez tartozó adatokat. Ezután létre kell hozni egy e-mail osztályt és nevet adni neki, utána következik a formátum megadás, majd ezután oda kell írni, hogy a hozzá tartozó nézet hol jöjjön létre. A létrejövő osztály build metódusában, lehetőség van megadni, hogy milyen tárggyal küldje ki a levelet. A konstruktorban pedig megadásra kerül, hogy milyen modelleket vagy adatokat kívánunk elküldeni.
 	
 	Ennek megvalósítását a~\ref{event_mail_controller}-os ábrán látható, ahol az új esemény hozzáadásakor küldünk ki levelet a felhasználó számára.
 	
@@ -476,7 +478,7 @@
 	
 	Mivel az Sass-el megoldódik a CSS állományok rendezésének problémája, így már csak le kell fordítani őket. A Mix~\cite{laravel_mix} lehetővé teszi, hogy a CSS fájlokat összeállítsa.  
 	
-	\chapter{API tesztelése Postmannal}
+	\chapter{API tesztelése Postman segítségével}
 	Miután megírásra kerültek az API kapcsolathoz szükséges útvonalak és vezérlők, elkezdődhetett a tesztelés. A Postman nagy segítséget nyújt a kérések megírásához, mivel útvonalat lehet benne eltárolni, így nem kell mindig a teljes elérési utat beírni. Mindezek mellett, az API kérésen történt bejelentkezés után, lehetőség van eltárolni a token-t, ezzel segítve a további munkát. 
 	
 	\section{Kérés írása}
@@ -664,6 +666,12 @@
 		\newline
 		\emph{Eric Filson, Erick Rosebrock}
 		\emph{2006 ,Sybex, ISBN:0782143377}
+		
+		\bibitem{java_book}
+		\textsc{Java in a Nutshell: A Desktop Quick Reference 7th Edition}
+		\newline
+		\emph{Benjamin J. Evans, David Flanagan}
+		\emph{O'Reilly Media, 2019, ISBN:1492037257}
 		
 		\bibitem{api_basic}
 		\textsc{API-hoz tartozó leírás:}
@@ -936,5 +944,5 @@
 	\end{thebibliography}
 	
 	% Aláírt, szkennelt nyilatkozat beillesztése a szakdolgozat végére
-	%\includepdf[pagecommand={\thispagestyle{empty}}]{nyilatkozat.pdf}
+	\includepdf[pagecommand={\thispagestyle{empty}}]{nyilatkozat.pdf}
 \end{document}
