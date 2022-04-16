@@ -232,7 +232,7 @@
 	A webes alkalmazásom tervezését ezzel végeztem és a későbbiekben saját ízlésemnek megfelelően írtam felül a szükséges elemeket. 
 	
 	\section{MariaDB, mint adatbázis}
-	A piacon nagyon sok SQL~\cite{sql_book} alapú relációsadatbázis-kezelő szoftver létezik, ezek egyike a MariaDB~\cite{mariadb_doc}, ami egy nyílt forráskódú, többfelhasználós adatbázisszerver. A legismertebb szerverek közé tartozik a MySQL~\cite{mysql_book}, ami az Oracle tulajdona. A MariaDB és a MySQL között nagyfokú a kompatibilitás, mivel a MariaDB a MySQL-nek a nyílt forráskódú részeiből alakult ki. Másik fontos előny a kompatibilitás tekintetében, hogy egymást ki tudják váltani.
+	A piacon nagyon sok SQL~\cite{sql_book} alapú relációsadatbázis-kezelő szoftver létezik, ezek egyike a MariaDB~\cite{mariadb_doc}, ami egy nyílt forráskódú, többfelhasználós adatbázisszerver. A legismertebb szerverek közé tartozik a MySQL~\cite{mysql_book}, amit az Oracle fejleszt. A MariaDB és a MySQL között nagyfokú a kompatibilitás, mivel a MariaDB a MySQL-nek a nyílt forráskódú részeiből alakult ki. Másik fontos előny a kompatibilitás tekintetében, hogy egymást ki tudják váltani.
 	
 	\section{Java}
 	Manapság az Androidos operációs rendszerre történő fejlesztéskor inkább a Kotlin~\cite{kotlin_book} nyelv van feltörekvőben, mivel a Google ezt támogatja, de nem elhanyagolható a Java programozási nyelv jelenléte sem, hiszen más területeken még mindig fontos szerepe van. 
@@ -435,7 +435,7 @@
 	
 	\lstinputlisting[caption=Eseményhez tartozó levélküldő kontroller,label=event_mail_controller]{codes/event_mail_controller.php}
 	
-	\section{API hitelesítéshez Sanctum}
+	\section{Sanctum}
 	A Sanctum~\cite{laravel_sanctum} egy hitelesítési rendszer token alapú API-okhoz és mobil alkalmazásokhoz. A Sanctummal egyszerűen adhatók ki tokenek a felhasználó számára. Ezek a kiadott elemek nagyon hosszú lejárati idejűek, általában több év, de igény szerint módosíthatók és a felhasználó visszavonhatja ezeket. Az API útvonalak eléréséhez a felhasználói státusz ellenőrzését a sanctumba épített köztes szoftver (middlewear) végzi. Először megpróbálja a munkamenet hitelesítő cookit ellenőrizni, amennyiben ez sikertelen, megvizsgálja a kérés fejlécét, hogy az authorizationban található token megfelel-e. A hitelesítéshez Bearer~\cite{bearer_token} Tokent használunk, ami egy átláthatatlan karakterlánc, ami nem tartalmaz jelentést.
 	
 	\section{Útvonalak}

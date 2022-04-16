@@ -39,7 +39,7 @@
 \select@language {magyar} \contentsline {subsection}{\numberline {4.4.7}CSRF token}{31}{subsection.4.4.7}%
 \select@language {magyar} \contentsline {subsection}{\numberline {4.4.8}Felmerülő hibák}{31}{subsection.4.4.8}%
 \select@language {magyar} \contentsline {section}{\numberline {4.5}Levelezés}{32}{section.4.5}%
-\select@language {magyar} \contentsline {section}{\numberline {4.6}API hitelesítéshez Sanctum}{32}{section.4.6}%
+\select@language {magyar} \contentsline {section}{\numberline {4.6}Sanctum}{32}{section.4.6}%
 \select@language {magyar} \contentsline {section}{\numberline {4.7}Útvonalak}{33}{section.4.7}%
 \select@language {magyar} \contentsline {subsection}{\numberline {4.7.1}Webes felülethez tartozó útvonalak}{33}{subsection.4.7.1}%
 \select@language {magyar} \contentsline {subsection}{\numberline {4.7.2}API-hoz tartozó útvonalak}{33}{subsection.4.7.2}%

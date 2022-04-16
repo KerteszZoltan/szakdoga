@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2022.3.21)  15 APR 2022 23:31
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2022.3.21)  16 APR 2022 10:50
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -844,8 +844,14 @@ rview/widget/RecyclerView
  []
 
 [52] (./F541OL_2022.aux)
-Package rerunfilecheck Info: File `F541OL_2022.out' has not changed.
-(rerunfilecheck)             Checksum: 67EA089360079412AFA3051C3B5DBFBA;14494.
+
+Package rerunfilecheck Warning: File `F541OL_2022.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `F541OL_2022.out':
+(rerunfilecheck)             Before: 67EA089360079412AFA3051C3B5DBFBA;14494
+(rerunfilecheck)             After:  623B12C6D6E8E4345FC4B795113E92E7;14387.
  ) 
 Here is how much of TeX's memory you used:
  19305 strings out of 478276
@@ -862,7 +868,7 @@ fb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmr10.pfb><c:/texlive/2021
 /texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/texlive/2021/texmf-dist/fonts/t
 ype1/public/lm/lmri12.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmt
 k10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmtt10.pfb>
-Output written on F541OL_2022.pdf (52 pages, 610233 bytes).
+Output written on F541OL_2022.pdf (52 pages, 610212 bytes).
 PDF statistics:
  1084 PDF objects out of 1200 (max. 8388607)
  987 compressed objects within 10 object streams
