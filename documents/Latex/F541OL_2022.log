@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2022.3.21)  16 APR 2022 21:35
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2022.3.21)  17 APR 2022 10:14
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -737,21 +737,21 @@ Package pdftex.def Info: web_app/web_profile_functions.png  used on input line
 <android_app/android_main.png, id=450, 213.79875pt x 410.7345pt>
 File: android_app/android_main.png Graphic file (type png)
 <use android_app/android_main.png>
-Package pdftex.def Info: android_app/android_main.png  used on input line 162.
+Package pdftex.def Info: android_app/android_main.png  used on input line 163.
 (pdftex.def)             Requested size: 220.50887pt x 423.6253pt.
 [10 <./android_app/android_main.png>]
 <android_app/android_add_event.png, id=458, 211.992pt x 411.33675pt>
 File: android_app/android_add_event.png Graphic file (type png)
 <use android_app/android_add_event.png>
 Package pdftex.def Info: android_app/android_add_event.png  used on input line 
-173.
+174.
 (pdftex.def)             Requested size: 220.50887pt x 427.87427pt.
  [11 <./android_app/android_add_event.png>]
 <android_app/android_specify_event.png, id=466, 212.59425pt x 410.7345pt>
 File: android_app/android_specify_event.png Graphic file (type png)
 <use android_app/android_specify_event.png>
 Package pdftex.def Info: android_app/android_specify_event.png  used on input l
-ine 186.
+ine 187.
 (pdftex.def)             Requested size: 220.50887pt x 426.05075pt.
  [12] [13 <./android_app/android_specify_event.png>]
 2. fejezet.
@@ -766,15 +766,15 @@ ine 186.
 [18
 
 ]
-Overfull \hbox (0.20822pt too wide) in paragraph at lines 263--264
+Overfull \hbox (0.20822pt too wide) in paragraph at lines 265--266
 []\T1/lmr/m/n/12 Generálódó ada-tok kö-zül, amit ér-de-mes meg-em-lí-te-ni, az 
 ese-mény táb-lá-nál a user_id,
  []
 
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
-nput line 273.
+nput line 275.
 LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 2
-73.
+75.
 (c:/texlive/2021/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
@@ -790,7 +790,7 @@ File: ts1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 <database/EER_diagram.png, id=575, 355.3275pt x 210.7875pt>
 File: database/EER_diagram.png Graphic file (type png)
 <use database/EER_diagram.png>
-Package pdftex.def Info: database/EER_diagram.png  used on input line 280.
+Package pdftex.def Info: database/EER_diagram.png  used on input line 282.
 (pdftex.def)             Requested size: 264.61333pt x 156.97737pt.
  [20 <./database/EER_diagram.png>] (./codes/modell_user.php) [21] (./codes/emai
 l_view.php [22])
@@ -803,7 +803,7 @@ l_view.php [22])
 <postman/login_post.png, id=850, 921.4425pt x 416.55624pt>
 File: postman/login_post.png Graphic file (type png)
 <use postman/login_post.png>
-Package pdftex.def Info: postman/login_post.png  used on input line 495.
+Package pdftex.def Info: postman/login_post.png  used on input line 500.
 (pdftex.def)             Requested size: 441.01773pt x 199.36632pt.
 [36
 
@@ -826,19 +826,19 @@ Package pdftex.def Info: postman/login_post.png  used on input line 495.
 
 ] [49
 
-] [50]
-Underfull \hbox (badness 1454) in paragraph at lines 848--852
+]
+Underfull \hbox (badness 1454) in paragraph at lines 802--806
 \T1/lmr/m/it/12 Vinicius M. Grip-pa, Ser-gey Kuz-michev, 2021 O'Reilly Me-dia, 
 Inc., ISBN:
  []
 
-[51]
-Underfull \hbox (badness 10000) in paragraph at lines 905--908
+[50] [51]
+Underfull \hbox (badness 10000) in paragraph at lines 944--947
 \T1/lmr/bx/n/12 https://developer.android.com/training/data-storage/shared-
  []
 
 
-Overfull \hbox (132.09033pt too wide) in paragraph at lines 920--923
+Overfull \hbox (132.09033pt too wide) in paragraph at lines 959--962
 \T1/lmr/bx/n/12 https://developer.android.com/reference/kotlin/androidx/recycle
 rview/widget/RecyclerView 
  []
@@ -846,33 +846,33 @@ rview/widget/RecyclerView
 <nyilatkozat.pdf, id=969, 598.235pt x 845.1575pt>
 File: nyilatkozat.pdf Graphic file (type pdf)
 <use nyilatkozat.pdf>
-Package pdftex.def Info: nyilatkozat.pdf  used on input line 947.
+Package pdftex.def Info: nyilatkozat.pdf  used on input line 986.
 (pdftex.def)             Requested size: 598.23354pt x 845.15544pt.
 File: nyilatkozat.pdf Graphic file (type pdf)
 <use nyilatkozat.pdf>
-Package pdftex.def Info: nyilatkozat.pdf  used on input line 947.
+Package pdftex.def Info: nyilatkozat.pdf  used on input line 986.
 (pdftex.def)             Requested size: 598.23354pt x 845.15544pt.
 <nyilatkozat.pdf, id=972, page=1, 598.235pt x 845.1575pt>
 File: nyilatkozat.pdf Graphic file (type pdf)
 <use nyilatkozat.pdf, page 1>
-Package pdftex.def Info: nyilatkozat.pdf , page1 used on input line 947.
+Package pdftex.def Info: nyilatkozat.pdf , page1 used on input line 986.
 (pdftex.def)             Requested size: 598.23354pt x 845.15544pt.
 File: nyilatkozat.pdf Graphic file (type pdf)
 <use nyilatkozat.pdf, page 1>
-Package pdftex.def Info: nyilatkozat.pdf , page1 used on input line 947.
+Package pdftex.def Info: nyilatkozat.pdf , page1 used on input line 986.
 (pdftex.def)             Requested size: 597.7406pt x 844.45905pt.
 [52]
 File: nyilatkozat.pdf Graphic file (type pdf)
 <use nyilatkozat.pdf, page 1>
-Package pdftex.def Info: nyilatkozat.pdf , page1 used on input line 947.
+Package pdftex.def Info: nyilatkozat.pdf , page1 used on input line 986.
 (pdftex.def)             Requested size: 597.7406pt x 844.45905pt.
 File: nyilatkozat.pdf Graphic file (type pdf)
 <use nyilatkozat.pdf, page 1>
-Package pdftex.def Info: nyilatkozat.pdf , page1 used on input line 947.
+Package pdftex.def Info: nyilatkozat.pdf , page1 used on input line 986.
 (pdftex.def)             Requested size: 597.7406pt x 844.45905pt.
 File: nyilatkozat.pdf Graphic file (type pdf)
 <use nyilatkozat.pdf, page 1>
-Package pdftex.def Info: nyilatkozat.pdf , page1 used on input line 947.
+Package pdftex.def Info: nyilatkozat.pdf , page1 used on input line 986.
 (pdftex.def)             Requested size: 597.7406pt x 844.45905pt.
  [53 <./nyilatkozat.pdf>] (./F541OL_2022.aux)
 Package rerunfilecheck Info: File `F541OL_2022.out' has not changed.
@@ -881,11 +881,11 @@ Package rerunfilecheck Info: File `F541OL_2022.out' has not changed.
 Here is how much of TeX's memory you used:
  19321 strings out of 478276
  312367 string characters out of 5850489
- 748796 words of memory out of 5000000
+ 748799 words of memory out of 5000000
  36744 multiletter control sequences out of 15000+600000
  533113 words of font info for 81 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,17n,77p,1645b,1916s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 75i,17n,77p,1629b,1916s stack positions out of 5000i,500n,10000p,200000b,80000s
 {c:/texlive/2021/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{c:/texlive/2021/tex
 mf-dist/fonts/enc/dvips/lm/lm-ts1.enc}<c:/texlive/2021/texmf-dist/fonts/type1/p
 ublic/lm/lmbx12.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmcsc10.p
@@ -893,7 +893,7 @@ fb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmr10.pfb><c:/texlive/2021
 /texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/texlive/2021/texmf-dist/fonts/t
 ype1/public/lm/lmri12.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmt
 k10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmtt10.pfb>
-Output written on F541OL_2022.pdf (53 pages, 802371 bytes).
+Output written on F541OL_2022.pdf (53 pages, 802403 bytes).
 PDF statistics:
  1097 PDF objects out of 1200 (max. 8388607)
  994 compressed objects within 10 object streams

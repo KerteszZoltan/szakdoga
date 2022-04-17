@@ -78,7 +78,7 @@
 	
 	A mobil applikáció fejlesztéssel először egy beadandó feladatban találkoztam, majd később az ehhez tartozó órákat is elvégeztem, hogy elmélyítsem a tudásomat. A Java~\cite{java_book} programozási nyelv elsajátítása nem okozott nagy kihívást, köszönhetően a tanáraimnak. 
 	
-	A webprogramozási ismeretek megléte úgy gondolom, hogy manapság alapvető elvárás, az itt töltött éveim során több erre szolgáló programozási nyelvvel is megismerkedtem. De számomra a PHP~\cite{php_doc} (PHP:Hypertext Pre-processor) vált a legkedveltebb programozási nyelvvé. A számos PHP alapú keretrendszerek közül számomra a Laravel~\cite{laravel_main} volt ideális, alkalmas a terv megvalósítására, valamint az eddigi tanulmányok során átfogó tudásra tettem szert vele kapcsolatban.
+	A webprogramozási ismeretek megléte úgy gondolom, hogy manapság alapvető elvárás, az itt töltött éveim során több erre szolgáló programozási nyelvvel is megismerkedtem. De számomra a PHP (PHP:Hypertext Pre-processor)~\cite{php_doc} vált a legkedveltebb programozási nyelvvé. A számos PHP alapú keretrendszerek közül számomra a Laravel~\cite{laravel_main} volt ideális, alkalmas a terv megvalósítására, valamint az eddigi tanulmányok során átfogó tudásra tettem szert vele kapcsolatban.
 	
 	Ezért az lett a célom, hogy szakdolgozatomban ezeket a technológiákat használjam. Ezek felhasználására rengeteg terv volt a fejemben, mire kialakult a jelenlegi projekt.
 	
@@ -103,7 +103,7 @@
 	
 	A navigációs részben, a legördülő menüben, az események alatt, lehetőség van új esemény hozzáadására, és a meglévők kilistázására annak megfelelően, hogy melyik csoportba tartozókat szeretnénk megjeleníteni. Ilyen kategóriák az aktív, a teljesített, és a lejárt események. 
 	
-	Ahhoz, hogy a használó új eseményt tudjon hozzáadni, kötelező annak nevet, kezdési és befejezési dátumot adni. Ennek az oldalnak a felépítése a~\ref{figure:web_add_event}-es ábrán látható. Mentés közben ezeken az adatokon ellenőrzés fut le, hogy a kitöltés a szabályoknak megfelelő legyen. Ilyen előírás, hogy a név és dátumok ki legyenek töltve. A dátumokra másik szabály is vonatkozik, mégpedig, hogy a kezdési időpont ne lehessen korábban, mint az aktuális dátum, és a befejezési idő nem lehet korábban, mint a kezdési. Ha ezeknek a bevitt értékek megfelelnek, akkor megtörténik az eseménynek a mentése, és közben az alkalmazás levélben értesíti a felhasználót, amiben leírja neki az eseményhez tartozó elnevezést, leírást, kezdési és befejezési dátumot. 
+	Ahhoz, hogy a használó új eseményt tudjon hozzáadni, kötelező annak nevet, kezdési és befejezési dátumot adni. Ennek az oldalnak a felépítése az~\ref{figure:web_add_event}-es ábrán látható. Mentés közben ezeken az adatokon ellenőrzés fut le, hogy a kitöltés a szabályoknak megfelelő legyen. Ilyen előírás, hogy a név és dátumok ki legyenek töltve. A dátumokra másik szabály is vonatkozik, mégpedig az, hogy a kezdési időpont ne lehessen korábban, mint az aktuális dátum, és a befejezési idő nem lehet korábban, mint a kezdeti időpont. Ha ezeknek a bevitt értékek megfelelnek, akkor megtörténik az eseménynek a mentése, és közben az alkalmazás levélben értesíti a felhasználót, amiben leírja neki az eseményhez tartozó elnevezést, leírást, kezdési és befejezési dátumot. 
 	
 	\begin{figure}[ht!]
 		\centering
@@ -140,9 +140,10 @@
 		\label{figure:webapp_profile_functions}
 	\end{figure}
 	
-	A ,,Profil módosítás''-t választva megjelennek a felhasználó adatai. Amennyiben egy adatot nem szeretnénk módosítani úgy azt nem kell átírni. A mentésre kattintva az adatokat ellenőrizzük,  ahol a következő szabályoknak meg kell felelni: a név mező nem lehet üres, az e-mail cím nem lehet üres és tartalmaznia kell ,,@'' írásjelet.
+	A ,,Profil módosítás''-t választva megjelennek a felhasználó adatai. Amennyiben egy adatot nem szeretnénk módosítani úgy azt nem kell átírni. A mentésre kattintva az adatokat ellenőrizzük,  ahol a következő szabályoknak meg kell felelni: a név mező nem lehet üres, az e-mail cím nem lehet üres és tartalmaznia kell ,,@'' szimbólumot.
 	
-	Lehetőség van jelszómódosításra is, amit a következő menüpont biztosít. Ezen elem módosításakor egyértelmű, hogy az üres mezők esetén hibával térünk vissza. Ezen kívül az új jelszót kétszer kell megadni és vizsgáljuk, hogy ugyanazok-e a jelszavak. Ezt követően az új jelszónak beírt karakterláncot kódolva eltároljuk, kijelentkeztetésre kerül a felhasználó és át lesz irányítva a bejelentkező oldalra, ahol már az új jelszóval kell bejelentkeznie.
+	Lehetőség van jelszómódosításra is, amit a következő menüpont biztosít. Ezen elem módosításakor egyértelmű, hogy az üres mezők esetén hibával térünk vissza. Ezen kívül
+	az új jelszót kétszer kell megadni és vizsgáljuk, hogy a két jelszó megegyezik-e. Ezt követően az új jelszónak beírt karakterláncot kódolva eltároljuk, kijelentkeztetésre kerül a felhasználó és át lesz irányítva a bejelentkező oldalra, ahol már az új jelszóval kell bejelentkeznie.
 	
 	Az utolsó funkció, amit a felhasználó elér ebben a menüben az a profiljának a törlése. Hogy ez sikeres legyen, meg kell adni kétszer a jelenlegi jelszót. Ha a törlés sikeres, a felhasználó az applikáció főoldalára lesz irányítva. Amennyiben sikertelen, egy hibaüzenettel küldjük vissza a törlési oldalra.
 	
@@ -160,7 +161,7 @@
 	\begin{figure}[ht!]
 		\centering
 		\includegraphics[width=0.5\textwidth]{android_app/android_main}
-		\caption{Androidos alkalmazás belépéshez tartozó felülete}
+		\caption{Az Androidos alkalmazás belépéshez tartozó felülete}
 		\label{figure:androidapp_main}
 	\end{figure}
 	
@@ -177,9 +178,9 @@
 	
 	A csoportonként megjelenítendő eseményeknél a felhasználó a következő adatokat látja: az esemény azonosítója, neve, leírása, kezdeti és befejezési dátum. A webes felülethez hasonlóan, itt is kártyaként jelennek meg az adatok. Ugyan úgy, mint a böngészős alkalmazás esetén, ha nem tartalmaz elemeket valamelyik lista, gombokat biztosítunk, hogy a további esemény csoportok gyorsan elérhetőek legyenek.
 	
-	Az ,,Esemény kezelése'' menüpontban van lehetőség módosítani, késznek jelölni és törölni az adott eseményt. Először a felhasználónak le kell ellenőriznie, hogy az esemény létezik-e, ehhez meg kell adnia az azonosítóját. Amennyiben nem létezik, egy felugró szövegbuborék jelenik meg, hogy helytelen az azonosító. Ha sikeres volt az ellenőrzés, megjelennek a kiválasztott azonosítóhoz tartozó adatok. Mentés esetén a már webes felületen ismertetett szabályok kerülnek ellenőrzésre. Amennyiben üresen hagyja a felhasználó az eseményhez tartozó nevet vagy a dátumok közül valamelyiket, egy hibaüzenet kerül kiírásra, ahol megjelenítésre kerül, hogy mely adatokat kell leellenőrizni vagy pótolni. Az~\ref{figure:android_specify_event}-es ábrán látható a lekérdezett esemény azonosítója, ahhoz tartozó értékek, és elvégezhető műveletek. 
+	Az ,,Esemény kezelése'' menüpontban van lehetőség módosítani, késznek jelölni és törölni az adott eseményt. Először a felhasználónak le kell ellenőriznie, hogy az esemény létezik-e, ehhez meg kell adnia az azonosítóját. Amennyiben nem létezik, egy felugró szövegbuborék jelenik meg, hogy helytelen az azonosító. Ha sikeres volt az ellenőrzés, megjelennek a kiválasztott azonosítóhoz tartozó adatok. Mentés esetén a már webes felületen ismertetett szabályok kerülnek ellenőrzésre. Amennyiben üresen hagyja a felhasználó az eseményhez tartozó nevet vagy a dátumok közül valamelyiket, egy hibaüzenet kerül kiírásra, ahol megjelenítésre kerül, hogy mely adatokat kell leellenőrizni vagy pótolni. Az~\ref{figure:android_specify_event}-es ábrán látható a lekérdezett esemény azonosítója,az ahhoz tartozó értékek, és az elvégezhető műveletek.
 	
-	A másik módja, hogy egy esemény adatait módosítani tudjuk, hogy a kilistázott elemek valamelyikére kattintunk és megjelenik a módosításhoz tartozó nézet. Ebben az esetben nem kell megadni az azonosítót, hanem az automatikusan megjelenik. 
+	A másik módja egy esemény adatainak módosítására, hogy a kilistázott elemek valamelyikére kattintva megjelenik a módosításhoz tartozó nézet. Ebben az esetben nem kell megadni az azonosítót, hanem az automatikusan megjelenik. 
 	
 	\begin{figure}[ht!]
 		\centering
@@ -201,12 +202,12 @@
 	Személy szerint nekem sokkal jobban bevált a XAMPP, így dolgozatom fejlesztése alatt is azt használtam, mivel egyszerű a telepítése és a kezelhetősége. Mindemellett lehetőség van konfigurálni azt is, hogy milyen adatbázist szeretnénk használni. 
 	
 	\section{Kódszerkesztő}
-	Ha már van környezetünk ahol majd a webes projektünk futtathatóvá válik, keresnünk kell egy olyan szövegszerkesztőt amit használni fogunk. Programfejlesztésre több ilyen eszköz is létezik, ami segíti a programozó munkáját szövegkiemeléssel, kód kiegészítéssel és szintaxis ellenőrzéssel. Számomra a legjobban bevált ilyen program a ,,Visual Studio Code''~\cite{vsc_doc}, ami ingyenes szövegszerkesztő és különböző bővítményekkel lehet kényelmesebbé tenni a használatát.
+	Ha már van környezetünk ahol majd a webes projektünk futtathatóvá válik, keresnünk kell egy olyan szövegszerkesztőt amit használni fogunk. Programfejlesztésre több ilyen eszköz is létezik, ami segíti a programozó munkáját szövegkiemeléssel, kód kiegészítéssel és szintaxis ellenőrzéssel. Számomra a legjobban bevált ilyen program a ,,Visual Studio Code''~\cite{vsc_doc}, ami egy ingyenesen használható szövegszerkesztő, amit különböző bővítmények telepítésével még kényelmesebbé tehetünk.
 	
 	\section{Android alkalmazáshoz Android Studio}
 	Androidos alkalmazás fejlesztésére többféle eszköz áll a rendelkezésünkre. Ilyen lehetőség lehet az ,,Eclipse''~\cite{eclipse_doc} vagy esetleg a ,,RAD Studio''~\cite{rad_doc}. Számomra a leginkább preferált fejlesztői környezet az ,,Android Studio''~\cite{androidStudio_doc}. Azért tartom jobbnak a többinél, mivel nem csak mobil eszközre lehet vele alkalmazást írni, hanem Wear OS-es órára és TV-re is. A másik előny, hogy a felhasználói kezelőfelület kialakításához biztosít egy tervezőt, ahol az elemeket fogd és vidd (drag and drop) módszerrel lehet elhelyezni a megjelenítő felületre. 
 	
-	Az ,,Android Studio''-ban olyan fontos funkciók vannak beépítve, mint az AVD~\cite{androidStudioAvd_doc} menedzser (manager), ami egy emulátor, ahol virtuális eszközöket tudunk létrehozni, hogy tesztelni tudjuk az alkalmazásunkat. A másik fontos eszköz, ami implementálva van az ADB~\cite{androidStudioAdb_doc} (Android Debug Bridge), ami a virtuális vagy fizikai eszközünk között kommunikál a számítógéppel így figyeli az alkalmazásunk működését és hiba esetén megkönnyíti a hibakeresést. 
+	Az ,,Android Studio''-ban olyan fontos funkciók vannak beépítve, mint az AVD~\cite{androidStudioAvd_doc} menedzser (AVD manager), ami egy emulátor, ahol virtuális eszközöket tudunk létrehozni, hogy tesztelni tudjuk az alkalmazásunkat. A másik fontos eszköz, ami implementálva van az ADB~\cite{androidStudioAdb_doc} (Android Debug Bridge), ami a virtuális vagy fizikai eszközünk között kommunikál a számítógéppel így figyeli az alkalmazásunk működését és hiba esetén megkönnyíti a hibakeresést. 
 	
 	\section{Postman a REST API-hoz}
 	A REST API kapcsolat teszteléséhez szükség volt egy kliens programra, ahol le lehet ellenőrizni, hogy a kérés sikeres-e és a válasz megfelelő-e. Ehhez a ,,Postman''~\cite{postman_doc} programot választottam, mivel kliens program, egyszerű a használata, ezért nem csak egy személy vehet részt a tesztelésben. Mindezek mellett, lehetőség van a teszteket kollekcióba elmenteni, amiből későbbiekben automatizált teszt is futtatható. A szoftver nagyon sok API szabványt és formátumot támogat köztük a ,,JSON''-t~\cite{json_doc} is.
@@ -217,7 +218,8 @@
 	
 	Számomra a PHP azért lett kedvesebb, mivel széleskörűen használható, gyors, rugalmas és jól dokumentált. 
 	
-	Mivel tisztán PHP kódot már kevés helyen használnak, leginkább kis projektek esetén, így érdemes keresni egy keretrendszert. Nagyon sok lehetőség van az interneten, amit használhatunk, de talán a legelterjedtebb ilyen a Laravel~\cite{laravel_book}. 
+	Mivel tisztán PHP kódot már kevés helyen használnak, leginkább kis projektek esetén, így érdemes keresni egy keretrendszert. Nagyon sok lehetőség van az interneten,
+	amit használhatunk, ezek közül a legelterjedtebb a Laravel~\cite{laravel_book}. 
 	
 	A Laravel több szempontból is ideális választás webes alkalmazásokhoz, mivel megkönnyíti az olyan általános feladatokat, mint az útvonalválasztás (routing) és a hitelesítés. A keretrendszer követi az MVC~\cite{mvc_pattern} (Model View Controller / Modell Nézet Vezérlő) tervezési mintát, ezért hatékonyabb, biztonságosabb, és a projekt átlátható lesz. 
 	
@@ -253,7 +255,7 @@
 	
 	A generált adatok a következők: id, remember\_token, created\_at, updated\_at. Az emlékezz token (remember token) akkor kerül kitöltésre, ha a felhasználó szeretné, hogy a weboldal megjegyezze a bejelentkezést és bejelentkezve tartsa. Ez a token akkor frissül, mikor a bejelentkezett kliens kijelentkezik. Ez egy biztonsági funkció, arra az esetre, ha eltérítenék a sütit (cookie), akkor egy egyszerű kijelentkezéssel érvénytelenítődjön. 
 	
-	A created\_at és updated\_at egy dátum típusú mezők, amik szintén legenerálódnak, amikor a felhasználó regisztrál, vagy módosítja az adatait. 
+	A created\_at és updated\_at dátum típusú mezők, amik szintén legenerálódnak, amikor a felhasználó regisztrál, vagy módosítja az adatait. 
 	
 	Az id attribútum automatikusan növekvő számsorozat amivel egy egyed beazonosítható, tehát ez az elsődleges kulcs az adattáblában.  A kulcs minden esetben előjel nélküli szám.
 	
@@ -266,7 +268,7 @@
 	
 	A topic az esemény neve, ahol karakterláncot (string) tárolunk el, amelynek maximális mérete 255 bájt lehet. A következő az esemény leírása. Ez egy text formátumú attribútum, melynek a maximális mérete 65.535 karakter hosszúságú.
 	
-	Az kezdési és befejezési dátumnál események tárolása révén fontos kritérium volt, hogy nem csak dátumot, hanem időt is tárolni kell. Erre a legjobb megoldás a datetime típus, ahol a legnagyobb megadható dátum a ,,9999-12-31 23:59:59''.
+	A kezdési és befejezési dátumnál események tárolása révén fontos kritérium volt, hogy nem csak dátumot, hanem időt is tárolni kell. Erre a legjobb megoldás a datetime típus, ahol a legnagyobb megadható dátum a ,,9999-12-31 23:59:59''.
 	
 	Az eseményhez tartozó migrációt a~\ref{event_migration}-es kódrészlet tartalmazza, ahol megfigyelhető a kitöltési szintaxis is. 
 	
@@ -278,25 +280,25 @@
 	\begin{figure}[ht!]
 		\centering
 		\includegraphics[width=0.6\textwidth]{database/EER_diagram}
-		\caption{EER diagram az adatbázis tábláihoz}
+		\caption{ER diagram az adatbázis tábláihoz}
 		\label{figure:eer_diagram}
 	\end{figure}
 	
 	\subsection{Migrációs hiba lehetőség}
-	Ahhoz, hogy a migráció sikeresen fusson le, figyelni kell a lefuttatás sorrendjére. Ugyanis, ha előbb kerül létrehozásra az események tábla, mint a felhasználóhoz tartozó, hiba generálódik a külső kulcsra való hivatkozás miatt. Ez a hiba könnyen orvosolható a migrációs fájlok átnevezésével.
+	Ahhoz, hogy a migráció sikeresen fusson le, figyelni kell a lefuttatás sorrendjére. Abban az esetben, ha az események tábla előbb kerül létrehozásra, mint a felhasználóhoz tartozó tábla, hiba fog generálódni a külső kulcsra való hivatkozás miatt. Ez a hiba könnyen orvosolható a migrációs fájlok átnevezésével.
 	
 	\section{Modellek}
-	A modellek a MVC~\cite{mvc_mozzilla} tervezési mintában az adatbázis és a vezérlő közötti kapcsolat. Itt definiálhatjuk az adatok láthatósági szintjét és, hogy az adott szinten mik érhetőek el.
+	A modellek a MVC (Modell-View-Controller)~\cite{mvc_mozzilla} tervezési mintában az adatbázis, és a vezérlő közötti kapcsolat. Itt definiálhatjuk az adatok láthatósági szintjét és azt, hogy az adott szinten mik érhetőek el.
 	
 	\subsection{Felhasználói modell}
-	A modell definiálása a kitölthető adatokkal kezdődik, melyek jelen esetben a név, az e-mail-cím, és a jelszó. A következő attribútumok a rejtettek, amelyek a jelszó és a tokenek. Majd, a végén található egy olyan metódus ami, a kapcsolatot képezi a felhasználó és az esemény modell között. Itt jelen esetben azt adjuk meg, hogy egy felhasználóhoz több esemény is tartozhat.
+	A modell definiálása a kitölthető adatokkal kezdődik, melyek jelen esetben a név, az e-mail-cím, és a jelszó. A jelszó és a tokenek rejtett attribútumok. A végén található egy olyan metódus ami a kapcsolatot képezi a felhasználó, és az esemény modell között. Itt jelen esetben azt adjuk meg, hogy egy felhasználóhoz több esemény is tartozhat.
 	
-	A modellhez tartozó implementációt a~\ref{user_modell}-as kódrészlet tartalmazza.
+	A modellhez tartozó implementációt a~\ref{user_modell}-es kódrészlet tartalmazza.
 	
 	\lstinputlisting[caption=Felhasználóhoz tartozó modell,label=user_modell]{codes/modell_user.php}
 	
 	\subsection{Esemény modell}
-	Az esemény lényegében sokkal egyszerűbb, mint a felhasználó modellje, mivel itt csak kitölthető mezőkkel találkozunk. Ezek a mezők a következők: topic, description, start és end.
+	Az esemény lényegében sokkal egyszerűbb, mint a felhasználó modellje mivel itt csak kitölthető mezőkkel találkozunk. Ezek a mezők a következők: topic, description, start és end.
 	
 	\subsection{Eloquent ORM}
 	Ugyan ez nem modell, hanem az adatbázissal való kommunikációt biztosítja, azért tartom fontosnak megemlíteni a modellek között, mivel ez teszi lehetővé az adatbázisba való rekord beszúrást, lekérdezést és törlést. Amennyiben az adatbázisunkban a tábla neve nem azonos a modellével, akkor meg kell adni, hogy mi a tábla neve. Az Eloquent Object Relational Mapper (Objektum Reláció Leképző)~\cite{laravel_eloquent} és Query Builder (lekérdezéskészítő) előnyeiről a kontroller osztályban fogok még írni.
@@ -316,12 +318,12 @@
 	\subsection{E-mailhez tartozó nézetek}
 	A kiküldött e-mailekhez tartozó nézetek külön vannak definiálva, mivel eltérnek a felhasználóitól, ugyanis itt a Blade sablonozómotor komponenseit, és a MarkDown~\cite{markdown_page} szintaxisát használjuk. Ennek köszönhetően az e-mailünkben nem csak szöveget tudunk küldeni, de gombot is, mely átirányíthat minket az alkalmazásra, vagy a már meglévő útvonalak valamelyikére.
 	
-	Az e-mailek-hez tartozó nézet felépítését az új esemény esetén kiküldött e-mail nézetet szemlélteti, a~\ref{email_view}-es kódrészlet, mivel itt kezelünk adatot is. 
+	Az e-mailek-hez tartozó nézet felépítését az új esemény esetén kiküldött e-mail nézetet szemlélteti a~\ref{email_view}-es kódrészlet, mivel itt kezelünk adatot is. 
 	
 	\lstinputlisting[caption=Új eseményhez tartozó e-mail felépítése,label=email_view]{codes/email_view.php}
 	
 	\section{Kontrollerek}
-	A kontrollerek~\cite{laravel_controller} dolgozzák fel a felhasználói műveleteket és válaszol azokra. A kontrollerekben gyűjtjük össze azokat az adatokat, amik a felhasználói felületről érkeznek, és ha kell, meghívjuk a modellt, hogy tárolja el azokat az adatbázisban. Amennyiben az adatbázisból érkeznek az adatok, úgy azt tovább küldjük a megjelenítéshez. Mivel dolgozatomban a felhasználó kétféle szerepkört tölthet be, miszerint lehet látogató vagy bejelentkezett felhasználó, így ezt ellenőrizni kell, hogy a jogosultságának megfelelő oldalakat érje el. Ehhez definiálni kell egy konstruktort, ahol a köztes szoftver (middleware)~\cite{laravel_middlewear} ellenőrzi, hogy a felhasználó be van-e jelentkezve vagy vendég.
+	A kontrollerek~\cite{laravel_controller} dolgozzák fel a felhasználói műveleteket és válaszolnak azokra. A kontrollerekben gyűjtjük össze azokat az adatokat, amik a felhasználói felületről érkeznek, és ha kell meghívjuk a modellt, hogy tárolja el azokat az adatbázisban. Amennyiben az adatbázisból érkeznek az adatok, úgy azt tovább küldjük a megjelenítéshez. Mivel dolgozatomban a felhasználó kétféle szerepkört tölthet be, miszerint lehet látogató vagy bejelentkezett felhasználó, így ezt ellenőrizni kell, hogy a jogosultságának megfelelő oldalakat érje el. Ehhez definiálni kell egy konstruktort, ahol a köztes szoftver (middleware)~\cite{laravel_middleware} ellenőrzi, hogy a felhasználó be van-e jelentkezve vagy vendég.
 	
 	A vezérlők általános működése a következőképpen írható le:
 	\begin{itemize}
@@ -339,14 +341,16 @@
 	Sorban haladva, a névre vonatkozó szabályok, aminek meg kell felelni a bevitt adatnak: kötelező kitölteni, maximum 255 hosszú lehet. A következő az e-mail-cím, ahol a névhez képest annyi a kiegészítés, hogy elektronikus levelezési cím formátumnak kell lennie, tehát ,,@'' jelet kell tartalmaznia.
 	A jelszó is kötelező adat, aminek minimum 6 karakterből kell állnia, és meg kell erősíteni. Az utolsó az általános szerződési feltételekhez tartozó jelölőnégyzet (checkbox), amit be kell pipálni.
 	
-	Ha a validáció sikeres, a kontroller megvizsgálja, hogy a beírt e-mail-cím már szerepel-e az adatbázisban. Itt elő is jön az eloquent és a query builder előnye, hogy nem kell kézzel lekérdezést írni, hanem egyszerűen meghívjuk a modellt és annak az ahol (where) metódusát. Itt megvizsgáljuk, hogy az e-mail-cím szerepel-e már az adatbázisban. Ehhez a ,,count'' aggregátumot társítjuk, ami megszámolja, hogy a lekérdezés mennyi sort adott vissza. Amennyiben szerepel, tehát a visszatérési érték 1, visszatérünk a nézetre, ahol megjelenítjük, hogy hibás a cím, mert szerepel már az adatbázisban. Amennyiben az eredmény 0, eltároljuk az adatokat úgy, hogy az adatbázisban szereplő attribútumához a kérés tömb megegyező adatát társítjuk. Kivételt képez ez alól a jelszó, ahol előtte meg kell hívnunk a Hash osztály készít (make) függvényét a kérésben szereplő jelszóra, hogy kódolva tároljuk el azt. Mentés után a felhasználót bejelentkeztetjük, amiben segítségünkre lesz az Auth~\cite{laravel_auth} osztálynak az attempt metódusa, ami megvizsgálja, hogy a kérésben kapott e-mail cím és jelszó páros szerepel-e az adatbázisban. A metódus visszatérési értéke lehet igaz vagy hamis, annak megfelelően, hogy sikerült-e megtalálni a beírt adatokat. Ezt követően egy e-mailt küld ki a rendszer a megadott levelezési címre, amelyben köszönti a frissen regisztrált felhasználót. Végül pedig átirányítjuk a saját profil oldalára.
+	Ha a validáció sikeres, a kontroller megvizsgálja, hogy a beírt e-mail-cím már szerepel-e az adatbázisban. Itt elő is jön az ,,eloquent'' és a ,,query builder'' előnye, hogy nem kell kézzel lekérdezést írni, hanem egyszerűen meghívjuk a modellt és annak az ahol (where) metódusát. Itt megvizsgáljuk, hogy az e-mail-cím szerepel-e már az adatbázisban. Ehhez a ,,count'' aggregátumot társítjuk, ami megszámolja, hogy a lekérdezés mennyi sort adott vissza. Amennyiben szerepel, tehát a visszatérési érték 1, visszatérünk a nézetre, ahol megjelenítjük, hogy hibás a cím, mert szerepel már az adatbázisban. Amennyiben az eredmény 0, eltároljuk az adatokat úgy, hogy az adatbázisban szereplő attribútumához a kérés tömb megegyező adatát társítjuk. Kivételt képez ez
+	alól a jelszó, ahol előtte meg kell hívnunk a Hash osztály, készít (make) függvényét a
+	kérésben szereplő jelszóra, hogy kódolva tároljuk el azt. Mentés után a felhasználót bejelentkeztetjük, amiben segítségünkre lesz az Auth~\cite{laravel_auth} osztálynak az attempt metódusa, ami megvizsgálja, hogy a kérésben kapott e-mail cím és jelszó páros szerepel-e az adatbázisban. A metódus visszatérési értéke lehet igaz vagy hamis, annak megfelelően, hogy sikerült-e megtalálni a beírt adatokat. Ezt követően egy e-mailt küld ki a rendszer a megadott levelezési címre, amelyben köszönti a frissen regisztrált felhasználót. Végül pedig átirányítjuk a saját profil oldalára.
 	
 	Ezen folyamat a~\ref{register_validation}-ös kódrészletben tekinthető meg.
 	
-	\lstinputlisting[caption=Regisztrációhoz használt adatok validálása és eltárolás ,label=register_validation]{codes/register_validation.php}
+	\lstinputlisting[caption=Regisztrációhoz használt adatok validálása és eltárolása ,label=register_validation]{codes/register_validation.php}
 	
 	\subsection{Bejelentkezéshez használt kontroller}
-	A bejelentkezésért felelős kontroller meghívásakor is vizsgálni kell, hogy már be van-e jelentkezve a hívó fél. Ennek az ellenőrzéséért a kontrollerben szereplő konstruktorban lévő middlewear a felelős. Ha egy bejelentkezett felhasználó próbálja elérni a bejelentkezést, a profiljára kerül átirányításra, amennyiben nincs bejelentkezve, úgy eléri a vezérlőt.
+	A bejelentkezésért felelős kontroller meghívásakor is vizsgálni kell, hogy már be van-e jelentkezve a hívó fél. Ennek az ellenőrzéséért a kontrollerben szereplő konstruktorban lévő middleware a felelős. Ha egy bejelentkezett felhasználó próbálja elérni a bejelentkezést, a profiljára kerül átirányításra, amennyiben nincs bejelentkezve, úgy eléri a vezérlőt.
 	
 	A bejelentkezéskor lefut egy ellenőrzés a felhasználó által beírt adatokra, ahol a következő szabályoknak kell megfelelni: az e-mail-cím és jelszó nem lehet üres, és az e-mail-címben szerepelnie kell a ,,@'' karakternek.
 	
@@ -364,13 +368,13 @@
 	
 	Térjünk is rá az Update műveletre, ami a kontrollerünk első fontos eleme. Szeretném megemlíteni, hogy a frissítésből több tartozik a felhasználóhoz. Az első frissítés, amikor a nevét vagy e-mail címét tudja frissíteni. A szabályok egyszerűek és nem térnek el a regisztráció szabályaitól, miszerint nem lehet üres a mező és az e-mailnek megfelelő formátumúnak kell lennie.
 	
-	Ha ez megvolt, a következő fontos rész, hogy meg kell keresni az adatbázisban azt a rekordot, amit módosítani szeretnénk. Ezt a legegyszerűbben úgy tudjuk megtenni, ha meghívjuk a modell-t és hozzá a find metódust. Itt mutatkozik meg újra az eloquent erőssége, hogy nem kell lekérdezést írni. Ebben az esetben, a lekérdezés egyetlen modell példányt ad vissza. Ezt eltároljuk, hogy a következő lépésben már csak felül kelljen írni az adatokat a felhasználó által kitöltöttel, majd menteni. Ha ez sikeresen megtörtént, visszairányítjuk a felhasználót a profiljára, hogy ellenőrizhesse a megváltoztatott adatokat. 
+	Ha ez megvolt, a következő fontos rész, hogy meg kell keresni az adatbázisban azt a rekordot, amit módosítani szeretnénk. Ezt a legegyszerűbben úgy tudjuk megtenni, ha meghívjuk a modell-t és hozzá a find metódust. Itt mutatkozik meg újra az ,,eloquent'' erőssége, hogy nem kell lekérdezést írni. Ebben az esetben, a lekérdezés egyetlen modell példányt ad vissza. Ezt eltároljuk, hogy a következő lépésben már csak felül kelljen írni az adatokat a felhasználó által kitöltöttel, majd menteni. Ha ez sikeresen megtörtént, visszairányítjuk a felhasználót a profiljára, hogy ellenőrizhesse a megváltoztatott adatokat. 
 	
 	Ezt a folyamatot a~\ref{user_crud_update}-ös kódrészlet szemlélteti.
 	
 	\lstinputlisting[caption=Felhasználói adat frissítés,label=user_crud_update]{codes/user_crud_update.php}
 	
-	A következő frissítés a jelszóra vonatkozik. A szabály egyszerű és nem tér el a regisztrációs szabályoktól, miszerint ki kell tölteni, minimum 6 karakter hosszúnak kell lennie, és meg kell erősíteni az új jelszót. A könnyebb hivatkozás kedvéért, egy-egy változóba eltárolásra kerül a jelenlegi és az új jelszó is. Ezután leellenőrzésre kerül, hogy a jelenlegi és az új jelszó megegyezik-e, mivel ha igen, egy hibaüzenettel térünk vissza a jelszóváltoztatáshoz, hogy a két érték ugyanaz. Következő lépésben, a bejelentkezett felhasználó jelszavát kell ellenőrizni, hogy megegyezik-e azzal, amit beírt a felhasználó. Mivel a rendszert használó jelszava kódoltan tárolódik, így a kódolt jelszót kell összehasonlítani a kódolatlannal. Ehhez nagy segítség a Hash osztályban definiált check metódus, ami a kódolatlan értéket hasonlítja össze a kódolt értékkel. Amennyiben az összehasonlítás igaznak bizonyul, tehát megegyezik, lekérjük és eltároljuk az aktuális felhasználó azonosítóját, majd a profilfrissítéshez hasonlóan kimentjük az adatokat, hogy felül tudjuk írni a jelszót, a felhasználó által megadott, most már kódolt jelszóra. Amennyiben ezek sikeresen megtörténtek, kijelentkeztetjük a felhasználót és átirányítjuk a bejelentkezésre. Itt az átirányításhoz egy üzenetet fűzünk, hogy az új jelszóval kell már bejelentkezni. Ha sikertelen az összehasonlítás, egy hibaüzenettel térünk vissza, amelyben leírjuk, hogy a jelenlegi jelszó nem megfelelő. 
+	A következő frissítés a jelszóra vonatkozik. A szabály egyszerű és nem tér el a regisztrációs szabályoktól, miszerint ki kell tölteni, minimum 6 karakter hosszúnak kell lennie, és meg kell erősíteni az új jelszót. A könnyebb hivatkozás kedvéért, egy-egy változóba eltárolásra kerül a jelenlegi és az új jelszó is. Ezután leellenőrzésre kerül, hogy a jelenlegi és az új jelszó megegyezik-e, amennyiben igen, egy hibaüzenettel térünk vissza a jelszóváltoztatáshoz, hogy a két érték ugyanaz. Következő lépésben, a bejelentkezett felhasználó jelszavát kell ellenőrizni, hogy megegyezik-e azzal, amit beírt a felhasználó. Mivel a rendszert használó jelszava kódoltan tárolódik, így a kódolt jelszót kell összehasonlítani a kódolatlannal. Ehhez nagy segítség a Hash osztályban definiált check metódus, ami a kódolatlan értéket hasonlítja össze a kódolt értékkel. Amennyiben az összehasonlítás igaznak bizonyul, tehát megegyezik, lekérjük és eltároljuk az aktuális felhasználó azonosítóját, majd a profilfrissítéshez hasonlóan kimentjük az adatokat, hogy felül tudjuk írni a jelszót, a felhasználó által megadott, most már kódolt jelszóra. Amennyiben ezek sikeresen megtörténtek, kijelentkeztetjük a felhasználót és átirányítjuk a bejelentkezésre. Itt az átirányításhoz egy üzenetet fűzünk, hogy az új jelszóval kell már bejelentkezni. Ha sikertelen az összehasonlítás, egy hibaüzenettel térünk vissza, amelyben leírjuk, hogy a jelenlegi jelszó nem megfelelő. 
 	
 	Az utolsó művelet amit a felhasználóval lehet végezni, a törlés. Itt fontos kiemelni, hogy a migrationban szereplő kötés miatt, ha a felhasználó törli a profilját, úgy az eseményei is törlésre kerülnek. Ahhoz, hogy a törlés sikeresen lefusson, a felhasználónak meg kell erősítenie azt a jelszavával. Ezért a kontrollerben vizsgálni kell, hogy a jelszó ne lehessen üres és tartozik hozzá egy megerősítés is. Ha ezek a szabályok teljesülnek, akkor összehasonlításra kerül a bejelentkezett felhasználó jelszava és a megadott. Ha nem egyezik meg, akkor visszairányítjuk a törlés oldalra egy hibaüzenettel, amiben az szerepel, hogy nem helyes a jelszó. Ha viszont az ellenőrzés sikeres, megkeressük a felhasználót a bejelentkezett felhasználó id-ja alapján és töröljük. A következő lépés az átirányítás a főoldalra.
 	
@@ -387,7 +391,7 @@
 	
 	\lstinputlisting[caption=Esemény mentése,label=event_crud_store]{codes/event_crud_store.php}
 	
-	A következő, amit az adatokkal lehet csinálni a kiolvasás (read). Ez a projektemben több csoportra osztható, mivel az összes adatot egyben nem lehet kiolvasni. A kiolvasható adatok csoportjai a következők: aktív, lejárt és teljesített események. Nem is írnám le az összes működését, hiszen a különbség csak a szűrési feltételekben tapasztalható. Így csak általánosan írom le, és kitérek a különbségekre. Egy feltétel van, ami minden lekérdezés esetén megegyezik, az pedig a felhasználó vizsgálat, hogy az aktuálisan bejelentkezett felhasználó csak a saját eseményeihez férhessen hozzá. Itt az aktuális felhasználói azonosítót hasonlítjuk össze az adatbázisban tárolt user\_id nevű külső kulccsal. Ami még megegyezik minden lekérdezés esetében, a megjelenítésre is vonatkozó paginate metódus, ahol megadjuk, hogy egy oldalon hány rekord jelenhet meg, így a nézeten létre jön egy lapozó az adatok megjelenítéséhez.
+	A következő, amit az adatokkal lehet csinálni a kiolvasás (read). Ez a projektemben több csoportra osztható, mivel az összes adatot egyben nem lehet kiolvasni. A kiolvasható adatok csoportjai a következők: aktív, lejárt és teljesített események. Nem is írnám le az összes működését, hiszen a különbség csak a szűrési feltételekben tapasztalható. Így csak általánosan írom le, és kitérek a különbségekre. Egy feltétel van, ami minden lekérdezés esetén megegyezik, az pedig a felhasználó vizsgálat, hogy az aktuálisan bejelentkezett felhasználó csak a saját eseményeihez férhessen hozzá. Itt az aktuális felhasználói azonosítót hasonlítjuk össze az adatbázisban tárolt user\_id nevű külső kulccsal. Ami még megegyezik minden lekérdezés esetében, a megjelenítésre is vonatkozó ,,paginate'' metódus, ahol megadjuk, hogy egy oldalon hány rekord jelenhet meg, így a nézeten létre jön egy lapozó az adatok megjelenítéséhez.
 	
 	
 	Amennyiben az aktív eseményekre vagyunk kíváncsiak, a következő feltételeket kell definiálnunk: a befejezési dátumnak később kell lenni-e, mint az aktuális dátum, és a complete mező értékének 0-nak kell lennie. Ezen feltételeket az ahol (where) metódussal tudjuk meghatározni. A lekérdezett eseményeket pedig befejezési dátum szerint emelkedő sorrendben rendezzük.
@@ -404,10 +408,11 @@
 	
 	A következő műveleti csoport a frissítés (update). A webes felületen nincs lehetőség minden eseménymódosításra, ilyen csoport a késznek jelöltek csoportja. Ahhoz, hogy a frissítést megvalósítsuk két metódusra lesz szükségünk. Az egyik lekéri az adott azonosítónak megfelelő adatot, míg a másik a frissítést végzi el. Nem szeretnék nagyon kitérni, az egy elemet megjelenítőre, mivel csak az esemény modellhez tartozó find metódus található benne, ahol az azonosítóra szűrünk és azt visszaadjuk a nézetnek. A frissítésben található egy kérés ellenőrzés, amire ugyanazok a szabályok vonatkoznak, mint a létrehozásnál. Ezután megkeressük az adott azonosítóhoz tartozó eseményt, amit kimentünk változóba. Így már csak össze kell párosítani a kérés mezőit a kimentett esemény mezőivel és el kell menteni a változásokat a mentés (save) metódussal. Ezután, meghívásra kerül az aktív eseményekhez tartozó nézet. 
 	
-	A végére maradt a törlés (delete) művelet az alapvető műveletek csoportjából. Törölni minden típusú eseményt lehet, ezért az átirányítás adott nézetre nem megfelelő, mivel nem tároljuk el, hogy honnan érkezik a kérés így a vissza (back) metódust fogjuk visszatéréskor használni, ahol az előző oldalra ugrunk vissza. A kérésben itt csak egy azonosítót kapunk, tehát csak meg kell keresnünk a hozzá tartozó rekordot és meghívni hozzá a törlés (delete) metódust. Ezután pedig, a már említett módon, megtörténik a visszatérés a nézetre. 
+	A végére maradt a törlés (delete) művelet az alapvető műveletek csoportjából. Törölni minden típusú eseményt lehet, ezért az átirányítás adott nézetre nem megfelelő, mivel nem tároljuk el, hogy honnan érkezik a kérés így a vissza (back) metódust fogjuk visszatéréskor használni, ahol az előző oldalra ugrunk vissza. A kérésben itt csak egy azonosítót kapunk, tehát csak meg kell keresnünk a hozzá tartozó rekordot és meghívni hozzá a törlés (delete) metódust. Ezután pedig, a már említett módon megtörténik a
+	visszatérés a nézetre. 
 	
 	\subsection{API kontrollerek}
-	Az API kontrollerek felelősek azért, hogy a külső alkalmazás tudjon csatlakozni a projektünkhöz. A jobb kezelhetőség érdekében, külön vezérlőkben találhatók a felhasználóra és az eseményekre vonatkozó metódusok. A válaszok könnyebb értelmezhetősége miatt, azokat JSON formátumban küldjük és fogadjuk. Ahhoz, hogy az eléréseket szűrjük a middleweart kell használni, de itt nem a vezérlő osztályon belül, hanem az elérési útban vizsgáljuk a felhasználói státuszt.
+	Az API kontrollerek felelősek azért, hogy a külső alkalmazás tudjon csatlakozni a projektünkhöz. A jobb kezelhetőség érdekében, külön vezérlőkben találhatók a felhasználóra és az eseményekre vonatkozó metódusok. A válaszok könnyebb értelmezhetősége miatt, azokat JSON formátumban küldjük és fogadjuk. Ahhoz, hogy az eléréseket szűrjük a middlewaret kell használni, de itt nem a vezérlő osztályon belül, hanem az elérési útban vizsgáljuk a felhasználói státuszt.
 	
 	\subsubsection{Felhasználó API kontroller}
 	A lényegi különbség aközött a kontroller között, amit a webes kliens, és amit az API használ nem látható, ugyanis ugyanazokat a validációs folyamatokat végzi el. Amiben mégis eltérnek, azok a válaszok és a szintaxis. A másik különbség, hogy itt nem nézetet adunk vissza, hanem választ (response). A válasz minden esetben egy kulcs-érték páros lista.
@@ -417,7 +422,7 @@
 	Az esemény kontrollernél ugyanaz a helyzet, mint a felhasználó által használt API kontrollerrel, hogy megegyezik a webes felület vezérlőjével, csak más szintaxist kell alkalmazni. Funkcionalitás tekintetében a webes és az API kontroller megegyezik, ezzel biztosítva a korlátozatlan működést a felhasználó számára.
 	
 	\subsection{CSRF token}
-	Bár szorosan nem kapcsolódik a kontroller működéséhez, mégis itt tüntetném fel, mivel, ha a felhasználó nem rendelkezik CSRF tokennel~\cite{laravel_csrf}, úgy az adatok változtatását sem tudja végrehajtani. Tehát ez is egy biztonsági intézkedés, mint a middlewear által a felhasználónak az autentikációja. Ezért minden formot CSRF védelemmel kell ellátni a nézeten, hogy ne történjen illetéktelen átirányítás.
+	Bár szorosan nem kapcsolódik a kontroller működéséhez, mégis itt tüntetném fel, mivel, ha a felhasználó nem rendelkezik CSRF tokennel~\cite{laravel_csrf}, úgy az adatok változtatását sem tudja végrehajtani. Tehát ez is egy biztonsági intézkedés, mint a middleware által a felhasználónak az autentikációja. Ezért minden formot CSRF védelemmel kell ellátni a nézeten, hogy ne történjen illetéktelen átirányítás.
 	
 	\subsection{Felmerülő hibák}
 	A kontrollerhez tartozó adat felvitel és menedzselés közben sok hiba történhet. Ilyen hibák lehetnek a tipikus hibák:
@@ -438,7 +443,7 @@
 	\lstinputlisting[caption=Eseményhez tartozó levélküldő kontroller,label=event_mail_controller]{codes/event_mail_controller.php}
 	
 	\section{Sanctum}
-	A Sanctum~\cite{laravel_sanctum} egy hitelesítési rendszer token alapú API-okhoz és mobil alkalmazásokhoz. A Sanctummal egyszerűen adhatók ki tokenek a felhasználó számára. Ezek a kiadott elemek nagyon hosszú lejárati idejűek, általában több év, de igény szerint módosíthatók és a felhasználó visszavonhatja ezeket. Az API útvonalak eléréséhez a felhasználói státusz ellenőrzését a sanctumba épített köztes szoftver (middlewear) végzi. Először megpróbálja a munkamenet hitelesítő cookit ellenőrizni, amennyiben ez sikertelen, megvizsgálja a kérés fejlécét, hogy az authorizationban található token megfelel-e. A hitelesítéshez Bearer~\cite{bearer_token} Tokent használunk, ami egy átláthatatlan karakterlánc, ami nem tartalmaz jelentést.
+	A Sanctum~\cite{laravel_sanctum} egy hitelesítési rendszer token alapú API-okhoz és mobil alkalmazásokhoz. A Sanctummal egyszerűen adhatók ki tokenek a felhasználó számára. Ezek a kiadott elemek nagyon hosszú lejárati idejűek, általában több év, de igény szerint módosíthatók és a felhasználó visszavonhatja ezeket. Az API útvonalak eléréséhez a felhasználói státusz ellenőrzését a sanctumba épített köztes szoftver (middlewear) végzi. Először megpróbálja a munkamenet hitelesítő COOKIE-T ellenőrizni, amennyiben ez sikertelen, megvizsgálja a kérés fejlécét, hogy az authorizationban található token megfelel-e. A hitelesítéshez Bearer~\cite{bearer_token} tokent használunk, ami egy átláthatatlan karakterlánc, ami nem tartalmaz jelentést.
 	
 	\section{Útvonalak}
 	A projektünk során fontos megemlíteni az útvonalakat~\cite{laravel_route}, mivel szoros összefüggés van köztük és a kontrollerek között. Majdnem minden útvonalhívás megfelel egy-egy vezérlőben lévő metódushívásnak. 
@@ -580,7 +585,7 @@
 	Ezek az osztályok annak megfelelően lettek kialakítva, hogy a webes applikációban milyen adatot küldünk vissza.
 	
 	\section{Kérések használata}
-	A kérések aszinkron módon hívódnak meg az alkalmazásunkban, ami azt jelenti, hogy a kérés egy háttér szálon fut és elemzés után visszaküldi az eredményt a felhasználói felület szálára. Amikor meghívjuk a kéréseket, két metódus tartozik hozzá. Az egyik arra vonatkozik, hogy mi történjen, ha a kérés sikeres volt, a másik metódus, a sikertelen kérés után futtatható kód sorokat tartalmazza, ami legtöbb esetben egy felugró hibaüzenet a kérés sikertelenségéről.
+	A kérések aszinkron módon hívódnak meg az alkalmazásunkban, ami azt jelenti, hogy a kérés egy háttér szálon fut és elemzés után visszaküldi az eredményt a felhasználói felület szálára. Amikor meghívjuk a kéréseket, két metódus tartozik hozzá. Az egyik arra vonatkozik, hogy mi történjen, ha a kérés sikeres volt, a másik metódus a sikertelen kérés után futtatható kód sorokat tartalmazza, ami legtöbb esetben egy felugró hibaüzenet a kérés sikertelenségéről.
 	
 	\section{SharedPreferences az alkalmazásban}
 	Mivel az adatok megjelenítése és kérése valós időben történik, így nem tárolunk semmilyen adatot a lokális eszközön. Ez azért jó, mivel így az esetleges eszköz károsodás esetén, nem történik adatvesztés. Viszont ennek hátránya, hogy minden alkalmazás indításkor, a felhasználónak be kell jelentkeznie, ami rontja a felhasználói élményt. Ezen hiba kiküszöbölésére a SharedPreferences~\cite{sharedPref_android} nyújt megoldást, mivel így egy kulcs-érték pár kerül elmentésre egy fájlba, melyet egyszerűen lehet írni és olvasni, tehát a felhasználóhoz tartozó adatokat célszerű ezen a módon elmenteni.
@@ -613,7 +618,7 @@
 	
 	Amit kód szinten tovább lehet fejleszteni, hogy a HTML elemekből komponenseket lehetne létrehozni, így könnyebb lenne egységesíteni a dizájnt is. Amit még ezen felül érdemes lenne megcsinálni, az a kontroller osztályok újra definiálása az egyetlen felelősség elve alapján, tehát külön vezérlők létrehozása a következő műveletekhez: létrehozás, adat kiolvasás, frissítés és törlés. 
 	
-	Funkcionalitás szintjén több lehetséges ötletem is van. Az legelső ilyen, hogy a felhasználó ki tudja jelentkeztetni a bejelentkezett eszközöket. A másik továbbfejlesztés, ami funkcionálisan hasznos lenne, egy olyan adminisztrátori felület, ahol lehetőség van a felhasználók és azok adatainak kezelésére. Ezen felül még a felhasználóknak lehetne egy fiók szüneteltetési funkciót készíteni, hogy az adatai ne törlődjenek, amennyiben már nem kívánja használni a rendszerünket. Mindezek mellett, az e-mail funkciót lehetne még bővíteni, hogy a felhasználónak az esemény módosításakor is küldjön értesítést a rendszer, és a lejárati idő előtt is, egy megadott idővel.
+	Funkcionalitás szintjén több lehetséges ötletem is van.A legelső ilyen, hogy a felhasználó ki tudja jelentkeztetni a bejelentkezett eszközöket. A másik továbbfejlesztés, ami funkcionálisan hasznos lenne, egy olyan adminisztrátori felület, ahol lehetőség van a felhasználók és azok adatainak kezelésére. Ezen felül még a felhasználóknak lehetne egy fiók szüneteltetési funkciót készíteni, hogy az adatai ne törlődjenek, amennyiben már nem kívánja használni a rendszerünket. Mindezek mellett, az e-mail funkciót lehetne még bővíteni, hogy a felhasználónak az esemény módosításakor is küldjön értesítést a rendszer, és a lejárati idő előtt is, egy megadott idővel.
 	
 	Megjelenítés szempontjából a dizájnon még lehetne javítani, esetleg minimális animációt a felülethez rendelni, ami még nem rontja a felhasználói élményt, de különlegessé teszi az oldalunkat. Mivel események tárolására szolgál a rendszer, lehetne az oldalhoz egyedi kurzort is rendelni, ami még vonzóbbá teszi a felhasználó számára az oldalunkat. 
 	
@@ -661,22 +666,32 @@
 	\begin{thebibliography}{2}
 		\addcontentsline{toc}{chapter}{\bibname}
 		
-		\bibitem{lamp_book}
-		\textsc{Setting up LAMP: getting Linux, Apache, MySQL, and PHP working together}
-		\newline
-		\emph{Eric Filson, Erick Rosebrock}
-		\emph{2006 ,Sybex, ISBN:0782143377}
-		
 		\bibitem{java_book}
 		\textsc{Java in a Nutshell: A Desktop Quick Reference 7th Edition}
 		\newline
 		\emph{Benjamin J. Evans, David Flanagan}
 		\emph{O'Reilly Media, 2019, ISBN:1492037257}
 		
+		\bibitem{php_doc}
+		\textsc{A PHP hivatalos dokumentációja:}
+		\newline
+		\emph{\bf{https://www.php.net/docs.php}}
+		
+		\bibitem{laravel_main}
+		\textsc{Laravel hivatalos dokumentáció oldala:}
+		\newline
+		\emph{\bf{https://laravel.com/docs/9.x/}}
+		
 		\bibitem{api_basic}
 		\textsc{API-hoz tartozó leírás:}
 		\newline
 		\emph{\bf{https://www.ibm.com/cloud/learn/api}}
+		
+		\bibitem{lamp_book}
+		\textsc{Setting up LAMP: getting Linux, Apache, MySQL, and PHP working together}
+		\newline
+		\emph{Eric Filson, Erick Rosebrock}
+		\emph{2006 ,Sybex, ISBN:0782143377}
 		
 		\bibitem{docker_doc}
 		\textsc{A Docker hivatalos dokumentációja:}
@@ -734,95 +749,28 @@
 		\newline
 		\emph{\bf{https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/\\Global\_Objects/JSON}}
 		
-		\bibitem{php_doc}
-		\textsc{A PHP hivatalos dokumentációja:}
+		\bibitem{js_book}
+		\textsc{JavaScript: The Good Parts}
 		\newline
-		\emph{\bf{https://www.php.net/docs.php}}
+		\emph{Douglas Crockford, 2008}
+		\emph{Yahoo Press, ISBN: 0596517742}
 		
-		\bibitem{html_doc}
-		\textsc{A HTML hivatalos dokumentációja:}
+		\bibitem{laravel_book}
+		\textsc{Laravel: Up \& Running, 2nd Edition}
 		\newline
-		\emph{\bf{https://developer.mozilla.org/en-US/docs/Web/HTML}}
+		\emph{Matt Stauffer, 2019}
+		\emph{O'Reilly Media, Inc., ISBN: 9781492041214}
 		
-		\bibitem{laravel_main}
-		\textsc{Laravel hivatalos dokumentáció oldala:}
+		\bibitem{mvc_pattern}
+		\textsc{Web-application development using the Model/View/Controller design pattern}
 		\newline
-		\emph{\bf{https://laravel.com/docs/9.x/}}
-		
-		\bibitem{laravel_migartion}
-		\textsc{Laravelhez tartozó migráció hivatalos dokumentáció oldala:}
-		\newline
-		\emph{\bf{https://laravel.com/docs/9.x/migrations}}
+		\emph{Leff, A. and Rayfield, J.T., 2001}
+		\emph{DOI:10.1109/EDOC.2001.950428}
 		
 		\bibitem{laravel_querybuilder}
 		\textsc{Laravelhez tartozó query builder hivatalos dokumentáció oldala:}
 		\newline
 		\emph{\bf{https://laravel.com/docs/9.x/queries}}
-		
-		\bibitem{laravel_eloquent}
-		\textsc{Laravelhez tartozó eloquent hivatalos dokumentáció oldala:}
-		\newline
-		\emph{\bf{https://laravel.com/docs/9.x/eloquent}}
-		
-		\bibitem{laravel_controller}
-		\textsc{Laravelhez tartozó kontroller hivatalos dokumentáció oldala:}
-		\newline
-		\emph{\bf{https://laravel.com/docs/9.x/controllers}}
-		
-		\bibitem{laravel_blade}
-		\textsc{Laravelhez tartozó Blade sablonizáló hivatalos dokumentációja:}
-		\newline
-		\emph{\bf{https://laravel.com/docs/9.x/blade}}
-		
-		\bibitem{laravel_middlewear}
-		\textsc{Laravelhez tartozó middlewear hivatalos dokumentáció oldala:}
-		\newline
-		\emph{\bf{https://laravel.com/docs/9.x/middleware}}
-		
-		\bibitem{laravel_auth}
-		\textsc{Laravelhez tartozó authentikáció hivatalos dokumentációja:}
-		\newline
-		\emph{\bf{https://laravel.com/docs/7.x/authentication}}
-		
-		\bibitem{bearer_token}
-		\textsc{Bearer token dokumentációja:}
-		\newline
-		\emph{\bf{https://oauth.net/2/bearer-tokens/}}
-		
-		\bibitem{laravel_sanctum}
-		\textsc{Laravelhez tartozó Sanctum hivatalos dokumentációja:}
-		\newline
-		\emph{\bf{https://laravel.com/docs/9.x/sanctum}}
-		
-		\bibitem{laravel_route}
-		\textsc{Laravel rootinghoz tartozó hivatalos dokumentáció:}
-		\newline
-		\emph{\bf{https://laravel.com/docs/9.x/routing}}
-		
-		\bibitem{laravel_mix}
-		\textsc{Laravelhez tartozó Mix hivatalos dokumentációja:}
-		\newline
-		\emph{\bf{https://laravel.com/docs/9.x/mix}}
-		
-		\bibitem{laravel_mail}
-		\textsc{Laravelhez tartozó Mail hivatalos dokumentációja:}
-		\newline
-		\emph{\bf{https://laravel.com/docs/9.x/mail}}
-		
-		\bibitem{laravel_csrf}
-		\textsc{Laravelhez tartozó CSRF token hivatalos dokumentációja:}
-		\newline
-		\emph{\bf{https://laravel.com/docs/9.x/csrf}}
-		
-		\bibitem{markdown_page}
-		\textsc{A Markdown hivatalos weboldala:}
-		\newline
-		\emph{\bf{https://www.markdownguide.org/}}
-		
-		\bibitem{get_post_difference}
-		\textsc{Különbség GET és POST kérések között:}
-		\newline
-		\emph{\bf{https://jkorpela.fi/forms/methods.html}}
 		
 		\bibitem{css_doc}
 		\textsc{CSS-hez tartozó hivatalos dokumentáció oldala:}
@@ -838,6 +786,12 @@
 		\textsc{Bootstrap-hez tartozó hivatalos dokumentáció oldala:}
 		\newline
 		\emph{\bf{https://getbootstrap.com/docs/5.1}}
+		
+		\bibitem{sql_book}
+		\textsc{Learning SQL}
+		\newline
+		\emph{Alan Beaulieu, 2005}
+		\emph{O'Reilly Media, Inc., ISBN: 9780596007270}
 		
 		\bibitem{mariadb_doc}
 		\textsc{MariaDB-hez tartozó hivatalos dokumentáció oldala:}
@@ -856,29 +810,45 @@
 		\emph{Pierre-Olivier Laurence, Amanda Hinchman-Dominguez, Mike Dunn, G. Blake Meike,  2021}
 		\emph{O'Reilly Media, Inc., ISBN: 9781492063001}
 		
-		\bibitem{js_book}
-		\textsc{JavaScript: The Good Parts}
+		\bibitem{laravel_migartion}
+		\textsc{Laravelhez tartozó migráció hivatalos dokumentáció oldala:}
 		\newline
-		\emph{Douglas Crockford, 2008}
-		\emph{Yahoo Press, ISBN: 0596517742}
+		\emph{\bf{https://laravel.com/docs/9.x/migrations}}
 		
-		\bibitem{laravel_book}
-		\textsc{Laravel: Up \& Running, 2nd Edition}
+		\bibitem{mvc_mozzilla}
+		\textsc{A Mozilla által készített leírás az MVC-hez:}
 		\newline
-		\emph{Matt Stauffer, 2019}
-		\emph{O'Reilly Media, Inc., ISBN: 9781492041214}
+		\emph{\bf{https://developer.mozilla.org/en-US/docs/Glossary/MVC}}
 		
-		\bibitem{sql_book}
-		\textsc{Learning SQL}
+		\bibitem{laravel_eloquent}
+		\textsc{Laravelhez tartozó eloquent hivatalos dokumentáció oldala:}
 		\newline
-		\emph{Alan Beaulieu, 2005}
-		\emph{O'Reilly Media, Inc., ISBN: 9780596007270}
+		\emph{\bf{https://laravel.com/docs/9.x/eloquent}}
 		
-		\bibitem{mvc_pattern}
-		\textsc{Web-application development using the Model/View/Controller design pattern}
+		\bibitem{laravel_blade}
+		\textsc{Laravelhez tartozó Blade sablonizáló hivatalos dokumentációja:}
 		\newline
-		\emph{Leff, A. and Rayfield, J.T., 2001}
-		\emph{DOI:10.1109/EDOC.2001.950428}
+		\emph{\bf{https://laravel.com/docs/9.x/blade}}
+		
+		\bibitem{html_doc}
+		\textsc{A HTML hivatalos dokumentációja:}
+		\newline
+		\emph{\bf{https://developer.mozilla.org/en-US/docs/Web/HTML}}
+		
+		\bibitem{markdown_page}
+		\textsc{A Markdown hivatalos weboldala:}
+		\newline
+		\emph{\bf{https://www.markdownguide.org/}}
+		
+		\bibitem{laravel_controller}
+		\textsc{Laravelhez tartozó kontroller hivatalos dokumentáció oldala:}
+		\newline
+		\emph{\bf{https://laravel.com/docs/9.x/controllers}}
+		
+		\bibitem{laravel_middleware}
+		\textsc{Laravelhez tartozó middleware hivatalos dokumentáció oldala:}
+		\newline
+		\emph{\bf{https://laravel.com/docs/9.x/middleware}}
 		
 		\bibitem{controller_cicle}
 		\textsc{Pattern-Oriented Software Architecture Volume 1: A System of Patterns Volume 1 Edition}
@@ -886,25 +856,57 @@
 		\emph{Frank Buschmann, Regine Meunier, Hans Rohnert, Peter Sommerlad, Michael Stal, 1996}
 		\emph{John Wiley \& Sons, ISBN: 0471958697}
 		
-		\bibitem{mvc_mozzilla}
-		\textsc{A Mozilla által készített leírás az MVC-hez:}
+		\bibitem{laravel_auth}
+		\textsc{Laravelhez tartozó authentikáció hivatalos dokumentációja:}
 		\newline
-		\emph{\bf{https://developer.mozilla.org/en-US/docs/Glossary/MVC}}
+		\emph{\bf{https://laravel.com/docs/7.x/authentication}}
+		
+		\bibitem{laravel_csrf}
+		\textsc{Laravelhez tartozó CSRF token hivatalos dokumentációja:}
+		\newline
+		\emph{\bf{https://laravel.com/docs/9.x/csrf}}
+		
+		\bibitem{laravel_mail}
+		\textsc{Laravelhez tartozó Mail hivatalos dokumentációja:}
+		\newline
+		\emph{\bf{https://laravel.com/docs/9.x/mail}}
+		
+		\bibitem{laravel_sanctum}
+		\textsc{Laravelhez tartozó Sanctum hivatalos dokumentációja:}
+		\newline
+		\emph{\bf{https://laravel.com/docs/9.x/sanctum}}
+		
+		\bibitem{bearer_token}
+		\textsc{Bearer token dokumentációja:}
+		\newline
+		\emph{\bf{https://oauth.net/2/bearer-tokens/}}
+		
+		\bibitem{laravel_route}
+		\textsc{Laravel rootinghoz tartozó hivatalos dokumentáció:}
+		\newline
+		\emph{\bf{https://laravel.com/docs/9.x/routing}}
+		
+		
+		
+		
+		
+		
+		
+		
+		\bibitem{get_post_difference}
+		\textsc{Különbség GET és POST kérések között:}
+		\newline
+		\emph{\bf{https://jkorpela.fi/forms/methods.html}}
+		
+		\bibitem{laravel_mix}
+		\textsc{Laravelhez tartozó Mix hivatalos dokumentációja:}
+		\newline
+		\emph{\bf{https://laravel.com/docs/9.x/mix}}
 		
 		\bibitem{android_api_level}
 		\textsc{Táblázat az android verziókhoz és API szinthez:}
 		\newline
 		\emph{\bf{https://apilevels.com}}
-		
-		\bibitem{retrofit_doc}
-		\textsc{A Retrofithez tartozó dokumentáció:}
-		\newline
-		\emph{\bf{https://square.github.io/retrofit/}}
-		
-		\bibitem{sharedPref_android}
-		\textsc{A Shared Preferences hivatalos dokumentációja:}
-		\newline
-		\emph{\bf{https://developer.android.com/training/data-storage/shared-preferences}}
 		
 		\bibitem{android_manifest}
 		\textsc{Az AndroidManifest hivatalos dokumentációja:}
@@ -926,21 +928,31 @@
 		\newline
 		\emph{\bf{https://developer.android.com/studio/write/translations-editor}}
 		
-		\bibitem{android_room}
-		\textsc{Az Android Room hivatalos dokumentációja:}
+		\bibitem{retrofit_doc}
+		\textsc{A Retrofithez tartozó dokumentáció:}
 		\newline
-		\emph{\bf{https://developer.android.com/training/data-storage/room}}
+		\emph{\bf{https://square.github.io/retrofit/}}
 		
-		\bibitem{android_fragment}
-		\textsc{Az Androidhoz tartózó fregmentek hivatalos dokumentációja:}
+		\bibitem{sharedPref_android}
+		\textsc{A Shared Preferences hivatalos dokumentációja:}
 		\newline
-		\emph{\bf{https://developer.android.com/reference/android/app/Fragment}}
+		\emph{\bf{https://developer.android.com/training/data-storage/shared-preferences}}
 		
 		\bibitem{recview_onclick}
 		\textsc{Az adapter osztályban megvalósított kattintás figyelés :}
 		\newline
 		\emph{\bf{https://github.com/mitchtabian/Recyclerview}}
 		
+		\bibitem{android_fragment}
+		\textsc{Az Androidhoz tartózó fregmentek hivatalos dokumentációja:}
+		\newline
+		\emph{\bf{https://developer.android.com/reference/android/app/Fragment}}
+		
+		\bibitem{android_room}
+		\textsc{Az Android Room hivatalos dokumentációja:}
+		\newline
+		\emph{\bf{https://developer.android.com/training/data-storage/room}}		
+				
 	\end{thebibliography}
 	
 	% Aláírt, szkennelt nyilatkozat beillesztése a szakdolgozat végére
