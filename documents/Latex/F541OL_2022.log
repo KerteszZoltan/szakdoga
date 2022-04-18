@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2022.3.21)  17 APR 2022 10:14
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2022.3.21)  18 APR 2022 18:04
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -807,7 +807,14 @@ Package pdftex.def Info: postman/login_post.png  used on input line 500.
 (pdftex.def)             Requested size: 441.01773pt x 199.36632pt.
 [36
 
-] (./codes/postman_login_test.js) [37 <./postman/login_post.png>] [38]
+]
+<postman/collection_query.png, id=858, 430.60875pt x 278.2395pt>
+File: postman/collection_query.png Graphic file (type png)
+<use postman/collection_query.png>
+Package pdftex.def Info: postman/collection_query.png  used on input line 522.
+(pdftex.def)             Requested size: 441.01773pt x 284.9723pt.
+ [37 <./postman/login_post.png>] (./codes/postman_login_test.js) [38 <./postman
+/collection_query.png>]
 6. fejezet.
 [39
 
@@ -827,62 +834,62 @@ Package pdftex.def Info: postman/login_post.png  used on input line 500.
 ] [49
 
 ]
-Underfull \hbox (badness 1454) in paragraph at lines 802--806
+Underfull \hbox (badness 1454) in paragraph at lines 810--814
 \T1/lmr/m/it/12 Vinicius M. Grip-pa, Ser-gey Kuz-michev, 2021 O'Reilly Me-dia, 
 Inc., ISBN:
  []
 
 [50] [51]
-Underfull \hbox (badness 10000) in paragraph at lines 944--947
-\T1/lmr/bx/n/12 https://developer.android.com/training/data-storage/shared-
- []
-
-
-Overfull \hbox (132.09033pt too wide) in paragraph at lines 959--962
+Overfull \hbox (132.09033pt too wide) in paragraph at lines 930--933
 \T1/lmr/bx/n/12 https://developer.android.com/reference/kotlin/androidx/recycle
 rview/widget/RecyclerView 
  []
 
-<nyilatkozat.pdf, id=969, 598.235pt x 845.1575pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 945--948
+\T1/lmr/bx/n/12 https://developer.android.com/training/data-storage/shared-
+ []
+
+<nyilatkozat.pdf, id=973, 598.235pt x 845.1575pt>
 File: nyilatkozat.pdf Graphic file (type pdf)
 <use nyilatkozat.pdf>
-Package pdftex.def Info: nyilatkozat.pdf  used on input line 986.
+Package pdftex.def Info: nyilatkozat.pdf  used on input line 967.
 (pdftex.def)             Requested size: 598.23354pt x 845.15544pt.
 File: nyilatkozat.pdf Graphic file (type pdf)
 <use nyilatkozat.pdf>
-Package pdftex.def Info: nyilatkozat.pdf  used on input line 986.
+Package pdftex.def Info: nyilatkozat.pdf  used on input line 967.
 (pdftex.def)             Requested size: 598.23354pt x 845.15544pt.
-<nyilatkozat.pdf, id=972, page=1, 598.235pt x 845.1575pt>
+<nyilatkozat.pdf, id=976, page=1, 598.235pt x 845.1575pt>
 File: nyilatkozat.pdf Graphic file (type pdf)
 <use nyilatkozat.pdf, page 1>
-Package pdftex.def Info: nyilatkozat.pdf , page1 used on input line 986.
+Package pdftex.def Info: nyilatkozat.pdf , page1 used on input line 967.
 (pdftex.def)             Requested size: 598.23354pt x 845.15544pt.
 File: nyilatkozat.pdf Graphic file (type pdf)
 <use nyilatkozat.pdf, page 1>
-Package pdftex.def Info: nyilatkozat.pdf , page1 used on input line 986.
+Package pdftex.def Info: nyilatkozat.pdf , page1 used on input line 967.
 (pdftex.def)             Requested size: 597.7406pt x 844.45905pt.
 [52]
 File: nyilatkozat.pdf Graphic file (type pdf)
 <use nyilatkozat.pdf, page 1>
-Package pdftex.def Info: nyilatkozat.pdf , page1 used on input line 986.
+Package pdftex.def Info: nyilatkozat.pdf , page1 used on input line 967.
 (pdftex.def)             Requested size: 597.7406pt x 844.45905pt.
 File: nyilatkozat.pdf Graphic file (type pdf)
 <use nyilatkozat.pdf, page 1>
-Package pdftex.def Info: nyilatkozat.pdf , page1 used on input line 986.
+Package pdftex.def Info: nyilatkozat.pdf , page1 used on input line 967.
 (pdftex.def)             Requested size: 597.7406pt x 844.45905pt.
 File: nyilatkozat.pdf Graphic file (type pdf)
 <use nyilatkozat.pdf, page 1>
-Package pdftex.def Info: nyilatkozat.pdf , page1 used on input line 986.
+Package pdftex.def Info: nyilatkozat.pdf , page1 used on input line 967.
 (pdftex.def)             Requested size: 597.7406pt x 844.45905pt.
  [53 <./nyilatkozat.pdf>] (./F541OL_2022.aux)
 Package rerunfilecheck Info: File `F541OL_2022.out' has not changed.
-(rerunfilecheck)             Checksum: 85CE500C9BA0BC07225C1F18237277F0;14416.
+(rerunfilecheck)             Checksum: A1A05BA0CE66792E0973DD5656F7271E;14416.
  ) 
 Here is how much of TeX's memory you used:
- 19321 strings out of 478276
- 312367 string characters out of 5850489
- 748799 words of memory out of 5000000
- 36744 multiletter control sequences out of 15000+600000
+ 19334 strings out of 478276
+ 312756 string characters out of 5850489
+ 748862 words of memory out of 5000000
+ 36755 multiletter control sequences out of 15000+600000
  533113 words of font info for 81 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  75i,17n,77p,1629b,1916s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -893,10 +900,10 @@ fb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmr10.pfb><c:/texlive/2021
 /texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/texlive/2021/texmf-dist/fonts/t
 ype1/public/lm/lmri12.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmt
 k10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmtt10.pfb>
-Output written on F541OL_2022.pdf (53 pages, 802403 bytes).
+Output written on F541OL_2022.pdf (53 pages, 833921 bytes).
 PDF statistics:
- 1097 PDF objects out of 1200 (max. 8388607)
- 994 compressed objects within 10 object streams
- 392 named destinations out of 1000 (max. 500000)
- 675 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1101 PDF objects out of 1200 (max. 8388607)
+ 996 compressed objects within 10 object streams
+ 393 named destinations out of 1000 (max. 500000)
+ 680 words of extra memory for PDF output out of 10000 (max. 10000000)
 

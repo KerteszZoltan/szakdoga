@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
         imv_openBrowser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://192.168.7.106:80/eveldar/public"));
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://192.168.0.108:80/eveldar/public"));
                 startActivity(browserIntent);
             }
         });
@@ -89,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
                 LoginResponse loginResponse = response.body();
-                if (response.isSuccessful()){
+                if (loginResponse.getUser()!=null){
                     sharedPrefManager.saveUser(loginResponse.getUser());
                     Toast.makeText(MainActivity.this, "Bejelentkezés...", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(MainActivity.this, ActiveEvents.class);
@@ -97,13 +97,13 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(intent);
                     finish();
                 }else{
-                    Toast.makeText(MainActivity.this, "Hibás adat", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "Hibás e-mail cím / jelszó páros", Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<LoginResponse> call, Throwable t) {
-                Toast.makeText(MainActivity.this, "Hibás email cím / jelszó páros", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "Kapcsolódási hiba", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -111,7 +111,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-
         if(sharedPrefManager.isLoggedIn()){
             Intent intent = new Intent(MainActivity.this, ActiveEvents.class);
             intent.setFlags(intent.FLAG_ACTIVITY_NEW_TASK | intent.FLAG_ACTIVITY_CLEAR_TASK);

@@ -72,4 +72,4 @@
 \select@language {magyar} \contentsline {section}{\numberline {7.2}Mobil alkalmazás bővítési és fejleszthetőségi lehetőségek}{45}{section.7.2}%
 \select@language {magyar} \contentsline {chapter}{\numberline {8}Összegzés}{47}{chapter.8}%
 \select@language {magyar} \contentsline {chapter}{\numberline {9}Köszönetnyilvánítás}{48}{chapter.9}%
-\select@language {magyar} \contentsline {chapter}{Irodalomjegyz\'ek}{49}{chapter*.14}%
+\select@language {magyar} \contentsline {chapter}{Irodalomjegyz\'ek}{49}{chapter*.15}%

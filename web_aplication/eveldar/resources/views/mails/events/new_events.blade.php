@@ -9,7 +9,7 @@ Az esemény leírása: {{$event->description}}<br>
 Az esemény keezdeti dátuma: {{$event->start}}<br>
 Az esemény befejezési dátuma: {{$event->end}}<br>
 
-@component('mail::button', ['url' => route('modify_event', $event->id)])
+@component('mail::button', ['url' => "http://192.168.0.108/eveldar/public/event-{{$event->id}})"])
 Tekintsd meg az eseményt!
 @endcomponent
 

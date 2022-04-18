@@ -58,6 +58,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder>{
                 context.startActivity(uniqItem);
             }
         });
+        // Minta vége
 
     }
 
