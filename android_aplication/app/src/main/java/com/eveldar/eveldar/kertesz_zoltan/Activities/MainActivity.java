@@ -52,7 +52,8 @@ public class MainActivity extends AppCompatActivity {
         imv_openBrowser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://192.168.0.108:80/eveldar/public"));
+                String BASE_URL = "192.168.185.106";
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://"+BASE_URL+":80/eveldar/public"));
                 startActivity(browserIntent);
             }
         });

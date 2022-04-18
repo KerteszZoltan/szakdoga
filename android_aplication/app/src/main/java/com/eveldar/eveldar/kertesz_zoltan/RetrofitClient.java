@@ -12,13 +12,14 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.*;
 
 public class RetrofitClient {
-    private static String BASE_URL="http://192.168.185.106:80/eveldar/public/api/";
+    private static String BASE_URL = "192.168.185.106";
+    private static String EXTENDED_BASE_URL="http://"+BASE_URL+":80/eveldar/public/api/";
     private static RetrofitClient retrofitClient;
     private static Retrofit retrofit;
 
     private RetrofitClient(){
         retrofit=new Retrofit.Builder()
-                .baseUrl(BASE_URL)
+                .baseUrl(EXTENDED_BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
     }

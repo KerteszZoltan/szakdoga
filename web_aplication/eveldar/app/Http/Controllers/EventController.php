@@ -79,13 +79,9 @@ class EventController extends Controller
         $user=auth()->user();
         $event=Event::where('user_id', '=', auth()->user()->id)
         ->latest('created_at')->first();
-        try {
-            Mail::to($user)->send(new NewEventAdded($event,$user));
-        } catch (Throwable $th) {
-            throw $th;
-        }finally{
-            return redirect()->route('active_events');
-        }
+
+        Mail::to($user)->send(new NewEventAdded($event,$user));
+        return redirect()->route('active_events');
     }
 
     public function id_event($id){
